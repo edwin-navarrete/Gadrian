@@ -1,0 +1,30 @@
+\subsection*{The G\+F\+Rect\+Grid\+Class }
+
+This is your standard rectangular grid. It is defined by {\ttfamily spacing}, a Vector3 that describes how wide the faces of the grid are, and the shearing of the grid's axes. All three coordinates, X, Y and Z, can be adjusted individually. 
+
+The central vertex has the grid coordinates (0, 0, 0) and each coordinate goes in the direction of the grid’s corresponding axis. Practically speaking, the vertex (1, 2, 3) would be one unit to the right, two units above and three units in front of the central vertex (all values in local space and multiples of {\ttfamily spacing}). Thus vertex coordinates are the same as the default grid coordinates.
+
+The coordinates for faces and boxes follow this pattern as well and they are given by their central point. This means the coordinates of the result from {\ttfamily Nearest\+Box\+G} will always contain half a unit\+: 
+\begin{DoxyCode}
+var box = myGrid.NearestBoxG (transform.position) \textcolor{comment}{// something like (1.5, 2.5, -0.5)}
+\end{DoxyCode}
+ The same applies to faces, however the coordinate that lies on the plane (e.\+g. Z for X\+Y grids) will be a whole number\+: 
+\begin{DoxyCode}
+var tile = myGrid.NearestFaceG (transform.position, GFGridPlane.XY) \textcolor{comment}{// something like (1.5, 2.5, -1)}
+\end{DoxyCode}
+ 
+
+\begin{DoxyNote}{Note}
+This behaviour is different from previous versions. There the extra half unit was subtracted from the result, giving faces and boxes whole numbers. The problem with this is that it made conversion between grid-\/ and world coordinates complicated and it was just a general mess. If you want the old behaviour back read the \hyperlink{legacy_support}{Legacy Support} section.
+\end{DoxyNote}
+\subsubsection*{Shearing}
+
+Shearing, or shear mapping, linearly displaces each point of the grid in a fixed direction proportional to its distance from a plane parallel to that direction. In three-\/dimensional grids we have three axes, each of which can be sheared along the other two axes, resulting in a total of six individual shearing factors. Shearing stacks on top of rotation and is stored in the custom {\ttfamily Vector6} class.
+
+ Let's look at an example\+: If we set the {\itshape X\+Y}-\/shearing to {\itshape 2} each point will be moved up the {\itshape Y}-\/axis. By how much it will be moved depends on the shearing factor and the {\itshape X}-\/coordinate of the point\+: {\itshape (x,y)} will be mapped to {\itshape (x, 2x + y)}. The further away a point is from the origin, the more it will be displaced.
+
+The nomenclature is as follows\+: the first letter tells us which axis is displaced, the second letter tells us in what direction it is displaced. {\itshape X\+Y} means the {\itshape X}-\/axis is sheared by that factor into the positive direction of the {\itshape Y}-\/axis; if the factor is negative, then it is sheared into the negative direction. No shearing is indicated by setting the factor to {\itshape 0}.
+
+The most likely use of shearing is for \char`\"{}isometric\char`\"{} 2\+D graphics where rotation cannot be used. Using shearing allows us to keep the grid perpendicular to the camera while still making it appear distorted. As an example, consider the popular 2\+:1 dimetric look on an {\itshape X\+Y}-\/grid\+: set the spacing to {\itshape (2, 1, 1)} and the shearing to {\itshape (-\/1/2, 0, 2, 0, 0, 0)}. For a 3\+:2 mapping the spacing would be {\itshape (3, 2, 1)} and the shearing would be {\itshape (-\/2/3, 3/2, 0, 0, 0, 0)}.
+
+Shearing always maintains the volume of grid boxes, but the surface area of grid faces is only maintained if the plane they lie in is not skewed. This means if you shear your grid's {\itshape X}-\/ and {\itshape Y}-\/axes around each other, but not the {\itshape Z}-\/axis, then the surface area of {\itshape X\+Y}-\/faces will remain the same. 

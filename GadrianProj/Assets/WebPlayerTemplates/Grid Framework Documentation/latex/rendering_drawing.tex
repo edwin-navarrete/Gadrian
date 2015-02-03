@@ -1,0 +1,41 @@
+\subsection*{Render V\+S Draw }
+
+Grid Framework lets you both draw and render the grid. While they share the same points and give similar results they work in different ways\+: drawing uses gizmos, rendering is done directly at a low level. Drawings won’t be visible in the game during runtime but they are visible in the editor, while the rendered grid is only visible in game view at runtime. Both serve the same purpose and together they complete each other. Use drawing when you want you to see the grid and use rendering when you want the player to see the grid.
+
+\subsection*{Setup }
+
+Make sure your grid has the {\ttfamily render\+Grid} flag set to {\itshape true} and set the line’s width. Attach the {\ttfamily G\+F\+Grid\+Render\+Camera} component to all your cameras which are supposed to render the grid. Usually this would be your default camera. In the inspector you can make the camera render the grid even if it’s not the current main camera; this could be useful for example if you want the grid to appear on a mini-\/map.
+
+\subsection*{Absolute and relative size }
+
+By default the size (and {\ttfamily render\+From}/{\ttfamily render\+To}) is interpreted as absolute lengths in world units. This means a grid with an X-\/size of 5 will always be five wold units wide to both sides, regardless of its other values like spacing or radius. Setting the {\ttfamily use\+Relative\+Size} flag will interpret the {\ttfamily size} (and {\ttfamily render\+From}/{\ttfamily render\+To}) as relative lengths measured in grid space.
+
+In other words, a rectangular grid with an X-\/{\ttfamily spacing} of 1.\+5 and an X-\/{\ttfamily size} of 3 will have an absolute width of 6 (3 x 2) world units and a relative width of 9 (3 x 1.\+5 x 2) world units.
+
+\subsection*{Rendering Range }
+
+By default the part of the grid that gets rendered or drawn is defined by its {\ttfamily size} setting. At the centre lies the origin of the grid and from there on it spreads by the specified size in each direction. This means if for example your grid has a {\ttfamily size} of (2, 3,1) it will spread two world units both left and right from the origin. The rendering respects rotation and position of the game object, but not scale. Scale is analogous to spacing.
+
+If you want, you can set your own rendering range. In the inspector set the flag for {\ttfamily use\+Custom\+Rendering\+Range}, which will let you specify your own range. The only limitation here is that each component of {\ttfamily render\+From} has to be smaller or equal to its corresponding component in {\ttfamily render\+To}. You can also set these values in code, please refer to the scripting manual. Despite its name the rendering range applies to both rendering and drawing.
+
+\subsection*{Shared Settings }
+
+The rendering shares some options with the drawing. They have the same colours and you can toggle the axes individually. The members {\ttfamily hide\+Grid} and {\ttfamily hide\+On\+Play} are only for drawing, you can toggle rendering through the {\ttfamily render\+Grid} flag. If you set the the {\ttfamily use\+Separate\+Render\+Color} to {\itshape true} can can also have separate colours for rendering and drawing.
+
+\subsection*{Rendering with Vectrosity }
+
+\href{http://starscenesoftware.com/vectrosity.html}{\tt Vectrosity} is a separate vector line drawing solution developed by Eric5h5 and not related to Grid Framework. If you own a license you can easily extract points from a grid in a format fit for use with Vectrosity. The included examples show how to combine both packages. For more information on how to use them together please refer to Grid Framework’s scripting reference and Vectrosity’s own documentation. Just like with rendering you can either use the grid’s {\ttfamily size} (default) or a custom range.
+
+ \subsection*{Rendering Performance }
+
+Rendering, as well as drawing, is a two-\/step process\+: first we need to calculate the two end points for each line and then we need to actually render all those lines. Since version 1.\+2.\+4 Grid Framework will cache the calculated points, meaning as long as you don’t change your grid the points won’t be re-\/calculated again. This means we don’t need to waste resources calculating the same values over and over again. However, the second step cannot be cached, we need to pass every single point to Unity’s G\+L class every frame.
+
+For rectangular grids every line stretches from one end of the grid to the other, so it doesn’t matter how long the lines are, only how dense they are.
+
+Hex grids on the other hand consist of many line segments, basically every hex adds three lines to the count (lines shared between hexes are drawn only once), outer hexes add even more. This makes a hex grid more expensive than a rectangular grid of the same size.
+
+The performance cost of polar grids depends largely one the amount of {\ttfamily sectors} and the {\ttfamily smoothness}, the more you have, the more expensive it gets. Keep in mind that the more sectors your grid has, the less smoothing you need to achieve a round look.
+
+To improve performance you could adjust the rendering range of your grid dynamically during gameplay to only render the area the player will be able to see. Of course frequently changing the range forces a recalculation of the points and defeats the purpose of caching. Still, the gain in performance can be worth it, just make sure to adjust the range only at certain thresholds. Also keep in mind that if something is set not to render it won’t just be invisible, it will not be rendered at all and prevent the loops from running. Turning off an axis or having a flat grid can make a noticeable difference (a 100 x 100 x 0 grid will perform much better than a 100 x 100 x 1 grid).
+
+The {\itshape seemingly endless grid} example shows how you can create the illusion of a huge grid without actually having to render the whole thing. We only render the part that will be visible plus some extra buffer. Only when the camera has been moved ten world units from the last fixed position we readjust the rendering range, thus forcing a recalculation of the draw points. This is a compromise between performance and flexibility, we can still display a large grid without the huge overhead of actually having a large grid. 

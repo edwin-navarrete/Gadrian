@@ -1,0 +1,754 @@
+\hypertarget{class_g_f_grid}{\section{G\+F\+Grid Class Reference}
+\label{class_g_f_grid}\index{G\+F\+Grid@{G\+F\+Grid}}
+}
+
+
+Abstract base class for all Grid Framework grids. 
+
+
+Inheritance diagram for G\+F\+Grid\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_g_f_grid}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+delegate void \hyperlink{class_g_f_grid_a1b011f573c51561fbd9e411f821ba820_a1b011f573c51561fbd9e411f821ba820}{Grid\+Changed\+Delegate} (\hyperlink{class_g_f_grid}{G\+F\+Grid} grid)
+\begin{DoxyCompactList}\small\item\em A delegate for handling events when the grid has been changed in such a way that it requires a redraw\end{DoxyCompactList}\item 
+abstract Vector3 \hyperlink{class_g_f_grid_a3c424ac71404a8c87a958b5b5952eb0f_a3c424ac71404a8c87a958b5b5952eb0f}{World\+To\+Grid} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Converts world coordinates to grid coordinates.\end{DoxyCompactList}\item 
+abstract Vector3 \hyperlink{class_g_f_grid_af32d7bfcecb5da3fdc47b972b551e33e_af32d7bfcecb5da3fdc47b972b551e33e}{Grid\+To\+World} (Vector3 grid\+Point)
+\begin{DoxyCompactList}\small\item\em Converts grid coordinates to world coordinates.\end{DoxyCompactList}\item 
+abstract Vector3 \hyperlink{class_g_f_grid_a5865880fa767bf5562301bca419b8bb9_a5865880fa767bf5562301bca419b8bb9}{Nearest\+Vertex\+W} (Vector3 world\+Point, bool do\+Debug)
+\begin{DoxyCompactList}\small\item\em Returns the world position of the nearest vertex.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_grid_a5a5a2c1544b8f1665cd2ad64e68ad85a_a5a5a2c1544b8f1665cd2ad64e68ad85a}{Nearest\+Vertex\+W} (Vector3 world\+Point)
+\item 
+abstract Vector3 \hyperlink{class_g_f_grid_ae8711b08c90871f6e88800a30ff5077f_ae8711b08c90871f6e88800a30ff5077f}{Nearest\+Face\+W} (Vector3 world\+Point, \hyperlink{namespace_grid_framework_aa55de93079e09bd55c4cb660025820d5_aa55de93079e09bd55c4cb660025820d5}{Grid\+Plane} plane, bool do\+Debug)
+\begin{DoxyCompactList}\small\item\em Returns the world position of the nearest face.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_grid_a1f2eb3cedcd2d4f82e23d222136f7743_a1f2eb3cedcd2d4f82e23d222136f7743}{Nearest\+Face\+W} (Vector3 world\+Point, \hyperlink{namespace_grid_framework_aa55de93079e09bd55c4cb660025820d5_aa55de93079e09bd55c4cb660025820d5}{Grid\+Plane} plane)
+\item 
+abstract Vector3 \hyperlink{class_g_f_grid_a02fcf02269ca5a2064acccecde9819eb_a02fcf02269ca5a2064acccecde9819eb}{Nearest\+Box\+W} (Vector3 world\+Point, bool do\+Debug)
+\begin{DoxyCompactList}\small\item\em Returns the world position of the nearest box.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_grid_aec31996a483acd023c775658a78d5435_aec31996a483acd023c775658a78d5435}{Nearest\+Box\+W} (Vector3 world\+Point)
+\item 
+abstract Vector3 \hyperlink{class_g_f_grid_a7eaa2821cf118bb4821bd2cbf40029da_a7eaa2821cf118bb4821bd2cbf40029da}{Nearest\+Vertex\+G} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Returns the grid position of the nearest vertex.\end{DoxyCompactList}\item 
+abstract Vector3 \hyperlink{class_g_f_grid_aac129f3df1da5cdbc31143ecc7db35d2_aac129f3df1da5cdbc31143ecc7db35d2}{Nearest\+Face\+G} (Vector3 world\+Point, \hyperlink{namespace_grid_framework_aa55de93079e09bd55c4cb660025820d5_aa55de93079e09bd55c4cb660025820d5}{Grid\+Plane} plane)
+\begin{DoxyCompactList}\small\item\em Returns the grid position of the nearest Face.\end{DoxyCompactList}\item 
+abstract Vector3 \hyperlink{class_g_f_grid_adb7c70449b2449c1e82132e6300cc1a5_adb7c70449b2449c1e82132e6300cc1a5}{Nearest\+Box\+G} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Returns the grid position of the nearest box.\end{DoxyCompactList}\item 
+abstract Vector3 \hyperlink{class_g_f_grid_a18b3e57431dc0db8f651479e4fb04a8f_a18b3e57431dc0db8f651479e4fb04a8f}{Align\+Vector3} (Vector3 pos, Vector3 scale, \hyperlink{class_grid_framework_1_1_vectors_1_1_bool_vector3}{Bool\+Vector3} ignore\+Axis)
+\begin{DoxyCompactList}\small\item\em Fits a position vector into the grid.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_grid_a2c87287a14b02923c9c28aa9d7478eb5_a2c87287a14b02923c9c28aa9d7478eb5}{Align\+Vector3} (Vector3 pos)
+\item 
+Vector3 \hyperlink{class_g_f_grid_a60adb854cc78a01495dea15affdd158c_a60adb854cc78a01495dea15affdd158c}{Align\+Vector3} (Vector3 pos, \hyperlink{class_grid_framework_1_1_vectors_1_1_bool_vector3}{Bool\+Vector3} lock\+Axis)
+\item 
+Vector3 \hyperlink{class_g_f_grid_ac08b9392f196d7c87133e343cee64824_ac08b9392f196d7c87133e343cee64824}{Align\+Vector3} (Vector3 pos, Vector3 scale)
+\item 
+void \hyperlink{class_g_f_grid_ae1005d6635174bc14e02deb4784a8d09_ae1005d6635174bc14e02deb4784a8d09}{Align\+Transform} (Transform the\+Transform, bool rotate, \hyperlink{class_grid_framework_1_1_vectors_1_1_bool_vector3}{Bool\+Vector3} ignore\+Axis)
+\begin{DoxyCompactList}\small\item\em Fits a Transform inside the grid (without scaling it).\end{DoxyCompactList}\item 
+void \hyperlink{class_g_f_grid_a66b4191eeae96aa23f0ced78f4cc7e14_a66b4191eeae96aa23f0ced78f4cc7e14}{Align\+Transform} (Transform the\+Transform)
+\item 
+void \hyperlink{class_g_f_grid_a575acf49adeedb3e1cb59108b3c89262_a575acf49adeedb3e1cb59108b3c89262}{Align\+Transform} (Transform the\+Transform, \hyperlink{class_grid_framework_1_1_vectors_1_1_bool_vector3}{Bool\+Vector3} lock\+Axis)
+\item 
+void \hyperlink{class_g_f_grid_a05a7ee949a05d384656ea1b0befbe485_a05a7ee949a05d384656ea1b0befbe485}{Align\+Transform} (Transform the\+Transform, bool rotate)
+\item 
+abstract Vector3 \hyperlink{class_g_f_grid_a02b3cf14a1529355c51e0d3ea646b4f8_a02b3cf14a1529355c51e0d3ea646b4f8}{Scale\+Vector3} (Vector3 scl, \hyperlink{class_grid_framework_1_1_vectors_1_1_bool_vector3}{Bool\+Vector3} ignore\+Axis)
+\begin{DoxyCompactList}\small\item\em Scales a size vector to fit inside a grid.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_grid_a79275b32044dd28cbc80174717390edb_a79275b32044dd28cbc80174717390edb}{Scale\+Vector3} (Vector3 scl)
+\item 
+void \hyperlink{class_g_f_grid_a20dfd543d80edf6215e7e601cb578ccf_a20dfd543d80edf6215e7e601cb578ccf}{Scale\+Transform} (Transform the\+Transform, \hyperlink{class_grid_framework_1_1_vectors_1_1_bool_vector3}{Bool\+Vector3} ignore\+Axis)
+\begin{DoxyCompactList}\small\item\em Scales a Transform to fit the grid (without moving it).\end{DoxyCompactList}\item 
+void \hyperlink{class_g_f_grid_a9ad5045b098fde4cea93afeadc1c419d_a9ad5045b098fde4cea93afeadc1c419d}{Scale\+Transform} (Transform the\+Transform)
+\item 
+void \hyperlink{class_g_f_grid_afe4760ba702ce1e54996f5750501f01f_afe4760ba702ce1e54996f5750501f01f}{Render\+Grid} (Vector3 from, Vector3 to, \hyperlink{class_grid_framework_1_1_vectors_1_1_color_vector3}{Color\+Vector3} colors, int width=0, Camera cam=null, Transform cam\+Transform=null)
+\begin{DoxyCompactList}\small\item\em Renders the grid at runtime\end{DoxyCompactList}\item 
+virtual void \hyperlink{class_g_f_grid_a24008f73b2c2ce9d6a699d25df998055_a24008f73b2c2ce9d6a699d25df998055}{Render\+Grid} (int width=0, Camera cam=null, Transform cam\+Transform=null)
+\item 
+void \hyperlink{class_g_f_grid_af700a9a1f9e9f312b1eb55eb8752253c_af700a9a1f9e9f312b1eb55eb8752253c}{Render\+Grid} (Vector3 from, Vector3 to, int width=0, Camera cam=null, Transform cam\+Transform=null)
+\item 
+void \hyperlink{class_g_f_grid_a150a203272b059999baa0eb3b8a74b09_a150a203272b059999baa0eb3b8a74b09}{Draw\+Grid} (Vector3 from, Vector3 to)
+\begin{DoxyCompactList}\small\item\em Draws the grid using gizmos.\end{DoxyCompactList}\item 
+void \hyperlink{class_g_f_grid_ae151fe7e54efa0fedaa5e67da1077682_ae151fe7e54efa0fedaa5e67da1077682}{Draw\+Grid} ()
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \hyperlink{class_g_f_grid_a21a5ed4cfa330e04e6ce8c951744b839_a21a5ed4cfa330e04e6ce8c951744b839}{Get\+Vectrosity\+Points} (Vector3 from, Vector3 to)
+\begin{DoxyCompactList}\small\item\em Returns an array of Vector3 points ready for use with Vectrosity.\end{DoxyCompactList}\item 
+Vector3\mbox{[}$\,$\mbox{]} \hyperlink{class_g_f_grid_a8ee183793ee692d671e39aaa93f4928e_a8ee183793ee692d671e39aaa93f4928e}{Get\+Vectrosity\+Points} ()
+\item 
+Vector3\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{class_g_f_grid_a53cd898dc26179856ac298b5213e6dfb_a53cd898dc26179856ac298b5213e6dfb}{Get\+Vectrosity\+Points\+Separate} (Vector3 from, Vector3 to)
+\begin{DoxyCompactList}\small\item\em Returns an array of arrays of Vector3 points ready for use with Vectrosity.\end{DoxyCompactList}\item 
+Vector3\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{class_g_f_grid_a9c0d4962f326ba00115a40a2b82d0aa7_a9c0d4962f326ba00115a40a2b82d0aa7}{Get\+Vectrosity\+Points\+Separate} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_grid_framework_1_1_vectors_1_1_color_vector3}{Color\+Vector3} \hyperlink{class_g_f_grid_aa0dc7222dee5910e8df47e133f719309_aa0dc7222dee5910e8df47e133f719309}{axis\+Colors} = new \hyperlink{class_grid_framework_1_1_vectors_1_1_color_vector3}{Color\+Vector3}()
+\begin{DoxyCompactList}\small\item\em Colours of the axes when drawing and rendering.\end{DoxyCompactList}\item 
+bool \hyperlink{class_g_f_grid_aeb78dcbc2890d20556958c994b95b000_aeb78dcbc2890d20556958c994b95b000}{use\+Separate\+Render\+Color} = false
+\begin{DoxyCompactList}\small\item\em Whether to use the same colours for rendering as for drawing.\end{DoxyCompactList}\item 
+\hyperlink{class_grid_framework_1_1_vectors_1_1_color_vector3}{Color\+Vector3} \hyperlink{class_g_f_grid_a8a822dbae0fa74657a7beed9761a0e89_a8a822dbae0fa74657a7beed9761a0e89}{render\+Axis\+Colors} = new \hyperlink{class_grid_framework_1_1_vectors_1_1_color_vector3}{Color\+Vector3}(Color.\+gray)
+\begin{DoxyCompactList}\small\item\em Separate colours of the axes when rendering.\end{DoxyCompactList}\item 
+bool \hyperlink{class_g_f_grid_afa8a9e01aac581a365606ac8c1b4af64_afa8a9e01aac581a365606ac8c1b4af64}{hide\+Grid} = false
+\begin{DoxyCompactList}\small\item\em Whether to hide the grid completely.\end{DoxyCompactList}\item 
+bool \hyperlink{class_g_f_grid_a9a57a01347c8ab0a6401aa210f875ab0_a9a57a01347c8ab0a6401aa210f875ab0}{hide\+On\+Play} = false
+\begin{DoxyCompactList}\small\item\em Whether to hide the grid in play mode.\end{DoxyCompactList}\item 
+\hyperlink{class_grid_framework_1_1_vectors_1_1_bool_vector3}{Bool\+Vector3} \hyperlink{class_g_f_grid_ac902d0ffe9b552908a929fda497a39b5_ac902d0ffe9b552908a929fda497a39b5}{hide\+Axis} = new \hyperlink{class_grid_framework_1_1_vectors_1_1_bool_vector3}{Bool\+Vector3}()
+\begin{DoxyCompactList}\small\item\em Whether to hide just individual axes.\end{DoxyCompactList}\item 
+bool \hyperlink{class_g_f_grid_a030e49e310751d9b1c7d08b57ca93358_a030e49e310751d9b1c7d08b57ca93358}{draw\+Origin} = false
+\begin{DoxyCompactList}\small\item\em Whether to draw a little sphere at the origin of the grid.\end{DoxyCompactList}\item 
+bool \hyperlink{class_g_f_grid_a8b33c2e0823730157804456f4ffb51ed_a8b33c2e0823730157804456f4ffb51ed}{render\+Grid} = true
+\begin{DoxyCompactList}\small\item\em Whether to render the grid at runtime.\end{DoxyCompactList}\item 
+Material \hyperlink{class_g_f_grid_a5a840197e72fa8b32fb905cc2a9a4d4a_a5a840197e72fa8b32fb905cc2a9a4d4a}{render\+Material} = null
+\begin{DoxyCompactList}\small\item\em The material for rendering, if none is given it uses a default material.\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_g_f_grid_a65d207e3957240c935645db01a199419_a65d207e3957240c935645db01a199419}{relative\+Size}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Whether the drawing/rendering will scale with spacing.\end{DoxyCompactList}\item 
+virtual Vector3 \hyperlink{class_g_f_grid_a336f54e5b5f677871876dc3d90cc611d_a336f54e5b5f677871876dc3d90cc611d}{size}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The size of the visual representation of the grid.\end{DoxyCompactList}\item 
+virtual Vector3 \hyperlink{class_g_f_grid_a4556eac3905975b9024addb169c629d8_a4556eac3905975b9024addb169c629d8}{render\+From}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Custom lower limit for drawing and rendering.\end{DoxyCompactList}\item 
+virtual Vector3 \hyperlink{class_g_f_grid_af9ec4b040505718f58a7841087d9b72a_af9ec4b040505718f58a7841087d9b72a}{render\+To}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Custom upper limit for drawing and rendering.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_grid_a6fb374bcb7d726ff28e3f14817260d6c_a6fb374bcb7d726ff28e3f14817260d6c}{origin\+Offset}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Offset to add to the origin\end{DoxyCompactList}\item 
+bool \hyperlink{class_g_f_grid_acb950aa31097c85e153cd9a642900a31_acb950aa31097c85e153cd9a642900a31}{use\+Custom\+Render\+Range}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Use your own values for the range of the rendering.\end{DoxyCompactList}\item 
+int \hyperlink{class_g_f_grid_a6712a2e6fec379ea55a0a53ca5867216_a6712a2e6fec379ea55a0a53ca5867216}{render\+Line\+Width}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The width of the lines used when rendering the grid.\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_g_f_grid_a1b011f573c51561fbd9e411f821ba820_a1b011f573c51561fbd9e411f821ba820}{Grid\+Changed\+Delegate} \hyperlink{class_g_f_grid_af3bfbed41ba24f963e871921c663f1f8_af3bfbed41ba24f963e871921c663f1f8}{Grid\+Changed\+Event}
+\begin{DoxyCompactList}\small\item\em An even that gets fired \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the standard class all grids are based on. Aside from providing a common set of variables and a template for what methods to use, this class has no practical meaning for end users. Use this as reference for what can be done without having to specify which type of grid you are using. For anything more specific you have to look at the child classes. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_g_f_grid_ae1005d6635174bc14e02deb4784a8d09_ae1005d6635174bc14e02deb4784a8d09}{\index{G\+F\+Grid@{G\+F\+Grid}!Align\+Transform@{Align\+Transform}}
+\index{Align\+Transform@{Align\+Transform}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Align\+Transform}]{\setlength{\rightskip}{0pt plus 5cm}void G\+F\+Grid.\+Align\+Transform (
+\begin{DoxyParamCaption}
+\item[{Transform}]{the\+Transform, }
+\item[{bool}]{rotate, }
+\item[{{\bf Bool\+Vector3}}]{ignore\+Axis}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_ae1005d6635174bc14e02deb4784a8d09_ae1005d6635174bc14e02deb4784a8d09}
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Transform} & The Transform to align.\\
+\hline
+{\em rotate} & Whether to rotate to the grid.\\
+\hline
+{\em ignore\+Axis} & Which axes should be ignored.\\
+\hline
+\end{DoxyParams}
+
+
+Fits an object inside the grid by using the object’s Transform. Setting {\ttfamily do\+Rotate} makes the object take on the grid’s rotation. The parameter {\ttfamily lock\+Axis} makes the function not touch the corresponding coordinate.
+
+The resulting position depends on {\itshape Align\+Vector3} , so please look up how that method works. \hypertarget{class_g_f_grid_a66b4191eeae96aa23f0ced78f4cc7e14_a66b4191eeae96aa23f0ced78f4cc7e14}{\index{G\+F\+Grid@{G\+F\+Grid}!Align\+Transform@{Align\+Transform}}
+\index{Align\+Transform@{Align\+Transform}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Align\+Transform}]{\setlength{\rightskip}{0pt plus 5cm}void G\+F\+Grid.\+Align\+Transform (
+\begin{DoxyParamCaption}
+\item[{Transform}]{the\+Transform}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a66b4191eeae96aa23f0ced78f4cc7e14_a66b4191eeae96aa23f0ced78f4cc7e14}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. It aligns and rotates the Transform while respecting all axes, it is equal to {\ttfamily Align\+Transform(the\+Transform, true, new Bool\+Vector3(false));} \hypertarget{class_g_f_grid_a575acf49adeedb3e1cb59108b3c89262_a575acf49adeedb3e1cb59108b3c89262}{\index{G\+F\+Grid@{G\+F\+Grid}!Align\+Transform@{Align\+Transform}}
+\index{Align\+Transform@{Align\+Transform}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Align\+Transform}]{\setlength{\rightskip}{0pt plus 5cm}void G\+F\+Grid.\+Align\+Transform (
+\begin{DoxyParamCaption}
+\item[{Transform}]{the\+Transform, }
+\item[{{\bf Bool\+Vector3}}]{lock\+Axis}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a575acf49adeedb3e1cb59108b3c89262_a575acf49adeedb3e1cb59108b3c89262}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. It aligns and rotates the Transform but leaves the axes to the user, it is equal to {\ttfamily Align\+Transform(the\+Transform, true, lock\+Axis);} \hypertarget{class_g_f_grid_a05a7ee949a05d384656ea1b0befbe485_a05a7ee949a05d384656ea1b0befbe485}{\index{G\+F\+Grid@{G\+F\+Grid}!Align\+Transform@{Align\+Transform}}
+\index{Align\+Transform@{Align\+Transform}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Align\+Transform}]{\setlength{\rightskip}{0pt plus 5cm}void G\+F\+Grid.\+Align\+Transform (
+\begin{DoxyParamCaption}
+\item[{Transform}]{the\+Transform, }
+\item[{bool}]{rotate}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a05a7ee949a05d384656ea1b0befbe485_a05a7ee949a05d384656ea1b0befbe485}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. It aligns and respects all axes to the user, but leaves the decision of rotation to the user, it is equal to {\ttfamily Align\+Transform(the\+Transform, rotate, new Bool\+Vector3(false));} \hypertarget{class_g_f_grid_a18b3e57431dc0db8f651479e4fb04a8f_a18b3e57431dc0db8f651479e4fb04a8f}{\index{G\+F\+Grid@{G\+F\+Grid}!Align\+Vector3@{Align\+Vector3}}
+\index{Align\+Vector3@{Align\+Vector3}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Align\+Vector3}]{\setlength{\rightskip}{0pt plus 5cm}abstract Vector3 G\+F\+Grid.\+Align\+Vector3 (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{pos, }
+\item[{Vector3}]{scale, }
+\item[{{\bf Bool\+Vector3}}]{ignore\+Axis}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_g_f_grid_a18b3e57431dc0db8f651479e4fb04a8f_a18b3e57431dc0db8f651479e4fb04a8f}
+\begin{DoxyReturn}{Returns}
+Aligned position vector.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position to align.\\
+\hline
+{\em scale} & A simulated scale to decide how exactly to fit the poistion into the grid.\\
+\hline
+{\em ignore\+Axis} & Which axes should be ignored.\\
+\hline
+\end{DoxyParams}
+
+
+Fits a position inside the grid by using the object’s transform. The exact position depends on whether the components of {\itshape scale}  are even or odd and the exact implementation can be found in the subclasses. The parameter {\itshape ignore\+Axis}  makes the function not touch the corresponding coordinate. 
+
+Implemented in \hyperlink{class_g_f_hex_grid_a2d51f41dc859b4957bb67a518c252632_a2d51f41dc859b4957bb67a518c252632}{G\+F\+Hex\+Grid}, \hyperlink{class_g_f_polar_grid_a5faa2b607e1ffc4ad2d3d5e7d62bf611_a5faa2b607e1ffc4ad2d3d5e7d62bf611}{G\+F\+Polar\+Grid}, and \hyperlink{class_g_f_rect_grid_a26011b42493622436cd9a86516b82687_a26011b42493622436cd9a86516b82687}{G\+F\+Rect\+Grid}.
+
+\hypertarget{class_g_f_grid_a2c87287a14b02923c9c28aa9d7478eb5_a2c87287a14b02923c9c28aa9d7478eb5}{\index{G\+F\+Grid@{G\+F\+Grid}!Align\+Vector3@{Align\+Vector3}}
+\index{Align\+Vector3@{Align\+Vector3}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Align\+Vector3}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Grid.\+Align\+Vector3 (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{pos}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a2c87287a14b02923c9c28aa9d7478eb5_a2c87287a14b02923c9c28aa9d7478eb5}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. It aligns the position while respecting all axes and uses a default size of 1 x 1 x 1, it is equal to {\ttfamily Align\+Vector3(pos, Vector3.\+one, new Bool\+Vector3(false));} \hypertarget{class_g_f_grid_a60adb854cc78a01495dea15affdd158c_a60adb854cc78a01495dea15affdd158c}{\index{G\+F\+Grid@{G\+F\+Grid}!Align\+Vector3@{Align\+Vector3}}
+\index{Align\+Vector3@{Align\+Vector3}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Align\+Vector3}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Grid.\+Align\+Vector3 (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{pos, }
+\item[{{\bf Bool\+Vector3}}]{lock\+Axis}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a60adb854cc78a01495dea15affdd158c_a60adb854cc78a01495dea15affdd158c}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. It aligns the position and uses a default size of 1 x 1 x 1 while leaving the axes to the user, it is equal to {\ttfamily Align\+Vector3(pos, Vector3.\+one, lock\+Axis);} \hypertarget{class_g_f_grid_ac08b9392f196d7c87133e343cee64824_ac08b9392f196d7c87133e343cee64824}{\index{G\+F\+Grid@{G\+F\+Grid}!Align\+Vector3@{Align\+Vector3}}
+\index{Align\+Vector3@{Align\+Vector3}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Align\+Vector3}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Grid.\+Align\+Vector3 (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{pos, }
+\item[{Vector3}]{scale}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_ac08b9392f196d7c87133e343cee64824_ac08b9392f196d7c87133e343cee64824}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. It aligns the position and respects the axes while using a default size of 1 x 1 x 1, it is equal to {\ttfamily Align\+Vector3(pos, scale, new Bool\+Vector3(false));} \hypertarget{class_g_f_grid_a150a203272b059999baa0eb3b8a74b09_a150a203272b059999baa0eb3b8a74b09}{\index{G\+F\+Grid@{G\+F\+Grid}!Draw\+Grid@{Draw\+Grid}}
+\index{Draw\+Grid@{Draw\+Grid}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Draw\+Grid}]{\setlength{\rightskip}{0pt plus 5cm}void G\+F\+Grid.\+Draw\+Grid (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{from, }
+\item[{Vector3}]{to}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a150a203272b059999baa0eb3b8a74b09_a150a203272b059999baa0eb3b8a74b09}
+
+\begin{DoxyParams}{Parameters}
+{\em from} & Lower limit of the drawing.\\
+\hline
+{\em to} & Upper limit s drawing.\\
+\hline
+\end{DoxyParams}
+
+
+This method draws the grid in the editor using gizmos. There is usually no reason to call this method manually, you should instead set the drawing flags of the grid itself. However, if you must, call this method from inside {\ttfamily \href{http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnDrawGizmos.html}{\tt On\+Draw\+Gizmos}}. \hypertarget{class_g_f_grid_ae151fe7e54efa0fedaa5e67da1077682_ae151fe7e54efa0fedaa5e67da1077682}{\index{G\+F\+Grid@{G\+F\+Grid}!Draw\+Grid@{Draw\+Grid}}
+\index{Draw\+Grid@{Draw\+Grid}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Draw\+Grid}]{\setlength{\rightskip}{0pt plus 5cm}void G\+F\+Grid.\+Draw\+Grid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_ae151fe7e54efa0fedaa5e67da1077682_ae151fe7e54efa0fedaa5e67da1077682}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Uses the size as limits, it is equivalent to {\ttfamily Draw\+Grid(-\/size, size);} \hypertarget{class_g_f_grid_a21a5ed4cfa330e04e6ce8c951744b839_a21a5ed4cfa330e04e6ce8c951744b839}{\index{G\+F\+Grid@{G\+F\+Grid}!Get\+Vectrosity\+Points@{Get\+Vectrosity\+Points}}
+\index{Get\+Vectrosity\+Points@{Get\+Vectrosity\+Points}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Get\+Vectrosity\+Points}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 \mbox{[}$\,$\mbox{]} G\+F\+Grid.\+Get\+Vectrosity\+Points (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{from, }
+\item[{Vector3}]{to}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a21a5ed4cfa330e04e6ce8c951744b839_a21a5ed4cfa330e04e6ce8c951744b839}
+\begin{DoxyReturn}{Returns}
+Array of points in local space.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em from} & Lower limit for the points.\\
+\hline
+{\em to} & Upper limit for the points.\\
+\hline
+\end{DoxyParams}
+
+
+Returns an array of Vector3 containing the points for a discrete vector line in Vectrosity. One entry is the starting point, the next entry is the end point, the next entry is the starting point of the next line and so on. \hypertarget{class_g_f_grid_a8ee183793ee692d671e39aaa93f4928e_a8ee183793ee692d671e39aaa93f4928e}{\index{G\+F\+Grid@{G\+F\+Grid}!Get\+Vectrosity\+Points@{Get\+Vectrosity\+Points}}
+\index{Get\+Vectrosity\+Points@{Get\+Vectrosity\+Points}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Get\+Vectrosity\+Points}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 \mbox{[}$\,$\mbox{]} G\+F\+Grid.\+Get\+Vectrosity\+Points (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a8ee183793ee692d671e39aaa93f4928e_a8ee183793ee692d671e39aaa93f4928e}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Uses the grid's {\ttfamily \hyperlink{class_g_f_grid_a336f54e5b5f677871876dc3d90cc611d_a336f54e5b5f677871876dc3d90cc611d}{size}} or {\ttfamily \hyperlink{class_g_f_grid_a4556eac3905975b9024addb169c629d8_a4556eac3905975b9024addb169c629d8}{render\+From}} and {\ttfamily \hyperlink{class_g_f_grid_af9ec4b040505718f58a7841087d9b72a_af9ec4b040505718f58a7841087d9b72a}{render\+To}} as limits, equal to {\ttfamily use\+Custom\+Render\+Range ? Get\+Vectrosity\+Points(render\+From, render\+To) \+: Get\+Vectrosity\+Points(-\/size, size);} \hypertarget{class_g_f_grid_a53cd898dc26179856ac298b5213e6dfb_a53cd898dc26179856ac298b5213e6dfb}{\index{G\+F\+Grid@{G\+F\+Grid}!Get\+Vectrosity\+Points\+Separate@{Get\+Vectrosity\+Points\+Separate}}
+\index{Get\+Vectrosity\+Points\+Separate@{Get\+Vectrosity\+Points\+Separate}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Get\+Vectrosity\+Points\+Separate}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} G\+F\+Grid.\+Get\+Vectrosity\+Points\+Separate (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{from, }
+\item[{Vector3}]{to}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a53cd898dc26179856ac298b5213e6dfb_a53cd898dc26179856ac298b5213e6dfb}
+\begin{DoxyReturn}{Returns}
+Jagged array of three arrays, each containing the points of a single axis.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em from} & Lower limit for the points.\\
+\hline
+{\em to} & Upper limit for the points.\\
+\hline
+\end{DoxyParams}
+
+
+This method is very similar to {\ttfamily \hyperlink{class_g_f_grid_a21a5ed4cfa330e04e6ce8c951744b839_a21a5ed4cfa330e04e6ce8c951744b839}{Get\+Vectrosity\+Points}}, except that the points are in separate arrays for each axis. This is useful if you want to treat the lines of each axis differently, like having different colours. \hypertarget{class_g_f_grid_a9c0d4962f326ba00115a40a2b82d0aa7_a9c0d4962f326ba00115a40a2b82d0aa7}{\index{G\+F\+Grid@{G\+F\+Grid}!Get\+Vectrosity\+Points\+Separate@{Get\+Vectrosity\+Points\+Separate}}
+\index{Get\+Vectrosity\+Points\+Separate@{Get\+Vectrosity\+Points\+Separate}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Get\+Vectrosity\+Points\+Separate}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} G\+F\+Grid.\+Get\+Vectrosity\+Points\+Separate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a9c0d4962f326ba00115a40a2b82d0aa7_a9c0d4962f326ba00115a40a2b82d0aa7}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Uses the grid's {\ttfamily \hyperlink{class_g_f_grid_a336f54e5b5f677871876dc3d90cc611d_a336f54e5b5f677871876dc3d90cc611d}{size}} or {\ttfamily \hyperlink{class_g_f_grid_a4556eac3905975b9024addb169c629d8_a4556eac3905975b9024addb169c629d8}{render\+From}} and {\ttfamily \hyperlink{class_g_f_grid_af9ec4b040505718f58a7841087d9b72a_af9ec4b040505718f58a7841087d9b72a}{render\+To}} as limits, equal to {\ttfamily use\+Custom\+Render\+Range ? Get\+Vectrosity\+Points\+Separate(render\+From, render\+To) \+: Get\+Vectrosity\+Points\+Separate(-\/size, size);} \hypertarget{class_g_f_grid_a1b011f573c51561fbd9e411f821ba820_a1b011f573c51561fbd9e411f821ba820}{\index{G\+F\+Grid@{G\+F\+Grid}!Grid\+Changed\+Delegate@{Grid\+Changed\+Delegate}}
+\index{Grid\+Changed\+Delegate@{Grid\+Changed\+Delegate}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Grid\+Changed\+Delegate}]{\setlength{\rightskip}{0pt plus 5cm}delegate void G\+F\+Grid.\+Grid\+Changed\+Delegate (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+F\+Grid}}]{grid}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a1b011f573c51561fbd9e411f821ba820_a1b011f573c51561fbd9e411f821ba820}
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & The grid that calls the delegate\\
+\hline
+\end{DoxyParams}
+
+
+This is the delegate type for methods to be called when changes to the grid occur. It is best used together with the \hyperlink{class_g_f_grid_af3bfbed41ba24f963e871921c663f1f8_af3bfbed41ba24f963e871921c663f1f8}{Grid\+Changed\+Event} event. \hypertarget{class_g_f_grid_af32d7bfcecb5da3fdc47b972b551e33e_af32d7bfcecb5da3fdc47b972b551e33e}{\index{G\+F\+Grid@{G\+F\+Grid}!Grid\+To\+World@{Grid\+To\+World}}
+\index{Grid\+To\+World@{Grid\+To\+World}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Grid\+To\+World}]{\setlength{\rightskip}{0pt plus 5cm}abstract Vector3 G\+F\+Grid.\+Grid\+To\+World (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{grid\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_g_f_grid_af32d7bfcecb5da3fdc47b972b551e33e_af32d7bfcecb5da3fdc47b972b551e33e}
+\begin{DoxyReturn}{Returns}
+World coordinates of the grid point.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em grid\+Point} & Point in grid space.\\
+\hline
+\end{DoxyParams}
+
+
+Takes in a point in grid space and converts it to world space. Some grids have several coordinate system, so look into the specific class for conversion methods from other coordinate systems. 
+
+Implemented in \hyperlink{class_g_f_hex_grid_abac4ca6dba9e7ee8ed87f70cf4a7afc7_abac4ca6dba9e7ee8ed87f70cf4a7afc7}{G\+F\+Hex\+Grid}, \hyperlink{class_g_f_polar_grid_a80a4698250b08f212f3681abadbc5012_a80a4698250b08f212f3681abadbc5012}{G\+F\+Polar\+Grid}, and \hyperlink{class_g_f_rect_grid_acdc111b97728b0fef0c32e2d96d59f90_acdc111b97728b0fef0c32e2d96d59f90}{G\+F\+Rect\+Grid}.
+
+\hypertarget{class_g_f_grid_adb7c70449b2449c1e82132e6300cc1a5_adb7c70449b2449c1e82132e6300cc1a5}{\index{G\+F\+Grid@{G\+F\+Grid}!Nearest\+Box\+G@{Nearest\+Box\+G}}
+\index{Nearest\+Box\+G@{Nearest\+Box\+G}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Nearest\+Box\+G}]{\setlength{\rightskip}{0pt plus 5cm}abstract Vector3 G\+F\+Grid.\+Nearest\+Box\+G (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_g_f_grid_adb7c70449b2449c1e82132e6300cc1a5_adb7c70449b2449c1e82132e6300cc1a5}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest box.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to \hyperlink{class_g_f_grid_a7eaa2821cf118bb4821bd2cbf40029da_a7eaa2821cf118bb4821bd2cbf40029da}{Nearest\+Vertex\+G}, it returns the grid coordinates of a box in the grid. Since the box is enclosed by several vertices, the returned value is the point in between all of the vertices.
+
+This is just an abstract template for the method, look into the specific class for exact implementation. 
+
+Implemented in \hyperlink{class_g_f_hex_grid_ab038b99bc1bedfcdee8a0736c4ed1a1e_ab038b99bc1bedfcdee8a0736c4ed1a1e}{G\+F\+Hex\+Grid}, \hyperlink{class_g_f_polar_grid_abdc5c38b32d8fe3d6610127b54b89093_abdc5c38b32d8fe3d6610127b54b89093}{G\+F\+Polar\+Grid}, and \hyperlink{class_g_f_rect_grid_a97bcb6df6296fac0bcf92c9d8908df00_a97bcb6df6296fac0bcf92c9d8908df00}{G\+F\+Rect\+Grid}.
+
+\hypertarget{class_g_f_grid_a02fcf02269ca5a2064acccecde9819eb_a02fcf02269ca5a2064acccecde9819eb}{\index{G\+F\+Grid@{G\+F\+Grid}!Nearest\+Box\+W@{Nearest\+Box\+W}}
+\index{Nearest\+Box\+W@{Nearest\+Box\+W}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Nearest\+Box\+W}]{\setlength{\rightskip}{0pt plus 5cm}abstract Vector3 G\+F\+Grid.\+Nearest\+Box\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point, }
+\item[{bool}]{do\+Debug}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_g_f_grid_a02fcf02269ca5a2064acccecde9819eb_a02fcf02269ca5a2064acccecde9819eb}
+\begin{DoxyReturn}{Returns}
+World position of the nearest box.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+{\em do\+Debug} & If set to {\ttfamily true} draw a sphere at the destination.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to \hyperlink{class_g_f_grid_a5865880fa767bf5562301bca419b8bb9_a5865880fa767bf5562301bca419b8bb9}{Nearest\+Vertex\+W}, it returns the world coordinates of a box in the grid. Since the box is enclosed by several vertices, the returned value is the point in between all of the vertices. If {\itshape do\+Debug}  is set a small gizmo box will drawn there.
+
+This is just an abstract template for the method, look into the specific class for exact implementation. 
+
+Implemented in \hyperlink{class_g_f_hex_grid_a58ce4a0c91753d5457c4df0ebaac90a9_a58ce4a0c91753d5457c4df0ebaac90a9}{G\+F\+Hex\+Grid}, \hyperlink{class_g_f_polar_grid_aa8d60db8cd64b7dbe083d380110ab9d9_aa8d60db8cd64b7dbe083d380110ab9d9}{G\+F\+Polar\+Grid}, and \hyperlink{class_g_f_rect_grid_a36755945173349f1d24c3a41092bc6f4_a36755945173349f1d24c3a41092bc6f4}{G\+F\+Rect\+Grid}.
+
+\hypertarget{class_g_f_grid_aec31996a483acd023c775658a78d5435_aec31996a483acd023c775658a78d5435}{\index{G\+F\+Grid@{G\+F\+Grid}!Nearest\+Box\+W@{Nearest\+Box\+W}}
+\index{Nearest\+Box\+W@{Nearest\+Box\+W}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Nearest\+Box\+W}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Grid.\+Nearest\+Box\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_aec31996a483acd023c775658a78d5435_aec31996a483acd023c775658a78d5435}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \hypertarget{class_g_f_grid_aac129f3df1da5cdbc31143ecc7db35d2_aac129f3df1da5cdbc31143ecc7db35d2}{\index{G\+F\+Grid@{G\+F\+Grid}!Nearest\+Face\+G@{Nearest\+Face\+G}}
+\index{Nearest\+Face\+G@{Nearest\+Face\+G}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Nearest\+Face\+G}]{\setlength{\rightskip}{0pt plus 5cm}abstract Vector3 G\+F\+Grid.\+Nearest\+Face\+G (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point, }
+\item[{{\bf Grid\+Plane}}]{plane}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_g_f_grid_aac129f3df1da5cdbc31143ecc7db35d2_aac129f3df1da5cdbc31143ecc7db35d2}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest face.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+{\em plane} & Plane on which the face lies.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to \hyperlink{class_g_f_grid_a7eaa2821cf118bb4821bd2cbf40029da_a7eaa2821cf118bb4821bd2cbf40029da}{Nearest\+Vertex\+G}, it returns the grid coordinates of a face on the grid. Since the face is enclosed by several vertices, the returned value is the point in between all of the vertices. You also need to specify on which plane the face lies (optional for hex-\/ and polar grids).
+
+This is just an abstract template for the method, look into the specific class for exact implementation. 
+
+Implemented in \hyperlink{class_g_f_rect_grid_aeda4f7e218bf92e1cc1361913569fabb_aeda4f7e218bf92e1cc1361913569fabb}{G\+F\+Rect\+Grid}, and \hyperlink{class_g_f_layered_grid_a5af848e6ee44af68a8c4748716925468_a5af848e6ee44af68a8c4748716925468}{G\+F\+Layered\+Grid}.
+
+\hypertarget{class_g_f_grid_ae8711b08c90871f6e88800a30ff5077f_ae8711b08c90871f6e88800a30ff5077f}{\index{G\+F\+Grid@{G\+F\+Grid}!Nearest\+Face\+W@{Nearest\+Face\+W}}
+\index{Nearest\+Face\+W@{Nearest\+Face\+W}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Nearest\+Face\+W}]{\setlength{\rightskip}{0pt plus 5cm}abstract Vector3 G\+F\+Grid.\+Nearest\+Face\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point, }
+\item[{{\bf Grid\+Plane}}]{plane, }
+\item[{bool}]{do\+Debug}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_g_f_grid_ae8711b08c90871f6e88800a30ff5077f_ae8711b08c90871f6e88800a30ff5077f}
+\begin{DoxyReturn}{Returns}
+World position of the nearest face.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+{\em plane} & Plane on which the face lies.\\
+\hline
+{\em do\+Debug} & If set to {\ttfamily true} draw a sphere at the destination.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to \hyperlink{class_g_f_grid_a5865880fa767bf5562301bca419b8bb9_a5865880fa767bf5562301bca419b8bb9}{Nearest\+Vertex\+W}, it returns the world coordinates of a face on the grid. Since the face is enclosed by several vertices, the returned value is the point in between all of the vertices. You also need to specify on which plane the face lies (optional for hex-\/ and polar grids). If {\itshape do\+Debug}  is set a small gizmo face will drawn there.
+
+This is just an abstract template for the method, look into the specific class for exact implementation. 
+
+Implemented in \hyperlink{class_g_f_rect_grid_a8a81dba8cdb3224a5e3952f903c80d31_a8a81dba8cdb3224a5e3952f903c80d31}{G\+F\+Rect\+Grid}, and \hyperlink{class_g_f_layered_grid_a0fad538e6ffb56209e76da00c357a3c9_a0fad538e6ffb56209e76da00c357a3c9}{G\+F\+Layered\+Grid}.
+
+\hypertarget{class_g_f_grid_a1f2eb3cedcd2d4f82e23d222136f7743_a1f2eb3cedcd2d4f82e23d222136f7743}{\index{G\+F\+Grid@{G\+F\+Grid}!Nearest\+Face\+W@{Nearest\+Face\+W}}
+\index{Nearest\+Face\+W@{Nearest\+Face\+W}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Nearest\+Face\+W}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Grid.\+Nearest\+Face\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point, }
+\item[{{\bf Grid\+Plane}}]{plane}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a1f2eb3cedcd2d4f82e23d222136f7743_a1f2eb3cedcd2d4f82e23d222136f7743}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \hypertarget{class_g_f_grid_a7eaa2821cf118bb4821bd2cbf40029da_a7eaa2821cf118bb4821bd2cbf40029da}{\index{G\+F\+Grid@{G\+F\+Grid}!Nearest\+Vertex\+G@{Nearest\+Vertex\+G}}
+\index{Nearest\+Vertex\+G@{Nearest\+Vertex\+G}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Nearest\+Vertex\+G}]{\setlength{\rightskip}{0pt plus 5cm}abstract Vector3 G\+F\+Grid.\+Nearest\+Vertex\+G (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_g_f_grid_a7eaa2821cf118bb4821bd2cbf40029da_a7eaa2821cf118bb4821bd2cbf40029da}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest vertex.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+Returns the position of the nerest vertex in grid coordinates from a given point in world space.
+
+This is just an abstract template for the method, look into the specific class for exact implementation. 
+
+Implemented in \hyperlink{class_g_f_hex_grid_ae335a549959829d91dcede4847d7168f_ae335a549959829d91dcede4847d7168f}{G\+F\+Hex\+Grid}, \hyperlink{class_g_f_polar_grid_aa119074284b649c45ee9b1bb80153d4d_aa119074284b649c45ee9b1bb80153d4d}{G\+F\+Polar\+Grid}, and \hyperlink{class_g_f_rect_grid_a9077b997603860bf0544ceed66325109_a9077b997603860bf0544ceed66325109}{G\+F\+Rect\+Grid}.
+
+\hypertarget{class_g_f_grid_a5865880fa767bf5562301bca419b8bb9_a5865880fa767bf5562301bca419b8bb9}{\index{G\+F\+Grid@{G\+F\+Grid}!Nearest\+Vertex\+W@{Nearest\+Vertex\+W}}
+\index{Nearest\+Vertex\+W@{Nearest\+Vertex\+W}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Nearest\+Vertex\+W}]{\setlength{\rightskip}{0pt plus 5cm}abstract Vector3 G\+F\+Grid.\+Nearest\+Vertex\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point, }
+\item[{bool}]{do\+Debug}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_g_f_grid_a5865880fa767bf5562301bca419b8bb9_a5865880fa767bf5562301bca419b8bb9}
+\begin{DoxyReturn}{Returns}
+World position of the nearest vertex.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+{\em do\+Debug} & If set to {\ttfamily true} draw a sphere at the destination.\\
+\hline
+\end{DoxyParams}
+
+
+Returns the world position of the nearest vertex from a given point in world space. If {\itshape do\+Debug}  is set a small gizmo sphere will be drawn at that position. This is just an abstract template for the method, look into the specific class for exact implementation.
+
+This is just an abstract template for the method, look into the specific class for exact implementation. 
+
+Implemented in \hyperlink{class_g_f_hex_grid_aa3e803a3567facf12848c80698ae72ae_aa3e803a3567facf12848c80698ae72ae}{G\+F\+Hex\+Grid}, \hyperlink{class_g_f_polar_grid_ab0fd04140a3de44e0b407629dcf0e124_ab0fd04140a3de44e0b407629dcf0e124}{G\+F\+Polar\+Grid}, and \hyperlink{class_g_f_rect_grid_a5c6ed872be90dad1f7868576d513fa05_a5c6ed872be90dad1f7868576d513fa05}{G\+F\+Rect\+Grid}.
+
+\hypertarget{class_g_f_grid_a5a5a2c1544b8f1665cd2ad64e68ad85a_a5a5a2c1544b8f1665cd2ad64e68ad85a}{\index{G\+F\+Grid@{G\+F\+Grid}!Nearest\+Vertex\+W@{Nearest\+Vertex\+W}}
+\index{Nearest\+Vertex\+W@{Nearest\+Vertex\+W}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Nearest\+Vertex\+W}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Grid.\+Nearest\+Vertex\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a5a5a2c1544b8f1665cd2ad64e68ad85a_a5a5a2c1544b8f1665cd2ad64e68ad85a}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \hypertarget{class_g_f_grid_afe4760ba702ce1e54996f5750501f01f_afe4760ba702ce1e54996f5750501f01f}{\index{G\+F\+Grid@{G\+F\+Grid}!Render\+Grid@{Render\+Grid}}
+\index{Render\+Grid@{Render\+Grid}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Render\+Grid}]{\setlength{\rightskip}{0pt plus 5cm}void G\+F\+Grid.\+Render\+Grid (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{from, }
+\item[{Vector3}]{to, }
+\item[{{\bf Color\+Vector3}}]{colors, }
+\item[{int}]{width = {\ttfamily 0}, }
+\item[{Camera}]{cam = {\ttfamily null}, }
+\item[{Transform}]{cam\+Transform = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_afe4760ba702ce1e54996f5750501f01f_afe4760ba702ce1e54996f5750501f01f}
+
+\begin{DoxyParams}{Parameters}
+{\em from} & Lower limit\\
+\hline
+{\em to} & Upper limit\\
+\hline
+{\em colors} & Colors for rendering\\
+\hline
+{\em width} & Width of the line\\
+\hline
+{\em cam} & Camera for rendering\\
+\hline
+{\em cam\+Transform} & Transform of the camera\\
+\hline
+\end{DoxyParams}
+
+
+Renders the grid with lower and upper limit, a given line width and individual colours for the three axes. If the lines have line width 1 they will be exactly one pixel wide, and if they have a larger with they will be rendered as billboards (always facing the camera). If there is no camera and camera Transform passed this won't be possible and the lines will default back to one pixel width.
+
+It is not necessary to call this method manually, rather you should just set the {\ttfamily \hyperlink{class_g_f_grid_a8b33c2e0823730157804456f4ffb51ed_a8b33c2e0823730157804456f4ffb51ed}{render\+Grid}} flag to {\ttfamily true} and let Grid Framework take care of it. However, if you want total control use this method, usually from within an {\ttfamily \href{http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnPostRender.html}{\tt On\+Post\+Render}} method. \hypertarget{class_g_f_grid_a24008f73b2c2ce9d6a699d25df998055_a24008f73b2c2ce9d6a699d25df998055}{\index{G\+F\+Grid@{G\+F\+Grid}!Render\+Grid@{Render\+Grid}}
+\index{Render\+Grid@{Render\+Grid}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Render\+Grid}]{\setlength{\rightskip}{0pt plus 5cm}virtual void G\+F\+Grid.\+Render\+Grid (
+\begin{DoxyParamCaption}
+\item[{int}]{width = {\ttfamily 0}, }
+\item[{Camera}]{cam = {\ttfamily null}, }
+\item[{Transform}]{cam\+Transform = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_grid_a24008f73b2c2ce9d6a699d25df998055_a24008f73b2c2ce9d6a699d25df998055}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Renders the grid using {\ttfamily \hyperlink{class_g_f_grid_a336f54e5b5f677871876dc3d90cc611d_a336f54e5b5f677871876dc3d90cc611d}{size}} for lower and upper limits, equal to {\ttfamily Render\+Grid(-\/size, size, use\+Separate\+Render\+Color ? render\+Axis\+Colors \+: axis\+Colors, width, cam, cam\+Transform);} 
+
+Reimplemented in \hyperlink{class_g_f_polar_grid_a5c3dd0e599e358379dc7c83f31e1dc5f_a5c3dd0e599e358379dc7c83f31e1dc5f}{G\+F\+Polar\+Grid}.
+
+\hypertarget{class_g_f_grid_af700a9a1f9e9f312b1eb55eb8752253c_af700a9a1f9e9f312b1eb55eb8752253c}{\index{G\+F\+Grid@{G\+F\+Grid}!Render\+Grid@{Render\+Grid}}
+\index{Render\+Grid@{Render\+Grid}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Render\+Grid}]{\setlength{\rightskip}{0pt plus 5cm}void G\+F\+Grid.\+Render\+Grid (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{from, }
+\item[{Vector3}]{to, }
+\item[{int}]{width = {\ttfamily 0}, }
+\item[{Camera}]{cam = {\ttfamily null}, }
+\item[{Transform}]{cam\+Transform = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_af700a9a1f9e9f312b1eb55eb8752253c_af700a9a1f9e9f312b1eb55eb8752253c}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Renders the grid using {\ttfamily \hyperlink{class_g_f_grid_aa0dc7222dee5910e8df47e133f719309_aa0dc7222dee5910e8df47e133f719309}{axis\+Colors}} (or {\ttfamily \hyperlink{class_g_f_grid_a8a822dbae0fa74657a7beed9761a0e89_a8a822dbae0fa74657a7beed9761a0e89}{render\+Axis\+Colors}} if {\ttfamily \hyperlink{class_g_f_grid_aeb78dcbc2890d20556958c994b95b000_aeb78dcbc2890d20556958c994b95b000}{use\+Separate\+Render\+Color}} is {\ttfamily true}) as colours, equal to {\ttfamily Render\+Grid(from, to, use\+Separate\+Render\+Color ? render\+Axis\+Colors \+: axis\+Colors, width, cam, cam\+Transform);} \hypertarget{class_g_f_grid_a20dfd543d80edf6215e7e601cb578ccf_a20dfd543d80edf6215e7e601cb578ccf}{\index{G\+F\+Grid@{G\+F\+Grid}!Scale\+Transform@{Scale\+Transform}}
+\index{Scale\+Transform@{Scale\+Transform}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Scale\+Transform}]{\setlength{\rightskip}{0pt plus 5cm}void G\+F\+Grid.\+Scale\+Transform (
+\begin{DoxyParamCaption}
+\item[{Transform}]{the\+Transform, }
+\item[{{\bf Bool\+Vector3}}]{ignore\+Axis}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a20dfd543d80edf6215e7e601cb578ccf_a20dfd543d80edf6215e7e601cb578ccf}
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Transform} & The Transform to scale.\\
+\hline
+{\em ignore\+Axis} & The axes to ignore.\\
+\hline
+\end{DoxyParams}
+
+
+Scales a Transform to fit inside a grid. The parameter {\itshape ignore\+Axis} makes the function not touch the corresponding coordinate.
+
+The resulting position depends on \hyperlink{class_g_f_grid_a02b3cf14a1529355c51e0d3ea646b4f8_a02b3cf14a1529355c51e0d3ea646b4f8}{Scale\+Vector3}, so please look up how that method works. \hypertarget{class_g_f_grid_a9ad5045b098fde4cea93afeadc1c419d_a9ad5045b098fde4cea93afeadc1c419d}{\index{G\+F\+Grid@{G\+F\+Grid}!Scale\+Transform@{Scale\+Transform}}
+\index{Scale\+Transform@{Scale\+Transform}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Scale\+Transform}]{\setlength{\rightskip}{0pt plus 5cm}void G\+F\+Grid.\+Scale\+Transform (
+\begin{DoxyParamCaption}
+\item[{Transform}]{the\+Transform}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a9ad5045b098fde4cea93afeadc1c419d_a9ad5045b098fde4cea93afeadc1c419d}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. It scales the Transform while respecting all axes, it is equal to {\ttfamily Scale\+Transform(the\+Transform, new Bool\+Vector3(false));} \hypertarget{class_g_f_grid_a02b3cf14a1529355c51e0d3ea646b4f8_a02b3cf14a1529355c51e0d3ea646b4f8}{\index{G\+F\+Grid@{G\+F\+Grid}!Scale\+Vector3@{Scale\+Vector3}}
+\index{Scale\+Vector3@{Scale\+Vector3}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Scale\+Vector3}]{\setlength{\rightskip}{0pt plus 5cm}abstract Vector3 G\+F\+Grid.\+Scale\+Vector3 (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{scl, }
+\item[{{\bf Bool\+Vector3}}]{ignore\+Axis}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_g_f_grid_a02b3cf14a1529355c51e0d3ea646b4f8_a02b3cf14a1529355c51e0d3ea646b4f8}
+\begin{DoxyReturn}{Returns}
+The re-\/scaled vector.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em scl} & The vector to scale.\\
+\hline
+{\em ignore\+Axis} & The axes to ignore.\\
+\hline
+\end{DoxyParams}
+
+
+This method takes in a vector representing a size and fits it inside the grid. The {\itshape ignore\+Axis} parameter lets you ignore individual axes. 
+
+Implemented in \hyperlink{class_g_f_hex_grid_a534e73e65f65a117ebb6f4e1122f097d_a534e73e65f65a117ebb6f4e1122f097d}{G\+F\+Hex\+Grid}, \hyperlink{class_g_f_polar_grid_aa7d26ab4a4cfbe914001c7f635ee2ace_aa7d26ab4a4cfbe914001c7f635ee2ace}{G\+F\+Polar\+Grid}, and \hyperlink{class_g_f_rect_grid_a31346980b7fc37aea46e750958c67963_a31346980b7fc37aea46e750958c67963}{G\+F\+Rect\+Grid}.
+
+\hypertarget{class_g_f_grid_a79275b32044dd28cbc80174717390edb_a79275b32044dd28cbc80174717390edb}{\index{G\+F\+Grid@{G\+F\+Grid}!Scale\+Vector3@{Scale\+Vector3}}
+\index{Scale\+Vector3@{Scale\+Vector3}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Scale\+Vector3}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Grid.\+Scale\+Vector3 (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{scl}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_grid_a79275b32044dd28cbc80174717390edb_a79275b32044dd28cbc80174717390edb}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. It scales the size while respecting all axes, it is equal to {\ttfamily Scale\+Vector3(scl, new Bool\+Vector3(false));} \hypertarget{class_g_f_grid_a3c424ac71404a8c87a958b5b5952eb0f_a3c424ac71404a8c87a958b5b5952eb0f}{\index{G\+F\+Grid@{G\+F\+Grid}!World\+To\+Grid@{World\+To\+Grid}}
+\index{World\+To\+Grid@{World\+To\+Grid}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{World\+To\+Grid}]{\setlength{\rightskip}{0pt plus 5cm}abstract Vector3 G\+F\+Grid.\+World\+To\+Grid (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_g_f_grid_a3c424ac71404a8c87a958b5b5952eb0f_a3c424ac71404a8c87a958b5b5952eb0f}
+\begin{DoxyReturn}{Returns}
+Grid coordinates of the world point.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+Takes in a point in world space and converts it to grid space. Some grids have several coordinate system, so look into the specific class for conversion methods to other coordinate systems. 
+
+Implemented in \hyperlink{class_g_f_hex_grid_a476548c7582c1529de47f31ce891f4fd_a476548c7582c1529de47f31ce891f4fd}{G\+F\+Hex\+Grid}, \hyperlink{class_g_f_polar_grid_a925bc4556e0c7422f476409b4f48067e_a925bc4556e0c7422f476409b4f48067e}{G\+F\+Polar\+Grid}, and \hyperlink{class_g_f_rect_grid_ac668541585726a76ba85d1e15ca45753_ac668541585726a76ba85d1e15ca45753}{G\+F\+Rect\+Grid}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_g_f_grid_aa0dc7222dee5910e8df47e133f719309_aa0dc7222dee5910e8df47e133f719309}{\index{G\+F\+Grid@{G\+F\+Grid}!axis\+Colors@{axis\+Colors}}
+\index{axis\+Colors@{axis\+Colors}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{axis\+Colors}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Color\+Vector3} G\+F\+Grid.\+axis\+Colors = new {\bf Color\+Vector3}()}}\label{class_g_f_grid_aa0dc7222dee5910e8df47e133f719309_aa0dc7222dee5910e8df47e133f719309}
+The colours are stored as three separte entries, corresponding to the three separate axes. They will be used for both drawing an rendering, unless \hyperlink{class_g_f_grid_aeb78dcbc2890d20556958c994b95b000_aeb78dcbc2890d20556958c994b95b000}{use\+Separate\+Render\+Color} is set to {\ttfamily true}. \hypertarget{class_g_f_grid_a030e49e310751d9b1c7d08b57ca93358_a030e49e310751d9b1c7d08b57ca93358}{\index{G\+F\+Grid@{G\+F\+Grid}!draw\+Origin@{draw\+Origin}}
+\index{draw\+Origin@{draw\+Origin}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{draw\+Origin}]{\setlength{\rightskip}{0pt plus 5cm}bool G\+F\+Grid.\+draw\+Origin = false}}\label{class_g_f_grid_a030e49e310751d9b1c7d08b57ca93358_a030e49e310751d9b1c7d08b57ca93358}
+If set to {\ttfamily true} a small gizmo sphere will be drawn at the origin of the grid. This is not a rendering, so it wil not appear in the game, it is intended to make selecting the grid in the editor easier. \hypertarget{class_g_f_grid_ac902d0ffe9b552908a929fda497a39b5_ac902d0ffe9b552908a929fda497a39b5}{\index{G\+F\+Grid@{G\+F\+Grid}!hide\+Axis@{hide\+Axis}}
+\index{hide\+Axis@{hide\+Axis}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{hide\+Axis}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bool\+Vector3} G\+F\+Grid.\+hide\+Axis = new {\bf Bool\+Vector3}()}}\label{class_g_f_grid_ac902d0ffe9b552908a929fda497a39b5_ac902d0ffe9b552908a929fda497a39b5}
+This hides the individual axes rather than the whole grid. \hypertarget{class_g_f_grid_afa8a9e01aac581a365606ac8c1b4af64_afa8a9e01aac581a365606ac8c1b4af64}{\index{G\+F\+Grid@{G\+F\+Grid}!hide\+Grid@{hide\+Grid}}
+\index{hide\+Grid@{hide\+Grid}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{hide\+Grid}]{\setlength{\rightskip}{0pt plus 5cm}bool G\+F\+Grid.\+hide\+Grid = false}}\label{class_g_f_grid_afa8a9e01aac581a365606ac8c1b4af64_afa8a9e01aac581a365606ac8c1b4af64}
+If set to {\ttfamily true} the grid will be neither drawn nor rendered at all, it then takes precedence over all the other flags.\hypertarget{class_g_f_grid_a9a57a01347c8ab0a6401aa210f875ab0_a9a57a01347c8ab0a6401aa210f875ab0}{\index{G\+F\+Grid@{G\+F\+Grid}!hide\+On\+Play@{hide\+On\+Play}}
+\index{hide\+On\+Play@{hide\+On\+Play}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{hide\+On\+Play}]{\setlength{\rightskip}{0pt plus 5cm}bool G\+F\+Grid.\+hide\+On\+Play = false}}\label{class_g_f_grid_a9a57a01347c8ab0a6401aa210f875ab0_a9a57a01347c8ab0a6401aa210f875ab0}
+This is similar to \hyperlink{class_g_f_grid_afa8a9e01aac581a365606ac8c1b4af64_afa8a9e01aac581a365606ac8c1b4af64}{hide\+Grid}, but only active while in play mode. \hypertarget{class_g_f_grid_a8a822dbae0fa74657a7beed9761a0e89_a8a822dbae0fa74657a7beed9761a0e89}{\index{G\+F\+Grid@{G\+F\+Grid}!render\+Axis\+Colors@{render\+Axis\+Colors}}
+\index{render\+Axis\+Colors@{render\+Axis\+Colors}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{render\+Axis\+Colors}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Color\+Vector3} G\+F\+Grid.\+render\+Axis\+Colors = new {\bf Color\+Vector3}(Color.\+gray)}}\label{class_g_f_grid_a8a822dbae0fa74657a7beed9761a0e89_a8a822dbae0fa74657a7beed9761a0e89}
+By default the colours of \hyperlink{class_g_f_grid_aa0dc7222dee5910e8df47e133f719309_aa0dc7222dee5910e8df47e133f719309}{axis\+Colors} are used for rendering, however if you set \hyperlink{class_g_f_grid_aeb78dcbc2890d20556958c994b95b000_aeb78dcbc2890d20556958c994b95b000}{use\+Separate\+Render\+Color} to {\ttfamily true} these colours will be used instead. Otherwise this does nothing. \hypertarget{class_g_f_grid_a8b33c2e0823730157804456f4ffb51ed_a8b33c2e0823730157804456f4ffb51ed}{\index{G\+F\+Grid@{G\+F\+Grid}!render\+Grid@{render\+Grid}}
+\index{render\+Grid@{render\+Grid}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{render\+Grid}]{\setlength{\rightskip}{0pt plus 5cm}bool G\+F\+Grid.\+render\+Grid = true}}\label{class_g_f_grid_a8b33c2e0823730157804456f4ffb51ed_a8b33c2e0823730157804456f4ffb51ed}
+The grid will only be rendered if this flag is set to {\ttfamily true}, otherwise you won't be able to see the grid in the game. \hypertarget{class_g_f_grid_a5a840197e72fa8b32fb905cc2a9a4d4a_a5a840197e72fa8b32fb905cc2a9a4d4a}{\index{G\+F\+Grid@{G\+F\+Grid}!render\+Material@{render\+Material}}
+\index{render\+Material@{render\+Material}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{render\+Material}]{\setlength{\rightskip}{0pt plus 5cm}Material G\+F\+Grid.\+render\+Material = null}}\label{class_g_f_grid_a5a840197e72fa8b32fb905cc2a9a4d4a_a5a840197e72fa8b32fb905cc2a9a4d4a}
+You can use you own material if you want control over the shader used, otherwise this default material will be used\+: {\ttfamily  new Material(\char`\"{}\+Shader \textbackslash{}\char`\"{}Lines/\+Colored Blended" \{\char`\"{} +
+    \char`\"{}Sub\+Shader \{ Pass \{ \char`\"{} +
+    \char`\"{} Blend Src\+Alpha One\+Minus\+Src\+Alpha \char`\"{} +
+    \char`\"{} Z\+Write Off Cull Off Fog \{ Mode Off \} \char`\"{} +
+    \char`\"{} Bind\+Channels \{\char`\"{} +
+    \char`\"{} Bind "vertex", vertex Bind "color", color \}\char`\"{} +
+    \char`\"{}\} \} \}" ) } \hypertarget{class_g_f_grid_aeb78dcbc2890d20556958c994b95b000_aeb78dcbc2890d20556958c994b95b000}{\index{G\+F\+Grid@{G\+F\+Grid}!use\+Separate\+Render\+Color@{use\+Separate\+Render\+Color}}
+\index{use\+Separate\+Render\+Color@{use\+Separate\+Render\+Color}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{use\+Separate\+Render\+Color}]{\setlength{\rightskip}{0pt plus 5cm}bool G\+F\+Grid.\+use\+Separate\+Render\+Color = false}}\label{class_g_f_grid_aeb78dcbc2890d20556958c994b95b000_aeb78dcbc2890d20556958c994b95b000}
+If you set this flag to {\ttfamily true} the rendering will use the colours of \hyperlink{class_g_f_grid_a8a822dbae0fa74657a7beed9761a0e89_a8a822dbae0fa74657a7beed9761a0e89}{render\+Axis\+Colors}, otherwise it will default to \hyperlink{class_g_f_grid_aa0dc7222dee5910e8df47e133f719309_aa0dc7222dee5910e8df47e133f719309}{axis\+Colors}. This is useful if you want to have different colours for rendering and drawing. For example, you could have a clearly visible grid in the editor to work with and a barely visible grid in the game while playing. 
+
+\subsection{Property Documentation}
+\hypertarget{class_g_f_grid_a6fb374bcb7d726ff28e3f14817260d6c_a6fb374bcb7d726ff28e3f14817260d6c}{\index{G\+F\+Grid@{G\+F\+Grid}!origin\+Offset@{origin\+Offset}}
+\index{origin\+Offset@{origin\+Offset}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{origin\+Offset}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Grid.\+origin\+Offset\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_grid_a6fb374bcb7d726ff28e3f14817260d6c_a6fb374bcb7d726ff28e3f14817260d6c}
+By default the origin of grids is at the world position of their game\+Object (the position of the Transform), this offset allows you to move the grid's pivot point by adding a value to it. Keep in mind how this will affect the various grid coordinate systems, they are still relative to the grid's origin, not the Transform.
+
+In other words, if a point at grid position (1, 2, 0) is at world position (4, 5, 0) and you add an offset of (1, 1, 0), then point's grid position will still be (1, 2, 0), but its world position will be (5, 6, 0). Here is an example\+: 
+\begin{DoxyCode}
+\hyperlink{class_g_f_grid}{GFGrid} myGrid;
+Vector3 gPos = \textcolor{keyword}{new} Vector3 (1, 2, 3);
+Vector3 wPos = myGrid.GridToWorld (gPos); 
+Debug.Log (wPos); \textcolor{comment}{// prints (4, 5, 0)}
+
+myGrid.pivotOffset = \textcolor{keyword}{new} Vector3 (1, 1, 0);
+wPos = myGrid.GridToWorld (gPos); 
+Debug.Log (wPos); \textcolor{comment}{// prints (5, 6, 0)}
+\end{DoxyCode}
+ \hypertarget{class_g_f_grid_a65d207e3957240c935645db01a199419_a65d207e3957240c935645db01a199419}{\index{G\+F\+Grid@{G\+F\+Grid}!relative\+Size@{relative\+Size}}
+\index{relative\+Size@{relative\+Size}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{relative\+Size}]{\setlength{\rightskip}{0pt plus 5cm}bool G\+F\+Grid.\+relative\+Size\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_grid_a65d207e3957240c935645db01a199419_a65d207e3957240c935645db01a199419}
+{\ttfamily true} if the grid's size is in grid coordinates; {\ttfamily false} if it's in world coordinates.
+
+Set this to {\ttfamily true} if you want the drawing to have relative size, i.\+e. to scale with the spacing/radius or whatever the specific grid uses. Otherwise set it to {\ttfamily false}.
+
+See also\+: \hyperlink{class_g_f_grid_a336f54e5b5f677871876dc3d90cc611d_a336f54e5b5f677871876dc3d90cc611d}{size}, \hyperlink{class_g_f_grid_a4556eac3905975b9024addb169c629d8_a4556eac3905975b9024addb169c629d8}{render\+From}, \hyperlink{class_g_f_grid_af9ec4b040505718f58a7841087d9b72a_af9ec4b040505718f58a7841087d9b72a}{render\+To} \hypertarget{class_g_f_grid_a4556eac3905975b9024addb169c629d8_a4556eac3905975b9024addb169c629d8}{\index{G\+F\+Grid@{G\+F\+Grid}!render\+From@{render\+From}}
+\index{render\+From@{render\+From}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{render\+From}]{\setlength{\rightskip}{0pt plus 5cm}virtual Vector3 G\+F\+Grid.\+render\+From\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_grid_a4556eac3905975b9024addb169c629d8_a4556eac3905975b9024addb169c629d8}
+Custom lower limit for drawing and rendering.
+
+When using a custom rendering range this is the lower left backward limit of the rendering and drawing.
+
+See also\+: \hyperlink{class_g_f_grid_a65d207e3957240c935645db01a199419_a65d207e3957240c935645db01a199419}{relative\+Size}, \hyperlink{class_g_f_grid_acb950aa31097c85e153cd9a642900a31_acb950aa31097c85e153cd9a642900a31}{use\+Custom\+Render\+Range}, \hyperlink{class_g_f_grid_af9ec4b040505718f58a7841087d9b72a_af9ec4b040505718f58a7841087d9b72a}{render\+To} \hypertarget{class_g_f_grid_a6712a2e6fec379ea55a0a53ca5867216_a6712a2e6fec379ea55a0a53ca5867216}{\index{G\+F\+Grid@{G\+F\+Grid}!render\+Line\+Width@{render\+Line\+Width}}
+\index{render\+Line\+Width@{render\+Line\+Width}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{render\+Line\+Width}]{\setlength{\rightskip}{0pt plus 5cm}int G\+F\+Grid.\+render\+Line\+Width\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_grid_a6712a2e6fec379ea55a0a53ca5867216_a6712a2e6fec379ea55a0a53ca5867216}
+The width of the render line.
+
+The width of the rendered lines, if it is set to 1 all lines will be one pixel wide, otherwise they will have the specified width in world units. \hypertarget{class_g_f_grid_af9ec4b040505718f58a7841087d9b72a_af9ec4b040505718f58a7841087d9b72a}{\index{G\+F\+Grid@{G\+F\+Grid}!render\+To@{render\+To}}
+\index{render\+To@{render\+To}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{render\+To}]{\setlength{\rightskip}{0pt plus 5cm}virtual Vector3 G\+F\+Grid.\+render\+To\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_grid_af9ec4b040505718f58a7841087d9b72a_af9ec4b040505718f58a7841087d9b72a}
+Custom upper limit for drawing and rendering.
+
+When using a custom rendering range this is the upper right forward limit of the rendering and drawing.
+
+See also\+: \hyperlink{class_g_f_grid_a65d207e3957240c935645db01a199419_a65d207e3957240c935645db01a199419}{relative\+Size}, \hyperlink{class_g_f_grid_acb950aa31097c85e153cd9a642900a31_acb950aa31097c85e153cd9a642900a31}{use\+Custom\+Render\+Range}, \hyperlink{class_g_f_grid_a4556eac3905975b9024addb169c629d8_a4556eac3905975b9024addb169c629d8}{render\+From} \hypertarget{class_g_f_grid_a336f54e5b5f677871876dc3d90cc611d_a336f54e5b5f677871876dc3d90cc611d}{\index{G\+F\+Grid@{G\+F\+Grid}!size@{size}}
+\index{size@{size}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}virtual Vector3 G\+F\+Grid.\+size\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_grid_a336f54e5b5f677871876dc3d90cc611d_a336f54e5b5f677871876dc3d90cc611d}
+The size of the grid's visual representation.
+
+Defines the size of the drawing and rendering of the grid. Keep in mind that the grid is infinitely large, the drawing is just a visual representation, stretching on all three directions from the origin. The size is either absolute or relative to the grid's other parameters, depending on the value of \hyperlink{class_g_f_grid_a65d207e3957240c935645db01a199419_a65d207e3957240c935645db01a199419}{relative\+Size}.
+
+If you set \hyperlink{class_g_f_grid_acb950aa31097c85e153cd9a642900a31_acb950aa31097c85e153cd9a642900a31}{use\+Custom\+Render\+Range} to {\ttfamily true} that range will override this member. The size is either absolute or relative to the grid's other parameters, depending on the value of \hyperlink{class_g_f_grid_a65d207e3957240c935645db01a199419_a65d207e3957240c935645db01a199419}{relative\+Size}.
+
+See also\+: \hyperlink{class_g_f_grid_a65d207e3957240c935645db01a199419_a65d207e3957240c935645db01a199419}{relative\+Size}, \hyperlink{class_g_f_grid_acb950aa31097c85e153cd9a642900a31_acb950aa31097c85e153cd9a642900a31}{use\+Custom\+Render\+Range} \hypertarget{class_g_f_grid_acb950aa31097c85e153cd9a642900a31_acb950aa31097c85e153cd9a642900a31}{\index{G\+F\+Grid@{G\+F\+Grid}!use\+Custom\+Render\+Range@{use\+Custom\+Render\+Range}}
+\index{use\+Custom\+Render\+Range@{use\+Custom\+Render\+Range}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{use\+Custom\+Render\+Range}]{\setlength{\rightskip}{0pt plus 5cm}bool G\+F\+Grid.\+use\+Custom\+Render\+Range\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_grid_acb950aa31097c85e153cd9a642900a31_acb950aa31097c85e153cd9a642900a31}
+{\ttfamily true} if using a custom range for rendering and drawing; otherwise, {\ttfamily false}.
+
+If this flag is set to {\ttfamily true} the grid rendering and drawing will use the values of \hyperlink{class_g_f_grid_a4556eac3905975b9024addb169c629d8_a4556eac3905975b9024addb169c629d8}{render\+From} and \hyperlink{class_g_f_grid_af9ec4b040505718f58a7841087d9b72a_af9ec4b040505718f58a7841087d9b72a}{render\+To} as limits. Otherwise it will use the \hyperlink{class_g_f_grid_a336f54e5b5f677871876dc3d90cc611d_a336f54e5b5f677871876dc3d90cc611d}{size} instead. 
+
+\subsection{Event Documentation}
+\hypertarget{class_g_f_grid_af3bfbed41ba24f963e871921c663f1f8_af3bfbed41ba24f963e871921c663f1f8}{\index{G\+F\+Grid@{G\+F\+Grid}!Grid\+Changed\+Event@{Grid\+Changed\+Event}}
+\index{Grid\+Changed\+Event@{Grid\+Changed\+Event}!G\+F\+Grid@{G\+F\+Grid}}
+\subsubsection[{Grid\+Changed\+Event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Grid\+Changed\+Delegate} G\+F\+Grid.\+Grid\+Changed\+Event}}\label{class_g_f_grid_af3bfbed41ba24f963e871921c663f1f8_af3bfbed41ba24f963e871921c663f1f8}
+This is the event that gets fired when one of the grid's properties is changed. If the Transform (position or rotation) is changed this event will only be fired if there is a camera trying to render the grid or some other method tries to draw the gird (like drawing in the editor or calling \hyperlink{class_g_f_grid_a21a5ed4cfa330e04e6ce8c951744b839_a21a5ed4cfa330e04e6ce8c951744b839}{Get\+Vectrosity\+Points}). You can learn more about events ont he \hyperlink{events}{Events} page of the user manual. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+G\+F\+Grid.\+cs\end{DoxyCompactItemize}

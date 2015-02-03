@@ -1,0 +1,312 @@
+\hypertarget{class_g_f_rect_grid}{\section{G\+F\+Rect\+Grid Class Reference}
+\label{class_g_f_rect_grid}\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+}
+
+
+A standard three-\/dimensional rectangular grid. 
+
+
+Inheritance diagram for G\+F\+Rect\+Grid\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_g_f_rect_grid}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override Vector3 \hyperlink{class_g_f_rect_grid_ac668541585726a76ba85d1e15ca45753_ac668541585726a76ba85d1e15ca45753}{World\+To\+Grid} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Converts world coordinates to grid coordinates.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_rect_grid_acdc111b97728b0fef0c32e2d96d59f90_acdc111b97728b0fef0c32e2d96d59f90}{Grid\+To\+World} (Vector3 grid\+Point)
+\begin{DoxyCompactList}\small\item\em Converts grid coordinates to world coordinates.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_rect_grid_a5c6ed872be90dad1f7868576d513fa05_a5c6ed872be90dad1f7868576d513fa05}{Nearest\+Vertex\+W} (Vector3 world\+Point, bool do\+Debug)
+\item 
+override Vector3 \hyperlink{class_g_f_rect_grid_a8a81dba8cdb3224a5e3952f903c80d31_a8a81dba8cdb3224a5e3952f903c80d31}{Nearest\+Face\+W} (Vector3 world\+Point, \hyperlink{namespace_grid_framework_aa55de93079e09bd55c4cb660025820d5_aa55de93079e09bd55c4cb660025820d5}{Grid\+Plane} plane, bool do\+Debug)
+\begin{DoxyCompactList}\small\item\em Returns the world position of the nearest face.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_rect_grid_a36755945173349f1d24c3a41092bc6f4_a36755945173349f1d24c3a41092bc6f4}{Nearest\+Box\+W} (Vector3 world\+Point, bool do\+Debug)
+\begin{DoxyCompactList}\small\item\em Returns the world position of the nearest box.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_rect_grid_a9077b997603860bf0544ceed66325109_a9077b997603860bf0544ceed66325109}{Nearest\+Vertex\+G} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Returns the grid position of the nearest vertex.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_rect_grid_aeda4f7e218bf92e1cc1361913569fabb_aeda4f7e218bf92e1cc1361913569fabb}{Nearest\+Face\+G} (Vector3 world\+Point, \hyperlink{namespace_grid_framework_aa55de93079e09bd55c4cb660025820d5_aa55de93079e09bd55c4cb660025820d5}{Grid\+Plane} plane)
+\begin{DoxyCompactList}\small\item\em Returns the grid position of the nearest face.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_rect_grid_a97bcb6df6296fac0bcf92c9d8908df00_a97bcb6df6296fac0bcf92c9d8908df00}{Nearest\+Box\+G} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Returns the grid position of the nearest box.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_rect_grid_a26011b42493622436cd9a86516b82687_a26011b42493622436cd9a86516b82687}{Align\+Vector3} (Vector3 pos, Vector3 scale, \hyperlink{class_grid_framework_1_1_vectors_1_1_bool_vector3}{Bool\+Vector3} ignore\+Axis)
+\begin{DoxyCompactList}\small\item\em Fits a position vector into the grid.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_rect_grid_a31346980b7fc37aea46e750958c67963_a31346980b7fc37aea46e750958c67963}{Scale\+Vector3} (Vector3 scl, \hyperlink{class_grid_framework_1_1_vectors_1_1_bool_vector3}{Bool\+Vector3} ignore\+Axis)
+\begin{DoxyCompactList}\small\item\em Scales a size to fit inside the grid.\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Vector3 \hyperlink{class_g_f_rect_grid_a149aa6bd8f08def54ce1b9dd843b6421_a149aa6bd8f08def54ce1b9dd843b6421}{spacing}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em How large the grid boxes are.\end{DoxyCompactList}\item 
+\hyperlink{class_grid_framework_1_1_vectors_1_1_vector6}{Vector6} \hyperlink{class_g_f_rect_grid_af0534ff36d0058a2b00ea898c9ceadf6_af0534ff36d0058a2b00ea898c9ceadf6}{shearing}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em How the axes are sheared.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_rect_grid_acaaffd9ca33010bfb39b1b032b283d81_acaaffd9ca33010bfb39b1b032b283d81}{right}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Direction along the X-\/axis of the grid in world space.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_rect_grid_a4e395afadccb994ea1faff1bdf9d7416_a4e395afadccb994ea1faff1bdf9d7416}{up}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Direction along the Y-\/axis of the grid in world space.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_rect_grid_a64e371af00fca22f78362473730d4919_a64e371af00fca22f78362473730d4919}{forward}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Direction along the Z-\/axis of the grid in world space.\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Your standard rectangular grid, the characterising values is its spacing, which can be set for each axis individually. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_g_f_rect_grid_a26011b42493622436cd9a86516b82687_a26011b42493622436cd9a86516b82687}{\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}!Align\+Vector3@{Align\+Vector3}}
+\index{Align\+Vector3@{Align\+Vector3}!G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+\subsubsection[{Align\+Vector3}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Rect\+Grid.\+Align\+Vector3 (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{pos, }
+\item[{Vector3}]{scale, }
+\item[{{\bf Bool\+Vector3}}]{ignore\+Axis}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_rect_grid_a26011b42493622436cd9a86516b82687_a26011b42493622436cd9a86516b82687}
+\begin{DoxyReturn}{Returns}
+Aligned position vector.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position to align.\\
+\hline
+{\em scale} & A simulated scale to decide how exactly to fit the poistion into the grid.\\
+\hline
+{\em ignore\+Axis} & Which axes should be ignored.\\
+\hline
+\end{DoxyParams}
+
+
+This method aligns a point to the grid. The {\itshape scale} parameter is needed to simulate the “size” of point, which influences the resulting position like the scale of a Transform would do above. By default it’s set to one on all axes, placing the point at the centre of a box. If a component of {\ttfamily scale} is odd that component of the vector will be placed between edges, otherwise it will be placed on the nearest edge. The {\ttfamily lock\+Axis} parameter lets you ignore individual axes. 
+
+Implements \hyperlink{class_g_f_grid_a18b3e57431dc0db8f651479e4fb04a8f_a18b3e57431dc0db8f651479e4fb04a8f}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_rect_grid_acdc111b97728b0fef0c32e2d96d59f90_acdc111b97728b0fef0c32e2d96d59f90}{\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}!Grid\+To\+World@{Grid\+To\+World}}
+\index{Grid\+To\+World@{Grid\+To\+World}!G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+\subsubsection[{Grid\+To\+World}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Rect\+Grid.\+Grid\+To\+World (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{grid\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_rect_grid_acdc111b97728b0fef0c32e2d96d59f90_acdc111b97728b0fef0c32e2d96d59f90}
+\begin{DoxyReturn}{Returns}
+World coordinates of the Grid point.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em grid\+Point} & Point in grid space.\\
+\hline
+\end{DoxyParams}
+
+
+The opposite of \hyperlink{class_g_f_rect_grid_ac668541585726a76ba85d1e15ca45753_ac668541585726a76ba85d1e15ca45753}{World\+To\+Grid}, this returns the world position of a point in the grid. The origin of the grid is the world position of its Game\+Object and its axes lie on the corresponding axes of the Transform. Rotation is taken into account for this operation. 
+
+Implements \hyperlink{class_g_f_grid_af32d7bfcecb5da3fdc47b972b551e33e_af32d7bfcecb5da3fdc47b972b551e33e}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_rect_grid_a97bcb6df6296fac0bcf92c9d8908df00_a97bcb6df6296fac0bcf92c9d8908df00}{\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}!Nearest\+Box\+G@{Nearest\+Box\+G}}
+\index{Nearest\+Box\+G@{Nearest\+Box\+G}!G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+\subsubsection[{Nearest\+Box\+G}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Rect\+Grid.\+Nearest\+Box\+G (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_rect_grid_a97bcb6df6296fac0bcf92c9d8908df00_a97bcb6df6296fac0bcf92c9d8908df00}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest box.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to {\ttfamily \hyperlink{class_g_f_rect_grid_a36755945173349f1d24c3a41092bc6f4_a36755945173349f1d24c3a41092bc6f4}{Nearest\+Box\+W}}, except you get grid coordinates instead of world coordinates. Since faces lie between vertices all three values will always have +0.5 compared to vertex coordinates.  Example\+: {\ttfamily  \hyperlink{class_g_f_rect_grid}{G\+F\+Rect\+Grid} my\+Grid; Vector3 world\+Point; Vector3 box = my\+Grid.\+Nearest\+Box\+G(world\+Point); // something like (2.\+5, -\/1.\+5, 3.\+5) } 
+
+Implements \hyperlink{class_g_f_grid_adb7c70449b2449c1e82132e6300cc1a5_adb7c70449b2449c1e82132e6300cc1a5}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_rect_grid_a36755945173349f1d24c3a41092bc6f4_a36755945173349f1d24c3a41092bc6f4}{\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}!Nearest\+Box\+W@{Nearest\+Box\+W}}
+\index{Nearest\+Box\+W@{Nearest\+Box\+W}!G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+\subsubsection[{Nearest\+Box\+W}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Rect\+Grid.\+Nearest\+Box\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point, }
+\item[{bool}]{do\+Debug}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_rect_grid_a36755945173349f1d24c3a41092bc6f4_a36755945173349f1d24c3a41092bc6f4}
+\begin{DoxyReturn}{Returns}
+World position of the nearest box.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+{\em do\+Debug} & Whether to draw a small debug sphere at the box.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to \hyperlink{class_g_f_rect_grid_a5c6ed872be90dad1f7868576d513fa05_a5c6ed872be90dad1f7868576d513fa05}{Nearest\+Vertex\+W}, it returns the world coordinates of a box in the grid. Since the box is enclosed by eight vertices, the returned value is the point in between all eight of them. If {\ttfamily do\+Debug} is set a small gizmo box will drawn inside the box. 
+
+Implements \hyperlink{class_g_f_grid_a02fcf02269ca5a2064acccecde9819eb_a02fcf02269ca5a2064acccecde9819eb}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_rect_grid_aeda4f7e218bf92e1cc1361913569fabb_aeda4f7e218bf92e1cc1361913569fabb}{\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}!Nearest\+Face\+G@{Nearest\+Face\+G}}
+\index{Nearest\+Face\+G@{Nearest\+Face\+G}!G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+\subsubsection[{Nearest\+Face\+G}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Rect\+Grid.\+Nearest\+Face\+G (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point, }
+\item[{{\bf Grid\+Plane}}]{plane}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_rect_grid_aeda4f7e218bf92e1cc1361913569fabb_aeda4f7e218bf92e1cc1361913569fabb}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest face.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+{\em plane} & Plane on which the face lies.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to \hyperlink{class_g_f_rect_grid_a8a81dba8cdb3224a5e3952f903c80d31_a8a81dba8cdb3224a5e3952f903c80d31}{Nearest\+Face\+W}, except you get grid coordinates instead of world coordinates. Since faces lie between vertices two values will always have +0.5 compared to vertex coordinates, while the values that lies on the plane will have a round number.  Example\+: {\ttfamily  \hyperlink{class_g_f_rect_grid}{G\+F\+Rect\+Grid} my\+Grid; Vector3 world\+Point; Vector3 face = my\+Grid.\+Nearest\+Face\+G(world\+Point, G\+F\+Grid.\+Grid\+Plane.\+X\+Y); // something like (2.\+5, -\/1.\+5, 3) } 
+
+Implements \hyperlink{class_g_f_grid_aac129f3df1da5cdbc31143ecc7db35d2_aac129f3df1da5cdbc31143ecc7db35d2}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_rect_grid_a8a81dba8cdb3224a5e3952f903c80d31_a8a81dba8cdb3224a5e3952f903c80d31}{\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}!Nearest\+Face\+W@{Nearest\+Face\+W}}
+\index{Nearest\+Face\+W@{Nearest\+Face\+W}!G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+\subsubsection[{Nearest\+Face\+W}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Rect\+Grid.\+Nearest\+Face\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point, }
+\item[{{\bf Grid\+Plane}}]{plane, }
+\item[{bool}]{do\+Debug}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_rect_grid_a8a81dba8cdb3224a5e3952f903c80d31_a8a81dba8cdb3224a5e3952f903c80d31}
+\begin{DoxyReturn}{Returns}
+World position of the nearest face.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+{\em plane} & Plane on which the face lies.\\
+\hline
+{\em do\+Debug} & Whether to draw a small debug sphere at the vertex.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to \hyperlink{class_g_f_rect_grid_a5c6ed872be90dad1f7868576d513fa05_a5c6ed872be90dad1f7868576d513fa05}{Nearest\+Vertex\+W}, it returns the world coordinates of a face on the grid. Since the face is enclosed by four vertices, the returned value is the point in between all four of the vertices. You also need to specify on which plane the face lies. If {\ttfamily do\+Debug} is set a small gizmo face will drawn inside the face. 
+
+Implements \hyperlink{class_g_f_grid_ae8711b08c90871f6e88800a30ff5077f_ae8711b08c90871f6e88800a30ff5077f}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_rect_grid_a9077b997603860bf0544ceed66325109_a9077b997603860bf0544ceed66325109}{\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}!Nearest\+Vertex\+G@{Nearest\+Vertex\+G}}
+\index{Nearest\+Vertex\+G@{Nearest\+Vertex\+G}!G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+\subsubsection[{Nearest\+Vertex\+G}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Rect\+Grid.\+Nearest\+Vertex\+G (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_rect_grid_a9077b997603860bf0544ceed66325109_a9077b997603860bf0544ceed66325109}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest vertex.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to {\ttfamily \hyperlink{class_g_f_rect_grid_a5c6ed872be90dad1f7868576d513fa05_a5c6ed872be90dad1f7868576d513fa05}{Nearest\+Vertex\+W}}, except you get grid coordinates instead of world coordinates. 
+
+Implements \hyperlink{class_g_f_grid_a7eaa2821cf118bb4821bd2cbf40029da_a7eaa2821cf118bb4821bd2cbf40029da}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_rect_grid_a5c6ed872be90dad1f7868576d513fa05_a5c6ed872be90dad1f7868576d513fa05}{\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}!Nearest\+Vertex\+W@{Nearest\+Vertex\+W}}
+\index{Nearest\+Vertex\+W@{Nearest\+Vertex\+W}!G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+\subsubsection[{Nearest\+Vertex\+W}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Rect\+Grid.\+Nearest\+Vertex\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point, }
+\item[{bool}]{do\+Debug}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_rect_grid_a5c6ed872be90dad1f7868576d513fa05_a5c6ed872be90dad1f7868576d513fa05}
+Returns the world position of the nearest vertex from a given point in world space. If {\ttfamily do\+Debug} is set a small gizmo sphere will be drawn at the vertex position. 
+
+Implements \hyperlink{class_g_f_grid_a5865880fa767bf5562301bca419b8bb9_a5865880fa767bf5562301bca419b8bb9}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_rect_grid_a31346980b7fc37aea46e750958c67963_a31346980b7fc37aea46e750958c67963}{\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}!Scale\+Vector3@{Scale\+Vector3}}
+\index{Scale\+Vector3@{Scale\+Vector3}!G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+\subsubsection[{Scale\+Vector3}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Rect\+Grid.\+Scale\+Vector3 (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{scl, }
+\item[{{\bf Bool\+Vector3}}]{ignore\+Axis}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_rect_grid_a31346980b7fc37aea46e750958c67963_a31346980b7fc37aea46e750958c67963}
+\begin{DoxyReturn}{Returns}
+The re-\/scaled vector.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em scl} & The vector to scale.\\
+\hline
+{\em ignore\+Axis} & The axes to ignore.\\
+\hline
+\end{DoxyParams}
+
+
+Scales a size to the nearest multiple of the grid’s spacing. The parameter {\itshape ignore\+Axis} makes the function not touch the corresponding coordinate. 
+
+Implements \hyperlink{class_g_f_grid_a02b3cf14a1529355c51e0d3ea646b4f8_a02b3cf14a1529355c51e0d3ea646b4f8}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_rect_grid_ac668541585726a76ba85d1e15ca45753_ac668541585726a76ba85d1e15ca45753}{\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}!World\+To\+Grid@{World\+To\+Grid}}
+\index{World\+To\+Grid@{World\+To\+Grid}!G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+\subsubsection[{World\+To\+Grid}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Rect\+Grid.\+World\+To\+Grid (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_rect_grid_ac668541585726a76ba85d1e15ca45753_ac668541585726a76ba85d1e15ca45753}
+\begin{DoxyReturn}{Returns}
+Grid coordinates of the world point.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+Takes in a position in wold space and calculates where in the grid that position is. The origin of the grid is the world position of its Game\+Object and its axes lie on the corresponding axes of the Transform. Rotation is taken into account for this operation. 
+
+Implements \hyperlink{class_g_f_grid_a3c424ac71404a8c87a958b5b5952eb0f_a3c424ac71404a8c87a958b5b5952eb0f}{G\+F\+Grid}.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{class_g_f_rect_grid_a64e371af00fca22f78362473730d4919_a64e371af00fca22f78362473730d4919}{\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}!forward@{forward}}
+\index{forward@{forward}!G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+\subsubsection[{forward}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Rect\+Grid.\+forward\hspace{0.3cm}{\ttfamily [get]}}}\label{class_g_f_rect_grid_a64e371af00fca22f78362473730d4919_a64e371af00fca22f78362473730d4919}
+Unit vector in grid scale along the grid's Z-\/axis.
+
+The Z-\/axis of the grid in world space. This is a shorthand writing for {\ttfamily spacing.\+z $\ast$ transform.\+forward}. The value is read-\/only. \hypertarget{class_g_f_rect_grid_acaaffd9ca33010bfb39b1b032b283d81_acaaffd9ca33010bfb39b1b032b283d81}{\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}!right@{right}}
+\index{right@{right}!G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+\subsubsection[{right}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Rect\+Grid.\+right\hspace{0.3cm}{\ttfamily [get]}}}\label{class_g_f_rect_grid_acaaffd9ca33010bfb39b1b032b283d81_acaaffd9ca33010bfb39b1b032b283d81}
+Unit vector in grid scale along the grid's X-\/axis.
+
+The X-\/axis of the grid in world space. This is a shorthand writing for {\ttfamily spacing.\+x $\ast$ transform.\+right}. The value is read-\/only. \hypertarget{class_g_f_rect_grid_af0534ff36d0058a2b00ea898c9ceadf6_af0534ff36d0058a2b00ea898c9ceadf6}{\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}!shearing@{shearing}}
+\index{shearing@{shearing}!G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+\subsubsection[{shearing}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector6} G\+F\+Rect\+Grid.\+shearing\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_rect_grid_af0534ff36d0058a2b00ea898c9ceadf6_af0534ff36d0058a2b00ea898c9ceadf6}
+Shearing vector of the grid.
+
+How much the individual axes of the grid are skewed towards each other. For instance, this means the if {\itshape X\+Y} is set to {\itshape 2}, then for each point with grid coordinates \+\_\+(x, y)\+\_\+ will be mapped to \+\_\+(x, y + 2x)\+\_\+, while the uninvolved {\itshape Z} coordinate remains the same. For more information refer to the manual. \hypertarget{class_g_f_rect_grid_a149aa6bd8f08def54ce1b9dd843b6421_a149aa6bd8f08def54ce1b9dd843b6421}{\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}!spacing@{spacing}}
+\index{spacing@{spacing}!G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+\subsubsection[{spacing}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Rect\+Grid.\+spacing\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_rect_grid_a149aa6bd8f08def54ce1b9dd843b6421_a149aa6bd8f08def54ce1b9dd843b6421}
+The spacing of the grid.
+
+How far apart the lines of the grid are. You can set each axis separately, but none may be less than 0.\+1, in order to prevent values that don't make any sense. \hypertarget{class_g_f_rect_grid_a4e395afadccb994ea1faff1bdf9d7416_a4e395afadccb994ea1faff1bdf9d7416}{\index{G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}!up@{up}}
+\index{up@{up}!G\+F\+Rect\+Grid@{G\+F\+Rect\+Grid}}
+\subsubsection[{up}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Rect\+Grid.\+up\hspace{0.3cm}{\ttfamily [get]}}}\label{class_g_f_rect_grid_a4e395afadccb994ea1faff1bdf9d7416_a4e395afadccb994ea1faff1bdf9d7416}
+Unit vector in grid scale along the grid's Y-\/axis.
+
+The Y-\/axis of the grid in world space. This is a shorthand writing for {\ttfamily spacing.\+y $\ast$ transform.\+up}. The value is read-\/only. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+G\+F\+Rect\+Grid.\+cs\end{DoxyCompactItemize}

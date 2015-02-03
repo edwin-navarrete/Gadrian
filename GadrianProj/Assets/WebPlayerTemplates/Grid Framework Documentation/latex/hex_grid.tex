@@ -1,0 +1,77 @@
+\subsection*{The \hyperlink{class_g_f_hex_grid}{G\+F\+Hex\+Grid} class }
+
+Hex grids resemble honeycomb patterns, they are composed of regular hexagons arranged in such a way that each hex shares an edge with another hex. The distance between two neighbouring hexes is always the same, unlike rectangular grids where two rectangles can be diagonal to each other.
+
+
+
+The size of a hex is determined by the grid’s {\ttfamily radius}, the distance between the centre of a hex and one of its vertices. A honeycomb pattern is two-\/dimensional and the grid’s {\ttfamily grid\+Plane} determines whether it’s an X\+Y-\/, X\+Z-\/ or Y\+Z grid. These honeycomb patterns are then stacked on top each other, the distance between two of them being defined by the grid’s {\ttfamily depth}, to form a 3\+D grid.
+
+
+
+The angle between two vertices is always 60° or 2/3π. The distance between opposite vertices is twice the radius. The distance between adjacent hexes is the same as the distance between adjacent edges, {\ttfamily sqrt(3)$\ast$radius}.
+
+\subsection*{Different kinds of hex grids }
+
+There are several ways to define a hex grid. For one, you can have hexes with pointy sides (default) or with flat sides. As mentioned above, you have three different grid planes. For the sake of simplicity I’ll be using the terms for X\+Y-\/grids from now on. If you have another grid plane replace X, Y and Z with the respective coordinate, meaning for a top-\/down X\+Z grid X would refer to the local “\+X”-\/ axis, “\+Y” to the local Z-\/axis and “\+Z” to the local Y-\/axis.
+
+
+
+There are multiple ways of drawing a hex grid as well\+: currently the supported patterns are rectangle, rhombus and herringbone, all in up-\/and downwards variants plus a compact one for the rectangle.
+
+\subsection*{Coordinate systems in hex grids }
+
+In rectangular grids we place the grid along the vertices, but for hex grids it’s more intuitive to use the faces instead with the central face of the central hex as the origin.
+
+Currently there are four coordinate systems available (plus world coordinates of course)\+: cubic, rhombic, upwards herringbone and downwards herringbone. I will explain the various coordinate systems and their respective advantages and disadvantages in detail below.
+
+\subsubsection*{Converting between coordinate systems}
+
+At any time you can convert between any of the coordinate systems (including world). The method to call follows the following convention\+: {\ttfamily Original\+To\+Target(point)} where {\itshape Original} and {\itshape Target} are either {\ttfamily World}, {\ttfamily Cubic}, {\ttfamily Rhombic}, {\ttfamily Herring\+U} or {\ttfamily Herring\+D} and {\itshape point} is either a Vector3 (world, rhombic or herringbone) or a Vector4 (cubic). There is also the coordinate system {\ttfamily Grid}, it is equivalent to {\ttfamily Herring\+U}.
+
+\subsubsection*{Cubic coordinates}
+
+In old games, like Qbert, the game world would appear to be in 3\+D with cubes, but it was actually in 2\+D and the cubes were actually hexagons; you could use a three dimensional coordinate system in the game and then embed it into the two dimensional plane. The cubic coordinate system follows the same idea.
+
+
+
+There are three axes, called {\itshape X}, {\itshape Y} and {\itshape Z}. At any given point their sum is always 0. This is because in a Qbert game every time we move in one of the three directions we also move away from another. Or in other words, the axes span a plane going diagonally through space, resulting in the condition.
+
+On top of that there is a fourth {\itshape W} coordinate. The first three coordinates tell us the position on the plane and the fourth coordinate tells us the distance from the central plane. It is given as a multiple of {\ttfamily depth}.
+
+This coordinate system is very nice to use, because its three-\/dimension nature fits well with the six-\/sided hexagons, just as the two-\/dimensional cartesian coordinate systems fits four-\/sided squares. Many algorithms are very easy to write this way, and that is the the reason why it is used internally in Grid Framework and all other coordinate expressions are conversions. The downside is that it can be rather awkward to understand if you are just looking for a simple coordinate system.
+
+\subsubsection*{Rhombic coordinates}
+
+Rhombic coordinates are a simplification of cubic coordinates. Instead of three axes we use only two, like in a cartesian coordinates system, but the angle between axes is 60° instead of 90°. If the hexes have pointy sides moving up moves you north and moving right moves you north-\/east. If the hexes have flat sides moving up moves you north-\/east and moving right moves you east.
+
+
+
+The third coordinate, {\itshape Z}, is again the distance from the central plane as a multiple of {\ttfamily depth}. This coordinate system is fairly intuitive and a good choice for most tasks.
+
+\subsubsection*{Herringbone coordinates}
+
+The herringbone pattern ows its name to the fact that it resembles the skeleton of a fish. One axis (Y for pointy sides and X for flat sides) is the regular cartesian axis, while the other axis zig-\/zags up and down (pointy sides) or left and right (flat sides).
+
+
+
+Whether the zig-\/zagging axis is moving up (right for flat sides) or down (left for flat sides) depends on whether the left column (lower row for flat sides) is even or odd. In upwards coordinates the odd columns are shifted upwards (left) relative to the even ones, while in the downwards coordinate system they are shifted downwards (right).
+
+While this coordinate system is {\itshape very} intuitive it raises an important issue\+: where exactly on the grid a pair of coordinates points to depends on whether it is even or odd. Let's say we have our player at (0,0) in a pointy side grid and want to move north-\/east. Then we add (1,0) to player's position. However, if we want to move north-\/east again now we have to add (1,1) to the new position, because we are now in an odd column and the X-\/axis goes downwards. Adding (0,1) would move south-\/east.
+
+If you want to use herringbone coordinates you will always have to make a distinction between even and odd cases. That's why I wouldn't recommend using this coordinate system for game mechanics such as movement. On the other hand, its rectangular structure makes it a good choice for building level maps.
+
+\subsection*{Nearest vertices, faces and boxes }
+
+The methods for finding the nearest {\itshape something} adhere to the following convention\+: {\itshape Nearest\+Something\+X (point)} where {\itshape point} is a point in world space, {\itshape something} is either {\ttfamily Vertex}, {\ttfamily Face} or {\ttfamily Box} and {\itshape X} is either {\ttfamily W} (world), {\ttfamily C} (cubic), {\ttfamily R} (rhombic), {\ttfamily H\+U} (upwards herringbone), {\ttfamily H\+D} (downwards herringbone) or {\ttfamily G} (grid, equivalent to {\ttfamily H\+U}). In rectangular grids we need to specify a {\itshape plane} for faces, here the plane of the grid is used. You can omit that parameter and even if you specify one it will be ignored.
+
+\subsection*{The plane of hex grids }
+
+As mentioned in the sections {\itshape The G\+F\+Grid\+Plane}, {\itshape The \hyperlink{class_g_f_layered_grid}{G\+F\+Layered\+Grid} class} and {\itshape Different kinds of hex grids}, hex grids can be oriented to different planes. When you are making a top-\/down game your will most likely be working on an X\+Z-\/grid and your object will move in X-\/ and Y directions. Consequently your entire game logic will be about the X-\/ and Z coordinate of their position.
+
+Therefore it makes sense that grid coordinates follow this pattern as well. The X-\/, Y-\/ and Z components of rhombic and herringbone coordinates will be mapped to their respective counterparts, i.\+e. in an X\+Z-\/grid the X coordinate stays X, the Y coordinates becomes Z and the Z coordinate becomes Y. Cubic (and later barycentric) coordinates are not affected by this, they already have more dimensions than the surrounding space, so it makes no sense to transform the embedding mapping.
+
+\subsection*{Aligning and scaling to hex grids }
+
+In the case of rectangular grids objects get aligned either on or between faces depending on whether their scale is an even or odd multiple of the spacing. In hex grids this distinction makes no sense, it's like trying to fit a square peg into a round hole, so instead the object's pivot point will be aligned with the center of the nearest hex. I also looked at other hex-\/based games and how they handled it and they used the same pivot point approach.
+
+Usually and object's pivot point is its centre, you can either change it in your 3\+D modeling application or make the object a child of an empty object and use that parent as the pivot point. 

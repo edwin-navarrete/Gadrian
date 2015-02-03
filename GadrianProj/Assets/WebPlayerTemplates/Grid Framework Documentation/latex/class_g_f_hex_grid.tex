@@ -1,0 +1,1143 @@
+\hypertarget{class_g_f_hex_grid}{\section{G\+F\+Hex\+Grid Class Reference}
+\label{class_g_f_hex_grid}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+}
+
+
+A grid consting of flat hexagonal grids stacked on top of each other 
+
+
+Inheritance diagram for G\+F\+Hex\+Grid\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_g_f_hex_grid}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_g_f_hex_grid_af3503ff5abb4dc3569875daa37dfd6e6_af3503ff5abb4dc3569875daa37dfd6e6}{Hex\+Orientation} \{ \hyperlink{class_g_f_hex_grid_af3503ff5abb4dc3569875daa37dfd6e6_af3503ff5abb4dc3569875daa37dfd6e6ae072b74647674927337f70f1f6af0666}{Hex\+Orientation.\+Pointy\+Sides}, 
+\hyperlink{class_g_f_hex_grid_af3503ff5abb4dc3569875daa37dfd6e6_af3503ff5abb4dc3569875daa37dfd6e6a94a6b60f9e84da01af0db39053695834}{Hex\+Orientation.\+Flat\+Sides}
+ \}
+\begin{DoxyCompactList}\small\item\em orientation of hexes, pointy or flat sides.\end{DoxyCompactList}\item 
+enum \hyperlink{class_g_f_hex_grid_aa82586fdc2de52a215609e48abcc265a_aa82586fdc2de52a215609e48abcc265a}{Hex\+Top\+Orientation} \{ \hyperlink{class_g_f_hex_grid_aa82586fdc2de52a215609e48abcc265a_aa82586fdc2de52a215609e48abcc265aa6474d6b6b7acbea9c60c3d0b941758ee}{Hex\+Top\+Orientation.\+Flat\+Tops}, 
+\hyperlink{class_g_f_hex_grid_aa82586fdc2de52a215609e48abcc265a_aa82586fdc2de52a215609e48abcc265aaa2350be1698837b593a283f2eaf13c36}{Hex\+Top\+Orientation.\+Pointy\+Tops}
+ \}
+\begin{DoxyCompactList}\small\item\em orientation of hexes, flat or pointy tops.\end{DoxyCompactList}\item 
+enum \hyperlink{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7}{Hex\+Grid\+Shape} \{ \\*
+\hyperlink{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7ace9291906a4c3b042650b70d7f3b152e}{Hex\+Grid\+Shape.\+Rectangle}, 
+\hyperlink{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7aced30051e070abc63cbc6d897b26c5e2}{Hex\+Grid\+Shape.\+Compact\+Rectangle}, 
+\hyperlink{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7a37fe777298b67f1b38eb7a718952df65}{Hex\+Grid\+Shape.\+Rectangle\+Down}, 
+\hyperlink{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7ad62e74b4f4bdc571fb184229772ea930}{Hex\+Grid\+Shape.\+Rhombus}, 
+\\*
+\hyperlink{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7af2ae57405fde1821d059aaf78fedcb84}{Hex\+Grid\+Shape.\+Rhombus\+Down}, 
+\hyperlink{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7a766ba0e1e70b9f2fc1204ef785859e19}{Hex\+Grid\+Shape.\+Herringbone\+Up}, 
+\hyperlink{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7a9a6695df59ef6afb4c18995c44b97875}{Hex\+Grid\+Shape.\+Herringbone\+Down}
+ \}
+\item 
+enum \hyperlink{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439f}{Hex\+Direction} \{ \\*
+\hyperlink{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa8d9c307cb7f3c4a32822a51922d1ceaa}{Hex\+Direction.\+N}, 
+\hyperlink{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fadc33066c3993e0d50896e533fd692ce0}{Hex\+Direction.\+N\+E}, 
+\hyperlink{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa3a3ea00cfc35332cedf6e5e9a32e94da}{Hex\+Direction.\+E}, 
+\hyperlink{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439faf003c44deab679aa2edfaff864c77402}{Hex\+Direction.\+S\+E}, 
+\\*
+\hyperlink{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa5dbc98dcc983a70728bd082d1a47546e}{Hex\+Direction.\+S}, 
+\hyperlink{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa6f56aa4e2561eb66f17f6d8de8070a77}{Hex\+Direction.\+S\+W}, 
+\hyperlink{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa61e9c06ea9a85a5088a499df6458d276}{Hex\+Direction.\+W}, 
+\hyperlink{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa7f39ac71e81132daad44925b3bdfde5a}{Hex\+Direction.\+N\+W}
+ \}
+\begin{DoxyCompactList}\small\item\em Cardinal direction of a vertex.\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override Vector3 \hyperlink{class_g_f_hex_grid_a476548c7582c1529de47f31ce891f4fd_a476548c7582c1529de47f31ce891f4fd}{World\+To\+Grid} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Converts world coordinates to grid coordinates.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_hex_grid_abac4ca6dba9e7ee8ed87f70cf4a7afc7_abac4ca6dba9e7ee8ed87f70cf4a7afc7}{Grid\+To\+World} (Vector3 grid\+Point)
+\begin{DoxyCompactList}\small\item\em Converts grid coordinates to world coordinates\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_aa824605cf4179ec0c45eb030496ec3fb_aa824605cf4179ec0c45eb030496ec3fb}{World\+To\+Herring\+U} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the upwards herringbone coordinates of a point in world space.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a40d8289d887c12c1fd95b3ec818ed22a_a40d8289d887c12c1fd95b3ec818ed22a}{World\+To\+Herring\+D} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the downwards herringbone coordinates of a point in world space.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a1669b77f20e1406b7d7554d45635945e_a1669b77f20e1406b7d7554d45635945e}{World\+To\+Rhombic} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the rhombic coordinates of a point in world space.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a72549876d8ef493279002dc04ecc2332_a72549876d8ef493279002dc04ecc2332}{World\+To\+Rhombic\+D} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the downwards rhombic coordinates of a point in world space.\end{DoxyCompactList}\item 
+Vector4 \hyperlink{class_g_f_hex_grid_a77f39b12ba07df6135bd28941e30d9ff_a77f39b12ba07df6135bd28941e30d9ff}{World\+To\+Cubic} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the cubic coordinates of a point in world space.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a376663e9575f6e1f3937c7f768070a5c_a376663e9575f6e1f3937c7f768070a5c}{Herring\+U\+To\+World} (Vector3 herring)
+\begin{DoxyCompactList}\small\item\em Returns the world coordinates of a point in upwards herringbone coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a261551484b05ea71dcc5b442dbf2e0f0_a261551484b05ea71dcc5b442dbf2e0f0}{Herring\+U\+To\+Herring\+D} (Vector3 herring)
+\begin{DoxyCompactList}\small\item\em Returns the downwards herringbone coordinates of a point in upwards-\/ coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a5352c5998878b421c1d117958ca2591d_a5352c5998878b421c1d117958ca2591d}{Herring\+U\+To\+Rhombic} (Vector3 herring)
+\begin{DoxyCompactList}\small\item\em Returns the rhombic coordinates of a point in upwards herringbone coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_aff4d8a69e8a6dca3c4364338e5fef855_aff4d8a69e8a6dca3c4364338e5fef855}{Herring\+U\+To\+Rhombic\+D} (Vector3 herring)
+\begin{DoxyCompactList}\small\item\em Returns the downwards rhombic coordinates of a point in upwards herringbone coordinates.\end{DoxyCompactList}\item 
+Vector4 \hyperlink{class_g_f_hex_grid_af755aa27158a1b137c1f45b65a780d03_af755aa27158a1b137c1f45b65a780d03}{Herring\+U\+To\+Cubic} (Vector3 herring)
+\begin{DoxyCompactList}\small\item\em Returns the cubic coordinates of a point in upwards herringbone coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a23e68e317c4004a146e2cbafb6bc56c0_a23e68e317c4004a146e2cbafb6bc56c0}{Herring\+D\+To\+World} (Vector3 herring)
+\begin{DoxyCompactList}\small\item\em Returns the world coordinates of a point in downwards herringbone coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_ab68b4ecc340f6014bba1ac6851921c34_ab68b4ecc340f6014bba1ac6851921c34}{Herring\+D\+To\+Herring\+U} (Vector3 herring)
+\begin{DoxyCompactList}\small\item\em Returns the upwards herringbone coordinates of a point in downwards-\/ coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a9113159acea48cf847a3e8e50828bbf7_a9113159acea48cf847a3e8e50828bbf7}{Herring\+D\+To\+Rhombic} (Vector3 herring)
+\begin{DoxyCompactList}\small\item\em Returns the rhombic coordinates of a point in downwards herringbone coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a8ee594b22885339e63dfcefc9efe90b5_a8ee594b22885339e63dfcefc9efe90b5}{Herring\+D\+To\+Rhombic\+D} (Vector3 herring)
+\begin{DoxyCompactList}\small\item\em Returns the downwards rhombic coordinates of a point in downwards herringbone coordinates.\end{DoxyCompactList}\item 
+Vector4 \hyperlink{class_g_f_hex_grid_a0105d03d663f6e3086d0a6a0cde650f5_a0105d03d663f6e3086d0a6a0cde650f5}{Herring\+D\+To\+Cubic} (Vector3 herring)
+\begin{DoxyCompactList}\small\item\em Returns the cubic coordinates of a point in downwards herringbone coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_af8215888f6f22eccc2da17f0984fb5c1_af8215888f6f22eccc2da17f0984fb5c1}{Rhombic\+To\+World} (Vector3 rhombic)
+\begin{DoxyCompactList}\small\item\em Returns the world coordinates of a point in rhombic coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a95e3f6b72b073af645cd7ebe301a133c_a95e3f6b72b073af645cd7ebe301a133c}{Rhombic\+To\+Herring\+U} (Vector3 rhombic)
+\begin{DoxyCompactList}\small\item\em Returns the upwards herringbone coordinates of a point in rhombic coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_ad7bf26ea21e55594a011899d72a1a305_ad7bf26ea21e55594a011899d72a1a305}{Rhombic\+To\+Rhombic\+D} (Vector3 rhombic)
+\begin{DoxyCompactList}\small\item\em Returns the downwards rhombic coordinates of a point in rhombic coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a3d2722a9ce23d0769ae92812ecdecb34_a3d2722a9ce23d0769ae92812ecdecb34}{Rhombic\+To\+Herring\+D} (Vector3 rhombic)
+\begin{DoxyCompactList}\small\item\em Returns the downwards herringbone coordinates of a point in rhombic coordinates.\end{DoxyCompactList}\item 
+Vector4 \hyperlink{class_g_f_hex_grid_a1ff9f3d11d707bc0d434d07a2df92549_a1ff9f3d11d707bc0d434d07a2df92549}{Rhombic\+To\+Cubic} (Vector3 rhombic)
+\begin{DoxyCompactList}\small\item\em Returns the cubic coordinates of a point in rhombic coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_aae1b996c067ade686279c48f6588cf08_aae1b996c067ade686279c48f6588cf08}{Rhombic\+D\+To\+World} (Vector3 rhombic)
+\begin{DoxyCompactList}\small\item\em Returns the world coordinates of a point in downwards rhombic coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a0f748078789813bf09541328e0aaae53_a0f748078789813bf09541328e0aaae53}{Rhombic\+D\+To\+Herring\+U} (Vector3 rhombic)
+\begin{DoxyCompactList}\small\item\em Returns the upwards herringbone coordinates of a point in downwards rhombic coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a17af97050751d292ba61ac0629243da0_a17af97050751d292ba61ac0629243da0}{Rhombic\+D\+To\+Herring\+D} (Vector3 rhombic)
+\begin{DoxyCompactList}\small\item\em Returns the downwards herringbone coordinates of a point in downwards rhombic coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a92465d198faca2652e51c726acb94efe_a92465d198faca2652e51c726acb94efe}{Rhombic\+D\+To\+Rhombic} (Vector3 rhombic)
+\begin{DoxyCompactList}\small\item\em Returns the downwards herringbone coordinates of a point in downwards rhombic coordinates.\end{DoxyCompactList}\item 
+Vector4 \hyperlink{class_g_f_hex_grid_a5e48d303cdd36b6621c572152123183b_a5e48d303cdd36b6621c572152123183b}{Rhombic\+D\+To\+Cubic} (Vector3 rhombic)
+\begin{DoxyCompactList}\small\item\em Returns the cubic coordinates of a point in downwards rhombic coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a7a59e6279ccbb14fbae1a053395b14ae_a7a59e6279ccbb14fbae1a053395b14ae}{Cubic\+To\+World} (Vector4 cubic)
+\begin{DoxyCompactList}\small\item\em Returns the world coordinates of a point in cubic coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a72c80c9cc6baa0183cc023d069049370_a72c80c9cc6baa0183cc023d069049370}{Cubic\+To\+Herring\+U} (Vector4 cubic)
+\begin{DoxyCompactList}\small\item\em Returns the upwards herring coordinates of a point in cubic coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a397fa739ccb7cd8fd68c82203bc2838a_a397fa739ccb7cd8fd68c82203bc2838a}{Cubic\+To\+Rhombic} (Vector4 cubic)
+\begin{DoxyCompactList}\small\item\em Returns the rhombic coordinates of a point in cubic coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a9f918153c4d8b1092bb5b32c91e88ee5_a9f918153c4d8b1092bb5b32c91e88ee5}{Cubic\+To\+Rhombic\+D} (Vector4 cubic)
+\begin{DoxyCompactList}\small\item\em Returns the downwards rhombic coordinates of a point in cubic coordinates.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_hex_grid_aa3e803a3567facf12848c80698ae72ae_aa3e803a3567facf12848c80698ae72ae}{Nearest\+Vertex\+W} (Vector3 world, bool do\+Debug=false)
+\begin{DoxyCompactList}\small\item\em Returns the world coordinates of the nearest vertex.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_hex_grid_ad8c205a56bc277236e0c3d1c6cb44845_ad8c205a56bc277236e0c3d1c6cb44845}{Nearest\+Face\+W} (Vector3 world, bool do\+Debug)
+\begin{DoxyCompactList}\small\item\em Returns the world coordinates of the nearest face.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_hex_grid_a58ce4a0c91753d5457c4df0ebaac90a9_a58ce4a0c91753d5457c4df0ebaac90a9}{Nearest\+Box\+W} (Vector3 from\+Point, bool do\+Debug)
+\begin{DoxyCompactList}\small\item\em Returns the world coordinates of the nearest box.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_hex_grid_ae335a549959829d91dcede4847d7168f_ae335a549959829d91dcede4847d7168f}{Nearest\+Vertex\+G} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the grid position of the nearest vertex.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_hex_grid_abd6193db6b434b5a2ce3512c45faa0b1_abd6193db6b434b5a2ce3512c45faa0b1}{Nearest\+Face\+G} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the grid position of the nearest face.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_hex_grid_ab038b99bc1bedfcdee8a0736c4ed1a1e_ab038b99bc1bedfcdee8a0736c4ed1a1e}{Nearest\+Box\+G} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the grid position of the nearest box.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a62d5c4c11737bc2bb81275e7b601773c_a62d5c4c11737bc2bb81275e7b601773c}{Nearest\+Vertex\+H\+O} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the upwards herring position of the nearest vertex.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a23a792a9788102c3af99a5de5b61a982_a23a792a9788102c3af99a5de5b61a982}{Nearest\+Face\+H\+O} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the upwards herring position of the nearest face.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a37ab0165e6b0dba047a7493e5862912d_a37ab0165e6b0dba047a7493e5862912d}{Nearest\+Box\+H\+O} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the grid position of the nearest box.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a1a6a188b62d970eb084eb0907ad5d16e_a1a6a188b62d970eb084eb0907ad5d16e}{Nearest\+Vertex\+R} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the rhombic position of the nearest vertex.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_a2cf1f2642ac2dea0058fee159ea7e78b_a2cf1f2642ac2dea0058fee159ea7e78b}{Nearest\+Face\+R} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the rhombic position of the nearest face.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_hex_grid_aa6a007fdbe6772fe4df1c906b2cdb47f_aa6a007fdbe6772fe4df1c906b2cdb47f}{Nearest\+Box\+R} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the rhombic position of the nearest box.\end{DoxyCompactList}\item 
+Vector4 \hyperlink{class_g_f_hex_grid_aa5d236ca39c81d71f7f088dda68c9aa5_aa5d236ca39c81d71f7f088dda68c9aa5}{Nearest\+Vertex\+C} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the cubic position of the nearest vertex.\end{DoxyCompactList}\item 
+Vector4 \hyperlink{class_g_f_hex_grid_ac70e0c7e710fbc3ed4748911eded9bf0_ac70e0c7e710fbc3ed4748911eded9bf0}{Nearest\+Face\+C} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the cubic position of the nearest face.\end{DoxyCompactList}\item 
+Vector4 \hyperlink{class_g_f_hex_grid_a8901857400ef5fb8673a2b6ca5aaa52d_a8901857400ef5fb8673a2b6ca5aaa52d}{Nearest\+Box\+C} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the cubic position of the nearest box.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_hex_grid_a2d51f41dc859b4957bb67a518c252632_a2d51f41dc859b4957bb67a518c252632}{Align\+Vector3} (Vector3 pos, Vector3 scale, \hyperlink{class_grid_framework_1_1_vectors_1_1_bool_vector3}{Bool\+Vector3} lock\+Axis)
+\begin{DoxyCompactList}\small\item\em Fits a position vector into the grid.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_hex_grid_a534e73e65f65a117ebb6f4e1122f097d_a534e73e65f65a117ebb6f4e1122f097d}{Scale\+Vector3} (Vector3 scl, \hyperlink{class_grid_framework_1_1_vectors_1_1_bool_vector3}{Bool\+Vector3} lock\+Axis)
+\begin{DoxyCompactList}\small\item\em Scales a size vector to fit inside a grid.\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_g_f_hex_grid_a99701e2998e2b7305bb1bbe0c1ef9506_a99701e2998e2b7305bb1bbe0c1ef9506}{radius}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Distance from the centre of a hex to a vertex.\end{DoxyCompactList}\item 
+\hyperlink{class_g_f_hex_grid_af3503ff5abb4dc3569875daa37dfd6e6_af3503ff5abb4dc3569875daa37dfd6e6}{Hex\+Orientation} \hyperlink{class_g_f_hex_grid_a1c7aee0c19fe71879a1056d1c04be420_a1c7aee0c19fe71879a1056d1c04be420}{hex\+Side\+Mode}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Pointy sides or flat sides.\end{DoxyCompactList}\item 
+\hyperlink{class_g_f_hex_grid_aa82586fdc2de52a215609e48abcc265a_aa82586fdc2de52a215609e48abcc265a}{Hex\+Top\+Orientation} \hyperlink{class_g_f_hex_grid_a651e7fbf9e12e4d8fd31f21503aeb120_a651e7fbf9e12e4d8fd31f21503aeb120}{hex\+Top\+Mode}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Flat tops or pointy tops.\end{DoxyCompactList}\item 
+\hyperlink{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7}{Hex\+Grid\+Shape} \hyperlink{class_g_f_hex_grid_aa655390c4d3e1872978c50b964107dff_aa655390c4d3e1872978c50b964107dff}{grid\+Style}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The shape of the overall grid, affects only drawing and rendering, not the calculations.\end{DoxyCompactList}\item 
+float \hyperlink{class_g_f_hex_grid_a09ba217a58d06021fe82fed119c96969_a09ba217a58d06021fe82fed119c96969}{side}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em 1.\+5 times the radius.\end{DoxyCompactList}\item 
+float \hyperlink{class_g_f_hex_grid_adef19e30b8a5c7e243d1f8239e270630_adef19e30b8a5c7e243d1f8239e270630}{height}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Full width of the hex.\end{DoxyCompactList}\item 
+float \hyperlink{class_g_f_hex_grid_a6d9ef76fc36e9b3709feb605219672a7_a6d9ef76fc36e9b3709feb605219672a7}{width}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Distance between vertices on opposite sides.\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A regular hexagonal grid that forms a honeycomb pattern. It is characterized by the {\ttfamily radius} (distance from the centre of a hexagon to one of its vertices) and the {\ttfamily depth} (distance between two honeycomb layers). Hex grids use a herringbone pattern for their coordinate system, please refer to the user manual for information about how that coordinate system works. 
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439f}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Hex\+Direction@{Hex\+Direction}}
+\index{Hex\+Direction@{Hex\+Direction}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Hex\+Direction}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf G\+F\+Hex\+Grid.\+Hex\+Direction}}}\label{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439f}
+The cardinal position of a vertex relative to the centre of a given hex. Note that using N and S for pointy sides, as well as E and W for flat sides does not make sense, but it is still possible. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{N@{N}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!N@{N}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa8d9c307cb7f3c4a32822a51922d1ceaa}{N}\label{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa8d9c307cb7f3c4a32822a51922d1ceaa}
+}]North. \index{N\+E@{N\+E}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!N\+E@{N\+E}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fadc33066c3993e0d50896e533fd692ce0}{N\+E}\label{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fadc33066c3993e0d50896e533fd692ce0}
+}]South. \index{E@{E}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!E@{E}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa3a3ea00cfc35332cedf6e5e9a32e94da}{E}\label{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa3a3ea00cfc35332cedf6e5e9a32e94da}
+}]East. \index{S\+E@{S\+E}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!S\+E@{S\+E}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439faf003c44deab679aa2edfaff864c77402}{S\+E}\label{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439faf003c44deab679aa2edfaff864c77402}
+}]South-\/\+East. \index{S@{S}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!S@{S}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa5dbc98dcc983a70728bd082d1a47546e}{S}\label{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa5dbc98dcc983a70728bd082d1a47546e}
+}]South. \index{S\+W@{S\+W}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!S\+W@{S\+W}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa6f56aa4e2561eb66f17f6d8de8070a77}{S\+W}\label{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa6f56aa4e2561eb66f17f6d8de8070a77}
+}]South-\/\+West. \index{W@{W}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!W@{W}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa61e9c06ea9a85a5088a499df6458d276}{W}\label{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa61e9c06ea9a85a5088a499df6458d276}
+}]West. \index{N\+W@{N\+W}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!N\+W@{N\+W}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa7f39ac71e81132daad44925b3bdfde5a}{N\+W}\label{class_g_f_hex_grid_a4591076c54ef7c3b01f61f47ceb6439f_a4591076c54ef7c3b01f61f47ceb6439fa7f39ac71e81132daad44925b3bdfde5a}
+}]North-\/\+West. \end{description}
+\end{Desc}
+\hypertarget{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Hex\+Grid\+Shape@{Hex\+Grid\+Shape}}
+\index{Hex\+Grid\+Shape@{Hex\+Grid\+Shape}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Hex\+Grid\+Shape}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf G\+F\+Hex\+Grid.\+Hex\+Grid\+Shape}}}\label{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7}
+summary$>$Shape of the drawing and rendering.
+
+Different shapes of hexagonal grids\+: {\ttfamily Rectangle} looks like a rectangle with every odd-\/numbered column offset, {\ttfamily Compact\+Rectangle} is similar with the odd-\/numbered colums one hex shorter. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Rectangle@{Rectangle}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Rectangle@{Rectangle}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7ace9291906a4c3b042650b70d7f3b152e}{Rectangle}\label{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7ace9291906a4c3b042650b70d7f3b152e}
+}]Rectangular upwards herringbone pattern. \index{Compact\+Rectangle@{Compact\+Rectangle}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Compact\+Rectangle@{Compact\+Rectangle}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7aced30051e070abc63cbc6d897b26c5e2}{Compact\+Rectangle}\label{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7aced30051e070abc63cbc6d897b26c5e2}
+}]Rectangular upwards herringbone pattern with the top of every odd column clipped. \index{Rectangle\+Down@{Rectangle\+Down}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Rectangle\+Down@{Rectangle\+Down}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7a37fe777298b67f1b38eb7a718952df65}{Rectangle\+Down}\label{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7a37fe777298b67f1b38eb7a718952df65}
+}]Rectangular downwards herringbone pattern. \index{Rhombus@{Rhombus}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Rhombus@{Rhombus}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7ad62e74b4f4bdc571fb184229772ea930}{Rhombus}\label{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7ad62e74b4f4bdc571fb184229772ea930}
+}]Rhobus-\/like upwards pattern. \index{Rhombus\+Down@{Rhombus\+Down}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Rhombus\+Down@{Rhombus\+Down}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7af2ae57405fde1821d059aaf78fedcb84}{Rhombus\+Down}\label{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7af2ae57405fde1821d059aaf78fedcb84}
+}]Rhobus-\/like downwards pattern. \index{Herringbone\+Up@{Herringbone\+Up}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Herringbone\+Up@{Herringbone\+Up}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7a766ba0e1e70b9f2fc1204ef785859e19}{Herringbone\+Up}\label{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7a766ba0e1e70b9f2fc1204ef785859e19}
+}]Upwards herringbone pattern. \index{Herringbone\+Down@{Herringbone\+Down}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Herringbone\+Down@{Herringbone\+Down}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7a9a6695df59ef6afb4c18995c44b97875}{Herringbone\+Down}\label{class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7_a6394c0f75370f3b02e437f28e52127d7a9a6695df59ef6afb4c18995c44b97875}
+}]Downwards herringbone pattern. \end{description}
+\end{Desc}
+\hypertarget{class_g_f_hex_grid_af3503ff5abb4dc3569875daa37dfd6e6_af3503ff5abb4dc3569875daa37dfd6e6}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Hex\+Orientation@{Hex\+Orientation}}
+\index{Hex\+Orientation@{Hex\+Orientation}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Hex\+Orientation}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf G\+F\+Hex\+Grid.\+Hex\+Orientation}}}\label{class_g_f_hex_grid_af3503ff5abb4dc3569875daa37dfd6e6_af3503ff5abb4dc3569875daa37dfd6e6}
+There are two ways a hexagon can be rotated\+: {\ttfamily Pointy\+Sides} has flat tops, parallel to the grid's X-\/axis, and {\ttfamily Flat\+Sides} has pointy tops, parallel to the grid's Y-\/axis. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Pointy\+Sides@{Pointy\+Sides}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Pointy\+Sides@{Pointy\+Sides}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_af3503ff5abb4dc3569875daa37dfd6e6_af3503ff5abb4dc3569875daa37dfd6e6ae072b74647674927337f70f1f6af0666}{Pointy\+Sides}\label{class_g_f_hex_grid_af3503ff5abb4dc3569875daa37dfd6e6_af3503ff5abb4dc3569875daa37dfd6e6ae072b74647674927337f70f1f6af0666}
+}]Pointy east and west, flat north and south, equal to {\ttfamily Hex\+Top\+Orientation.\+Flat\+Tops}. \index{Flat\+Sides@{Flat\+Sides}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Flat\+Sides@{Flat\+Sides}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_af3503ff5abb4dc3569875daa37dfd6e6_af3503ff5abb4dc3569875daa37dfd6e6a94a6b60f9e84da01af0db39053695834}{Flat\+Sides}\label{class_g_f_hex_grid_af3503ff5abb4dc3569875daa37dfd6e6_af3503ff5abb4dc3569875daa37dfd6e6a94a6b60f9e84da01af0db39053695834}
+}]Flat east and west, pointy north and south, equal to {\ttfamily Hex\+Top\+Orientation.\+Pointy\+Tops}. \end{description}
+\end{Desc}
+\hypertarget{class_g_f_hex_grid_aa82586fdc2de52a215609e48abcc265a_aa82586fdc2de52a215609e48abcc265a}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Hex\+Top\+Orientation@{Hex\+Top\+Orientation}}
+\index{Hex\+Top\+Orientation@{Hex\+Top\+Orientation}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Hex\+Top\+Orientation}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf G\+F\+Hex\+Grid.\+Hex\+Top\+Orientation}}}\label{class_g_f_hex_grid_aa82586fdc2de52a215609e48abcc265a_aa82586fdc2de52a215609e48abcc265a}
+There are two ways a hexagon can be rotated\+: {\ttfamily Flat\+Tops} has flat tops, parallel to the grid's X-\/axis, and {\ttfamily Pointy\+Tops} has pointy tops, parallel to the grid's Y-\/axis. This enum is best used to complement {\ttfamily Hex\+Orientation}. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Flat\+Tops@{Flat\+Tops}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Flat\+Tops@{Flat\+Tops}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_aa82586fdc2de52a215609e48abcc265a_aa82586fdc2de52a215609e48abcc265aa6474d6b6b7acbea9c60c3d0b941758ee}{Flat\+Tops}\label{class_g_f_hex_grid_aa82586fdc2de52a215609e48abcc265a_aa82586fdc2de52a215609e48abcc265aa6474d6b6b7acbea9c60c3d0b941758ee}
+}]Flat north and south, pointy east and west, equal to {\ttfamily Hex\+Orientation.\+Pointy\+Sides}. \index{Pointy\+Tops@{Pointy\+Tops}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Pointy\+Tops@{Pointy\+Tops}}\item[{\em 
+\hypertarget{class_g_f_hex_grid_aa82586fdc2de52a215609e48abcc265a_aa82586fdc2de52a215609e48abcc265aaa2350be1698837b593a283f2eaf13c36}{Pointy\+Tops}\label{class_g_f_hex_grid_aa82586fdc2de52a215609e48abcc265a_aa82586fdc2de52a215609e48abcc265aaa2350be1698837b593a283f2eaf13c36}
+}]Pointy north and south, flat east and west, equal to {\ttfamily Hex\+Orientation.\+Flat\+Sides}. \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_g_f_hex_grid_a2d51f41dc859b4957bb67a518c252632_a2d51f41dc859b4957bb67a518c252632}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Align\+Vector3@{Align\+Vector3}}
+\index{Align\+Vector3@{Align\+Vector3}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Align\+Vector3}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Hex\+Grid.\+Align\+Vector3 (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{pos, }
+\item[{Vector3}]{scale, }
+\item[{{\bf Bool\+Vector3}}]{lock\+Axis}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_hex_grid_a2d51f41dc859b4957bb67a518c252632_a2d51f41dc859b4957bb67a518c252632}
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position to align.\\
+\hline
+{\em scale} & A simulated scale to decide how exactly to fit the position into the grid.\\
+\hline
+{\em lock\+Axis} & Which axes should be ignored.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vector3.
+\end{DoxyReturn}
+
+
+Aligns a poistion vector to the grid by positioning it on the centre of the nearest face. Please refer to the user manual for more information. The parameter lock\+Axis makes the function not touch the corresponding coordinate. 
+
+Implements \hyperlink{class_g_f_grid_a18b3e57431dc0db8f651479e4fb04a8f_a18b3e57431dc0db8f651479e4fb04a8f}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_hex_grid_a72c80c9cc6baa0183cc023d069049370_a72c80c9cc6baa0183cc023d069049370}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Cubic\+To\+Herring\+U@{Cubic\+To\+Herring\+U}}
+\index{Cubic\+To\+Herring\+U@{Cubic\+To\+Herring\+U}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Cubic\+To\+Herring\+U}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Cubic\+To\+Herring\+U (
+\begin{DoxyParamCaption}
+\item[{Vector4}]{cubic}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a72c80c9cc6baa0183cc023d069049370_a72c80c9cc6baa0183cc023d069049370}
+
+\begin{DoxyParams}{Parameters}
+{\em cubic} & Point in cubic coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in upwards herring coordinates.
+\end{DoxyReturn}
+Takes a point in cubic coordinates and returns its upwards herring position. \hypertarget{class_g_f_hex_grid_a397fa739ccb7cd8fd68c82203bc2838a_a397fa739ccb7cd8fd68c82203bc2838a}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Cubic\+To\+Rhombic@{Cubic\+To\+Rhombic}}
+\index{Cubic\+To\+Rhombic@{Cubic\+To\+Rhombic}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Cubic\+To\+Rhombic}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Cubic\+To\+Rhombic (
+\begin{DoxyParamCaption}
+\item[{Vector4}]{cubic}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a397fa739ccb7cd8fd68c82203bc2838a_a397fa739ccb7cd8fd68c82203bc2838a}
+
+\begin{DoxyParams}{Parameters}
+{\em cubic} & Point in cubic coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in rhombic coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in cubic coordinates and returns its rhombic position. \hypertarget{class_g_f_hex_grid_a9f918153c4d8b1092bb5b32c91e88ee5_a9f918153c4d8b1092bb5b32c91e88ee5}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Cubic\+To\+Rhombic\+D@{Cubic\+To\+Rhombic\+D}}
+\index{Cubic\+To\+Rhombic\+D@{Cubic\+To\+Rhombic\+D}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Cubic\+To\+Rhombic\+D}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Cubic\+To\+Rhombic\+D (
+\begin{DoxyParamCaption}
+\item[{Vector4}]{cubic}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a9f918153c4d8b1092bb5b32c91e88ee5_a9f918153c4d8b1092bb5b32c91e88ee5}
+
+\begin{DoxyParams}{Parameters}
+{\em cubic} & Point in cubic coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in downwards rhombic coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in cubic coordinates and returns its rhombic position. \hypertarget{class_g_f_hex_grid_a7a59e6279ccbb14fbae1a053395b14ae_a7a59e6279ccbb14fbae1a053395b14ae}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Cubic\+To\+World@{Cubic\+To\+World}}
+\index{Cubic\+To\+World@{Cubic\+To\+World}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Cubic\+To\+World}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Cubic\+To\+World (
+\begin{DoxyParamCaption}
+\item[{Vector4}]{cubic}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a7a59e6279ccbb14fbae1a053395b14ae_a7a59e6279ccbb14fbae1a053395b14ae}
+
+\begin{DoxyParams}{Parameters}
+{\em cubic} & Point in cubic coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in world coordinates.
+\end{DoxyReturn}
+Takes a point in cubic coordinates and returns its world position. \hypertarget{class_g_f_hex_grid_abac4ca6dba9e7ee8ed87f70cf4a7afc7_abac4ca6dba9e7ee8ed87f70cf4a7afc7}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Grid\+To\+World@{Grid\+To\+World}}
+\index{Grid\+To\+World@{Grid\+To\+World}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Grid\+To\+World}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Hex\+Grid.\+Grid\+To\+World (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{grid\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_hex_grid_abac4ca6dba9e7ee8ed87f70cf4a7afc7_abac4ca6dba9e7ee8ed87f70cf4a7afc7}
+
+\begin{DoxyParams}{Parameters}
+{\em grid\+Point} & Point in grid space (upwards herringbone coordinate system).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+World coordinates of the grid point.
+\end{DoxyReturn}
+
+
+This is the same as calling {\ttfamily \hyperlink{class_g_f_hex_grid_a376663e9575f6e1f3937c7f768070a5c_a376663e9575f6e1f3937c7f768070a5c}{Herring\+U\+To\+World}}, because upwards herringbone is the default grid coordinate system. 
+
+Implements \hyperlink{class_g_f_grid_af32d7bfcecb5da3fdc47b972b551e33e_af32d7bfcecb5da3fdc47b972b551e33e}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_hex_grid_a0105d03d663f6e3086d0a6a0cde650f5_a0105d03d663f6e3086d0a6a0cde650f5}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Herring\+D\+To\+Cubic@{Herring\+D\+To\+Cubic}}
+\index{Herring\+D\+To\+Cubic@{Herring\+D\+To\+Cubic}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Herring\+D\+To\+Cubic}]{\setlength{\rightskip}{0pt plus 5cm}Vector4 G\+F\+Hex\+Grid.\+Herring\+D\+To\+Cubic (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{herring}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a0105d03d663f6e3086d0a6a0cde650f5_a0105d03d663f6e3086d0a6a0cde650f5}
+
+\begin{DoxyParams}{Parameters}
+{\em herring} & Point in downwards herringbone coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in cubic coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in downwards herringbone coordinates and returns its cubic position. \hypertarget{class_g_f_hex_grid_ab68b4ecc340f6014bba1ac6851921c34_ab68b4ecc340f6014bba1ac6851921c34}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Herring\+D\+To\+Herring\+U@{Herring\+D\+To\+Herring\+U}}
+\index{Herring\+D\+To\+Herring\+U@{Herring\+D\+To\+Herring\+U}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Herring\+D\+To\+Herring\+U}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Herring\+D\+To\+Herring\+U (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{herring}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_ab68b4ecc340f6014bba1ac6851921c34_ab68b4ecc340f6014bba1ac6851921c34}
+
+\begin{DoxyParams}{Parameters}
+{\em herring} & Point in downwards herringbone coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in upwards herringbone coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in downwards herringbone coordinates and returns its upwards herringbone position. \hypertarget{class_g_f_hex_grid_a9113159acea48cf847a3e8e50828bbf7_a9113159acea48cf847a3e8e50828bbf7}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Herring\+D\+To\+Rhombic@{Herring\+D\+To\+Rhombic}}
+\index{Herring\+D\+To\+Rhombic@{Herring\+D\+To\+Rhombic}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Herring\+D\+To\+Rhombic}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Herring\+D\+To\+Rhombic (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{herring}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a9113159acea48cf847a3e8e50828bbf7_a9113159acea48cf847a3e8e50828bbf7}
+
+\begin{DoxyParams}{Parameters}
+{\em herring} & Point in downwards herringbone coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in rhombic coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in downwards herringbone coordinates and returns its rhombic position. \hypertarget{class_g_f_hex_grid_a8ee594b22885339e63dfcefc9efe90b5_a8ee594b22885339e63dfcefc9efe90b5}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Herring\+D\+To\+Rhombic\+D@{Herring\+D\+To\+Rhombic\+D}}
+\index{Herring\+D\+To\+Rhombic\+D@{Herring\+D\+To\+Rhombic\+D}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Herring\+D\+To\+Rhombic\+D}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Herring\+D\+To\+Rhombic\+D (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{herring}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a8ee594b22885339e63dfcefc9efe90b5_a8ee594b22885339e63dfcefc9efe90b5}
+
+\begin{DoxyParams}{Parameters}
+{\em herring} & Point in downwards herringbone coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in downwards rhombic coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in downwards herringbone coordinates and returns its downwards rhombic position. \hypertarget{class_g_f_hex_grid_a23e68e317c4004a146e2cbafb6bc56c0_a23e68e317c4004a146e2cbafb6bc56c0}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Herring\+D\+To\+World@{Herring\+D\+To\+World}}
+\index{Herring\+D\+To\+World@{Herring\+D\+To\+World}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Herring\+D\+To\+World}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Herring\+D\+To\+World (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{herring}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a23e68e317c4004a146e2cbafb6bc56c0_a23e68e317c4004a146e2cbafb6bc56c0}
+
+\begin{DoxyParams}{Parameters}
+{\em herring} & Point in downwards herringbone coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in world coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in downwards herringbone coordinates and returns its world position. \hypertarget{class_g_f_hex_grid_af755aa27158a1b137c1f45b65a780d03_af755aa27158a1b137c1f45b65a780d03}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Herring\+U\+To\+Cubic@{Herring\+U\+To\+Cubic}}
+\index{Herring\+U\+To\+Cubic@{Herring\+U\+To\+Cubic}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Herring\+U\+To\+Cubic}]{\setlength{\rightskip}{0pt plus 5cm}Vector4 G\+F\+Hex\+Grid.\+Herring\+U\+To\+Cubic (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{herring}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_af755aa27158a1b137c1f45b65a780d03_af755aa27158a1b137c1f45b65a780d03}
+
+\begin{DoxyParams}{Parameters}
+{\em herring} & Point in upwards herringbone coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in cubic coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in upwards herringbone coordinates and returns its cubic position. \hypertarget{class_g_f_hex_grid_a261551484b05ea71dcc5b442dbf2e0f0_a261551484b05ea71dcc5b442dbf2e0f0}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Herring\+U\+To\+Herring\+D@{Herring\+U\+To\+Herring\+D}}
+\index{Herring\+U\+To\+Herring\+D@{Herring\+U\+To\+Herring\+D}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Herring\+U\+To\+Herring\+D}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Herring\+U\+To\+Herring\+D (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{herring}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a261551484b05ea71dcc5b442dbf2e0f0_a261551484b05ea71dcc5b442dbf2e0f0}
+
+\begin{DoxyParams}{Parameters}
+{\em herring} & Point in upwards herringbone coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in downwards herringbone coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in upwards herringbone coordinates and returns its downwards herringbone position. \hypertarget{class_g_f_hex_grid_a5352c5998878b421c1d117958ca2591d_a5352c5998878b421c1d117958ca2591d}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Herring\+U\+To\+Rhombic@{Herring\+U\+To\+Rhombic}}
+\index{Herring\+U\+To\+Rhombic@{Herring\+U\+To\+Rhombic}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Herring\+U\+To\+Rhombic}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Herring\+U\+To\+Rhombic (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{herring}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a5352c5998878b421c1d117958ca2591d_a5352c5998878b421c1d117958ca2591d}
+
+\begin{DoxyParams}{Parameters}
+{\em herring} & Point in upwards herringbone coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in rhombic coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in upwards herringbone coordinates and returns its rhombic position. \hypertarget{class_g_f_hex_grid_aff4d8a69e8a6dca3c4364338e5fef855_aff4d8a69e8a6dca3c4364338e5fef855}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Herring\+U\+To\+Rhombic\+D@{Herring\+U\+To\+Rhombic\+D}}
+\index{Herring\+U\+To\+Rhombic\+D@{Herring\+U\+To\+Rhombic\+D}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Herring\+U\+To\+Rhombic\+D}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Herring\+U\+To\+Rhombic\+D (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{herring}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_aff4d8a69e8a6dca3c4364338e5fef855_aff4d8a69e8a6dca3c4364338e5fef855}
+
+\begin{DoxyParams}{Parameters}
+{\em herring} & Point in upwards herringbone coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in downwards rhombic coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in upwards herringbone coordinates and returns its downwards rhombic position. \hypertarget{class_g_f_hex_grid_a376663e9575f6e1f3937c7f768070a5c_a376663e9575f6e1f3937c7f768070a5c}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Herring\+U\+To\+World@{Herring\+U\+To\+World}}
+\index{Herring\+U\+To\+World@{Herring\+U\+To\+World}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Herring\+U\+To\+World}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Herring\+U\+To\+World (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{herring}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a376663e9575f6e1f3937c7f768070a5c_a376663e9575f6e1f3937c7f768070a5c}
+
+\begin{DoxyParams}{Parameters}
+{\em herring} & Point in upwards herringbone coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in world coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in upwards herringbone coordinates and returns its world position. \hypertarget{class_g_f_hex_grid_a8901857400ef5fb8673a2b6ca5aaa52d_a8901857400ef5fb8673a2b6ca5aaa52d}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Nearest\+Box\+C@{Nearest\+Box\+C}}
+\index{Nearest\+Box\+C@{Nearest\+Box\+C}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Nearest\+Box\+C}]{\setlength{\rightskip}{0pt plus 5cm}Vector4 G\+F\+Hex\+Grid.\+Nearest\+Box\+C (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a8901857400ef5fb8673a2b6ca5aaa52d_a8901857400ef5fb8673a2b6ca5aaa52d}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Cubic position of the nearest box.
+\end{DoxyReturn}
+
+
+Returns the cubic position of the nearest box from a given point in upwards herring coordinates. \hypertarget{class_g_f_hex_grid_ab038b99bc1bedfcdee8a0736c4ed1a1e_ab038b99bc1bedfcdee8a0736c4ed1a1e}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Nearest\+Box\+G@{Nearest\+Box\+G}}
+\index{Nearest\+Box\+G@{Nearest\+Box\+G}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Nearest\+Box\+G}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Hex\+Grid.\+Nearest\+Box\+G (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_hex_grid_ab038b99bc1bedfcdee8a0736c4ed1a1e_ab038b99bc1bedfcdee8a0736c4ed1a1e}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest box.
+\end{DoxyReturn}
+
+
+This is just a shortcut for {\ttfamily \hyperlink{class_g_f_hex_grid_a37ab0165e6b0dba047a7493e5862912d_a37ab0165e6b0dba047a7493e5862912d}{Nearest\+Box\+H\+O}}. 
+
+Implements \hyperlink{class_g_f_grid_adb7c70449b2449c1e82132e6300cc1a5_adb7c70449b2449c1e82132e6300cc1a5}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_hex_grid_a37ab0165e6b0dba047a7493e5862912d_a37ab0165e6b0dba047a7493e5862912d}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Nearest\+Box\+H\+O@{Nearest\+Box\+H\+O}}
+\index{Nearest\+Box\+H\+O@{Nearest\+Box\+H\+O}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Nearest\+Box\+H\+O}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Nearest\+Box\+H\+O (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a37ab0165e6b0dba047a7493e5862912d_a37ab0165e6b0dba047a7493e5862912d}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest box.
+\end{DoxyReturn}
+
+
+Returns the world position of the nearest box from a given point in upwards herring coordinates. \hypertarget{class_g_f_hex_grid_aa6a007fdbe6772fe4df1c906b2cdb47f_aa6a007fdbe6772fe4df1c906b2cdb47f}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Nearest\+Box\+R@{Nearest\+Box\+R}}
+\index{Nearest\+Box\+R@{Nearest\+Box\+R}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Nearest\+Box\+R}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Nearest\+Box\+R (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_aa6a007fdbe6772fe4df1c906b2cdb47f_aa6a007fdbe6772fe4df1c906b2cdb47f}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Rhombic position of the nearest box.
+\end{DoxyReturn}
+
+
+Returns the rhombic position of the nearest box from a given point in upwards herring coordinates. \hypertarget{class_g_f_hex_grid_a58ce4a0c91753d5457c4df0ebaac90a9_a58ce4a0c91753d5457c4df0ebaac90a9}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Nearest\+Box\+W@{Nearest\+Box\+W}}
+\index{Nearest\+Box\+W@{Nearest\+Box\+W}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Nearest\+Box\+W}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Hex\+Grid.\+Nearest\+Box\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{from\+Point, }
+\item[{bool}]{do\+Debug}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_hex_grid_a58ce4a0c91753d5457c4df0ebaac90a9_a58ce4a0c91753d5457c4df0ebaac90a9}
+
+\begin{DoxyParams}{Parameters}
+{\em from\+Point} & Point in world space.\\
+\hline
+{\em do\+Debug} & If set to {\ttfamily true} draw a sphere at the destination.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+World position of the nearest box.
+\end{DoxyReturn}
+
+
+Returns the world position of the nearest box from a given point in world space. Since the box is enclosed by several vertices, the returned value is the point in between all of the vertices. If {\ttfamily do\+Debug} is set a gizmo sphere will be drawn at that position. 
+
+Implements \hyperlink{class_g_f_grid_a02fcf02269ca5a2064acccecde9819eb_a02fcf02269ca5a2064acccecde9819eb}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_hex_grid_ac70e0c7e710fbc3ed4748911eded9bf0_ac70e0c7e710fbc3ed4748911eded9bf0}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Nearest\+Face\+C@{Nearest\+Face\+C}}
+\index{Nearest\+Face\+C@{Nearest\+Face\+C}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Nearest\+Face\+C}]{\setlength{\rightskip}{0pt plus 5cm}Vector4 G\+F\+Hex\+Grid.\+Nearest\+Face\+C (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_ac70e0c7e710fbc3ed4748911eded9bf0_ac70e0c7e710fbc3ed4748911eded9bf0}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Cubic position of the nearest face.
+\end{DoxyReturn}
+
+
+This method takes in a point in world space and returns the cubic coordinates of the nearest face. \hypertarget{class_g_f_hex_grid_abd6193db6b434b5a2ce3512c45faa0b1_abd6193db6b434b5a2ce3512c45faa0b1}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Nearest\+Face\+G@{Nearest\+Face\+G}}
+\index{Nearest\+Face\+G@{Nearest\+Face\+G}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Nearest\+Face\+G}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Hex\+Grid.\+Nearest\+Face\+G (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_hex_grid_abd6193db6b434b5a2ce3512c45faa0b1_abd6193db6b434b5a2ce3512c45faa0b1}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest face.
+\end{DoxyReturn}
+
+
+This is just a shortcut for {\ttfamily \hyperlink{class_g_f_hex_grid_a23a792a9788102c3af99a5de5b61a982_a23a792a9788102c3af99a5de5b61a982}{Nearest\+Face\+H\+O}}. 
+
+Implements \hyperlink{class_g_f_layered_grid}{G\+F\+Layered\+Grid}.
+
+\hypertarget{class_g_f_hex_grid_a23a792a9788102c3af99a5de5b61a982_a23a792a9788102c3af99a5de5b61a982}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Nearest\+Face\+H\+O@{Nearest\+Face\+H\+O}}
+\index{Nearest\+Face\+H\+O@{Nearest\+Face\+H\+O}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Nearest\+Face\+H\+O}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Nearest\+Face\+H\+O (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a23a792a9788102c3af99a5de5b61a982_a23a792a9788102c3af99a5de5b61a982}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest face.
+\end{DoxyReturn}
+
+
+This method takes in a point in world space and returns the upwards herring coordinates of the nearest face. \hypertarget{class_g_f_hex_grid_a2cf1f2642ac2dea0058fee159ea7e78b_a2cf1f2642ac2dea0058fee159ea7e78b}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Nearest\+Face\+R@{Nearest\+Face\+R}}
+\index{Nearest\+Face\+R@{Nearest\+Face\+R}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Nearest\+Face\+R}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Nearest\+Face\+R (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a2cf1f2642ac2dea0058fee159ea7e78b_a2cf1f2642ac2dea0058fee159ea7e78b}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Rhombic position of the nearest face.
+\end{DoxyReturn}
+
+
+This method takes in a point in world space and returns the rhombic coordinates of the nearest face. \hypertarget{class_g_f_hex_grid_ad8c205a56bc277236e0c3d1c6cb44845_ad8c205a56bc277236e0c3d1c6cb44845}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Nearest\+Face\+W@{Nearest\+Face\+W}}
+\index{Nearest\+Face\+W@{Nearest\+Face\+W}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Nearest\+Face\+W}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Hex\+Grid.\+Nearest\+Face\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world, }
+\item[{bool}]{do\+Debug}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_hex_grid_ad8c205a56bc277236e0c3d1c6cb44845_ad8c205a56bc277236e0c3d1c6cb44845}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+{\em do\+Debug} & If set to {\ttfamily true} draw a sphere at the destination.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+World position of the nearest vertex.
+\end{DoxyReturn}
+
+
+Returns the world position of the nearest vertex from a given point in world space. If {\ttfamily do\+Debug} is set a small gizmo sphere will be drawn at that position. 
+
+Implements \hyperlink{class_g_f_layered_grid}{G\+F\+Layered\+Grid}.
+
+\hypertarget{class_g_f_hex_grid_aa5d236ca39c81d71f7f088dda68c9aa5_aa5d236ca39c81d71f7f088dda68c9aa5}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Nearest\+Vertex\+C@{Nearest\+Vertex\+C}}
+\index{Nearest\+Vertex\+C@{Nearest\+Vertex\+C}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Nearest\+Vertex\+C}]{\setlength{\rightskip}{0pt plus 5cm}Vector4 G\+F\+Hex\+Grid.\+Nearest\+Vertex\+C (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_aa5d236ca39c81d71f7f088dda68c9aa5_aa5d236ca39c81d71f7f088dda68c9aa5}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Cubic position of the nearest vertex.
+\end{DoxyReturn}
+
+
+This method takes in a point in world space and returns the cubic coordinates of the nearest vertex. \hypertarget{class_g_f_hex_grid_ae335a549959829d91dcede4847d7168f_ae335a549959829d91dcede4847d7168f}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Nearest\+Vertex\+G@{Nearest\+Vertex\+G}}
+\index{Nearest\+Vertex\+G@{Nearest\+Vertex\+G}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Nearest\+Vertex\+G}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Hex\+Grid.\+Nearest\+Vertex\+G (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_hex_grid_ae335a549959829d91dcede4847d7168f_ae335a549959829d91dcede4847d7168f}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest vertex.
+\end{DoxyReturn}
+
+
+This is just a shortcut for {\ttfamily \hyperlink{class_g_f_hex_grid_a62d5c4c11737bc2bb81275e7b601773c_a62d5c4c11737bc2bb81275e7b601773c}{Nearest\+Vertex\+H\+O}}. 
+
+Implements \hyperlink{class_g_f_grid_a7eaa2821cf118bb4821bd2cbf40029da_a7eaa2821cf118bb4821bd2cbf40029da}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_hex_grid_a62d5c4c11737bc2bb81275e7b601773c_a62d5c4c11737bc2bb81275e7b601773c}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Nearest\+Vertex\+H\+O@{Nearest\+Vertex\+H\+O}}
+\index{Nearest\+Vertex\+H\+O@{Nearest\+Vertex\+H\+O}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Nearest\+Vertex\+H\+O}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Nearest\+Vertex\+H\+O (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a62d5c4c11737bc2bb81275e7b601773c_a62d5c4c11737bc2bb81275e7b601773c}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest vertex.
+\end{DoxyReturn}
+
+
+This method takes in a point in world space and returns the upwards herring coordinates of the nearest vertex. \hypertarget{class_g_f_hex_grid_a1a6a188b62d970eb084eb0907ad5d16e_a1a6a188b62d970eb084eb0907ad5d16e}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Nearest\+Vertex\+R@{Nearest\+Vertex\+R}}
+\index{Nearest\+Vertex\+R@{Nearest\+Vertex\+R}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Nearest\+Vertex\+R}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Nearest\+Vertex\+R (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a1a6a188b62d970eb084eb0907ad5d16e_a1a6a188b62d970eb084eb0907ad5d16e}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Rhombic position of the nearest vertex.
+\end{DoxyReturn}
+
+
+This method takes in a point in world space and returns the rhombic coordinates of the nearest vertex. \hypertarget{class_g_f_hex_grid_aa3e803a3567facf12848c80698ae72ae_aa3e803a3567facf12848c80698ae72ae}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Nearest\+Vertex\+W@{Nearest\+Vertex\+W}}
+\index{Nearest\+Vertex\+W@{Nearest\+Vertex\+W}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Nearest\+Vertex\+W}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Hex\+Grid.\+Nearest\+Vertex\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world, }
+\item[{bool}]{do\+Debug = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_hex_grid_aa3e803a3567facf12848c80698ae72ae_aa3e803a3567facf12848c80698ae72ae}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+{\em do\+Debug} & If set to {\ttfamily true} draw a sphere at the destination.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+World position of the nearest vertex.
+\end{DoxyReturn}
+Returns the world position of the nearest vertex from a given point in world space. If {\ttfamily do\+Debug} is set a small gizmo sphere will be drawn at that position. 
+
+Implements \hyperlink{class_g_f_grid_a5865880fa767bf5562301bca419b8bb9_a5865880fa767bf5562301bca419b8bb9}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_hex_grid_a5e48d303cdd36b6621c572152123183b_a5e48d303cdd36b6621c572152123183b}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Rhombic\+D\+To\+Cubic@{Rhombic\+D\+To\+Cubic}}
+\index{Rhombic\+D\+To\+Cubic@{Rhombic\+D\+To\+Cubic}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Rhombic\+D\+To\+Cubic}]{\setlength{\rightskip}{0pt plus 5cm}Vector4 G\+F\+Hex\+Grid.\+Rhombic\+D\+To\+Cubic (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{rhombic}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a5e48d303cdd36b6621c572152123183b_a5e48d303cdd36b6621c572152123183b}
+
+\begin{DoxyParams}{Parameters}
+{\em rhombic} & Point in downwards rhombic coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in cubic coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in downwards rhombic coordinates and returns its cubic position. \hypertarget{class_g_f_hex_grid_a17af97050751d292ba61ac0629243da0_a17af97050751d292ba61ac0629243da0}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Rhombic\+D\+To\+Herring\+D@{Rhombic\+D\+To\+Herring\+D}}
+\index{Rhombic\+D\+To\+Herring\+D@{Rhombic\+D\+To\+Herring\+D}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Rhombic\+D\+To\+Herring\+D}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Rhombic\+D\+To\+Herring\+D (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{rhombic}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a17af97050751d292ba61ac0629243da0_a17af97050751d292ba61ac0629243da0}
+
+\begin{DoxyParams}{Parameters}
+{\em rhombic} & Point in downwards rhombic coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in downwards herring coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in downwards rhombic coordinates and returns its downwards herring position. \hypertarget{class_g_f_hex_grid_a0f748078789813bf09541328e0aaae53_a0f748078789813bf09541328e0aaae53}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Rhombic\+D\+To\+Herring\+U@{Rhombic\+D\+To\+Herring\+U}}
+\index{Rhombic\+D\+To\+Herring\+U@{Rhombic\+D\+To\+Herring\+U}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Rhombic\+D\+To\+Herring\+U}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Rhombic\+D\+To\+Herring\+U (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{rhombic}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a0f748078789813bf09541328e0aaae53_a0f748078789813bf09541328e0aaae53}
+
+\begin{DoxyParams}{Parameters}
+{\em rhombic} & Point in downwards rhombic coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in upwards herring coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in downwards rhombic coordinates and returns its upwards herring position. \hypertarget{class_g_f_hex_grid_a92465d198faca2652e51c726acb94efe_a92465d198faca2652e51c726acb94efe}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Rhombic\+D\+To\+Rhombic@{Rhombic\+D\+To\+Rhombic}}
+\index{Rhombic\+D\+To\+Rhombic@{Rhombic\+D\+To\+Rhombic}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Rhombic\+D\+To\+Rhombic}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Rhombic\+D\+To\+Rhombic (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{rhombic}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a92465d198faca2652e51c726acb94efe_a92465d198faca2652e51c726acb94efe}
+
+\begin{DoxyParams}{Parameters}
+{\em rhombic} & Point in downwards rhombic coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in downwards herring coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in downwards rhombic coordinates and returns its downwards herring position. \hypertarget{class_g_f_hex_grid_aae1b996c067ade686279c48f6588cf08_aae1b996c067ade686279c48f6588cf08}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Rhombic\+D\+To\+World@{Rhombic\+D\+To\+World}}
+\index{Rhombic\+D\+To\+World@{Rhombic\+D\+To\+World}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Rhombic\+D\+To\+World}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Rhombic\+D\+To\+World (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{rhombic}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_aae1b996c067ade686279c48f6588cf08_aae1b996c067ade686279c48f6588cf08}
+
+\begin{DoxyParams}{Parameters}
+{\em rhombic} & Point in downwards rhombic coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in world coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in downwards rhombic coordinates and returns its world position. \hypertarget{class_g_f_hex_grid_a1ff9f3d11d707bc0d434d07a2df92549_a1ff9f3d11d707bc0d434d07a2df92549}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Rhombic\+To\+Cubic@{Rhombic\+To\+Cubic}}
+\index{Rhombic\+To\+Cubic@{Rhombic\+To\+Cubic}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Rhombic\+To\+Cubic}]{\setlength{\rightskip}{0pt plus 5cm}Vector4 G\+F\+Hex\+Grid.\+Rhombic\+To\+Cubic (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{rhombic}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a1ff9f3d11d707bc0d434d07a2df92549_a1ff9f3d11d707bc0d434d07a2df92549}
+
+\begin{DoxyParams}{Parameters}
+{\em rhombic} & Point in rhombic coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in cubic coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in rhombic coordinates and returns its cubic position. \hypertarget{class_g_f_hex_grid_a3d2722a9ce23d0769ae92812ecdecb34_a3d2722a9ce23d0769ae92812ecdecb34}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Rhombic\+To\+Herring\+D@{Rhombic\+To\+Herring\+D}}
+\index{Rhombic\+To\+Herring\+D@{Rhombic\+To\+Herring\+D}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Rhombic\+To\+Herring\+D}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Rhombic\+To\+Herring\+D (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{rhombic}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a3d2722a9ce23d0769ae92812ecdecb34_a3d2722a9ce23d0769ae92812ecdecb34}
+
+\begin{DoxyParams}{Parameters}
+{\em rhombic} & Point in rhombic coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in downwards herring coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in rhombic coordinates and returns its downwards herring position. \hypertarget{class_g_f_hex_grid_a95e3f6b72b073af645cd7ebe301a133c_a95e3f6b72b073af645cd7ebe301a133c}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Rhombic\+To\+Herring\+U@{Rhombic\+To\+Herring\+U}}
+\index{Rhombic\+To\+Herring\+U@{Rhombic\+To\+Herring\+U}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Rhombic\+To\+Herring\+U}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Rhombic\+To\+Herring\+U (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{rhombic}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a95e3f6b72b073af645cd7ebe301a133c_a95e3f6b72b073af645cd7ebe301a133c}
+
+\begin{DoxyParams}{Parameters}
+{\em rhombic} & Point in rhombic coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in upwards herring coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in rhombic coordinates and returns its upwards herring position. \hypertarget{class_g_f_hex_grid_ad7bf26ea21e55594a011899d72a1a305_ad7bf26ea21e55594a011899d72a1a305}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Rhombic\+To\+Rhombic\+D@{Rhombic\+To\+Rhombic\+D}}
+\index{Rhombic\+To\+Rhombic\+D@{Rhombic\+To\+Rhombic\+D}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Rhombic\+To\+Rhombic\+D}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Rhombic\+To\+Rhombic\+D (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{rhombic}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_ad7bf26ea21e55594a011899d72a1a305_ad7bf26ea21e55594a011899d72a1a305}
+
+\begin{DoxyParams}{Parameters}
+{\em rhombic} & Point in rhombic coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in downwards rhombic coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in rhombic coordinates and returns its downwards rhombic position. \hypertarget{class_g_f_hex_grid_af8215888f6f22eccc2da17f0984fb5c1_af8215888f6f22eccc2da17f0984fb5c1}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Rhombic\+To\+World@{Rhombic\+To\+World}}
+\index{Rhombic\+To\+World@{Rhombic\+To\+World}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Rhombic\+To\+World}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+Rhombic\+To\+World (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{rhombic}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_af8215888f6f22eccc2da17f0984fb5c1_af8215888f6f22eccc2da17f0984fb5c1}
+
+\begin{DoxyParams}{Parameters}
+{\em rhombic} & Point in rhombic coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in world coordinates.
+\end{DoxyReturn}
+
+
+Takes a point in rhombic coordinates and returns its world position. \hypertarget{class_g_f_hex_grid_a534e73e65f65a117ebb6f4e1122f097d_a534e73e65f65a117ebb6f4e1122f097d}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!Scale\+Vector3@{Scale\+Vector3}}
+\index{Scale\+Vector3@{Scale\+Vector3}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{Scale\+Vector3}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Hex\+Grid.\+Scale\+Vector3 (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{scl, }
+\item[{{\bf Bool\+Vector3}}]{lock\+Axis}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_hex_grid_a534e73e65f65a117ebb6f4e1122f097d_a534e73e65f65a117ebb6f4e1122f097d}
+\begin{DoxyReturn}{Returns}
+The re-\/scaled vector.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em scl} & The vector to scale.\\
+\hline
+{\em lock\+Axis} & The axes to ignore.\\
+\hline
+\end{DoxyParams}
+
+
+This method takes in a vector representing a size and scales it to the nearest multiple of the grid’s radius and depth. The {\ttfamily lock\+Axis} parameter lets you ignore individual axes. 
+
+Implements \hyperlink{class_g_f_grid_a02b3cf14a1529355c51e0d3ea646b4f8_a02b3cf14a1529355c51e0d3ea646b4f8}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_hex_grid_a77f39b12ba07df6135bd28941e30d9ff_a77f39b12ba07df6135bd28941e30d9ff}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!World\+To\+Cubic@{World\+To\+Cubic}}
+\index{World\+To\+Cubic@{World\+To\+Cubic}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{World\+To\+Cubic}]{\setlength{\rightskip}{0pt plus 5cm}Vector4 G\+F\+Hex\+Grid.\+World\+To\+Cubic (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a77f39b12ba07df6135bd28941e30d9ff_a77f39b12ba07df6135bd28941e30d9ff}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in cubic coordinates.
+\end{DoxyReturn}
+
+
+This method takes a point in world space and returns the corresponding rhombic coordinates. The cubic coordinate system uses four axes; X, Y and Z are used to fix the point on the layer while W is which layer of the grid the point is on, relative to the grid's central layer. The central hex has coordinates (0, 0, 0, 0) and the sum of the first three coordinates is always 0. \hypertarget{class_g_f_hex_grid_a476548c7582c1529de47f31ce891f4fd_a476548c7582c1529de47f31ce891f4fd}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!World\+To\+Grid@{World\+To\+Grid}}
+\index{World\+To\+Grid@{World\+To\+Grid}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{World\+To\+Grid}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Hex\+Grid.\+World\+To\+Grid (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_hex_grid_a476548c7582c1529de47f31ce891f4fd_a476548c7582c1529de47f31ce891f4fd}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Grid coordinates of the world point (upwards herringbone coordinate system).
+\end{DoxyReturn}
+
+
+This is the same as calling {\ttfamily \hyperlink{class_g_f_hex_grid_aa824605cf4179ec0c45eb030496ec3fb_aa824605cf4179ec0c45eb030496ec3fb}{World\+To\+Herring\+U}}, because upwards herringbone is the default grid coordinate system. 
+
+Implements \hyperlink{class_g_f_grid_a3c424ac71404a8c87a958b5b5952eb0f_a3c424ac71404a8c87a958b5b5952eb0f}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_hex_grid_a40d8289d887c12c1fd95b3ec818ed22a_a40d8289d887c12c1fd95b3ec818ed22a}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!World\+To\+Herring\+D@{World\+To\+Herring\+D}}
+\index{World\+To\+Herring\+D@{World\+To\+Herring\+D}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{World\+To\+Herring\+D}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+World\+To\+Herring\+D (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a40d8289d887c12c1fd95b3ec818ed22a_a40d8289d887c12c1fd95b3ec818ed22a}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in downwards herringbone coordinates.
+\end{DoxyReturn}
+
+
+This method takes a point in world space and returns the corresponding downwards herringbone coordinates. Every odd numbered column is offset downwards, giving this coordinate system the herringbone pattern. This means that the Y coordinate directly depends on the X coordinate. The Z coordinaate is simply which layer of the grid is on, relative to the grid's central layer. \hypertarget{class_g_f_hex_grid_aa824605cf4179ec0c45eb030496ec3fb_aa824605cf4179ec0c45eb030496ec3fb}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!World\+To\+Herring\+U@{World\+To\+Herring\+U}}
+\index{World\+To\+Herring\+U@{World\+To\+Herring\+U}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{World\+To\+Herring\+U}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+World\+To\+Herring\+U (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_aa824605cf4179ec0c45eb030496ec3fb_aa824605cf4179ec0c45eb030496ec3fb}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in upwards herringbone coordinates.
+\end{DoxyReturn}
+
+
+This method takes a point in world space and returns the corresponding upwards herringbone coordinates. Every odd numbered column is offset upwards, giving this coordinate system the herringbone pattern. This means that the Y coordinate directly depends on the X coordinate. The Z coordinaate is simply which layer of the grid is on, relative to the grid's central layer. \hypertarget{class_g_f_hex_grid_a1669b77f20e1406b7d7554d45635945e_a1669b77f20e1406b7d7554d45635945e}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!World\+To\+Rhombic@{World\+To\+Rhombic}}
+\index{World\+To\+Rhombic@{World\+To\+Rhombic}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{World\+To\+Rhombic}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+World\+To\+Rhombic (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a1669b77f20e1406b7d7554d45635945e_a1669b77f20e1406b7d7554d45635945e}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in rhombic coordinates.
+\end{DoxyReturn}
+
+
+This method takes a point in world space and returns the corresponding rhombic coordinates. The rhombic coordinate system uses three axes; the X-\/axis rotated 30° counter-\/clockwise, the regular Y-\/axis, and the Z coordinate is which layer of the grid the point is on, relative to the grid's central layer. \hypertarget{class_g_f_hex_grid_a72549876d8ef493279002dc04ecc2332_a72549876d8ef493279002dc04ecc2332}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!World\+To\+Rhombic\+D@{World\+To\+Rhombic\+D}}
+\index{World\+To\+Rhombic\+D@{World\+To\+Rhombic\+D}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{World\+To\+Rhombic\+D}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Hex\+Grid.\+World\+To\+Rhombic\+D (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_hex_grid_a72549876d8ef493279002dc04ecc2332_a72549876d8ef493279002dc04ecc2332}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point in downwards rhombic coordinates.
+\end{DoxyReturn}
+
+
+This method takes a point in world space and returns the corresponding downwards rhombic coordinates. The downwards rhombic coordinate system uses three axes; the X-\/axis rotated 300° counter-\/clockwise, the regular Y-\/axis, and the Z coordinate is which layer of the grid the point is on, relative to the grid's central layer. 
+
+\subsection{Property Documentation}
+\hypertarget{class_g_f_hex_grid_aa655390c4d3e1872978c50b964107dff_aa655390c4d3e1872978c50b964107dff}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!grid\+Style@{grid\+Style}}
+\index{grid\+Style@{grid\+Style}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{grid\+Style}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Hex\+Grid\+Shape} G\+F\+Hex\+Grid.\+grid\+Style\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_hex_grid_aa655390c4d3e1872978c50b964107dff_aa655390c4d3e1872978c50b964107dff}
+The shape when drawing or rendering the grid. This only affects the grid’s appearance, but not how it works.\hypertarget{class_g_f_hex_grid_adef19e30b8a5c7e243d1f8239e270630_adef19e30b8a5c7e243d1f8239e270630}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!height@{height}}
+\index{height@{height}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{height}]{\setlength{\rightskip}{0pt plus 5cm}float G\+F\+Hex\+Grid.\+height\hspace{0.3cm}{\ttfamily [get]}}}\label{class_g_f_hex_grid_adef19e30b8a5c7e243d1f8239e270630_adef19e30b8a5c7e243d1f8239e270630}
+This is the full vertical height of a hex. For pointy side hexes this is the distance from one edge to its opposite ({\ttfamily sqrt(3) $\ast$ radius}) and for flat side hexes it is the distance between two opposite vertixes ({\ttfamily 2 $\ast$ radius}). \hypertarget{class_g_f_hex_grid_a1c7aee0c19fe71879a1056d1c04be420_a1c7aee0c19fe71879a1056d1c04be420}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!hex\+Side\+Mode@{hex\+Side\+Mode}}
+\index{hex\+Side\+Mode@{hex\+Side\+Mode}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{hex\+Side\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Hex\+Orientation} G\+F\+Hex\+Grid.\+hex\+Side\+Mode\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_hex_grid_a1c7aee0c19fe71879a1056d1c04be420_a1c7aee0c19fe71879a1056d1c04be420}
+Whether the grid has pointy sides or flat sides. This affects both the drawing and the calculations.\hypertarget{class_g_f_hex_grid_a651e7fbf9e12e4d8fd31f21503aeb120_a651e7fbf9e12e4d8fd31f21503aeb120}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!hex\+Top\+Mode@{hex\+Top\+Mode}}
+\index{hex\+Top\+Mode@{hex\+Top\+Mode}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{hex\+Top\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Hex\+Top\+Orientation} G\+F\+Hex\+Grid.\+hex\+Top\+Mode\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_hex_grid_a651e7fbf9e12e4d8fd31f21503aeb120_a651e7fbf9e12e4d8fd31f21503aeb120}
+Whether the grid has flat tops or pointy tops. This is directly connected to {\ttfamily hex\+Side\+Mode}, in fact this is just an accessor that gets and sets the appropriate value for it. \hypertarget{class_g_f_hex_grid_a99701e2998e2b7305bb1bbe0c1ef9506_a99701e2998e2b7305bb1bbe0c1ef9506}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!radius@{radius}}
+\index{radius@{radius}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{radius}]{\setlength{\rightskip}{0pt plus 5cm}float G\+F\+Hex\+Grid.\+radius\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_hex_grid_a99701e2998e2b7305bb1bbe0c1ef9506_a99701e2998e2b7305bb1bbe0c1ef9506}
+This refers to the distance between the centre of a hexagon and one of its vertices. Since the hexagon is regular all vertices have the same distance from the centre. In other words, imagine a circumscribed circle around the hexagon, its radius is the radius of the hexagon. The value may not be less than 0.\+1 (please contact me if you really need lower values). \hypertarget{class_g_f_hex_grid_a09ba217a58d06021fe82fed119c96969_a09ba217a58d06021fe82fed119c96969}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!side@{side}}
+\index{side@{side}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{side}]{\setlength{\rightskip}{0pt plus 5cm}float G\+F\+Hex\+Grid.\+side\hspace{0.3cm}{\ttfamily [get]}}}\label{class_g_f_hex_grid_a09ba217a58d06021fe82fed119c96969_a09ba217a58d06021fe82fed119c96969}
+Shorthand writing for {\ttfamily 1.\+5f $\ast$ \hyperlink{class_g_f_hex_grid_a99701e2998e2b7305bb1bbe0c1ef9506_a99701e2998e2b7305bb1bbe0c1ef9506}{radius}} (read-\/only).\hypertarget{class_g_f_hex_grid_a6d9ef76fc36e9b3709feb605219672a7_a6d9ef76fc36e9b3709feb605219672a7}{\index{G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}!width@{width}}
+\index{width@{width}!G\+F\+Hex\+Grid@{G\+F\+Hex\+Grid}}
+\subsubsection[{width}]{\setlength{\rightskip}{0pt plus 5cm}float G\+F\+Hex\+Grid.\+width\hspace{0.3cm}{\ttfamily [get]}}}\label{class_g_f_hex_grid_a6d9ef76fc36e9b3709feb605219672a7_a6d9ef76fc36e9b3709feb605219672a7}
+This is the full horizontal width of a hex. For pointy side hexes this is the distance from one vertex to its opposite ({\ttfamily 2 $\ast$ radius}) and for flat side hexes it is the distance between to opposite edges ({\ttfamily sqrt(3) $\ast$ radius}). 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+G\+F\+Hex\+Grid.\+cs\end{DoxyCompactItemize}

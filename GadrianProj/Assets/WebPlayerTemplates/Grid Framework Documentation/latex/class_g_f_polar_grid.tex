@@ -1,0 +1,683 @@
+\hypertarget{class_g_f_polar_grid}{\section{G\+F\+Polar\+Grid Class Reference}
+\label{class_g_f_polar_grid}\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+}
+
+
+A polar grid based on cylindrical coordinates. 
+
+
+Inheritance diagram for G\+F\+Polar\+Grid\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_g_f_polar_grid}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override Vector3 \hyperlink{class_g_f_polar_grid_a925bc4556e0c7422f476409b4f48067e_a925bc4556e0c7422f476409b4f48067e}{World\+To\+Grid} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Converts from world to grid coordinates.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_polar_grid_a80a4698250b08f212f3681abadbc5012_a80a4698250b08f212f3681abadbc5012}{Grid\+To\+World} (Vector3 grid\+Point)
+\begin{DoxyCompactList}\small\item\em Converts from grid to world coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_polar_grid_a4fb1df768f7700590e23205e089dc58d_a4fb1df768f7700590e23205e089dc58d}{World\+To\+Polar} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Converts from world to polar coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_polar_grid_a3dc57117173969cf60d3275e533a3ff8_a3dc57117173969cf60d3275e533a3ff8}{Polar\+To\+World} (Vector3 polar\+Point)
+\begin{DoxyCompactList}\small\item\em Converts from polar to world coordinates.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_polar_grid_a2a571c5fc91475f86f7643f45fc1c265_a2a571c5fc91475f86f7643f45fc1c265}{Grid\+To\+Polar} (Vector3 grid\+Point)
+\begin{DoxyCompactList}\small\item\em Converts a point from grid to polar space.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_polar_grid_a7e4ceb8cf00db2c36b74ef76ecaa2a15_a7e4ceb8cf00db2c36b74ef76ecaa2a15}{Polar\+To\+Grid} (Vector3 polar\+Point)
+\begin{DoxyCompactList}\small\item\em Converts a point from polar to grid space.\end{DoxyCompactList}\item 
+float \hyperlink{class_g_f_polar_grid_ab11007629046b75d7a788f65a952fdaf_ab11007629046b75d7a788f65a952fdaf}{Angle2\+Sector} (float \hyperlink{class_g_f_polar_grid_ad57e2dcf03806e576191953034dcd74c_ad57e2dcf03806e576191953034dcd74c}{angle}, \hyperlink{namespace_grid_framework_af11322a36c09698c9ad2fa65f85320a9_af11322a36c09698c9ad2fa65f85320a9}{Angle\+Mode} mode=Angle\+Mode.\+radians)
+\begin{DoxyCompactList}\small\item\em Converts an angle (radians or degree) to the corresponding sector coordinate.\end{DoxyCompactList}\item 
+float \hyperlink{class_g_f_polar_grid_a675288b8c01f479b18411bb31c8d05eb_a675288b8c01f479b18411bb31c8d05eb}{Sector2\+Angle} (float sector, \hyperlink{namespace_grid_framework_af11322a36c09698c9ad2fa65f85320a9_af11322a36c09698c9ad2fa65f85320a9}{Angle\+Mode} mode=Angle\+Mode.\+radians)
+\begin{DoxyCompactList}\small\item\em Converts a sector to the corresponding angle coordinate (radians or degree).\end{DoxyCompactList}\item 
+Quaternion \hyperlink{class_g_f_polar_grid_a36467502f91e0fc6ca2247f2ce72ddaa_a36467502f91e0fc6ca2247f2ce72ddaa}{Angle2\+Rotation} (float \hyperlink{class_g_f_polar_grid_ad57e2dcf03806e576191953034dcd74c_ad57e2dcf03806e576191953034dcd74c}{angle}, \hyperlink{namespace_grid_framework_af11322a36c09698c9ad2fa65f85320a9_af11322a36c09698c9ad2fa65f85320a9}{Angle\+Mode} mode=Angle\+Mode.\+radians)
+\begin{DoxyCompactList}\small\item\em Converts an angle around the origin to a rotation.\end{DoxyCompactList}\item 
+Quaternion \hyperlink{class_g_f_polar_grid_a7cf5d37fe48331dc630dfedaf585e2e0_a7cf5d37fe48331dc630dfedaf585e2e0}{Sector2\+Rotation} (float sector)
+\begin{DoxyCompactList}\small\item\em Converts a sector around the origin to a rotation.\end{DoxyCompactList}\item 
+Quaternion \hyperlink{class_g_f_polar_grid_a7d03e8c0b4ec132f58c587539e0027c7_a7d03e8c0b4ec132f58c587539e0027c7}{World2\+Rotation} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Converts a world position to a rotation around the origin.\end{DoxyCompactList}\item 
+float \hyperlink{class_g_f_polar_grid_a4ae9f55612e4c91a5d28b27c924c7432_a4ae9f55612e4c91a5d28b27c924c7432}{World2\+Angle} (Vector3 world\+Point, \hyperlink{namespace_grid_framework_af11322a36c09698c9ad2fa65f85320a9_af11322a36c09698c9ad2fa65f85320a9}{Angle\+Mode} mode=Angle\+Mode.\+radians)
+\begin{DoxyCompactList}\small\item\em Converts a world position to an angle around the origin.\end{DoxyCompactList}\item 
+float \hyperlink{class_g_f_polar_grid_aa03b782920133982d3ceec6169c2fa08_aa03b782920133982d3ceec6169c2fa08}{World2\+Sector} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Converts a world position to the sector of the grid it is in.\end{DoxyCompactList}\item 
+float \hyperlink{class_g_f_polar_grid_a0c865b865e3dd5a5377f7f24c59ef33d_a0c865b865e3dd5a5377f7f24c59ef33d}{World2\+Radius} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Converts a world position to the radius from the origin.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_polar_grid_ab0fd04140a3de44e0b407629dcf0e124_ab0fd04140a3de44e0b407629dcf0e124}{Nearest\+Vertex\+W} (Vector3 world\+Point, bool do\+Debug)
+\begin{DoxyCompactList}\small\item\em Returns the world position of the nearest vertex.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_polar_grid_a96c9b87b860cfb9099079f6ae1c415d5_a96c9b87b860cfb9099079f6ae1c415d5}{Nearest\+Face\+W} (Vector3 world, bool do\+Debug)
+\begin{DoxyCompactList}\small\item\em Returns the world position of the nearest face.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_polar_grid_aa8d60db8cd64b7dbe083d380110ab9d9_aa8d60db8cd64b7dbe083d380110ab9d9}{Nearest\+Box\+W} (Vector3 world\+Point, bool do\+Debug)
+\begin{DoxyCompactList}\small\item\em Returns the world position of the nearest box.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_polar_grid_aa119074284b649c45ee9b1bb80153d4d_aa119074284b649c45ee9b1bb80153d4d}{Nearest\+Vertex\+G} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Returns the grid position of the nearest vertex.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_polar_grid_a14f3e5fe0e7db4b49bae10a146a9e5f6_a14f3e5fe0e7db4b49bae10a146a9e5f6}{Nearest\+Face\+G} (Vector3 world)
+\begin{DoxyCompactList}\small\item\em Returns the grid position of the nearest Face.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_polar_grid_abdc5c38b32d8fe3d6610127b54b89093_abdc5c38b32d8fe3d6610127b54b89093}{Nearest\+Box\+G} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Returns the grid position of the nearest box.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_polar_grid_a267e38d14acaffe3e98bac47c75eb52d_a267e38d14acaffe3e98bac47c75eb52d}{Nearest\+Vertex\+P} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Returns the grid position of the nearest vertex.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_polar_grid_a2d1331fb80b8029fe7c06c72c4a16077_a2d1331fb80b8029fe7c06c72c4a16077}{Nearest\+Face\+P} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Returns the polar position of the nearest Face.\end{DoxyCompactList}\item 
+Vector3 \hyperlink{class_g_f_polar_grid_a06654388a9f53f5e56971f7c8b7f40ad_a06654388a9f53f5e56971f7c8b7f40ad}{Nearest\+Box\+P} (Vector3 world\+Point)
+\begin{DoxyCompactList}\small\item\em Returns the polar position of the nearest box.\end{DoxyCompactList}\item 
+void \hyperlink{class_g_f_polar_grid_a14f45c2312bfe475e588d128dc108b0c_a14f45c2312bfe475e588d128dc108b0c}{Align\+Rotate\+Transform} (Transform transform, \hyperlink{class_grid_framework_1_1_vectors_1_1_bool_vector3}{Bool\+Vector3} lock\+Axis)
+\begin{DoxyCompactList}\small\item\em Aligns and rotates a Transform.\end{DoxyCompactList}\item 
+void \hyperlink{class_g_f_polar_grid_ad8054ff4516cc6929b110de4c2b0c77c_ad8054ff4516cc6929b110de4c2b0c77c}{Align\+Rotate\+Transform} (Transform the\+Transform)
+\item 
+override Vector3 \hyperlink{class_g_f_polar_grid_a5faa2b607e1ffc4ad2d3d5e7d62bf611_a5faa2b607e1ffc4ad2d3d5e7d62bf611}{Align\+Vector3} (Vector3 pos, Vector3 scale, \hyperlink{class_grid_framework_1_1_vectors_1_1_bool_vector3}{Bool\+Vector3} ignore\+Axis)
+\begin{DoxyCompactList}\small\item\em Fits a position vector into the grid.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_polar_grid_aa7d26ab4a4cfbe914001c7f635ee2ace_aa7d26ab4a4cfbe914001c7f635ee2ace}{Scale\+Vector3} (Vector3 scl, \hyperlink{class_grid_framework_1_1_vectors_1_1_bool_vector3}{Bool\+Vector3} ignore\+Axis)
+\begin{DoxyCompactList}\small\item\em Scales a size vector to fit inside a grid.\end{DoxyCompactList}\item 
+override void \hyperlink{class_g_f_polar_grid_a5c3dd0e599e358379dc7c83f31e1dc5f_a5c3dd0e599e358379dc7c83f31e1dc5f}{Render\+Grid} (int width=0, Camera cam=null, Transform cam\+Transform=null)
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+override Vector3 \hyperlink{class_g_f_polar_grid_a851ff16bfbf1204a1ab0b1b4de3ceb35_a851ff16bfbf1204a1ab0b1b4de3ceb35}{size}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Overrides the size of \hyperlink{class_g_f_grid}{G\+F\+Grid} to make sure the angular coordinate is clamped appropriately between 0 and 2π (360°) or 0 and \hyperlink{class_g_f_polar_grid_a10ed1b65007dca14afb8fb6d22d36de0_a10ed1b65007dca14afb8fb6d22d36de0}{sectors}.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_polar_grid_a9f4b9bcd687f29d56f4aafa74655e27b_a9f4b9bcd687f29d56f4aafa74655e27b}{render\+From}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Overrides the property of \hyperlink{class_g_f_grid}{G\+F\+Grid} to make sure that the radial value is positive and the angular value is wrapped around properly.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_polar_grid_a81cc21991e689a1e74821d1f2870852e_a81cc21991e689a1e74821d1f2870852e}{render\+To}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Overrides the property of \hyperlink{class_g_f_grid}{G\+F\+Grid} to make sure that the angular value is wrapped around properly.\end{DoxyCompactList}\item 
+float \hyperlink{class_g_f_polar_grid_a71bf429c8c2630684969db7f7483416a_a71bf429c8c2630684969db7f7483416a}{radius}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The radius of the inner-\/most circle of the grid.\end{DoxyCompactList}\item 
+int \hyperlink{class_g_f_polar_grid_a10ed1b65007dca14afb8fb6d22d36de0_a10ed1b65007dca14afb8fb6d22d36de0}{sectors}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The amount of sectors per circle.\end{DoxyCompactList}\item 
+int \hyperlink{class_g_f_polar_grid_a734237fa4e6ad811a84f36d6532ba9f9_a734237fa4e6ad811a84f36d6532ba9f9}{smoothness}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Divides the sectors to create a smoother look.\end{DoxyCompactList}\item 
+float \hyperlink{class_g_f_polar_grid_ad57e2dcf03806e576191953034dcd74c_ad57e2dcf03806e576191953034dcd74c}{angle}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The angle of a sector in radians.\end{DoxyCompactList}\item 
+float \hyperlink{class_g_f_polar_grid_a5c0e2072d09f3add6e4012b89ce8d21e_a5c0e2072d09f3add6e4012b89ce8d21e}{angle\+Deg}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The angle of a sector in degrees.\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A grid based on cylindrical coordinates. The caracterizing values are \hyperlink{class_g_f_polar_grid_a71bf429c8c2630684969db7f7483416a_a71bf429c8c2630684969db7f7483416a}{radius}, \hyperlink{class_g_f_polar_grid_a10ed1b65007dca14afb8fb6d22d36de0_a10ed1b65007dca14afb8fb6d22d36de0}{sectors} and \hyperlink{class_g_f_layered_grid_a3ff168354ca75d04aae2340c48c7070c_a3ff168354ca75d04aae2340c48c7070c}{depth}. The angle values are derived from \hyperlink{class_g_f_polar_grid_a10ed1b65007dca14afb8fb6d22d36de0_a10ed1b65007dca14afb8fb6d22d36de0}{sectors} and we use radians internally. The coordinate systems used are either a grid-\/based coordinate system based on the defining values or a regular cylindrical coordinate system. If you want polar coordinates just ignore the height component of the cylindrical coordinates.
+
+It is important to note that the components of polar and grid coordinates represent the radius, radian angle and height. Which component represents what depends on the grid\+Plane. The user manual has a handy table for that purpose.
+
+The members \hyperlink{class_g_f_polar_grid_a851ff16bfbf1204a1ab0b1b4de3ceb35_a851ff16bfbf1204a1ab0b1b4de3ceb35}{size}, \hyperlink{class_g_f_polar_grid_a9f4b9bcd687f29d56f4aafa74655e27b_a9f4b9bcd687f29d56f4aafa74655e27b}{render\+From} and \hyperlink{class_g_f_polar_grid_a81cc21991e689a1e74821d1f2870852e_a81cc21991e689a1e74821d1f2870852e}{render\+To} are inherited from \hyperlink{class_g_f_grid}{G\+F\+Grid}, but slightly different. The first component of all three cannot be lower than 0 and in the case of \hyperlink{class_g_f_polar_grid_a9f4b9bcd687f29d56f4aafa74655e27b_a9f4b9bcd687f29d56f4aafa74655e27b}{render\+From} it cannot be larger than the first component of {\ttfamily \hyperlink{class_g_f_polar_grid_a81cc21991e689a1e74821d1f2870852e_a81cc21991e689a1e74821d1f2870852e}{render\+To}}, and vice-\/versa. The second component is an angle in radians and wraps around as described in the user manual, no other restrictions. The third component is the height, it’s bounded from below by 0.\+01 and in the case of \hyperlink{class_g_f_polar_grid_a9f4b9bcd687f29d56f4aafa74655e27b_a9f4b9bcd687f29d56f4aafa74655e27b}{render\+From} it cannot be larger than \hyperlink{class_g_f_polar_grid_a81cc21991e689a1e74821d1f2870852e_a81cc21991e689a1e74821d1f2870852e}{render\+To} and vice-\/versa. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_g_f_polar_grid_a14f45c2312bfe475e588d128dc108b0c_a14f45c2312bfe475e588d128dc108b0c}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Align\+Rotate\+Transform@{Align\+Rotate\+Transform}}
+\index{Align\+Rotate\+Transform@{Align\+Rotate\+Transform}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Align\+Rotate\+Transform}]{\setlength{\rightskip}{0pt plus 5cm}void G\+F\+Polar\+Grid.\+Align\+Rotate\+Transform (
+\begin{DoxyParamCaption}
+\item[{Transform}]{transform, }
+\item[{{\bf Bool\+Vector3}}]{lock\+Axis}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_a14f45c2312bfe475e588d128dc108b0c_a14f45c2312bfe475e588d128dc108b0c}
+
+\begin{DoxyParams}{Parameters}
+{\em transform} & The Transform to align.\\
+\hline
+{\em lock\+Axis} & Axis to ignore.\\
+\hline
+\end{DoxyParams}
+
+
+Aligns a Transform and the rotates it depending on its position inside the grid. This method cobines two steps in one call for convenience. \hypertarget{class_g_f_polar_grid_ad8054ff4516cc6929b110de4c2b0c77c_ad8054ff4516cc6929b110de4c2b0c77c}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Align\+Rotate\+Transform@{Align\+Rotate\+Transform}}
+\index{Align\+Rotate\+Transform@{Align\+Rotate\+Transform}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Align\+Rotate\+Transform}]{\setlength{\rightskip}{0pt plus 5cm}void G\+F\+Polar\+Grid.\+Align\+Rotate\+Transform (
+\begin{DoxyParamCaption}
+\item[{Transform}]{the\+Transform}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_ad8054ff4516cc6929b110de4c2b0c77c_ad8054ff4516cc6929b110de4c2b0c77c}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Use this overload when you want to appy the alignment on all axis, then you don't have to specity them. \hypertarget{class_g_f_polar_grid_a5faa2b607e1ffc4ad2d3d5e7d62bf611_a5faa2b607e1ffc4ad2d3d5e7d62bf611}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Align\+Vector3@{Align\+Vector3}}
+\index{Align\+Vector3@{Align\+Vector3}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Align\+Vector3}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Polar\+Grid.\+Align\+Vector3 (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{pos, }
+\item[{Vector3}]{scale, }
+\item[{{\bf Bool\+Vector3}}]{ignore\+Axis}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_polar_grid_a5faa2b607e1ffc4ad2d3d5e7d62bf611_a5faa2b607e1ffc4ad2d3d5e7d62bf611}
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position to align.\\
+\hline
+{\em scale} & A simulated scale to decide how exactly to fit the poistion into the grid.\\
+\hline
+{\em ignore\+Axis} & Which axes should be ignored.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aligned position vector.
+\end{DoxyReturn}
+
+
+Fits a position inside the grid by using the object’s transform. Currently the object will snap either on edges or between, depending on which is closer, ignoring the {\itshape scale}  passed, but I might add an optionfor this in the future. 
+
+Implements \hyperlink{class_g_f_grid_a18b3e57431dc0db8f651479e4fb04a8f_a18b3e57431dc0db8f651479e4fb04a8f}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_polar_grid_a36467502f91e0fc6ca2247f2ce72ddaa_a36467502f91e0fc6ca2247f2ce72ddaa}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Angle2\+Rotation@{Angle2\+Rotation}}
+\index{Angle2\+Rotation@{Angle2\+Rotation}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Angle2\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}Quaternion G\+F\+Polar\+Grid.\+Angle2\+Rotation (
+\begin{DoxyParamCaption}
+\item[{float}]{angle, }
+\item[{{\bf Angle\+Mode}}]{mode = {\ttfamily AngleMode.radians}}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_a36467502f91e0fc6ca2247f2ce72ddaa_a36467502f91e0fc6ca2247f2ce72ddaa}
+\begin{DoxyReturn}{Returns}
+Rotation quaterion which rotates arround the origin by {\itshape angle} .
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Angle in either radians or degrees.\\
+\hline
+{\em mode} & The mode of the angle, defaults to radians.\\
+\hline
+\end{DoxyParams}
+
+
+This method returns a quaternion which represents a rotation within the grid. The result is a combination of the grid's own rotation and the rotation from the angle. Since we use an angle, this method is more suitable for polar coordinates than grid coordinates. See \hyperlink{class_g_f_polar_grid_a7cf5d37fe48331dc630dfedaf585e2e0_a7cf5d37fe48331dc630dfedaf585e2e0}{Sector2\+Rotation} for a similar method that uses sectors. \hypertarget{class_g_f_polar_grid_ab11007629046b75d7a788f65a952fdaf_ab11007629046b75d7a788f65a952fdaf}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Angle2\+Sector@{Angle2\+Sector}}
+\index{Angle2\+Sector@{Angle2\+Sector}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Angle2\+Sector}]{\setlength{\rightskip}{0pt plus 5cm}float G\+F\+Polar\+Grid.\+Angle2\+Sector (
+\begin{DoxyParamCaption}
+\item[{float}]{angle, }
+\item[{{\bf Angle\+Mode}}]{mode = {\ttfamily AngleMode.radians}}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_ab11007629046b75d7a788f65a952fdaf_ab11007629046b75d7a788f65a952fdaf}
+\begin{DoxyReturn}{Returns}
+Sector value of the angle.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Angle in either radians or degress.\\
+\hline
+{\em mode} & The mode of the angle, defaults to radians.\\
+\hline
+\end{DoxyParams}
+
+
+This method takes in an angle and returns in which sector the angle lies. If the angle exceeds 2π or 360° it wraps around, nagetive angles are automatically subtracted from 2π or 360°.
+
+Let's take a grid with six sectors for example, then one sector has an agle of 360° / 6 = 60°, so a 135° angle corresponds to a sector value of 130° / 60° = 2.\+25.\hypertarget{class_g_f_polar_grid_a2a571c5fc91475f86f7643f45fc1c265_a2a571c5fc91475f86f7643f45fc1c265}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Grid\+To\+Polar@{Grid\+To\+Polar}}
+\index{Grid\+To\+Polar@{Grid\+To\+Polar}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Grid\+To\+Polar}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Polar\+Grid.\+Grid\+To\+Polar (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{grid\+Point}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_a2a571c5fc91475f86f7643f45fc1c265_a2a571c5fc91475f86f7643f45fc1c265}
+\begin{DoxyReturn}{Returns}
+Point in polar space.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em grid\+Point} & Point in grid space.\\
+\hline
+\end{DoxyParams}
+
+
+Converts a point from grid to polar space. The main difference is that grid coordinates are dependent on the grid's parameters, while polar coordinates are not. \hypertarget{class_g_f_polar_grid_a80a4698250b08f212f3681abadbc5012_a80a4698250b08f212f3681abadbc5012}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Grid\+To\+World@{Grid\+To\+World}}
+\index{Grid\+To\+World@{Grid\+To\+World}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Grid\+To\+World}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Polar\+Grid.\+Grid\+To\+World (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{grid\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_polar_grid_a80a4698250b08f212f3681abadbc5012_a80a4698250b08f212f3681abadbc5012}
+\begin{DoxyReturn}{Returns}
+World coordinates of the grid point.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em grid\+Point} & Point in grid space.\\
+\hline
+\end{DoxyParams}
+
+
+Converts a point from grid space to world space. 
+
+Implements \hyperlink{class_g_f_grid_af32d7bfcecb5da3fdc47b972b551e33e_af32d7bfcecb5da3fdc47b972b551e33e}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_polar_grid_abdc5c38b32d8fe3d6610127b54b89093_abdc5c38b32d8fe3d6610127b54b89093}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Nearest\+Box\+G@{Nearest\+Box\+G}}
+\index{Nearest\+Box\+G@{Nearest\+Box\+G}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Nearest\+Box\+G}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Polar\+Grid.\+Nearest\+Box\+G (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_polar_grid_abdc5c38b32d8fe3d6610127b54b89093_abdc5c38b32d8fe3d6610127b54b89093}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest box.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to \hyperlink{class_g_f_polar_grid_aa119074284b649c45ee9b1bb80153d4d_aa119074284b649c45ee9b1bb80153d4d}{Nearest\+Vertex\+G}, it returns the grid coordinates of a box in the grid. Since the box is enclosed by several vertices, the returned value is the point in between all of the vertices. 
+
+Implements \hyperlink{class_g_f_grid_adb7c70449b2449c1e82132e6300cc1a5_adb7c70449b2449c1e82132e6300cc1a5}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_polar_grid_a06654388a9f53f5e56971f7c8b7f40ad_a06654388a9f53f5e56971f7c8b7f40ad}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Nearest\+Box\+P@{Nearest\+Box\+P}}
+\index{Nearest\+Box\+P@{Nearest\+Box\+P}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Nearest\+Box\+P}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Polar\+Grid.\+Nearest\+Box\+P (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_a06654388a9f53f5e56971f7c8b7f40ad_a06654388a9f53f5e56971f7c8b7f40ad}
+\begin{DoxyReturn}{Returns}
+Polar position of the nearest box.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to \hyperlink{class_g_f_polar_grid_a267e38d14acaffe3e98bac47c75eb52d_a267e38d14acaffe3e98bac47c75eb52d}{Nearest\+Vertex\+P}, it returns the polar coordinates of a box in the grid. Since the box is enclosed by several vertices, the returned value is the point in between all of the vertices. \hypertarget{class_g_f_polar_grid_aa8d60db8cd64b7dbe083d380110ab9d9_aa8d60db8cd64b7dbe083d380110ab9d9}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Nearest\+Box\+W@{Nearest\+Box\+W}}
+\index{Nearest\+Box\+W@{Nearest\+Box\+W}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Nearest\+Box\+W}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Polar\+Grid.\+Nearest\+Box\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point, }
+\item[{bool}]{do\+Debug}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_polar_grid_aa8d60db8cd64b7dbe083d380110ab9d9_aa8d60db8cd64b7dbe083d380110ab9d9}
+\begin{DoxyReturn}{Returns}
+World position of the nearest box.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+{\em do\+Debug} & If set to {\ttfamily true} draw a sphere at the destination.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to \hyperlink{class_g_f_polar_grid_ab0fd04140a3de44e0b407629dcf0e124_ab0fd04140a3de44e0b407629dcf0e124}{Nearest\+Vertex\+W}, it returns the world coordinates of a box in the grid. Since the box is enclosed by several vertices, the returned value is the point in between all of the vertices. If {\itshape do\+Debug}  is set a small gizmo box will drawn there. 
+
+Implements \hyperlink{class_g_f_grid_a02fcf02269ca5a2064acccecde9819eb_a02fcf02269ca5a2064acccecde9819eb}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_polar_grid_a14f3e5fe0e7db4b49bae10a146a9e5f6_a14f3e5fe0e7db4b49bae10a146a9e5f6}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Nearest\+Face\+G@{Nearest\+Face\+G}}
+\index{Nearest\+Face\+G@{Nearest\+Face\+G}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Nearest\+Face\+G}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Polar\+Grid.\+Nearest\+Face\+G (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_polar_grid_a14f3e5fe0e7db4b49bae10a146a9e5f6_a14f3e5fe0e7db4b49bae10a146a9e5f6}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest face.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to \hyperlink{class_g_f_polar_grid_aa119074284b649c45ee9b1bb80153d4d_aa119074284b649c45ee9b1bb80153d4d}{Nearest\+Vertex\+G}, it returns the grid coordinates of a face on the grid. Since the face is enclosed by several vertices, the returned value is the point in between all of the vertices. 
+
+Implements \hyperlink{class_g_f_layered_grid}{G\+F\+Layered\+Grid}.
+
+\hypertarget{class_g_f_polar_grid_a2d1331fb80b8029fe7c06c72c4a16077_a2d1331fb80b8029fe7c06c72c4a16077}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Nearest\+Face\+P@{Nearest\+Face\+P}}
+\index{Nearest\+Face\+P@{Nearest\+Face\+P}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Nearest\+Face\+P}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Polar\+Grid.\+Nearest\+Face\+P (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_a2d1331fb80b8029fe7c06c72c4a16077_a2d1331fb80b8029fe7c06c72c4a16077}
+\begin{DoxyReturn}{Returns}
+Polar position of the nearest face.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to \hyperlink{class_g_f_polar_grid_a267e38d14acaffe3e98bac47c75eb52d_a267e38d14acaffe3e98bac47c75eb52d}{Nearest\+Vertex\+P}, it returns the polar coordinates of a face on the grid. Since the face is enclosed by several vertices, the returned value is the point in between all of the vertices. \hypertarget{class_g_f_polar_grid_a96c9b87b860cfb9099079f6ae1c415d5_a96c9b87b860cfb9099079f6ae1c415d5}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Nearest\+Face\+W@{Nearest\+Face\+W}}
+\index{Nearest\+Face\+W@{Nearest\+Face\+W}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Nearest\+Face\+W}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Polar\+Grid.\+Nearest\+Face\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world, }
+\item[{bool}]{do\+Debug}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_polar_grid_a96c9b87b860cfb9099079f6ae1c415d5_a96c9b87b860cfb9099079f6ae1c415d5}
+\begin{DoxyReturn}{Returns}
+World position of the nearest face.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world} & Point in world space.\\
+\hline
+{\em do\+Debug} & If set to {\ttfamily true} draw a sphere at the destination.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to \hyperlink{class_g_f_polar_grid_ab0fd04140a3de44e0b407629dcf0e124_ab0fd04140a3de44e0b407629dcf0e124}{Nearest\+Vertex\+W}, it returns the world coordinates of a face on the grid. Since the face is enclosed by several vertices, the returned value is the point in between all of the vertices. If {\itshape do\+Debug}  is set a small gizmo face will drawn there. 
+
+Implements \hyperlink{class_g_f_layered_grid}{G\+F\+Layered\+Grid}.
+
+\hypertarget{class_g_f_polar_grid_aa119074284b649c45ee9b1bb80153d4d_aa119074284b649c45ee9b1bb80153d4d}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Nearest\+Vertex\+G@{Nearest\+Vertex\+G}}
+\index{Nearest\+Vertex\+G@{Nearest\+Vertex\+G}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Nearest\+Vertex\+G}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Polar\+Grid.\+Nearest\+Vertex\+G (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_polar_grid_aa119074284b649c45ee9b1bb80153d4d_aa119074284b649c45ee9b1bb80153d4d}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest vertex.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+Returns the position of the nerest vertex in grid coordinates from a given point in world space. 
+
+Implements \hyperlink{class_g_f_grid_a7eaa2821cf118bb4821bd2cbf40029da_a7eaa2821cf118bb4821bd2cbf40029da}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_polar_grid_a267e38d14acaffe3e98bac47c75eb52d_a267e38d14acaffe3e98bac47c75eb52d}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Nearest\+Vertex\+P@{Nearest\+Vertex\+P}}
+\index{Nearest\+Vertex\+P@{Nearest\+Vertex\+P}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Nearest\+Vertex\+P}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Polar\+Grid.\+Nearest\+Vertex\+P (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_a267e38d14acaffe3e98bac47c75eb52d_a267e38d14acaffe3e98bac47c75eb52d}
+\begin{DoxyReturn}{Returns}
+Polar position of the nearest vertex.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+Returns the position of the nerest vertex in polar coordinates from a given point in world space. \hypertarget{class_g_f_polar_grid_ab0fd04140a3de44e0b407629dcf0e124_ab0fd04140a3de44e0b407629dcf0e124}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Nearest\+Vertex\+W@{Nearest\+Vertex\+W}}
+\index{Nearest\+Vertex\+W@{Nearest\+Vertex\+W}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Nearest\+Vertex\+W}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Polar\+Grid.\+Nearest\+Vertex\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point, }
+\item[{bool}]{do\+Debug}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_polar_grid_ab0fd04140a3de44e0b407629dcf0e124_ab0fd04140a3de44e0b407629dcf0e124}
+\begin{DoxyReturn}{Returns}
+World position of the nearest vertex.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+{\em do\+Debug} & If set to {\ttfamily true} do debug.\\
+\hline
+\end{DoxyParams}
+
+
+Returns the world position of the nearest vertex from a given point in world space. If {\itshape do\+Debug}  is set a small gizmo sphere will be drawn at that position. 
+
+Implements \hyperlink{class_g_f_grid_a5865880fa767bf5562301bca419b8bb9_a5865880fa767bf5562301bca419b8bb9}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_polar_grid_a7e4ceb8cf00db2c36b74ef76ecaa2a15_a7e4ceb8cf00db2c36b74ef76ecaa2a15}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Polar\+To\+Grid@{Polar\+To\+Grid}}
+\index{Polar\+To\+Grid@{Polar\+To\+Grid}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Polar\+To\+Grid}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Polar\+Grid.\+Polar\+To\+Grid (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{polar\+Point}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_a7e4ceb8cf00db2c36b74ef76ecaa2a15_a7e4ceb8cf00db2c36b74ef76ecaa2a15}
+\begin{DoxyReturn}{Returns}
+Point in grid space.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em polar\+Point} & Point in polar space.\\
+\hline
+\end{DoxyParams}
+
+
+Converts a point from polar to grid space. The main difference is that grid coordinates are dependent on the grid's parameters, while polar coordinates are not. \hypertarget{class_g_f_polar_grid_a3dc57117173969cf60d3275e533a3ff8_a3dc57117173969cf60d3275e533a3ff8}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Polar\+To\+World@{Polar\+To\+World}}
+\index{Polar\+To\+World@{Polar\+To\+World}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Polar\+To\+World}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Polar\+Grid.\+Polar\+To\+World (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{polar\+Point}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_a3dc57117173969cf60d3275e533a3ff8_a3dc57117173969cf60d3275e533a3ff8}
+\begin{DoxyReturn}{Returns}
+Point in world space.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em polar\+Point} & Point in polar space.\\
+\hline
+\end{DoxyParams}
+
+
+Converts a point from polar space to world space. \hypertarget{class_g_f_polar_grid_a5c3dd0e599e358379dc7c83f31e1dc5f_a5c3dd0e599e358379dc7c83f31e1dc5f}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Render\+Grid@{Render\+Grid}}
+\index{Render\+Grid@{Render\+Grid}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Render\+Grid}]{\setlength{\rightskip}{0pt plus 5cm}override void G\+F\+Polar\+Grid.\+Render\+Grid (
+\begin{DoxyParamCaption}
+\item[{int}]{width = {\ttfamily 0}, }
+\item[{Camera}]{cam = {\ttfamily null}, }
+\item[{Transform}]{cam\+Transform = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_polar_grid_a5c3dd0e599e358379dc7c83f31e1dc5f_a5c3dd0e599e358379dc7c83f31e1dc5f}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Renders the grid using {\ttfamily \hyperlink{class_g_f_polar_grid_a851ff16bfbf1204a1ab0b1b4de3ceb35_a851ff16bfbf1204a1ab0b1b4de3ceb35}{size}} for lower and upper limits, equal to {\ttfamily Render\+Grid(-\/size, size, use\+Separate\+Render\+Color ? render\+Axis\+Colors \+: axis\+Colors, width, cam, cam\+Transform);} 
+
+Reimplemented from \hyperlink{class_g_f_grid_a24008f73b2c2ce9d6a699d25df998055_a24008f73b2c2ce9d6a699d25df998055}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_polar_grid_aa7d26ab4a4cfbe914001c7f635ee2ace_aa7d26ab4a4cfbe914001c7f635ee2ace}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Scale\+Vector3@{Scale\+Vector3}}
+\index{Scale\+Vector3@{Scale\+Vector3}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Scale\+Vector3}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Polar\+Grid.\+Scale\+Vector3 (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{scl, }
+\item[{{\bf Bool\+Vector3}}]{ignore\+Axis}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_polar_grid_aa7d26ab4a4cfbe914001c7f635ee2ace_aa7d26ab4a4cfbe914001c7f635ee2ace}
+
+\begin{DoxyParams}{Parameters}
+{\em scl} & The vector to scale.\\
+\hline
+{\em ignore\+Axis} & The axes to ignore.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The re-\/scaled vector.
+\end{DoxyReturn}
+
+
+Scales a given scale vector to the nearest multiple of the grid’s radius and depth, but does not change its position. The parameter {\itshape ignore\+Axis}  makes the function not touch the corresponding coordinate. 
+
+Implements \hyperlink{class_g_f_grid_a02b3cf14a1529355c51e0d3ea646b4f8_a02b3cf14a1529355c51e0d3ea646b4f8}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_polar_grid_a675288b8c01f479b18411bb31c8d05eb_a675288b8c01f479b18411bb31c8d05eb}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Sector2\+Angle@{Sector2\+Angle}}
+\index{Sector2\+Angle@{Sector2\+Angle}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Sector2\+Angle}]{\setlength{\rightskip}{0pt plus 5cm}float G\+F\+Polar\+Grid.\+Sector2\+Angle (
+\begin{DoxyParamCaption}
+\item[{float}]{sector, }
+\item[{{\bf Angle\+Mode}}]{mode = {\ttfamily AngleMode.radians}}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_a675288b8c01f479b18411bb31c8d05eb_a675288b8c01f479b18411bb31c8d05eb}
+\begin{DoxyReturn}{Returns}
+Angle value of the sector.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em sector} & Sector number.\\
+\hline
+{\em mode} & The mode of the angle, defaults to radians.\\
+\hline
+\end{DoxyParams}
+
+
+This method takes in a sector coordinate and returns the corresponding angle around the origin. If the sector exceeds the amount of sectors of the grid it wraps around, nagetive sctors are automatically subtracted from the maximum.
+
+Let's take a grid with six sectors for example, then one sector has an agle of 360° / 6 = 60°, so a 2.\+25 sector corresponds to an angle of 2.\+25 $\ast$ 60° = 135°.\hypertarget{class_g_f_polar_grid_a7cf5d37fe48331dc630dfedaf585e2e0_a7cf5d37fe48331dc630dfedaf585e2e0}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!Sector2\+Rotation@{Sector2\+Rotation}}
+\index{Sector2\+Rotation@{Sector2\+Rotation}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{Sector2\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}Quaternion G\+F\+Polar\+Grid.\+Sector2\+Rotation (
+\begin{DoxyParamCaption}
+\item[{float}]{sector}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_a7cf5d37fe48331dc630dfedaf585e2e0_a7cf5d37fe48331dc630dfedaf585e2e0}
+\begin{DoxyReturn}{Returns}
+Rotation quaterion which rotates arround the origin.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em sector} & Sector coordinate inside the grid.\\
+\hline
+\end{DoxyParams}
+
+
+This is basically the same as \hyperlink{class_g_f_polar_grid_a36467502f91e0fc6ca2247f2ce72ddaa_a36467502f91e0fc6ca2247f2ce72ddaa}{Angle2\+Rotation}, excpet with sectors, which makes this method more suitable for grid coordinates than polar coordinates. \hypertarget{class_g_f_polar_grid_a4ae9f55612e4c91a5d28b27c924c7432_a4ae9f55612e4c91a5d28b27c924c7432}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!World2\+Angle@{World2\+Angle}}
+\index{World2\+Angle@{World2\+Angle}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{World2\+Angle}]{\setlength{\rightskip}{0pt plus 5cm}float G\+F\+Polar\+Grid.\+World2\+Angle (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point, }
+\item[{{\bf Angle\+Mode}}]{mode = {\ttfamily AngleMode.radians}}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_a4ae9f55612e4c91a5d28b27c924c7432_a4ae9f55612e4c91a5d28b27c924c7432}
+\begin{DoxyReturn}{Returns}
+Angle between the point and the grid's \char`\"{}right\char`\"{} axis.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+{\em mode} & The mode of the angle, defaults to radians.\\
+\hline
+\end{DoxyParams}
+
+
+This method returns which angle around the grid a given point in world space has. \hypertarget{class_g_f_polar_grid_a0c865b865e3dd5a5377f7f24c59ef33d_a0c865b865e3dd5a5377f7f24c59ef33d}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!World2\+Radius@{World2\+Radius}}
+\index{World2\+Radius@{World2\+Radius}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{World2\+Radius}]{\setlength{\rightskip}{0pt plus 5cm}float G\+F\+Polar\+Grid.\+World2\+Radius (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_a0c865b865e3dd5a5377f7f24c59ef33d_a0c865b865e3dd5a5377f7f24c59ef33d}
+\begin{DoxyReturn}{Returns}
+Radius of the point from the grid.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+This method returns the distance of a world point from the grid's radial axis. This is not the same as the point's distance from the grid's origin, because it doesn't take \char`\"{}height\char`\"{} into account. Thus it is always less or equal than the distance from the origin. \hypertarget{class_g_f_polar_grid_a7d03e8c0b4ec132f58c587539e0027c7_a7d03e8c0b4ec132f58c587539e0027c7}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!World2\+Rotation@{World2\+Rotation}}
+\index{World2\+Rotation@{World2\+Rotation}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{World2\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}Quaternion G\+F\+Polar\+Grid.\+World2\+Rotation (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_a7d03e8c0b4ec132f58c587539e0027c7_a7d03e8c0b4ec132f58c587539e0027c7}
+\begin{DoxyReturn}{Returns}
+The rotation.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+This method compares the point's position in world space to the grid and then returns which rotation an object should have if it was at that position and rotated around the grid. \hypertarget{class_g_f_polar_grid_aa03b782920133982d3ceec6169c2fa08_aa03b782920133982d3ceec6169c2fa08}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!World2\+Sector@{World2\+Sector}}
+\index{World2\+Sector@{World2\+Sector}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{World2\+Sector}]{\setlength{\rightskip}{0pt plus 5cm}float G\+F\+Polar\+Grid.\+World2\+Sector (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_aa03b782920133982d3ceec6169c2fa08_aa03b782920133982d3ceec6169c2fa08}
+\begin{DoxyReturn}{Returns}
+Sector the point is in.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+This method returns which which sector a given point in world space is in. \hypertarget{class_g_f_polar_grid_a925bc4556e0c7422f476409b4f48067e_a925bc4556e0c7422f476409b4f48067e}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!World\+To\+Grid@{World\+To\+Grid}}
+\index{World\+To\+Grid@{World\+To\+Grid}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{World\+To\+Grid}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Polar\+Grid.\+World\+To\+Grid (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_polar_grid_a925bc4556e0c7422f476409b4f48067e_a925bc4556e0c7422f476409b4f48067e}
+\begin{DoxyReturn}{Returns}
+Grid coordinates of the world point.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+Converts a point from world space to grid space. The first coordinate represents the distance from the radial axis as multiples of \hyperlink{class_g_f_polar_grid_a71bf429c8c2630684969db7f7483416a_a71bf429c8c2630684969db7f7483416a}{radius}, the second one the sector and the thrid one the distance from the main plane as multiples of \hyperlink{class_g_f_layered_grid_a3ff168354ca75d04aae2340c48c7070c_a3ff168354ca75d04aae2340c48c7070c}{depth}. This order applies to X\+Y-\/grids only, for the other two orientations please consult the manual. 
+
+Implements \hyperlink{class_g_f_grid_a3c424ac71404a8c87a958b5b5952eb0f_a3c424ac71404a8c87a958b5b5952eb0f}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_polar_grid_a4fb1df768f7700590e23205e089dc58d_a4fb1df768f7700590e23205e089dc58d}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!World\+To\+Polar@{World\+To\+Polar}}
+\index{World\+To\+Polar@{World\+To\+Polar}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{World\+To\+Polar}]{\setlength{\rightskip}{0pt plus 5cm}Vector3 G\+F\+Polar\+Grid.\+World\+To\+Polar (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point}
+\end{DoxyParamCaption}
+)}}\label{class_g_f_polar_grid_a4fb1df768f7700590e23205e089dc58d_a4fb1df768f7700590e23205e089dc58d}
+\begin{DoxyReturn}{Returns}
+Point in polar space.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+\end{DoxyParams}
+
+
+Converts a point from world space to polar space. The first coordinate represents the distance from the radial axis, the second one the angle in radians and the thrid one the distance from the main plane. This order applies to X\+Y-\/grids only, for the other two orientations please consult the manual. 
+
+\subsection{Property Documentation}
+\hypertarget{class_g_f_polar_grid_ad57e2dcf03806e576191953034dcd74c_ad57e2dcf03806e576191953034dcd74c}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!angle@{angle}}
+\index{angle@{angle}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{angle}]{\setlength{\rightskip}{0pt plus 5cm}float G\+F\+Polar\+Grid.\+angle\hspace{0.3cm}{\ttfamily [get]}}}\label{class_g_f_polar_grid_ad57e2dcf03806e576191953034dcd74c_ad57e2dcf03806e576191953034dcd74c}
+This is a read-\/only value derived from {\ttfamily \hyperlink{class_g_f_polar_grid_a10ed1b65007dca14afb8fb6d22d36de0_a10ed1b65007dca14afb8fb6d22d36de0}{sectors}}. It gives you the angle within a sector in radians and it’s a shorthand writing for {\ttfamily (2.\+0f $\ast$ Mathf.\+P\+I) / sectors} \hypertarget{class_g_f_polar_grid_a5c0e2072d09f3add6e4012b89ce8d21e_a5c0e2072d09f3add6e4012b89ce8d21e}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!angle\+Deg@{angle\+Deg}}
+\index{angle\+Deg@{angle\+Deg}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{angle\+Deg}]{\setlength{\rightskip}{0pt plus 5cm}float G\+F\+Polar\+Grid.\+angle\+Deg\hspace{0.3cm}{\ttfamily [get]}}}\label{class_g_f_polar_grid_a5c0e2072d09f3add6e4012b89ce8d21e_a5c0e2072d09f3add6e4012b89ce8d21e}
+The same as {\ttfamily \hyperlink{class_g_f_polar_grid_ad57e2dcf03806e576191953034dcd74c_ad57e2dcf03806e576191953034dcd74c}{angle}} except in degrees, it’s a shorthand writing for {\ttfamily 360.\+0f / sectors} \hypertarget{class_g_f_polar_grid_a71bf429c8c2630684969db7f7483416a_a71bf429c8c2630684969db7f7483416a}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!radius@{radius}}
+\index{radius@{radius}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{radius}]{\setlength{\rightskip}{0pt plus 5cm}float G\+F\+Polar\+Grid.\+radius\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_polar_grid_a71bf429c8c2630684969db7f7483416a_a71bf429c8c2630684969db7f7483416a}
+The radius.
+
+The radius of the innermost circle and how far apart the other circles are. The value cannot go below 0.\+01. \hypertarget{class_g_f_polar_grid_a9f4b9bcd687f29d56f4aafa74655e27b_a9f4b9bcd687f29d56f4aafa74655e27b}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!render\+From@{render\+From}}
+\index{render\+From@{render\+From}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{render\+From}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Polar\+Grid.\+render\+From\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_polar_grid_a9f4b9bcd687f29d56f4aafa74655e27b_a9f4b9bcd687f29d56f4aafa74655e27b}
+Custom lower limit for drawing and rendering.
+
+\hyperlink{class_g_f_grid_a65d207e3957240c935645db01a199419_a65d207e3957240c935645db01a199419}{relative\+Size} \hyperlink{class_g_f_grid_acb950aa31097c85e153cd9a642900a31_acb950aa31097c85e153cd9a642900a31}{use\+Custom\+Render\+Range} \hyperlink{class_g_f_polar_grid_a81cc21991e689a1e74821d1f2870852e_a81cc21991e689a1e74821d1f2870852e}{render\+To} Aside from the additional constraint for the radial and angular value the same rules apply as for the base class, meeaning the vector cannot be greater than \hyperlink{class_g_f_polar_grid_a81cc21991e689a1e74821d1f2870852e_a81cc21991e689a1e74821d1f2870852e}{render\+To}. \hypertarget{class_g_f_polar_grid_a81cc21991e689a1e74821d1f2870852e_a81cc21991e689a1e74821d1f2870852e}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!render\+To@{render\+To}}
+\index{render\+To@{render\+To}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{render\+To}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Polar\+Grid.\+render\+To\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_polar_grid_a81cc21991e689a1e74821d1f2870852e_a81cc21991e689a1e74821d1f2870852e}
+Custom upper limit for drawing and rendering.
+
+\hyperlink{class_g_f_grid_a65d207e3957240c935645db01a199419_a65d207e3957240c935645db01a199419}{relative\+Size} \hyperlink{class_g_f_grid_acb950aa31097c85e153cd9a642900a31_acb950aa31097c85e153cd9a642900a31}{use\+Custom\+Render\+Range} \hyperlink{class_g_f_polar_grid_a9f4b9bcd687f29d56f4aafa74655e27b_a9f4b9bcd687f29d56f4aafa74655e27b}{render\+From} Aside from the additional constraint for the angular value the same rules apply as for the base class, meeaning the vector cannot be lower than \hyperlink{class_g_f_polar_grid_a9f4b9bcd687f29d56f4aafa74655e27b_a9f4b9bcd687f29d56f4aafa74655e27b}{render\+From}. \hypertarget{class_g_f_polar_grid_a10ed1b65007dca14afb8fb6d22d36de0_a10ed1b65007dca14afb8fb6d22d36de0}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!sectors@{sectors}}
+\index{sectors@{sectors}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{sectors}]{\setlength{\rightskip}{0pt plus 5cm}int G\+F\+Polar\+Grid.\+sectors\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_polar_grid_a10ed1b65007dca14afb8fb6d22d36de0_a10ed1b65007dca14afb8fb6d22d36de0}
+Ampunt of sectors.
+
+The amount of sectors the circles are divided into. The minimum values is 1, which means one full circle. \hypertarget{class_g_f_polar_grid_a851ff16bfbf1204a1ab0b1b4de3ceb35_a851ff16bfbf1204a1ab0b1b4de3ceb35}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!size@{size}}
+\index{size@{size}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Polar\+Grid.\+size\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_polar_grid_a851ff16bfbf1204a1ab0b1b4de3ceb35_a851ff16bfbf1204a1ab0b1b4de3ceb35}
+The size of the grid's visual representation.
+
+\hyperlink{class_g_f_grid_a65d207e3957240c935645db01a199419_a65d207e3957240c935645db01a199419}{relative\+Size} \hyperlink{class_g_f_grid_acb950aa31097c85e153cd9a642900a31_acb950aa31097c85e153cd9a642900a31}{use\+Custom\+Render\+Range} Aside from the additional constraint for the angular value the same rules apply as for the base class, meaning no component can be less than 0. \hypertarget{class_g_f_polar_grid_a734237fa4e6ad811a84f36d6532ba9f9_a734237fa4e6ad811a84f36d6532ba9f9}{\index{G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}!smoothness@{smoothness}}
+\index{smoothness@{smoothness}!G\+F\+Polar\+Grid@{G\+F\+Polar\+Grid}}
+\subsubsection[{smoothness}]{\setlength{\rightskip}{0pt plus 5cm}int G\+F\+Polar\+Grid.\+smoothness\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_polar_grid_a734237fa4e6ad811a84f36d6532ba9f9_a734237fa4e6ad811a84f36d6532ba9f9}
+Smoothness of the grid segments.
+
+Unity's G\+L class can only draw straight lines, so in order to get the sectors to look round this value breaks each sector into smaller sectors. The number of smoothness tells how many segments the circular line has been broken into. The amount of end points used is smoothness + 1, because we count both edges of the sector. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+G\+F\+Polar\+Grid.\+cs\end{DoxyCompactItemize}

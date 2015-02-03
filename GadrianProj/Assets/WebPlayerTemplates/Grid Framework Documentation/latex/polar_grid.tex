@@ -1,0 +1,68 @@
+\subsection*{The \hyperlink{class_g_f_polar_grid}{G\+F\+Polar\+Grid} class }
+
+In this section I will refer to the grids a {\itshape polar} for the sake of simplicity, even though they are technically {\itshape cylindrical}. Any cylindrical coordinate system can be regarded as polar simply by omitting the third coordinate.
+
+The defining characteristics of polar grids are {\ttfamily radius}, {\ttfamily sectors} and {\ttfamily depth}. There are two coordinate systems, a standard cylindrical one and a grid coordinate system similar to what the other grids use.
+
+
+
+The {\ttfamily radius} is the radius of the innermost circle around the origin and the radii of all the other circles are multiples of it. The next value, {\ttfamily sectors}, tells us into how many sectors we divide the circles. It’s an integer value of at least one (the circle itself is one huge sector). We derive the angle between sectors by dividing 2π (or 360°) by the amount of sectors. We cannot set the angle directly, because the sum of all angles has to form a full circle, thus only certain values are possible. Finally, {\ttfamily depth} gives us how far apart two grid planes are. If you want to use pure polar coordinates you can ignore this value, but it is relevant if you want to use cylindrical coordinates (i.\+e. 3\+D).
+
+Coordinates are processes as Vector3 values. From now on I will only be explaining coordinates in a X\+Y-\/grid, for other grids the roles of the X-\/, Y-\/ and Z-\/component are different to reflect the way cartesian coordinates would be handled. Please refer to the following table to see how to interpret the values.
+
+\begin{TabularC}{4}
+\hline
+\rowcolor{lightgray}{\bf }&{\bf X\+Y-\/grid }&{\bf X\+Z-\/grid }&{\bf Y\+Z-\/grid  }\\\cline{1-4}
+X-\/component &radius &height &radius \\\cline{1-4}
+Y-\/component &polar angle &polar angle &height \\\cline{1-4}
+Z-\/component &height &radius &polar angle \\\cline{1-4}
+\end{TabularC}
+\subsection*{What are polar and cylindrical coordinates? }
+
+Polar grids are based on polar coordinates. In the usual cartesian coordinate system we identify a given point through its distance from the origin by looking at its distance from the coordinate axes (or if you prefer linear algebra, as the linear combination of the coordinate system’s basis vectors).
+
+In a \href{http://en.wikipedia.org/wiki/Polar_coordinate_system}{\tt polar coordinate} system we identify a point by its absolute distance (radius or radial coordinate) from the origin (pole) and its angle (angular coordinate, polar angle or azimuth) around a given axis (polar axis).
+
+\href{http://en.wikipedia.org/wiki/Cylindrical_coordinate_system}{\tt Cylindrical coordinates} are polar coordinates with a third axis added for the distance (height or altitude) from the reference plane (the plane containing the origin). We call this third axis the cylindrical or longitudinal axis.
+
+\subsection*{Degree V\+S radians }
+
+There are two common ways to measure angles\+: as degrees, ranging from 0° to 360° and as \href{http://en.wikipedia.org/wiki/Radians}{\tt radians} ranging from 0 to 2π. Since radians is the preferred method in mathematics and other branches of science Grid Framework is using radians internally for all angles. Some values can be read or written in degrees as well, but the result is always internally stored as radians. Keep in mind that you can convert between degree and radians using Unity’s own \href{http://docs.unity3d.com/Documentation/ScriptReference/Mathf.html}{\tt `\+Mathf`} class.
+
+\subsection*{Float V\+S angle }
+
+No matter whether you are using radians of degree, an angle is always saved as a float type value, either on its own or as part of a vector. Since float numbers can be negative or exceed the range of radians (2π) and degree (360°) there need to be some restrictions in place.
+
+If the number is larger than the range it gets wrapped around, meaning 750° becomes 30° (since 750 = 2 $\ast$ 360 + 30). If the number is negative it gets subtracted from a full circle (after being wrapped around). In the case of -\/750° we would get 330° (since 330 = 360 -\/ 30 and 750 = 2 $\ast$ 360 + 30).
+
+These restrictions are always applied internally when you are using a polar grid’s methods and accessors, so you won’t have to worry about anything. Just be aware of what’s happening in case your circles start going the other way around or something like that.
+
+\subsection*{The polar coordinate system }
+
+This is a standard cylindrical coordinate system and internally it is the default coordinate system. In a standard X\+Y-\/grid the first coordinate is the {\itshape radius}, the second coordinate is the {\itshape polar angle} and the third coordinate is the {\itshape height}, all distances measured in world length. This coordinate system is not affected by {\ttfamily radius}, {\ttfamily sectors} or {\ttfamily depth}, it’s great if you want to have full control over your points. For general information about polar and cylindrical grids please refer to a mathematical textbook (or Wikipedia $^\wedge$$^\wedge$).
+
+\subsection*{The grid coordinate system }
+
+This one is similar to the above, except the values now are directly influenced by {\ttfamily radius}, {\ttfamily sectors} and {\ttfamily depth}. The {\itshape radius} gives us the distance from the origin as a multiple of the grid’s {\ttfamily radius} and the {\itshape height} is a multiple of the grid’s {\ttfamily depth}. The curious value is the {\itshape angle}, because rather than being the angle in radians or degrees it tells us how many sectors we are away from the polar axis. The maximum number is the amount of segments.
+
+This coordinate system is great if you want to think in terms of “grid points”, for example in a board game. If you want to move the player one unit towards the outside and two units counter-\/clockwise you could write 
+\begin{DoxyCode}
+var myPlayerPosition: Vector3 = myGrid.WorldToGrid(player.transform.position);
+myPlayerPosition += Vector3(1, 2, 0);
+player.transform.position = myGrid.GridToWorld(myPlayerPosition);
+\end{DoxyCode}
+ Note how you don’t need to know anything about the grid and its values, you just concentrate on the movement itself.
+
+
+
+\subsection*{Displaying the grid }
+
+Polar grids contain circles, but the computer cannot draw circles, it can only draw straight lines. Since a polar grid where only straight lines connect the sectors would look bad we have a {\ttfamily smoothness} value. What smoothing does is it adds extra “sectors” between the sectors to break the lines int shorter segments, creating a rounder look. Keep in mind that this does affect performance, so you have to find a good balance between look and performance. Usually a single digit number is already good enough and the more sectors you have, the less smoothing you need.
+
+
+
+When using the {\ttfamily size} of a grid the values represent how large the grid is, how far the angle goes and how many layers to display. The first and third value cannot get lower than 0 and the second values is bounded between 0 and 2π (360°). If you decide to use a custom range the angle of the from-\/value can be larger than the to-\/value without problems. The angle values loop around as described in {\itshape Float V\+S angle}.
+
+\subsection*{Aligning and scaling }
+
+When aligning a transform only its Z-\/scale is taken in account, just as with rectangular grids, but the X-\/ and Y value is ignored, because it makes no sense to force something straight into a circle. Instead they will snap both on and in between circle segments and radial lines, depending on which is closer. The same rule applies to scaling as well. 

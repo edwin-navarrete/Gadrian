@@ -1,0 +1,397 @@
+\subsection*{Version 1.\+7.\+x }
+
+\subsubsection*{Version 1.\+7.\+3}
+
+The following changes affect the grid inspectors, but {\itshape not} the A\+P\+I.
+\begin{DoxyItemize}
+\item {\ttfamily relative\+Size} is now {\ttfamily true} by default now.
+\item {\ttfamily use\+Custom\+Render\+Range} is {\ttfamily true} by default now.
+\item {\ttfamily render\+From} is (-\/5, -\/5, -\/5) by default now.
+\item {\ttfamily render\+From} is (5, 5, 5) by default now.
+\item The {\itshape rendering range} now take the place of the {\itshape size} in the inspector. The {\itshape size} only shows up when the {\itshape Use Custom Render Range} flag is unchecked.
+\end{DoxyItemize}
+
+Further changes\+:
+\begin{DoxyItemize}
+\item Fixed missing reference in Snapping Units example
+\item Fixed too fast camera speen in Endless Grid example
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+7.\+2}
+
+
+\begin{DoxyItemize}
+\item {\itshape Fixed\+:} Null exception on polar grids when getting Vectrosity points if the grid is not being rendered.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+7.\+1}
+
+
+\begin{DoxyItemize}
+\item {\itshape Fixed\+:} The grid align panel now correctly respect or ignores rotation when auto-\/snapping.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+7.\+0}
+
+This release features a number of new coordinate systems and corresponding rendering shapes.
+\begin{DoxyItemize}
+\item {\itshape New\+:} Downwards herringbone coordinate system for hex grids
+\item {\itshape New\+:} Downwards rectangle rendering shape to accompany the new coordinate system.
+\item {\itshape New\+:} Downwards rhombic coordinate system.
+\item {\itshape New\+:} Downwards rhombic rendering shape to accompany the new coordinate system.
+\item {\itshape New\+:} Up-\/ and downwards herringbone rendering shape.
+\item {\itshape Fixed\+:} The grid align panel now correctly respect or ignores rotation when aligning. 
+
+
+\end{DoxyItemize}
+
+\subsection*{Version 1.\+6.\+x }
+
+\subsubsection*{Version 1.\+6.\+0}
+
+
+\begin{DoxyItemize}
+\item {\itshape New\+:} Hex-\/grids can now render in a rhombic shape. 
+
+
+\end{DoxyItemize}
+
+\subsection*{Version 1.\+5.\+x }
+
+\subsubsection*{Version 1.\+5.\+3}
+
+
+\begin{DoxyItemize}
+\item Compatibility with Unity 5.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+5.\+2}
+
+
+\begin{DoxyItemize}
+\item {\itshape Fixed\+:} Changing the {\ttfamily depth} of polar grids affected the cylindric lines wrongly.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+5.\+1}
+
+
+\begin{DoxyItemize}
+\item {\itshape Fixed\+:} Compilation errors when toggling on Playmaker actions.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+5.\+0}
+
+Introducing shearing for rectangular grids.
+\begin{DoxyItemize}
+\item {\itshape New\+:} Rectangular grids can now store a {\ttfamily shearing} field to distort them.
+\item {\itshape New\+:} Custom {\ttfamily Vector6} class for storing the shearing.
+\item {\itshape A\+P\+I change\+:} The odd herringbone coordinate system has been renamed to upwards herringbone. The corresponding methods use the {\ttfamily Herring\+U} pre-\/ or suffix instead of {\ttfamily Herring\+Odd}; the old methods still work but are marked as depracated.
+\item {\itshape A\+P\+I change\+:} The enumeration {\ttfamily G\+F\+Angle\+Mode} has been renamed {\ttfamily Angle\+Mode} and moved into the {\ttfamily \hyperlink{namespace_grid_framework}{Grid\+Framework}} namespace.
+\item {\itshape A\+P\+I change\+:} The enumeration {\ttfamily Grid\+Plane} has been moved into the {\ttfamily \hyperlink{namespace_grid_framework}{Grid\+Framework}} namespace. It is no longer part of the {\ttfamily \hyperlink{class_g_f_grid}{G\+F\+Grid}} class.
+\item {\itshape A\+P\+I change\+:} The class {\ttfamily G\+F\+Color\+Vector3} has been renamed {\ttfamily Color\+Vector3} and moved into the {\ttfamily \hyperlink{namespace_grid_framework_1_1_vectors}{Grid\+Framework.\+Vectors}} namespace.
+\item {\itshape A\+P\+I change\+:} The class {\ttfamily G\+F\+Bool\+Vector3} has been renamed {\ttfamily Bool\+Vector3} and moved into the {\ttfamily \hyperlink{namespace_grid_framework_1_1_vectors}{Grid\+Framework.\+Vectors}} namespace.
+\item {\itshape Enhanced\+:} Vectrosity methods without parameters can now pick betweem size and custom range automatically.
+\item {\itshape Fixed\+:} Vectrosity methods were broken in previous version.
+\item Updated the documentation. 
+
+
+\end{DoxyItemize}
+
+\subsection*{Version 1.\+4.\+x }
+
+\subsubsection*{Version 1.\+4.\+2}
+
+This release is a major overhaul of the rendering and drawing routines and fixes some issues with coordinate conversion.
+\begin{DoxyItemize}
+\item {\itshape Fixed\+:} Wrong rotation when using a rotated grid and an origin offset.
+\item {\itshape Fixed\+:} Wrong result when convertig coordinates in a hex grid rotated along the X-\/ or Y axis.
+\item {\itshape Fixed\+:} Setting the {\ttfamily relative\+Size} flag for polar grids now interprets the range properly in grid coordinates.
+\item {\itshape Fixed\+:} Wrong accessibility for {\ttfamily Nearest\+Vertex\+H\+O} and {\ttfamily Nearest\+Box\+H\+O} for hex grids.
+\item {\itshape New\+:} Polar grids can now render continuously at any range instead of discretely at smoothness steps.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+4.\+1}
+
+
+\begin{DoxyItemize}
+\item {\itshape Fixed\+:} compilation error in one of the Playmaker actions (setter and getter for depth of layered grids).
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+4.\+0}
+
+
+\begin{DoxyItemize}
+\item Introducing Playmaker support\+: Almost the entire Grid Framework A\+P\+I can no be used as Playmaker actions (some parts of the A\+P\+I are ouside the capabilies of Playmaker for now)
+\item Updated the documentation to include a chapter about Playmaker and how to write your own Grid Framework actions.
+\item {\itshape Fixed\+:} the origin offset resetting every time after exiting play mode. 
+
+
+\end{DoxyItemize}
+
+\subsection*{Version 1.\+3.\+x }
+
+\subsubsection*{Version 1.\+3.\+8}
+
+
+\begin{DoxyItemize}
+\item {\itshape Fixed\+:} wrong calculation result in {\ttfamily Cubic\+To\+World} and all related methods in hex grids.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+3.\+7}
+
+
+\begin{DoxyItemize}
+\item {\itshape Fixed\+:} compilation error, sometimes the program might refuse to compile if a script used one of the functions Nearest\+Vertex\+W, Nearest\+Box\+W or Nearest\+Box\+W.
+\item Auto-\/complete support\+: Grid Framework's A\+P\+I documentation will now show up in Mono\+Develop's auto-\/complete feature. There is no need to jump between editor and documentation anymore, it's all integrated.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+3.\+6}
+
+
+\begin{DoxyItemize}
+\item Changing the origin offset of a grid now takes effect instantly.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+3.\+5}
+
+
+\begin{DoxyItemize}
+\item Added a new event for when the grid changes in such a way that if would need to be redrawn.
+\item Some of the exmples were broken when Unity updated to version 4.\+3, now they should be working again.
+\item Overhauled the {\itshape undo} system for the grid align panel to remove the now obsolete Unity undo methods.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+3.\+4}
+
+
+\begin{DoxyItemize}
+\item Added the ability to add a position offset to the grids. This moves the origin of a grid by the offset relative to the object's Transform position. In the A\+P\+I this is represented by the {\ttfamily origin\+Offset} member of the {\ttfamily \hyperlink{class_g_f_grid}{G\+F\+Grid}} class.
+\item Added a chapter about extending Grid Framework without changing the source code to the manual. Everything described there are just standard .N\+E\+T features, the chapter is intended for people who were not aware of the potential or unfamiliar with it.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+3.\+3}
+
+
+\begin{DoxyItemize}
+\item Values of G\+F\+Color\+Vector3 and G\+F\+Bool\+Vector3 were not persistent in version 1.\+3.\+2, fixed this now.
+\item Examples {\itshape Movement with Walls} and {\itshape Sliding Puzzle} were broken after version 1.\+3.\+2, fixed them now.
+\item The documentation can now be read online as well. Just delete the offline documentation from {\itshape Web\+Player\+Templates} and the help menu will notice that it's missing and open the web U\+R\+L.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+3.\+2}
+
+
+\begin{DoxyItemize}
+\item Hex Grids\+: new coordinate systems, see the manual page about \hyperlink{hex_grid}{Hexagonal grids} for more information.
+\item New H\+T\+M\+L documentation generated with Doxygen replaces the old one.
+\item Fixed a bug in {\ttfamily Angle2\+Rotation} when the grid's rotation was not a multiple of 90°.
+\item {\itshape New example\+:} generate a terrain mesh similar to old games like Sim\+City from a plain text file and have it align to a grid.
+\item {\itshape New example\+:} a rotary phone dial that rotates depending on which number was clicked and reports that number back. A great template for disc-\/shaped G\+U\+Is.
+\end{DoxyItemize}
+
+Some existing methods have changed in this release, please consult the \hyperlink{legacy_support}{Legacy Support} page of the user manual.
+\begin{DoxyItemize}
+\item Rect Grids\+: changed the way {\ttfamily Nearest\+Box\+G} works, now there is no offset anymore, it returns the actual grid coordinates of the box. Just add {\ttfamily 0.\+5 $\ast$ Vector.\+one} to the result in your old methods.
+\item Rect Grids\+: changed the way {\ttfamily Nearest\+Face\+G} works, just like above. Add {\ttfamily 0.\+5 $\ast$ Vector3.\+one -\/ 0.\+5 $\ast$ i} to the result in your old methods (where {\ttfamily i} is the index of the plane you used).
+\item Hex grids\+: Just like above, nearest vertices of hex grids return their true coordinates for whatever coordinate system you choose.
+\end{DoxyItemize}
+
+I am sorry for these changes so late , but I realize this differentiation made things more complicated in the end than they should have been. It's better to have one unified coordinate system instead. Read the \hyperlink{legacy_support}{Legacy Support} to learn how to get the old behaviour back.
+
+\subsubsection*{Version 1.\+3.\+1}
+
+
+\begin{DoxyItemize}
+\item Fixed an edge case for {\ttfamily Align\+Vector3} in rectangular grids.
+\item in the runtime snapping example you can now click-\/drag on the grids directly and see {\ttfamily Align\+Vector3} in action (turn on gizmos in game view to see).
+\item added the {\itshape Point\+Debug} script to the above example for that purpose.
+\item Changed the way movement is done in the grid-\/based movement example, now the sphere will always take the straight path.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+3.\+0}
+
+Introducing polar grids to Grid Framework\+: comes with all the usual methods and two coordinate systems.
+\begin{DoxyItemize}
+\item Added {\ttfamily up}, {\ttfamily right} and {\ttfamily forward} members to rectangular grids.
+\item Added {\ttfamily sides}, {\ttfamily width} and {\ttfamily height} members to hex grids.
+\item Added the enum {\ttfamily G\+F\+Angle\+Mode \{radians, degree\}} to specify an angle type; currently only used in methods of polar grids.
+\item Added the enum {\ttfamily Hex\+Direction} for cardinal directions (north, north-\/east, east, ...) in hex grids.
+\item Added the {\ttfamily Get\+Direction} method to hex grids to convert a cardinal direction to a world space direction vector.
+\item Added a lot of minor conversion methods for rotation, angles, sectors and so on in hex grids
+\item Hex grids and polar grids now both inherit from {\ttfamily \hyperlink{class_g_f_layered_grid}{G\+F\+Layered\+Grid}}, which in return inherits from {\ttfamily \hyperlink{class_g_f_grid}{G\+F\+Grid}}.
+\item The Lights Off example now features a polar grid as well.
+\item Procedural mesh generation for grid faces in the Lights Off example.
+\item Mouse handling in runtime snapping example changed because it was confusing a lot of users who just copy-\/pasted the code. 
+
+
+\end{DoxyItemize}
+
+\subsection*{Version 1.\+2.\+x }
+
+\subsubsection*{Version 1.\+2.\+5}
+
+This release serves as a preparation for Version 1.\+3.\+0, which will add polar grids
+\begin{DoxyItemize}
+\item the methods 'Nearest\+Vertex/\+Face/\+Box\+W' and 'Nearest\+Vertex/\+Face/\+Box\+G' replace 'Find\+Nearest\+Vertex/\+Face/\+Box' and 'Find\+Nearest\+Vertex/\+Face/\+Box' respectively. This is just a change in name, as the old nomenclature was confusing and makes no sense for grids with multiple coordinate systems, but the syntax stays the same. The old methods will throw compiler warnings but will still work fine. You can run a Search\&Replace through your scripts to get rid of them.
+\item The 'G\+F\+Bool\+Vector3' class can now be instantiated via 'G\+F\+Bool\+Vector3.\+True' and 'G\+F\+Bool\+Vector3.\+False' to create an all-\/\+\_\+true\+\_\+ or all-\/\+\_\+false\+\_\+ vector.
+\item Similarly you can use {\ttfamily G\+F\+Color\+Vector3.\+R\+G\+B}, {\ttfamily G\+F\+Color\+Vector3.\+C\+M\+Y} and {\ttfamily G\+F\+Color\+Vector3.\+B\+G\+W} for half-\/transparent standard colour vectors
+\item Various code cleanup.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+2.\+4}
+
+
+\begin{DoxyItemize}
+\item Performance improvement by caching draw points. As long as the grid hasn't been changed the method Calculate\+Draw\+Points will reuse the existing points instead of calculating them again.
+\item Added explanation about rendering performance to the user manual. It explains what exactly happens, what lowers performance and what techniques can improve performance.
+\item {\itshape New exmple\+:} A seemingly endless grid scrolls forever. This is achieved by adjusting the rendering range dynamically and we add a little buffer to make use of the new caching feature.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+2.\+3}
+
+
+\begin{DoxyItemize}
+\item Added the ability to use a separate set of colours for rendering and drawing.
+\item Added the ability to have the size of drawings/renderings be relative to the spacing of the grid instead of absolute in world coordinates.
+\item Some examples were broken after the last update after adding accessors to the code, fixed now.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+2.\+2}
+
+
+\begin{DoxyItemize}
+\item Fixed a typo that could prevent a finished project from building correctly.
+\item {\itshape New example\+:} a sliding block puzzle working entirely without physics.
+\item Removed the variables {\ttfamily minimum\+Spacing} and {\ttfamily minimum\+Radius} from {\ttfamily \hyperlink{class_g_f_rect_grid}{G\+F\+Rect\+Grid}} and {\ttfamily \hyperlink{class_g_f_hex_grid}{G\+F\+Hex\+Grid}}. Instead they both use accessors that limit spacing and radius to 0.\+1.
+\item The members {\ttfamily size}, {\ttfamily render\+To} and {\ttfamily render\+From} are now using accessors as well, this prevents setting them to nonsensical values.
+\item Removed the redundant {\itshape Use Custom Rendering Range} flag in the inspector (doesn't change anything in the A\+P\+I though, it's just cosmetic)
+\item The foldout state for {\itshape Draw \& Render Settings} in the inspector should stick now (individual for both grid types).
+\item Several minor tweaks under the hood.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+2.\+1}
+
+
+\begin{DoxyItemize}
+\item Updated the Lights Off example to use hex grids.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+2.\+0}
+
+Introducing hexagonal grids\+: use hexagons instead of rectangles for your grids. Comes with all the methods you've come to know from rectangular grids and uses a herringbone pattern as the coordinate system.
+\begin{DoxyItemize}
+\item The movement example scripts now take a '\hyperlink{class_g_f_grid}{G\+F\+Grid}' instead of a '\hyperlink{class_g_f_rect_grid}{G\+F\+Rect\+Grid}', allowing the user to use both rectangular and hexagonal grids without changing the code. 
+
+
+\end{DoxyItemize}
+
+\subsection*{Version 1.\+1.\+x }
+
+\subsubsection*{Version 1.\+1.\+10}
+
+
+\begin{DoxyItemize}
+\item {\itshape New method\+:} 'Scale\+Vector3' lets you scale a {\ttfamily Vector3} to the grid instead of a {\ttfamily Transform}.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+1.\+9}
+
+
+\begin{DoxyItemize}
+\item {\itshape New method\+:} {\ttfamily Align\+Vector3} lets you align a single point represented as a {\ttfamily Vector3} instead of a {\ttfamily Transform} to a grid.
+\item Added the ability to lock a certain axes when calling {\ttfamily Align\+Transform} and {\ttfamily Align\+Vector3}.
+\item Added a new constructor to both {\ttfamily G\+F\+Bool\+Vector3} and {\ttfamily G\+F\+Color\+Vector3} that lets you pass one parameter that gets applied to all components.
+\item You can now lock axes in the Grid Align Panel as well.
+\item Aligning objects via the Grid Align Panel which already are in place won't do anything, meaning they won't create redundant Undo entries anymore.
+\item Fixed an issue in {\ttfamily Get\+Vectrosity\+Points\+Seperate}.
+\item Renamed the classes {\ttfamily Bool\+Vector3} and {\ttfamily Color\+Vector3} to {\ttfamily G\+F\+Bool\+Vector3} and {\ttfamily G\+F\+Color\+Vector3} to avoid name collision.
+\item The member {\ttfamily size} has always been a member of {\ttfamily \hyperlink{class_g_f_grid}{G\+F\+Grid}}, not {\ttfamily \hyperlink{class_g_f_rect_grid}{G\+F\+Rect\+Grid}}, I fixed that mistake in the documentation.
+\item Minor code cleanup and removing redundant code.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+1.\+8}
+
+
+\begin{DoxyItemize}
+\item Previously if you unloaded a level with a grid that was rendered the game could have crashed. Fixed that issue.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+1.\+7}
+
+
+\begin{DoxyItemize}
+\item Fixed a typo that prevented adding the {\ttfamily G\+F\+Grid\+Render\+Camera} component from the menu bar.
+\item {\itshape New example\+:} design your levels in a plain text file and use Grid Framework and a text parser to build them during runtime. No need to change scenes when switching levels, faster than placing blocks by hand and great for user-\/made mods.
+\item {\itshape New example\+:} a continuation of the grid-\/based movement example where you can place obstacles on the grid and the sphere will avoid them. Works without using any physics or colliders.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+1.\+6}
+
+{\itshape Important\+:} The classes {\ttfamily Grid} and {\ttfamily Rect\+Grid} have been renamed to {\ttfamily \hyperlink{class_g_f_grid}{G\+F\+Grid}} and {\ttfamily \hyperlink{class_g_f_rect_grid}{G\+F\+Rect\+Grid}}. This was done to prevent name collision with classes users might already be using or classes from other extensions. I apologize for the inconvenience.
+\begin{DoxyItemize}
+\item Minor code cleanup and performance increase in {\ttfamily \hyperlink{class_g_f_rect_grid}{G\+F\+Rect\+Grid}}.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+1.\+5}
+
+
+\begin{DoxyItemize}
+\item Custom rendering range affects now drawing as well.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+1.\+4}
+
+
+\begin{DoxyItemize}
+\item Fixed an issue where lines with width would be rendered on top of objects even though they should be underneath.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+1.\+3}
+
+
+\begin{DoxyItemize}
+\item Support for custom range for rendering instead of the grid's {\ttfamily size}.
+\item From now on all files should install in the right place on their own, no more moving scripts manually.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+1.\+2}
+
+
+\begin{DoxyItemize}
+\item Integration into the menu bar.
+\item Vectrosity support.
+\item Documentation split into a separate user manual and a scripting reference.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+1.\+1}
+
+
+\begin{DoxyItemize}
+\item Line width for rendering now possible.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+1.\+0}
+
+
+\begin{DoxyItemize}
+\item Introducing grid rendering.
+\item New inspector panel for {\ttfamily Rect\+Grid}. 
+
+
+\end{DoxyItemize}
+
+\subsection*{Version 1.\+0.\+x }
+
+\subsubsection*{Version 1.\+0.\+1}
+
+
+\begin{DoxyItemize}
+\item Fixed rotation for cube shaped debug gizmos.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\+0.\+0}
+
+
+\begin{DoxyItemize}
+\item Initial release. 
+\end{DoxyItemize}

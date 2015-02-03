@@ -1,0 +1,57 @@
+Grid Framework supports actions for \href{http://hutonggames.com/index.html}{\tt Playmaker}, the visual scripting tool for Unity 3\+D. Playmaker is a separate add on and not affiliated with Grid Framework, so you will need a separate license for it.
+
+Grid Framework comes with a set of actions covering almost its entire A\+P\+I; you can set and get the grid's attributes and call the grid's method's.
+
+\subsection*{Activating Grid Framework actions }
+
+In order to prevent compilation errors for users without Playmaker the scripts have been prevented from compiling using the preprocessor. To make the scripts compile you will have to toggle them on.
+
+In the menu bar under {\itshape Component -\/$>$ Grid Framework -\/$>$ Toggle Playmaker actions} you can turn the scripts on and off. If successful, a message will be printed to the console informing you whether support was enabled or disabled. If something goes wrong an error will be printed instead.
+
+This mechanism edits the source code of the scripts directly to uncomment or comment a specific line of code, so it is strongly advised that you do not move the scripts and don't change the preprocessor directives, or else this menu item might not work anymore.
+
+\subsection*{Using Grid Framework actions }
+
+You use Grid Framework actions basically the same way you use any other Playmaker actions. The most important thing to note is that each Grid Framework action requires a grid; usually it will try to default to the owner of the F\+S\+M, but you can set it to something else if you wish to, simply by drag\&dropping the grid onto the field. A grid is strictly required and the actions will not work without one.
+
+Actions fall into two basic categories\+: methods and getters/setters. Methods have the same name as the grid method they invoke and getters are prefixed with {\itshape Get} while setters are prefixed with {\itshape Set}. Each action has the expected tooltips, but for complete information on the underlying calls you will have to refer to the A\+P\+I documentation. Overloaded methods from the A\+P\+I are all bundled in one action that lets you specify default values.
+
+The amount of actions is very large, larger than any of the categories Playmaker ships by default, so it is recommended that you use the search field of Playmakers's action browser. Find the method or getter/setter you wish to invoke in the A\+P\+I documentation and then search for that name and it should show up.
+
+\subsection*{Writing your own Playmaker actions }
+
+If you are familiar with Playmaker you can write your own actions. For the sake of consistency you will want to use the same inheritance pattern as was used for the official Grid Framework actions. While it is not strictly required that you follow the same pattern to produce working actions it will allow your actions to inherit any future improvements from the base classes. Any new Playmaker action always inherits from Playmaker's {\ttfamily Fsm\+State\+Action} class, from there on the inheritance tree is as follows\+:
+
+
+\begin{DoxyCode}
+FsmStateAction \textcolor{comment}{// required base class by Playmaker}
+|- FsmGFStateAction<T> : FsmStateAction where T : \hyperlink{class_g_f_grid}{GFGrid}
+   |- FsmGFStateActionGetSet<T> : FsmGFStateAction<T> where T : \hyperlink{class_g_f_grid}{GFGrid}
+   |  |- FsmGFStateActionGetSetGrid : FsmGFStateActionGetSet<GFGrid>
+   |  |- FsmGFStateActionGetSetRect : FsmGFStateActionGetSet<GFRectGrid>
+   |  |- FsmGFStateActionGetSetLayered<T> : FsmGFStateActionMethod<T> where T : 
+      \hyperlink{class_g_f_layered_grid}{GFLayeredGrid}
+   |     |- FsmGFStateActionGetSetHex : FsmGFStateActionGetSetLayered <GFHexGrid>
+   |     |- FsmGFStateActionGetSetPolar : FsmGFStateActionGetSetLayered <GFPolarGrid>
+   |
+   |- FsmGFStateActionMethod<T> : FsmGFStateAction<T> where T : \hyperlink{class_g_f_grid}{GFGrid}
+      |- FsmGFStateActionMethodGrid : FsmGFStateActionMethod<GFGrid>
+      |- FsmGFStateActionMethodRect : FsmGFStateActionMethod<GFRectGrid>
+      |- FsmGFStateActionMethodLayered<T> : FsmGFStateActionMethod<T> where T : 
+      \hyperlink{class_g_f_layered_grid}{GFLayeredGrid}
+         |- FsmGFStateActionMethodHex : FsmGFStateActionMethodLayered<GFHexGrid>
+         |- FsmGFStateActionMethodPolar : FsmGFStateActionMethodLayered<GFPolarGrid>
+\end{DoxyCode}
+
+
+The class {\ttfamily Fsm\+G\+F\+State\+Action} is the base class for all Grid Framework actions, it contains all the common basic member variables and methods. From there on the rest of the inheritance tree is only used to keep things organised.
+
+Most important are the {\ttfamily grid} and {\ttfamily grid\+Game\+Object} member variables. The latter holds the reference to the Game\+Object that holds the grid and and usually defaults to the owner of the F\+S\+M. The former is used to cache the reference to the grid and its type is the type of the generic {\ttfamily T} parameter.
+
+Finally, the {\ttfamily abstract void Do\+Action()} method provides a place where to implement your actual action. Since it is abstract it does not have any implementation, you instead override it in you own sub-\/class and it is then called when the action fires.
+
+\subsection*{Missing actions }
+
+Due to limitations in Playmaker's A\+P\+I some setters, getters and method calls couldn't yet be implemented as actions. These are any actions that would take in or return enums (like angle modes or grid planes) or Vector4 variables. Variables of type {\ttfamily G\+F\+Bool\+Vector3} and {\ttfamily G\+F\+Color\+Vector3} are only supported in getters and setters by using three separate variables. While this shouldn't make any difference in most cases it is worth pointing out.
+
+Of course, once Playmaker becomes able to support these features the actions will be added to the package. 

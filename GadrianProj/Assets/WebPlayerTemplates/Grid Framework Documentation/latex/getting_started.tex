@@ -1,0 +1,47 @@
+You can access this documentation from within Unity by going to Help → Grid Framework Documentation
+
+\subsection*{Setting up a new grid }
+
+Choose a Game\+Object in your scene that will carry the grid. Go to Component → Grid Framework and choose the grid component you want to add. Alternatively you can create a grid from scratch by going to Game\+Object → Create Grid. Once you have your grid in place you can then position it by moving and rotating the Game\+Object, you can change the settings and you can reference it through scripting.
+
+\subsection*{Creating grids programatically }
+
+All grids inherit from the {\itshape \hyperlink{class_g_f_grid}{G\+F\+Grid}} class, which in turn inherits from Unity's own {\itshape Mono\+Behaviour} class (the class of all scripts). As such grids can be created programatically the same way as any other component in Unity.
+
+The usual approach is to use the {\ttfamily Add\+Component} method of the {\itshape Game\+Object} class to add a new grid to the scene 
+\begin{DoxyCode}
+GameObject go;                                   \textcolor{comment}{// object to carry the grid}
+\hyperlink{class_g_f_rect_grid}{GFRectGrid} grid = go.AddComponent<\hyperlink{class_g_f_rect_grid}{GFRectGrid}>(); \textcolor{comment}{// reference to the new grid}
+\end{DoxyCode}
+ Here we use the rectangular grid as an example, but any grid works the same way. Also keep in mind that the abstract grid classes cannot be instantiated, they only serve as abstraction.
+
+\subsection*{Referencing a grid }
+
+You can reference a grid the same way you would reference any other component\+: 
+\begin{DoxyCode}
+var myGrid: \hyperlink{class_g_f_grid}{GFGrid} = myGameObject.GetComponent.<\hyperlink{class_g_f_grid}{GFGrid}>();\textcolor{comment}{// UnityScript}
+\hyperlink{class_g_f_grid}{GFGrid} myGrid = myGameObject.GetComponent<\hyperlink{class_g_f_grid}{GFGrid}>();      \textcolor{comment}{// C#}
+\end{DoxyCode}
+ This syntax is the \href{http://docs.unity3d.com/Documentation/Manual/GenericFunctions.html}{\tt generic} version of \href{http://docs.unity3d.com/Documentation/ScriptReference/GameObject.GetComponent.html}{\tt Get\+Component} which returns a value of type \hyperlink{class_g_f_grid}{G\+F\+Grid} instead of Component. See the Unity Script reference for more information. You can access any grid variable or method directly like this\+: 
+\begin{DoxyCode}
+myVector3 = myGrid.WorldToGrid(transform.position);
+\end{DoxyCode}
+ If you need a special variable that is exclusive to a certain grid type (like {\ttfamily spacing} for rectangular grids) you will need to use that specific type rather than the more general {\ttfamily \hyperlink{class_g_f_grid}{G\+F\+Grid}}\+: 
+\begin{DoxyCode}
+var myGrid: \hyperlink{class_g_f_rect_grid}{GFRectGrid} = myGameObject.GetComponent.<\hyperlink{class_g_f_rect_grid}{GFRectGrid}>();
+\end{DoxyCode}
+
+
+\subsection*{Drawing the grid }
+
+A grid can be drawn using gizmos to give you a visual representation of what is otherwise infinitely large. Note that gizmos draw the grid for you, but they don’t render the grid in a finished and published game during runtime. If you wish the grid to be visible during runtime you need to render it.
+
+In the editor you can set flags to hide the grid altogether, hide it only in play mode, draw a sphere at the origin and set colours. If you cannot see the grid even though {\ttfamily hide\+On\+Play} is disabled make sure that “\+Gizmos” in the upper right corner of the game view window is enabled.
+
+\subsection*{The Grid Align Panel }
+
+You can find this window under Window → Grid Align Panel. To use it, simply drag \& drop an object with a grid from the hierarchy into the Grid field. The buttons are pretty self-\/ explanatory. You can also set which layers will be affected, this is especially useful if you want to manipulate large groups of objects at the same time without affecting the rest of the scene. If Ignore Root Objects is set Align Scene and Scale Scene will ignore all objects that have no parent and at least one child. If Include Children is not set then child objects will be ignored. Auto snapping makes all objects moved in editor mode snap automatically to the grid. They will only snap if they have been selected, so you could turn this option on and click on all the objects you want to align quickly and then turn the option off again without affecting the other objects in the scene. You can also set individual axes to not be affected by the aligning functions.
+
+
+
+For polar grids there are a few specific options which will only be visible when you drop a polar grid into the grid field. These options include auto-\/ rotating aroudn the grid’s origin, similar to auto snapping, and buttons to rotate and align at the same time. 

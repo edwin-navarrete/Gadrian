@@ -1,0 +1,40 @@
+\subsection*{What is an event? }
+
+Delegates and events are a native C\# feature that lets you execute code when certain things happen. The {\itshape sender} sends out an event and the {\itshape listeners} who have subscribed to that event receive a notification and call an appropriate function. For example, if the player receives an invulnerability power-\/up it could send an event to all enemies, making them run away from the player. The important part is that the sender has no idea who is listening, it's the listeners who have to subscribe.
+
+\subsection*{Grid\+Changed\+Event }
+
+In Grid Framework there is an event sent every time one of the grid's properties is changed. You could use this in order to know when you have to perform recalculations and when it is save to store values. I'm not going to explain the details of events here, that would exceed the scope of the user manual, but I will give a simple example code. If you need more information I recommend the official \href{http://msdn.microsoft.com/en-us/library/aa645739(v=vs.71).aspx}{\tt M\+S\+D\+N Event Tutorials}. Since this is a .N\+E\+T feature it will only work in C\#, not Unity\+Script.
+
+\begin{DoxyNote}{Note}
+Since there is no proper way in Unity to be notified when an object's Transform (position, rotation or scale) has been changed the event will {\itshape not} be fired when the grid's Transform is being altered.
+\end{DoxyNote}
+
+\begin{DoxyCode}
+\textcolor{keyword}{using} UnityEngine;
+\textcolor{keyword}{using} System.Collections;
+
+\textcolor{keyword}{public} \textcolor{keyword}{class }EventTest : MonoBehaviour \{
+    \textcolor{keyword}{public} \hyperlink{class_g_f_grid}{GFGrid} grid; \textcolor{comment}{// the grid we use for reference}
+
+    \textcolor{comment}{// subscribe to the event when the script becomes active}
+    \textcolor{keywordtype}{void} OnEnable() \{
+        grid.\hyperlink{class_g_f_grid_af3bfbed41ba24f963e871921c663f1f8_af3bfbed41ba24f963e871921c663f1f8}{GridChangedEvent} += \textcolor{keyword}{new} \hyperlink{class_g_f_grid}{GFGrid}.
+      \hyperlink{class_g_f_grid_a1b011f573c51561fbd9e411f821ba820_a1b011f573c51561fbd9e411f821ba820}{GridChangedDelegate} (SomeMethod);
+    \}
+    
+    \textcolor{comment}{// unsubscribe to the event when the script becomes inactive}
+    \textcolor{keywordtype}{void} OnDisable() \{
+        grid.\hyperlink{class_g_f_grid_af3bfbed41ba24f963e871921c663f1f8_af3bfbed41ba24f963e871921c663f1f8}{GridChangedEvent} -= \textcolor{keyword}{new} \hyperlink{class_g_f_grid}{GFGrid}.
+      \hyperlink{class_g_f_grid_a1b011f573c51561fbd9e411f821ba820_a1b011f573c51561fbd9e411f821ba820}{GridChangedDelegate} (SomeMethod);
+    \}
+
+    \textcolor{comment}{// the method to call; it is important that the return type and parameters match the delegate}
+    \textcolor{keywordtype}{void} SomeMethod( \hyperlink{class_g_f_grid}{GFGrid} changedGrid ) \{
+        Debug.Log( \textcolor{stringliteral}{"Changes have been made to the grid with name "} + changedGrid.name);
+    \}
+\}
+\end{DoxyCode}
+
+
+The first thing we need to do is subscribe to the event; a good place for this would be when the script becomes active. In order to subscribe you call the object's event and then add via {\ttfamily +=} the method that will be called as a delegate. A delegate is similar to a function pointer in C or C++, it holds a reference to a function. It is important that the return type and amount and type of parameters matches the one of the delegate, but the actual contents of the method are entirely up to you. We can also unsubscribe to an event, which is done using {\ttfamily -\/=} when we want to stop listening. 

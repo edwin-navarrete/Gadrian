@@ -1,0 +1,108 @@
+\hypertarget{class_g_f_layered_grid}{\section{G\+F\+Layered\+Grid Class Reference}
+\label{class_g_f_layered_grid}\index{G\+F\+Layered\+Grid@{G\+F\+Layered\+Grid}}
+}
+
+
+The parent class for all layered grids. 
+
+
+Inheritance diagram for G\+F\+Layered\+Grid\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_g_f_layered_grid}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override Vector3 \hyperlink{class_g_f_layered_grid_a0fad538e6ffb56209e76da00c357a3c9_a0fad538e6ffb56209e76da00c357a3c9}{Nearest\+Face\+W} (Vector3 world\+Point, \hyperlink{namespace_grid_framework_aa55de93079e09bd55c4cb660025820d5_aa55de93079e09bd55c4cb660025820d5}{Grid\+Plane} plane, bool do\+Debug)
+\begin{DoxyCompactList}\small\item\em Returns the world position of the nearest face.\end{DoxyCompactList}\item 
+override Vector3 \hyperlink{class_g_f_layered_grid_a5af848e6ee44af68a8c4748716925468_a5af848e6ee44af68a8c4748716925468}{Nearest\+Face\+G} (Vector3 world\+Point, \hyperlink{namespace_grid_framework_aa55de93079e09bd55c4cb660025820d5_aa55de93079e09bd55c4cb660025820d5}{Grid\+Plane} plane)
+\begin{DoxyCompactList}\small\item\em Returns the grid position of the nearest Face.\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_g_f_layered_grid_a3ff168354ca75d04aae2340c48c7070c_a3ff168354ca75d04aae2340c48c7070c}{depth}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em How far apart layers of the grid are.\end{DoxyCompactList}\item 
+\hyperlink{namespace_grid_framework_aa55de93079e09bd55c4cb660025820d5_aa55de93079e09bd55c4cb660025820d5}{Grid\+Plane} \hyperlink{class_g_f_layered_grid_aeda8ad1af2b0d4ed12481de40ddb3f55_aeda8ad1af2b0d4ed12481de40ddb3f55}{grid\+Plane}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em What plane the layers are on.\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This class serves as a parent for all grids composed out of two-\/dimensional grids stacked on top of each other (currently only hex-\/ and polar grids). These grids have a plane (orientation) and a \char`\"{}depth\char`\"{} (how densely stacked they are). Other than keeping common values and internal methods in one place, this class has not much practical use. I recommend yu ignore it, it is documented just for the sake of completion. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_g_f_layered_grid_a5af848e6ee44af68a8c4748716925468_a5af848e6ee44af68a8c4748716925468}{\index{G\+F\+Layered\+Grid@{G\+F\+Layered\+Grid}!Nearest\+Face\+G@{Nearest\+Face\+G}}
+\index{Nearest\+Face\+G@{Nearest\+Face\+G}!G\+F\+Layered\+Grid@{G\+F\+Layered\+Grid}}
+\subsubsection[{Nearest\+Face\+G}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Layered\+Grid.\+Nearest\+Face\+G (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point, }
+\item[{{\bf Grid\+Plane}}]{plane}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_layered_grid_a5af848e6ee44af68a8c4748716925468_a5af848e6ee44af68a8c4748716925468}
+\begin{DoxyReturn}{Returns}
+Grid position of the nearest face.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+{\em plane} & Plane on which the face lies.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to \hyperlink{class_g_f_grid_a7eaa2821cf118bb4821bd2cbf40029da_a7eaa2821cf118bb4821bd2cbf40029da}{Nearest\+Vertex\+G}, it returns the grid coordinates of a face on the grid. Since the face is enclosed by several vertices, the returned value is the point in between all of the vertices. You also need to specify on which plane the face lies (optional for hex-\/ and polar grids).
+
+This is just an abstract template for the method, look into the specific class for exact implementation. 
+
+Implements \hyperlink{class_g_f_grid_aac129f3df1da5cdbc31143ecc7db35d2_aac129f3df1da5cdbc31143ecc7db35d2}{G\+F\+Grid}.
+
+\hypertarget{class_g_f_layered_grid_a0fad538e6ffb56209e76da00c357a3c9_a0fad538e6ffb56209e76da00c357a3c9}{\index{G\+F\+Layered\+Grid@{G\+F\+Layered\+Grid}!Nearest\+Face\+W@{Nearest\+Face\+W}}
+\index{Nearest\+Face\+W@{Nearest\+Face\+W}!G\+F\+Layered\+Grid@{G\+F\+Layered\+Grid}}
+\subsubsection[{Nearest\+Face\+W}]{\setlength{\rightskip}{0pt plus 5cm}override Vector3 G\+F\+Layered\+Grid.\+Nearest\+Face\+W (
+\begin{DoxyParamCaption}
+\item[{Vector3}]{world\+Point, }
+\item[{{\bf Grid\+Plane}}]{plane, }
+\item[{bool}]{do\+Debug}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_g_f_layered_grid_a0fad538e6ffb56209e76da00c357a3c9_a0fad538e6ffb56209e76da00c357a3c9}
+\begin{DoxyReturn}{Returns}
+World position of the nearest face.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Point} & Point in world space.\\
+\hline
+{\em plane} & Plane on which the face lies.\\
+\hline
+{\em do\+Debug} & If set to {\ttfamily true} draw a sphere at the destination.\\
+\hline
+\end{DoxyParams}
+
+
+Similar to \hyperlink{class_g_f_grid_a5865880fa767bf5562301bca419b8bb9_a5865880fa767bf5562301bca419b8bb9}{Nearest\+Vertex\+W}, it returns the world coordinates of a face on the grid. Since the face is enclosed by several vertices, the returned value is the point in between all of the vertices. You also need to specify on which plane the face lies (optional for hex-\/ and polar grids). If {\itshape do\+Debug}  is set a small gizmo face will drawn there.
+
+This is just an abstract template for the method, look into the specific class for exact implementation. 
+
+Implements \hyperlink{class_g_f_grid_ae8711b08c90871f6e88800a30ff5077f_ae8711b08c90871f6e88800a30ff5077f}{G\+F\+Grid}.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{class_g_f_layered_grid_a3ff168354ca75d04aae2340c48c7070c_a3ff168354ca75d04aae2340c48c7070c}{\index{G\+F\+Layered\+Grid@{G\+F\+Layered\+Grid}!depth@{depth}}
+\index{depth@{depth}!G\+F\+Layered\+Grid@{G\+F\+Layered\+Grid}}
+\subsubsection[{depth}]{\setlength{\rightskip}{0pt plus 5cm}float G\+F\+Layered\+Grid.\+depth\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_layered_grid_a3ff168354ca75d04aae2340c48c7070c_a3ff168354ca75d04aae2340c48c7070c}
+Depth of grid layers.
+
+Layered grids are made of an infinite number of two-\/dimensional grids stacked on top of each other. This determines how far apart those layers are. The value cannot be lower than 0.\+1 in order to prevent contradictory values. \hypertarget{class_g_f_layered_grid_aeda8ad1af2b0d4ed12481de40ddb3f55_aeda8ad1af2b0d4ed12481de40ddb3f55}{\index{G\+F\+Layered\+Grid@{G\+F\+Layered\+Grid}!grid\+Plane@{grid\+Plane}}
+\index{grid\+Plane@{grid\+Plane}!G\+F\+Layered\+Grid@{G\+F\+Layered\+Grid}}
+\subsubsection[{grid\+Plane}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Grid\+Plane} G\+F\+Layered\+Grid.\+grid\+Plane\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_g_f_layered_grid_aeda8ad1af2b0d4ed12481de40ddb3f55_aeda8ad1af2b0d4ed12481de40ddb3f55}
+The plane on which the grid is aligned.
+
+Layered grids are made of an infinite number of two-\/dimensional grids stacked on top of each other. This determines the orientation of these layers, i. e. if they are X\+Y-\/, X\+Z-\/ or Y\+Z-\/layers. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+G\+F\+Layered\+Grid.\+cs\end{DoxyCompactItemize}

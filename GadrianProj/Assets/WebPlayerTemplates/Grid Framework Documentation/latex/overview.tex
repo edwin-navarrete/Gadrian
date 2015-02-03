@@ -1,0 +1,33 @@
+\subsection*{Preface }
+
+Thank you for choosing Grid Framework for Unity3\+D. My goal was to create an easy to use setup where the user only needs to say what kind of grid he or she wants and let the computer do all the math. After all, isn’t that why computers where invented in the first place?
+
+This package provides you with a new Grid component which can be added to any Game\+Object in the scene, lots of functions to use with the grid and an editor panel for aligning and scaling objects in your scene. Every grid is three-\/dimensional and infinite in size. You can draw your grids in the editor using gizmos, render them at runtime and even use Grid Framework along with \href{http://starscenesoftware.com/vectrosity.html/}{\tt Vectrosity} if you have a license for it.
+
+By buying this package you support further development and you are entitled to all future upgrades for free. My long-\/term goal is to create a complete grid framework with rectangular grids, hex grids, triangular grids, polar grids and even pathfinding... we’ll see. In the meantime please enjoy the current system and thank you for your support.
+
+Hi\+Phish
+
+\subsection*{Setup }
+
+Nothing special is needed if you get Grid Framework form the Unity Asset Store. If you accidentally moved some files and are getting compilation errors you can restore things back to normal by placing the files in the same locations as described below. You can also delete the global {\itshape Grid Framework} folder or any of its contents without breaking anything if you don’t need it.
+
+All features of Grid Framework, including the documentation, can be accessed through the menu bar, see the \hyperlink{getting_started}{Getting Started} page for more information, there is no reason to attach scripts manually.
+
+\subsection*{What is included }
+
+The package contains four global folders, one called {\itshape Grid Framework}, the other {\itshape Editor}, the third one {\itshape Plugins} and the fourth one {\itshape Web\+Player\+Templates}.
+
+The {\itshape Grid Framework} folder contains the documentation, the changelog and two folders, {\itshape Examples} and {\itshape Debug}.
+
+The {\itshape Examples} folder contains complete showcase scenes which demonstrate how to implement real gameplay functionality. I recommend new users to take a look at some of the scripts to see Grid Framework right in action. All scripts are written both in C\# and Java\+Script (if possible) and are extensively commented. The Vectrosity examples need a copy of Vectrosity installed to work. \href{http://starscenesoftware.com/vectrosity.html/}{\tt Vectrosity} is a separate vector line drawing extension for Unity written by Eric5h5 and not related to Grid Framework. Please see the rendering section for more information.
+
+The {\itshape Debug} folder contains a prefab and a script, both used for debugging the grid. Use the prefab to examine the grid both in the editor and during runtime.
+
+The {\itshape Plugins} folder contains the folder {\itshape Grid Framework} containing the scripts {\itshape G\+F\+Rect\+Grid.\+cs}, {\itshape G\+F\+Hex\+Grid.\+cs} and {\itshape G\+F\+Polar\+Grid.\+cs}, and the folders {\itshape Abstract} (containing {\itshape G\+F\+Grid.\+cs} and {\itshape G\+F\+Layered\+Grid.\+cs}), {\itshape Extension Methods} (containing {\itshape G\+F\+Transform\+Extensions.\+cs} and {\itshape G\+F\+Vector\+Three\+Extensions.\+cs}), {\itshape Vectors} (containing {\itshape G\+F\+Bool\+Vector3.\+cd} and {\itshape G\+F\+Color\+Vector3.\+cs}), {\itshape Grid Rendering} (containing {\itshape G\+F\+Grid\+Render\+Camera.\+cs}, which needs to be attached to a camera if you want to render your grids at runtime and {\itshape G\+F\+Grid\+Render\+Manager.\+cs}) and a folder named {\itshape Legacy Support} containing zipped scripts for deprecated methods, included for optional backwards compatibility.
+
+Out of these only {\itshape G\+F\+Rect\+Gridcs}, {\itshape G\+F\+Hex\+Grid.\+cs} and {\itshape G\+F\+Polar\+Grid.\+cs} are relevant to end-\/users, {\itshape G\+F\+Grid.\+cs} and {\itshape G\+F\+Layerd\+Grid.\+cs} are abstract classes and cannot be added to Objects (more on that later) and the rest just contain supplementary classes and functions or handy extension methods I used.
+
+The {\itshape Editor} folder contains the folder {\itshape Grid Framework} with {\itshape G\+F\+Grid\+Align\+Panel.\+cs}, the alignment and scaling panel, {\itshape G\+F\+Menu\+Items.\+cs} for putting entries in Unity’s menus and the folder {\itshape Inspectors}. That folder contains the abstract base class {\itshape G\+F\+Grid\+Editor} and its derived classes, {\itshape G\+F\+Rect\+Grid\+Editor}, {\itshape G\+F\+Hex\+Grid\+Editor} and {\itshape G\+F\+Polar\+Grid\+Editor}, for the actual inspector panels. None of these scripts are of interest to end-\/users, they just embed Grid Framework into the Unity Editor’s interface.
+
+ 

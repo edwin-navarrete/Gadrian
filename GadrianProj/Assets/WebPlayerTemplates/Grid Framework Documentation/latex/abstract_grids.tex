@@ -1,0 +1,21 @@
+There are two abstract base classes, \hyperlink{class_g_f_grid}{G\+F\+Grid} and its child \hyperlink{class_g_f_layered_grid}{G\+F\+Layered\+Grid}, from which other grids inherit. These classes exist to provide an abstract template and they cannot be instantiated. It is very similar to Unity's abstract \href{http://docs.unity3d.com/Documentation/ScriptReference/Collider.html}{\tt Collider} class and its subclasses \href{http://docs.unity3d.com/Documentation/ScriptReference/BoxCollider.html}{\tt Box\+Collider}, \href{http://docs.unity3d.com/Documentation/ScriptReference/SphereCollider.html}{\tt Sphere\+Collider}, \href{http://docs.unity3d.com/Documentation/ScriptReference/MeshCollider.html}{\tt Mesh\+Collider} and so on. The child classes have all members of the parent class, but the exact implementation of methods can vary.
+
+\subsection*{The \hyperlink{class_g_f_grid}{G\+F\+Grid} class }
+
+All grids inherit from the \hyperlink{class_g_f_grid}{G\+F\+Grid} class. \hyperlink{class_g_f_grid}{G\+F\+Grid} is an abstract class, which means it cannot do anything on its own and it cannot be attached to any object. Rather it serves as a template for what its children, the specific grids, have to be able to do, but not how they do it. You say that \hyperlink{class_g_f_rect_grid}{G\+F\+Rect\+Grid}, \hyperlink{class_g_f_hex_grid}{G\+F\+Hex\+Grid} and \hyperlink{class_g_f_polar_grid}{G\+F\+Polar\+Grid} “implement” \hyperlink{class_g_f_grid}{G\+F\+Grid}.
+
+Of course you can still reference any grid by its respective type like this\+: 
+\begin{DoxyCode}
+var myGrid: \hyperlink{class_g_f_rect_grid}{GFRectGrid} \textcolor{comment}{// UnityScript}
+\hyperlink{class_g_f_rect_grid}{GFRectGrid} myGrid \textcolor{comment}{// C#}
+\end{DoxyCode}
+ The downside is that if you change your opinion and want another kind of grid you need to change your source code as well. Or maybe you don’t know what type of grid you are dealing with. Writing {\ttfamily var my\+Grid\+: \hyperlink{class_g_f_grid}{G\+F\+Grid}} lets you use any sort of grid you desire and always picks the right implementation of the function. So the following code will always return the appropriate vector for any grid type\+: 
+\begin{DoxyCode}
+var myGrid: \hyperlink{class_g_f_grid}{GFGrid};
+var myVec: Vector3 = myGrid.\hyperlink{class_g_f_grid_a5865880fa767bf5562301bca419b8bb9_a5865880fa767bf5562301bca419b8bb9}{NearestVertexW}(transform.position);
+\end{DoxyCode}
+ Please see the scripting reference sections for detailed information on the A\+P\+I.
+
+\subsection*{The \hyperlink{class_g_f_layered_grid}{G\+F\+Layered\+Grid} class }
+
+Layered grids are all grids that are two-\/dimensional and stacked on top of each other, like layers. Currently this category contains hexagonal grids and polar grids. This class encapsulates their two common members\+: the {\itshape depth}, i.\+e. how far apart these layers are, and the {\itshape plane} (X\+Y, X\+Z or Y\+Z) the grid is aligned to. Like all grids layered grids are children of the aforementioned \hyperlink{class_g_f_grid}{G\+F\+Grid}. 

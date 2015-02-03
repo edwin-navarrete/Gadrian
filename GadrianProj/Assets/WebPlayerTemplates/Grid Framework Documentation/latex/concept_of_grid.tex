@@ -1,0 +1,7 @@
+\subsection*{Anatomy of a grid }
+
+Each grid is defined by a handful of basic properties, some of them common to all, some of them specific to a certain type. The common ones are the position and rotation, which are directly taken from the \href{http://docs.unity3d.com/Documentation/ScriptReference/Transform.html}{\tt Transform} of the \href{http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html}{\tt Game\+Object} they are attached to. The origin of each grid lies where its position is.  When we look at a grid we see certain patterns\+: edges, vertices where edges cross, faces, which are areas enclosed by edges, and boxes, which are spaces enclosed by faces. Aside from edges (which are just pairs of vertices), all of these can get coordinates assigned. We can then either determine on which vertex, face or box of the grid we are or where a certain vertex, face or box lies in world space. The sections for each of the grids contain more detailed information.
+
+\subsection*{The G\+F\+Grid\+Plane }
+
+The 3\+D nature of these grids allow us to move in any direction, but sometimes you want or have to restrict things to 2\+D. In Unity planes are defined by their normal vector, but in grids we can make use of the grids’ restrictive nature, so we only have to specify if it’s an X\+Y-\/, X\+Z-\/ or Y\+Z-\/plane. The scripting reference section contains details about the proper syntax. 

@@ -1,0 +1,27 @@
+\hypertarget{namespace_grid_framework}{\section{Package Grid\+Framework}
+\label{namespace_grid_framework}\index{Grid\+Framework@{Grid\+Framework}}
+}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+package \hyperlink{namespace_grid_framework_1_1_vectors}{Vectors}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespace_grid_framework_af11322a36c09698c9ad2fa65f85320a9_af11322a36c09698c9ad2fa65f85320a9}{Angle\+Mode} 
+\begin{DoxyCompactList}\small\item\em Radians or degrees.\end{DoxyCompactList}\item 
+enum \hyperlink{namespace_grid_framework_aa55de93079e09bd55c4cb660025820d5_aa55de93079e09bd55c4cb660025820d5}{Grid\+Plane} 
+\begin{DoxyCompactList}\small\item\em Enum for one of the three grid planes.\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{namespace_grid_framework_af11322a36c09698c9ad2fa65f85320a9_af11322a36c09698c9ad2fa65f85320a9}{\index{Grid\+Framework@{Grid\+Framework}!Angle\+Mode@{Angle\+Mode}}
+\index{Angle\+Mode@{Angle\+Mode}!Grid\+Framework@{Grid\+Framework}}
+\subsubsection[{Angle\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Grid\+Framework.\+Angle\+Mode}}}\label{namespace_grid_framework_af11322a36c09698c9ad2fa65f85320a9_af11322a36c09698c9ad2fa65f85320a9}
+This is a simple enum for specifying whether an angle is given in radians for degrees. This enum is so far only used in methods of \hyperlink{class_g_f_polar_grid}{G\+F\+Polar\+Grid}, but I decided to make it global in case other grids in the future will use it was well. \hypertarget{namespace_grid_framework_aa55de93079e09bd55c4cb660025820d5_aa55de93079e09bd55c4cb660025820d5}{\index{Grid\+Framework@{Grid\+Framework}!Grid\+Plane@{Grid\+Plane}}
+\index{Grid\+Plane@{Grid\+Plane}!Grid\+Framework@{Grid\+Framework}}
+\subsubsection[{Grid\+Plane}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Grid\+Framework.\+Grid\+Plane}}}\label{namespace_grid_framework_aa55de93079e09bd55c4cb660025820d5_aa55de93079e09bd55c4cb660025820d5}
+This enum encapsulates the three grid planes\+: X\+Y, X\+Z and Y\+Z. You can also get the integer of enum items, where the integer corresponds to the missing axis (X = 0, Y = 1, Z = 2)\+: {\ttfamily  // Unity\+Script\+: var my\+Plane\+: Grid\+Plane = Grid\+Plane.\+X\+Z; var plane\+Index\+: int = (int)my\+Plane; // sets the variable to 1}
+
+{\ttfamily // C\# Grid\+Plane my\+Plane = Grid\+Plane.\+X\+Z; int plane\+Index = (int)my\+Plane; } 

@@ -1,0 +1,119 @@
+Grid Framework, much like Unity 3\+D itself, is written as a multi-\/purpose framework. You can write your own code and reference Grid Framework's A\+P\+I just as you would reference Unity's A\+P\+I, but sometimes you might find yourself wanting not just to use grid Framework, but to expand on it. Maybe there is some method or variable that would fit greatly in your project but that's too specific for me to include by default.
+
+This is where this section of the manual comes into play. I strongly advise against changing the source code, you will either have to re-\/apply your changes after each update or refrain from updating and thus miss bug fixes and other improvements. Instead, you should use inheritance or extension methods. While these techniques can be accomplished using Unity\+Script it is not what the language has been created for. I will use C\# in this article and I recommend you to do so as well, since C\# was designed with these features in mind.
+
+\subsection*{Inheritance }
+
+Inheritance is an integral part of object oriented programing, so I won't go into detail, instead I will provide an example. Let's say you you have an array of special points and you want to store them directly inside the (rectangular) grid, as well as a method to output those points. In that case you would inherit from the rectangular grid class and just add the extra code\+: 
+\begin{DoxyCode}
+\textcolor{keyword}{using} UnityEngine;
+\textcolor{keyword}{using} System.Collections;
+
+\textcolor{keyword}{public} \textcolor{keyword}{class }ExtendedGrid : \hyperlink{class_g_f_rect_grid}{GFRectGrid} \{
+    \textcolor{keyword}{public} Vector3[] specialPoints;
+
+    \textcolor{keyword}{public} \textcolor{keywordtype}{void} PrintPoints () \{
+        \textcolor{keywordflow}{if} (specialPoints == null)
+            \textcolor{keywordflow}{return};
+        \textcolor{keywordflow}{foreach} (Vector3 point \textcolor{keywordflow}{in} specialPoints)
+            Debug.Log (point);
+    \}
+\}
+\end{DoxyCode}
+ Obviously this is not a very useful extension, but you get the idea. Now that we have a custom class we can also create a custom inspector for it. If you don't the default inspector provided by Unity will be displayed, so this step is not mandatory. To create a custom inspector inherit from the base class's inspector and add your extra code to it\+: 
+\begin{DoxyCode}
+\textcolor{keyword}{using} UnityEngine;
+\textcolor{keyword}{using} UnityEditor;
+\textcolor{keyword}{using} System; \textcolor{comment}{// needed to the Array class}
+\textcolor{keyword}{using} System.Collections;
+
+[CustomEditor (typeof(ExtendedGrid))]
+\textcolor{keyword}{public} \textcolor{keyword}{class }ExtendedGridEditor : GFRectGridEditor \{
+    \textcolor{keyword}{private} \textcolor{keywordtype}{int} listSize;
+
+    \textcolor{keyword}{public} \textcolor{keyword}{override} \textcolor{keywordtype}{void} OnInspectorGUI () \{
+        StandardFields ();
+        ListField ((ExtendedGrid)grid);
+
+        \textcolor{keywordflow}{if} (GUI.changed)
+            EditorUtility.SetDirty (target);
+    \}
+
+    \textcolor{keyword}{private} \textcolor{keywordtype}{void} ListField (ExtendedGrid xGrid) \{
+        \textcolor{keywordflow}{if} (xGrid.specialPoints == null)
+            xGrid.specialPoints = \textcolor{keyword}{new} Vector3[0];
+
+        listSize = Mathf.Max (EditorGUILayout.IntField (\textcolor{stringliteral}{"Special points amount"}, listSize), 0);
+        \textcolor{keywordflow}{if} (listSize != xGrid.specialPoints.Length) 
+            Array.Resize<Vector3> (ref xGrid.specialPoints, listSize);
+
+        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < listSize; i++) \{
+            xGrid.specialPoints [i] = EditorGUILayout.Vector3Field (\textcolor{stringliteral}{"Special point "} + (i+1), xGrid.
+      specialPoints [i]);
+        \}
+    \}
+\}
+\end{DoxyCode}
+ This inspector lets you set and remove entries to the array in the editor. I will not cover Unity's editor G\+U\+I scripting as that topic is outside the scope of this article, but I will explain this example.
+
+Since the extended grid inherits from rectangular grids our new inspector will inherit from the rectangular grid's inspector as well. The private variable keeps track of how long we want the array of points to be. Then we override the {\ttfamily On\+Inspector\+G\+U\+I} method to display all our fields. The method {\ttfamily Standard\+Fields} simply displays all the fields the base inspector also has, this is handy if you want to use my inspector layout and then just add your own elements to it. If you want more control you should look into the actual code of the inspectors, every group of G\+U\+I elements is encapsulated into its own method, so you can mix them as you please. After the standard fields we place our new extra code, again encapsulated into its own method to keep things clean. Finally we finish it up as usual with {\ttfamily Editor\+Utility.\+Set\+Dirty}.
+
+The {\ttfamily List\+Field} method takes a parameter of type Extended\+Grid. Each grid inspector holds a reference to its grid object via the {\ttfamily grid} variable, but its type is the abstract {\ttfamily \hyperlink{class_g_f_grid}{G\+F\+Grid}}, so we need to typecast it to its more specific runtime type if we want to access the array. The rest of the code is just regular inspector G\+U\+I scripting.
+
+\subsection*{Extension Methods }
+
+Extension methods are a way to add methods to existing classes without having or needing access to the implementation of the class. Once a method has been added this way it will be treated the same way as other methods and it will even show up in autocomplete if your editor supports it. I made use of extension methods in the \char`\"{}lights out\char`\"{} example, you can see a practical application there, here I will go into the theory.
+
+Start by creating a new C\# script, the name doesn't matter, so use something that makes sense you, I will use \char`\"{}\+Grid\+Print\+Extension\char`\"{}. Delete the default contents of the file created by Unity and add the following code to it\+: 
+\begin{DoxyCode}
+\textcolor{keyword}{using} UnityEngine;
+\textcolor{keyword}{using} System.Collections;
+
+\textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{class }GridPrintExtension \{
+
+\}
+\end{DoxyCode}
+ That class is where our extension method will be written. Let's write it... 
+\begin{DoxyCode}
+\textcolor{keyword}{using} UnityEngine;
+\textcolor{keyword}{using} System.Collections;
+
+\textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{class }GridPrintExtension \{
+    \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} PrintGrid (\textcolor{keyword}{this} \hyperlink{class_g_f_grid}{GFGrid} grid) \{
+        Debug.Log (grid.size.x);
+    \}
+\}
+\end{DoxyCode}
+ Let's go over the code; {\ttfamily public} should be self-\/explanatory, the method has to be public so the grid class can see it and it also needs to be static because the containing class is static as well. Next up are the return type, the name of the method and the parameter list. The extension method does not belong to any instance, but the extended class has to treat is as if it did belong to an instance of it. That is what the first parameter is for, it always starts with {\ttfamily this}, then the the name of the class we extend and finally an identifier which can be any name.
+
+That's essentially it, we can now use this method in our scripting. However, let's take it a step further, what if we want one common method name, but different implementations in every specific grid? In the lights out example each grid type applies different rules as to what an adjacent flied is. We will use a simple if-\/else construct\+: 
+\begin{DoxyCode}
+\textcolor{keyword}{using} UnityEngine;
+\textcolor{keyword}{using} System.Collections;
+
+\textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{class }GridPrintExtension \{
+    \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} PrintGrid (\textcolor{keyword}{this} \hyperlink{class_g_f_grid}{GFGrid} grid) \{
+        Type t = grid.GetType();
+        \textcolor{keywordflow}{if} (t == typeof(\hyperlink{class_g_f_rect_grid}{GFRectGrid})) \{
+            PrintRect ((\hyperlink{class_g_f_rect_grid}{GFRectGrid}) grid);
+        \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (t == typeof(\hyperlink{class_g_f_hex_grid}{GFHexGrid})) \{
+            PrintHex ((\hyperlink{class_g_f_hex_grid}{GFHexGrid}) grid);
+        \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (t == typeof(\hyperlink{class_g_f_polar_grid}{GFPolarGrid})) \{
+            PrintPolar ((\hyperlink{class_g_f_polar_grid}{GFPolarGrid}) grid);
+        \} \textcolor{keywordflow}{else} \{
+            Debug.Log (grid.size.x);
+        \}
+    \}
+    
+    \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keywordtype}{void} PrintRect (\hyperlink{class_g_f_rect_grid}{GFRectGrid} grid) \{
+        Debug.Log (grid.spacing.x);
+    \}
+    \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keywordtype}{void} PrintHex (\hyperlink{class_g_f_hex_grid}{GFHexGrid} grid) \{
+        Debug.Log (grid.radius);
+    \}
+    \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keywordtype}{void} PrintPolar (\hyperlink{class_g_f_polar_grid}{GFPolarGrid} grid) \{
+        Debug.Log (grid.sectors);
+    \}
+\}
+\end{DoxyCode}
+ The default case is not needed, it's just for demonstration. As you can see we print the contents of a member variable that is specific to a certain grid type without needing to know what type of grid will call the extension method. The specific methods are set to private to make sure they can't be called outside of the extension method, but that's just a matter of personal preference and choice. 
