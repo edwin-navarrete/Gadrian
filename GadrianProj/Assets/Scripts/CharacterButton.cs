@@ -39,7 +39,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
 	public void OnPointerUp (PointerEventData eventData)
 	{
-		manager.PlaceCharacterImage ( eventData, icon.sprite, name.text );
+		manager.PlaceCharacterImage ( eventData, gameObject, icon.sprite, name.text );
 	}
 
 	#endregion

@@ -98,7 +98,7 @@ public class CharacterManager : MonoBehaviour
 		}
 	}
 
-	public void PlaceCharacterImage (PointerEventData eventData, Sprite charRep, string charName)
+	public void PlaceCharacterImage (PointerEventData eventData, GameObject sender, Sprite charRep, string charName)
 	{
 		OnFinishingDrag ();
 
@@ -121,6 +121,7 @@ public class CharacterManager : MonoBehaviour
 				spriteRenderer.sprite = charRep;
 
 				newCharacter.transform.SetParent ( CharacterPlaceholder );
+				sender.SetActive ( false );
 			}
 		}
 	}

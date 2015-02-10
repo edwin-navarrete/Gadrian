@@ -37,7 +37,7 @@ public class SnapCharacter : MonoBehaviour
 		if ( rb == null )
 			rb = gameObject.AddComponent<Rigidbody2D> ();
 
-		rb.isKinematic = true;
+		rb.isKinematic = false;
 		rb.gravityScale = 0.0f;
 	}
 
