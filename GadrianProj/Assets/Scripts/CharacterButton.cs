@@ -3,40 +3,43 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class CharacterButton : MonoBehaviour, IPointerDownHandler
+public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
 	public new Text name;
 	public Image icon;
 	public Button button;
 
-	public UnityEngine.Events.UnityEvent<Sprite, PointerEventData> PointerDown;
 	[SerializeField]
 	private CharacterManager manager;
 
 	private void Awake ()
 	{
-		//manager = GameObject.Find ( "Character manager" ).GetComponent<CharacterManager> ();
-		if ( manager != null )
-		{
-			//PointerDown.AddListener ( manager.SetCharacterImage );
-		}
-	}
-
-	public void OnDisable ()
-	{
-		//PointerDown.AddListener ( manager.SetCharacterImage );
-	}
-
-	public void OnEnable ()
-	{
-		//PointerDown.RemoveListener ( manager.SetCharacterImage );
+		manager = CharacterManager.Instance;
 	}
 
 	#region Miembros de IPointerDownHandler
 
 	public void OnPointerDown (PointerEventData eventData)
 	{
-		PointerDown.Invoke ( icon.sprite, eventData );
+		manager.SetCharacterImage ( icon.sprite, eventData );
+	}
+
+	#endregion
+
+	#region Miembros de IDragHandler
+
+	public void OnDrag (PointerEventData eventData)
+	{
+		manager.MoveCharacterImage ( eventData );
+	}
+
+	#endregion
+
+	#region Miembros de IPointerUpHandler
+
+	public void OnPointerUp (PointerEventData eventData)
+	{
+		manager.PlaceCharacterImage ( eventData, icon.sprite, name.text );
 	}
 
 	#endregion
