@@ -17,6 +17,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 		manager = CharacterManager.Instance;
 	}
 
+
 	#region Miembros de IPointerDownHandler
 
 	public void OnPointerDown (PointerEventData eventData)
