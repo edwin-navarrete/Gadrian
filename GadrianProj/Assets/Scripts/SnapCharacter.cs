@@ -13,10 +13,12 @@ public class SnapCharacter : MonoBehaviour
 	private Vector3 oldPosition;
 	private int intersecting;
 
-	private SpriteRenderer renderer;
+	private new SpriteRenderer renderer;
 
 	private void Awake ()
 	{
+		grid = GameObject.FindGameObjectWithTag ( "Grid" ).GetComponent<GFHexGrid> ();
+
 		if ( grid != null )
 		{
 			gridCollider = grid.GetComponent<Collider> ();
@@ -51,6 +53,7 @@ public class SnapCharacter : MonoBehaviour
 		transform.position = oldPosition;
 		renderer.sortingOrder = 0;
 		intersecting = 0;
+		grid.AlignTransform ( this.transform );
 		TintRed ( intersecting );
 	}
 
@@ -74,7 +77,6 @@ public class SnapCharacter : MonoBehaviour
 		Vector3 cursorWorldPoint = ShootRay ();
 
 		this.transform.position = cursorWorldPoint;
-		grid.AlignTransform ( this.transform );
 	}
 
 	private Vector3 ShootRay ()

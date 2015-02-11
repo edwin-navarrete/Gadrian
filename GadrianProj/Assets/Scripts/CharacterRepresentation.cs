@@ -18,8 +18,10 @@ public class CharacterRepresentation : MonoBehaviour
 			image.color = Color.clear;
 		}
 
-		//manager = CharacterManager.Instance;
+		manager = CharacterManager.Instance;
 	}
+
+	#region OnEnable/OnDisable
 
 	private void OnEnable ()
 	{
@@ -33,13 +35,15 @@ public class CharacterRepresentation : MonoBehaviour
 		manager.FinishingDrag -= TurnOff;
 	}
 
+	#endregion
+
 	private void TurnOn (Sprite characterImage)
 	{
 		image.color = Color.white;
 		image.sprite = characterImage;
 	}
 
-	private void TurnOff (PointerEventData eventData)
+	private void TurnOff ()
 	{
 		image.color = Color.clear;
 		image.sprite = null;

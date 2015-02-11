@@ -22,7 +22,7 @@ public class CharacterItem : MonoBehaviour
 	[SerializeField]
 	private Transform contentPanel;
 
-	void Start ()
+	private void Start ()
 	{
 		PopulateScrollList ();
 	}
