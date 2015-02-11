@@ -7,11 +7,11 @@ using System.Collections;
  * interpolate towars another mood. 
  * */
 public class Mood : IEquatable<Mood>{
-	public const Mood INDIFERENT = new Mood(Vector2.zero);
-	public const Mood SAD = new Mood( Vector2.up * 0.1 );
-	public const Mood HAPPY = new Mood( Vector2.up );
-	public const Mood SCARED = new Mood( Vector2.up * Quaternion.AngleAxis(-120, Vector2.up) );
-	public const Mood ANGRY = new Mood( Vector2.up * Quaternion.AngleAxis(120, Vector2.up) );
+	public static Mood INDIFERENT = new Mood(Vector2.zero);
+	public static Mood SAD = new Mood( Vector3.up * 0.1f );
+	public static Mood HAPPY = new Mood( Vector2.up );
+	public static Mood SCARED = new Mood(  Quaternion.AngleAxis(-120, Vector2.up) * Vector2.up);
+	public static Mood ANGRY = new Mood( Quaternion.AngleAxis(120, Vector2.up) * Vector2.up );
 
 	public enum Feeling {
 		INDIFERENT,
@@ -26,12 +26,12 @@ public class Mood : IEquatable<Mood>{
 	private Vector2 value;
 
 	public Mood(Vector2 value){
-		this.value = value.Normalize;
+		value.Normalize();
+		this.value = value;
 	}
 
-	public override bool Equals( Object obj )
+	public bool Equals( Mood other )
 	{
-		var other = obj as Mood;
 		if( other == null ) return false;
 		
 		return value == other.value;             
@@ -39,7 +39,7 @@ public class Mood : IEquatable<Mood>{
 
 
 	// Interpolates between mood 'a' and mood 'b' by t, with t between 0 and 1
-	public static Mood Slerp(Mood a, Mood b, float t){
+	public static Mood Lerp(Mood a, Mood b, float t){
 		//FIXME implement method
 		return INDIFERENT;
 	}
@@ -47,7 +47,7 @@ public class Mood : IEquatable<Mood>{
 	// One of the feelings corresponding with the current value of this mood
 	public Feeling getFeel(){
 		//FIXME implement method
-		return INDIFERENT;
+		return Feeling.INDIFERENT;
 	}
 
 	//A number between 0 and one 

@@ -9,7 +9,14 @@ public class EtniaTrait : MonoBehaviour, ITrait, IEquatable<EtniaTrait>
 {
 	Color skinColor;
 
-	EtniaTrait(Color skinColor){
+	public EtniaTrait(Color skinColor){
+	
+	}
+
+	public bool Equals(EtniaTrait other){
+		if(other == null)
+			return false;
+		return skinColor.Equals(other.skinColor);
 	}
 
 	// Use this for initialization

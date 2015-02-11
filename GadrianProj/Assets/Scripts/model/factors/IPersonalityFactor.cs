@@ -10,5 +10,5 @@ public interface IPersonalityFactor  {
 
 	// Returns the mood resulting of putting together a character with a trait 'a' with another a trait 'b'
 	// The traits must be of the same factor
-	Mood confront(Trait a, Trait b);
+	Mood confront(ITrait a, ITrait b);
 }

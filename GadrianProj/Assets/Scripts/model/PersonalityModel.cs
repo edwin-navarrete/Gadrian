@@ -7,7 +7,7 @@ using System.Collections;
  * */
 public class PersonalityModel : MonoBehaviour {
 
-	IList<PersonalityFactor> factors;
+	IList factors;
 
 	// Load or calculates the list of factors to represent the personality of characters 
 	void Start () {

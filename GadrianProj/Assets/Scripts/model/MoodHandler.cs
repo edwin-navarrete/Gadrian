@@ -9,7 +9,7 @@ public class MoodHandler : MonoBehaviour {
 
 	private Mood current;
 	private Mood next;
-	private float speed = 0.1;
+	private float speed = 0.1f;
 
 	// Sets the first emotional state (indiferent by default)
 	void Start () {

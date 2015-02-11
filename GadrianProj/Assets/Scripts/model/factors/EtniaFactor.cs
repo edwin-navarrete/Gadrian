@@ -1,3 +1,4 @@
+using UnityEngine;
 using System;
 
 /**
@@ -5,13 +6,16 @@ using System;
  * */
 public class EtniaFactor : IPersonalityFactor
 {
-	public const EtniaTrait YELLOW = new EtniaTrait(Color.Yellow);
-	public const EtniaTrait LEMON = new EtniaTrait(Color.YellowGreen);
-	public const EtniaTrait GOLD = new EtniaTrait(Color.Gold);
+	public static EtniaTrait YELLOW = new EtniaTrait(Color.yellow);
+	public static EtniaTrait LEMON = new EtniaTrait(new Color(0,0,0)); //FIXME YellowGreen
+	public static EtniaTrait GOLD = new EtniaTrait(new Color(0,0,0)); //FIXME .Gold;
+	
 
-	Mood confront(Trait a, Trait b){
+	public Mood confront(ITrait a, ITrait b){
+		//FIXME
 		var etnA = a as EtniaTrait;
 		var etnB = a as EtniaTrait;
+		return Mood.INDIFERENT;
 	}
 }
 
