@@ -21,8 +21,14 @@ public class MoodHandler : MonoBehaviour {
 	void Update () {
 		if(current != next){
 			current = Mood.Lerp(current, next, speed);
-			//FIXME Update the character animation based on the Mood.. if neccessary 
+			//FIXME Update the character animation based on the Mood.. if neccessary
 		}
 
+	}
+
+	// Set the new mood to start Lerp towards it
+	public void SetMood (Mood nextMood)
+	{
+		next = nextMood;
 	}
 }

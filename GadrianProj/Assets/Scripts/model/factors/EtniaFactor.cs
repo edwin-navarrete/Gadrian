@@ -6,9 +6,9 @@ using System;
  * */
 public class EtniaFactor : IPersonalityFactor
 {
-	public static EtniaTrait YELLOW = new EtniaTrait(Color.yellow);
-	public static EtniaTrait LEMON = new EtniaTrait(new Color(0,0,0)); //FIXME YellowGreen
-	public static EtniaTrait GOLD = new EtniaTrait(new Color(0,0,0)); //FIXME .Gold;
+	public readonly static EtniaTrait YELLOW = new EtniaTrait(Color.yellow);
+	public readonly static EtniaTrait LEMON = new EtniaTrait(new Color(0,0,0)); //FIXME YellowGreen
+	public readonly static EtniaTrait GOLD = new EtniaTrait(new Color(0,0,0)); //FIXME .Gold;
 	
 
 	public Mood confront(ITrait a, ITrait b){
