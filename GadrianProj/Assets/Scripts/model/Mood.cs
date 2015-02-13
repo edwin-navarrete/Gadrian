@@ -65,13 +65,35 @@ public class Mood : IEquatable<Mood>{
 
 	// One of the feelings corresponding with the current value of this mood
 	public Feeling getFeel(){
-		//FIXME implement method
+		float alpha = Vector2.Angle ( Vector2.right, value );
+		float ro = value.magnitude;
+
+		if ( ro > 0.5f )
+		{
+			if ( alpha > 30 && alpha < 150 )
+			{
+				return Feeling.HAPPY;
+			}
+			else if ( alpha > 160 && alpha < 265 )
+			{
+				return Feeling.SCARED;
+			}
+			else if ( alpha > 275 && alpha < 20 )
+			{
+				return Feeling.ANGRY;
+			}
+		}
+		else if ( ro > 0.2f )
+		{
+			return Feeling.SAD;
+		}
 		return Feeling.INDIFERENT;
 	}
 
 	//A number between 0 and one 
 	public float getIntensity(){
 		//NOTE returns the intensity of the current feeling.. for future use
+		//NOTE need to be stablish where the benchmark points are, to measure intensity
 		return value.magnitude;
 	}
 
