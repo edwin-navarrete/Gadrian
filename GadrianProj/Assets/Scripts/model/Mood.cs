@@ -5,20 +5,26 @@ using System.Collections;
 /**
  * Represents a single emotional state of a character and can
  * interpolate towars another mood. 
+ * 
+ * Tested by UnitTest MoodTest
  * */
 public class Mood : IEquatable<Mood>{
+
+	//The width of the perplex ring (equal to the 5 degree arc in units)
+	private const float PERPLEX_THRESHOLD = 0.0872664625997165f;
+
 	public readonly static Mood INDIFERENT = new Mood(Vector2.zero);
-	public readonly static Mood SAD = new Mood( Vector3.up * 0.1f );
-	public readonly static Mood HAPPY = new Mood ( Vector2.up );
-	public readonly static Mood SCARED = new Mood ( Quaternion.AngleAxis ( -120, Vector2.up ) * Vector2.up );
-	public readonly static Mood ANGRY = new Mood ( Quaternion.AngleAxis ( 120, Vector2.up ) * Vector2.up );
+	public readonly static Mood SAD = new Mood( Vector3.up * 1e-6f );
+	public readonly static Mood HAPPY = new Mood ( Quaternion.AngleAxis ( 60, Vector3.back ) * Vector2.up );
+	public readonly static Mood SCARED = new Mood ( Quaternion.AngleAxis ( 300, Vector3.back ) * Vector2.up );
+	public readonly static Mood ANGRY = new Mood ( Quaternion.AngleAxis ( 180, Vector3.back ) * Vector2.up );
 
 	public enum Feeling {
-		INDIFERENT,
-		SAD,
 		HAPPY,
 		ANGRY,
 		SCARED,
+		INDIFERENT,
+		SAD,
 		PERPLEX
 	}
 
@@ -52,53 +58,43 @@ public class Mood : IEquatable<Mood>{
 
 	// Interpolates between mood 'a' and mood 'b' by t, with t between 0 and 1
 	public static Mood Lerp(Mood a, Mood b, float t){
-		Vector2 difference = ( b.value - a.value );
-		if ( difference.magnitude < 0.1f )
-		{
-			return b;
-		}
-
-		difference *= t;	// t is a proportion of difference is going to be added to the current value
-		Mood movedMood = new Mood ( new Vector2 ( a.value.x + difference.x, a.value.y + difference.y ) );
-		return movedMood;
+		return new Mood ( Vector3.Slerp(a.value, b.value, t) );
 	}
 
 	// One of the feelings corresponding with the current value of this mood
 	public Feeling getFeel(){
-		float alpha = Vector2.Angle ( Vector2.right, value );
-		float ro = value.magnitude;
 
-		if ( ro > 0.5f )
-		{
-			if ( alpha > 30 && alpha < 150 )
-			{
-				return Feeling.HAPPY;
-			}
-			else if ( alpha > 160 && alpha < 265 )
-			{
-				return Feeling.SCARED;
-			}
-			else if ( alpha > 275 && alpha < 20 )
-			{
-				return Feeling.ANGRY;
-			}
-		}
-		else if ( ro > 0.2f )
-		{
+		float energyLevel = value.magnitude;
+		if(energyLevel == 0f)
+			return Feeling.INDIFERENT;
+
+		if( Math.Abs(energyLevel - .5f) < PERPLEX_THRESHOLD)
+			return Feeling.PERPLEX;
+
+		if ( energyLevel < .5f )
 			return Feeling.SAD;
-		}
-		return Feeling.INDIFERENT;
+
+		if(getIntensity() < PERPLEX_THRESHOLD)
+			return Feeling.PERPLEX;
+
+		float orientation = Vector2.Angle ( Vector2.up, value );
+		if( value.x < 0)
+			orientation = 360 - orientation;
+
+		return (Feeling)Enum.ToObject(typeof(Feeling), (int)(orientation / 120));
 	}
 
-	//A number between 0 and one 
+	//A number between 0 and one indicating how intense is the current feeling
 	public float getIntensity(){
-		//NOTE returns the intensity of the current feeling.. for future use
-		//NOTE need to be stablish where the benchmark points are, to measure intensity
-		return value.magnitude;
+		if(value.magnitude < .5f)
+			return 1f - value.magnitude * 2f;
+
+		float orientation = Vector2.Angle ( Vector2.up, value );
+		return 1f-Math.Abs(1f - (orientation % 120f)/60f);
 	}
 
 	public override string ToString ()
 	{
-		return string.Format ( "[Feel:{0}, Value:{1}]", getFeel(), value );
+		return string.Format ( "[Feel:{0}, Value:{1}]", getFeel(), getIntensity(), value );
 	}
 }

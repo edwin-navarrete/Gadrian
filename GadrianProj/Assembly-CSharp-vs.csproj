@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{D70A90ED-D138-77DA-1293-FC09FC4ED72A}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_2;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Grid Framework\Debug\GridDebugger.cs" />
+     <Compile Include="Assets\Grid Framework\Debug\HexConversionDebugger.cs" />
+     <Compile Include="Assets\Grid Framework\Debug\PolarConversionDebugger.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Level Design + Text Parsing\Scripts\LevelTextParser.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Lights Off\Scripts\ConstructPolarBlocks.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Lights Off\Scripts\Extension Methods\GFGridLightsExampleExtensions.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Lights Off\Scripts\LightsBehaviour.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Lights Off\Scripts\SwitchManager.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\BlockSquare.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\ForbiddenTilesExample.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\RoamGridWithWalls.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Movement with Walls\Scripts\SetupForbiddenTiles.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Movement\Scripts\RoamGrid.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Rotary Dial\RotaryDial.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Rotary Dial\RotaryDialSprite.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\DiscMeshGenerator.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\ExampleDescription.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\IntersectionTrigger.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\PointDebug.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Runtime Snapping\Scripts\SnappingUnits.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Seeming Endless Grid\InfinityCamera.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Sliding Puzzle\Scripts\DragBlock.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Sliding Puzzle\Scripts\SlidingPuzzleExample.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Sliding Puzzle\Scripts\SlidingPuzzleGrid.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Snake\Snake.cs" />
+     <Compile Include="Assets\Grid Framework\Examples\Terrain Mesh Generation\TerrainMeshBuilder.cs" />
+     <Compile Include="Assets\Scripts\CharacterButton.cs" />
+     <Compile Include="Assets\Scripts\CharacterItem.cs" />
+     <Compile Include="Assets\Scripts\CharacterManager.cs" />
+     <Compile Include="Assets\Scripts\CharacterRepresentation.cs" />
+     <Compile Include="Assets\Scripts\DragPanel.cs" />
+     <Compile Include="Assets\Scripts\SnapCharacter.cs" />
+     <Compile Include="Assets\Scripts\TestButton.cs" />
+     <Compile Include="Assets\Scripts\model\Mood.cs" />
+     <Compile Include="Assets\Scripts\model\MoodHandler.cs" />
+     <Compile Include="Assets\Scripts\model\Personality.cs" />
+     <Compile Include="Assets\Scripts\model\PersonalityModel.cs" />
+     <Compile Include="Assets\Scripts\model\Trait.cs" />
+     <Compile Include="Assets\Scripts\model\factors\EtniaFactor.cs" />
+     <Compile Include="Assets\Scripts\model\factors\EtniaTrait.cs" />
+     <Compile Include="Assets\Scripts\model\factors\IPersonalityFactor.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\AssertionComponent.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\AssertionException.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Assertions.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\CheckMethod.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\ActionBase.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\BoolComparer.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\ColliderComparer.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\ComparerBase.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\FloatComparer.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\GeneralComparer.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\IntComparer.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\IsRenderedByCamera.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\StringComparer.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\TransformComparer.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\ValueDoesNotChange.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\Vector2Comparer.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\Vector3Comparer.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\Vector4Comparer.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\VectorComparerBase.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\InvalidPathException.cs" />
+     <Compile Include="Assets\UnityTestTools\Assertions\MemberResolver.cs" />
+     <Compile Include="Assets\UnityTestTools\Common\ITestResult.cs" />
+     <Compile Include="Assets\UnityTestTools\Common\TestResultState.cs" />
+     <Compile Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Scripts\GameScore.cs" />
+     <Compile Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\CodeBasedAssertionExample.cs" />
+     <Compile Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\CustomComponent.cs" />
+     <Compile Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\DynamicIntegrationTest.cs" />
+     <Compile Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\ThrowCustomException.cs" />
+     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\ITestRunnerCallback.cs" />
+     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\IntegrationTest.cs" />
+     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\IntegrationTestAttribute.cs" />
+     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\IntegrationTestsProvider.cs" />
+     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\NetworkResultSender.cs" />
+     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\ResultDTO.cs" />
+     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestComponent.cs" />
+     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestResult.cs" />
+     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestResultRenderer.cs" />
+     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestRunner.cs" />
+     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestRunnerCallbackList.cs" />
+     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestRunnerConfigurator.cs" />
+     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestingAssets\CallTesting.cs" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
+     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\Cursor.shader" />
+     <None Include="Assets\UnityTestTools\LICENSE.txt" />
+     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\ParticleAdditiveBlend.shader" />
+     <None Include="Assets\Grid Framework\Changelog.txt" />
+     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\Additive.shader" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
+     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\Fallback.shader" />
+     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\Multiply.shader" />
+     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\CharacterSelfIlluminationReflective.shader" />
+     <None Include="Assets\Grid Framework\Examples\Level Design + Text Parsing\Level Design Files\Level 3.txt" />
+     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\PlanarRealtimeReflection.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
+     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\ReflectiveBackgroundPlanar.shader" />
+     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\EnemySelfIlluminationReflective.shader" />
+     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\AngryInclude.cginc" />
+     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\ParticleAdditive.shader" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
+     <None Include="Assets\UnityTestTools\changelog.txt" />
+     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\LaserScope.shader" />
+     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\SuperSimpleSelfIllumination.shader" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
+     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
+     <None Include="Assets\Grid Framework\Examples\Level Design + Text Parsing\Level Design Files\Level 1.txt" />
+     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\ParticleBlend.shader" />
+     <None Include="Assets\Grid Framework\Examples\Terrain Mesh Generation\HeightMap.txt" />
+     <None Include="Assets\Grid Framework\Examples\Vectrosity\READ ME FIRST.txt" />
+     <None Include="Assets\Grid Framework\Examples\Level Design + Text Parsing\Level Design Files\Level 2.txt" />
+ <Reference Include="Assembly-UnityScript-firstpass">
+ <HintPath>C:/Users/Edwin Navarrete/Documents/GitHub/Gadrian/GadrianProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
+      <Project>{3D9CE0AE-673F-1BC0-B5C6-F92EA366EDBD}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
