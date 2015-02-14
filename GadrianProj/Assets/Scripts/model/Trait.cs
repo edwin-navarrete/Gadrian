@@ -11,4 +11,6 @@ using System.Collections;
  **/
 public interface ITrait {
 
+
+	public void AffectCharacter (GameObject character);
 }

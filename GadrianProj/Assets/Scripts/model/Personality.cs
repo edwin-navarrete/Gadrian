@@ -8,7 +8,7 @@ using System.Collections;
 public class Personality {
 
 	IList traits;
-	public IPersonalityFactor Traits
+	public ITrait Traits
 	{
 		set
 		{

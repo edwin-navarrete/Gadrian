@@ -20,7 +20,8 @@ public class EtniaFactor : IPersonalityFactor
 		return Mood.INDIFERENT;
 	}
 
-	public IPersonalityFactor GetRandomTrait ()
+	// Allow to get a initialiced instances of Trait without repeating the last one
+	public ITrait GetRandomTrait ()
 	{
 		int traitToReturn = Random.Range ( 0, 3 );
 		switch ( traitToReturn )
@@ -42,13 +43,14 @@ public class EtniaFactor : IPersonalityFactor
 				Debug.Log ( "traitToReturn has taken a non-valid value" );
 				break;
 		}
-		return lastTrait as IPersonalityFactor;
+		return lastTrait as ITrait;
 	}
 
+	// Checks if the instance which is about to be return is the same as the last one
 	private EtniaTrait CheckValid (EtniaTrait trait)
 	{
 		if ( trait != lastTrait )
-			return trait;
+			return new EtniaTrait ( trait );
 		else
 			return GetRandomTrait () as EtniaTrait;
 	}

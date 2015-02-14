@@ -5,13 +5,17 @@ using System.Collections;
 /**
  * Represents a particular etnia by setting the skin color 
  **/
-public class EtniaTrait : MonoBehaviour, ITrait, IEquatable<EtniaTrait>
+// NOTE EtniaTrait shoudn't be a MonoBehabiour becuase EtniaFactor uses constructor of it 
+public class EtniaTrait : ITrait, IEquatable<EtniaTrait>
 {
 	Color skinColor;
 
 	public EtniaTrait(Color skinColor){
-	
+		this.skinColor = skinColor;
 	}
+
+	public EtniaTrait (EtniaTrait traitToCopy)
+		: this ( traitToCopy.skinColor ) { }
 
 	public bool Equals(EtniaTrait other){
 		if(other == null)
@@ -19,16 +23,10 @@ public class EtniaTrait : MonoBehaviour, ITrait, IEquatable<EtniaTrait>
 		return skinColor.Equals(other.skinColor);
 	}
 
-	// Use this for initialization
-	void Start ()
+	public void AffectCharacter (GameObject character)
 	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
+		SpriteRenderer spriteRenderer = character.GetComponent<SpriteRenderer> ();
+		spriteRenderer.material.color = skinColor;
 	}
 }
 

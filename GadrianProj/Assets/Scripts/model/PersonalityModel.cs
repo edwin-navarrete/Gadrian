@@ -11,11 +11,13 @@ public class PersonalityModel : MonoBehaviour {
 	Personality personality;
 
 	// Load or calculates the list of factors to represent the personality of characters 
-	void CalculateFactors () {
+	public void CalculateFactors () {
 		foreach ( var factor in factors )
 		{
 			IPersonalityFactor factorToTrait = factor as IPersonalityFactor;
-			personality.Traits = factorToTrait.GetRandomTrait ();	// Fill Traits list of the personality of this caracter
+			ITrait trait = factorToTrait.GetRandomTrait ();	// Fill Traits list of the personality of this caracter
+			trait.AffectCharacter ( gameObject );
+			personality.Traits = trait;
 		}
 	}
 	
