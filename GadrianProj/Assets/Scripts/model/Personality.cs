@@ -8,6 +8,13 @@ using System.Collections;
 public class Personality {
 
 	IList traits;
+	public IPersonalityFactor Traits
+	{
+		set
+		{
+			traits.Add ( value );
+		}
+	}
 
 	// based on affinity with the other, calculates the corresponding emotional state based on distance 
 	Mood sense(Personality other, float distance){
