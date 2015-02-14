@@ -15,9 +15,6 @@ public interface IPersonalityFactor  {
 	// Returns a ramdon value trait for the T factor, e.g. For EtniaFactor might return: YELLOW, LEMON, GOLD
 	ITrait GetRandomTrait ();
 
-	// Modify character based on the factor
-	void AffectCharacter (GameObject character);
-
 	// Use if Traits are going to be MonoBehaviours
 	//public void AddTraitComponent (GameObject character);
 }
