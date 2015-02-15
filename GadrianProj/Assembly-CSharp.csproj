@@ -86,7 +86,7 @@
      <Compile Include="Assets\Scripts\model\Trait.cs" />
      <Compile Include="Assets\Scripts\model\factors\EtniaFactor.cs" />
      <Compile Include="Assets\Scripts\model\factors\EtniaTrait.cs" />
-     <Compile Include="Assets\Scripts\model\factors\IPersonalityFactor.cs" />
+     <Compile Include="Assets\Scripts\model\factors\PersonalityFactor.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\AssertionComponent.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\AssertionException.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\Assertions.cs" />

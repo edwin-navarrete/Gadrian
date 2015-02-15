@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 /**
  * Is a specific set of personality factors that will be used to represent
@@ -7,17 +7,26 @@ using System.Collections;
  * */
 public class PersonalityModel : MonoBehaviour {
 
-	IList factors;
+	List<PersonalityFactor> factors;
+
+	public List<PersonalityFactor> Factors
+	{
+		get
+		{
+			return factors;
+		}
+	}
+
 	Personality personality;
 
 	// Load or calculates the list of factors to represent the personality of characters 
 	public void CalculateFactors () {
 		foreach ( var factor in factors )
 		{
-			IPersonalityFactor factorToTrait = factor as IPersonalityFactor;
+			PersonalityFactor factorToTrait = factor as PersonalityFactor;
 			ITrait trait = factorToTrait.GetRandomTrait ();	// Fill Traits list of the personality of this caracter
 			trait.AffectCharacter ( gameObject );
-			personality.Traits = trait;
+			personality += trait;
 		}
 	}
 	

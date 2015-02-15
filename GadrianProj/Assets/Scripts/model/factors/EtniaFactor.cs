@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 /**
  * Represents the color of skin as a trait
  * */
-public class EtniaFactor : IPersonalityFactor
+public class EtniaFactor : PersonalityFactor
 {
 	public readonly static EtniaTrait YELLOW = new EtniaTrait(Color.yellow);
 	public readonly static EtniaTrait LEMON = new EtniaTrait(new Color(0,0,0)); //FIXME YellowGreen
@@ -13,7 +13,7 @@ public class EtniaFactor : IPersonalityFactor
 
 	private static EtniaTrait lastTrait;
 
-	public Mood confront(ITrait a, ITrait b){
+	protected override Mood face(ITrait a, ITrait b){
 		//FIXME
 		var etnA = a as EtniaTrait;
 		var etnB = a as EtniaTrait;
@@ -21,7 +21,7 @@ public class EtniaFactor : IPersonalityFactor
 	}
 
 	// Allow to get a initialiced instances of Trait without repeating the last one
-	public ITrait GetRandomTrait ()
+	public override ITrait GetRandomTrait ()
 	{
 		int traitToReturn = Random.Range ( 0, 3 );
 		switch ( traitToReturn )

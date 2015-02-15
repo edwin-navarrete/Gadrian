@@ -74,6 +74,55 @@ namespace UnityTest
 			Assert.AreEqual (Mood.Feeling.PERPLEX, Mood.Lerp (Mood.SAD, Mood.ANGRY, .5f).getFeel ());
 			Assert.AreEqual (Mood.Feeling.ANGRY, Mood.Lerp (Mood.SAD, Mood.ANGRY, 1.0f).getFeel ());
 		}
+
+		//[Test] public void working (){}
+
+		[Test]
+		public void MoodAccumulation ()
+		{
+			Mood accum;
+
+			Debug.Log("Case Happy + Happy");
+			accum = Mood.HAPPY;
+			accum += Mood.HAPPY;
+			Assert.AreEqual(Mood.Feeling.HAPPY, accum.getFeel());
+			
+			accum = Mood.ANGRY;
+			accum += Mood.ANGRY;
+			Assert.AreEqual(Mood.Feeling.ANGRY, accum.getFeel());
+			
+			accum = Mood.SCARED;
+			accum += Mood.SCARED;
+			Assert.AreEqual(Mood.Feeling.SCARED, accum.getFeel());
+
+			accum = Mood.HAPPY;
+			accum += Mood.HAPPY;
+			accum += Mood.ANGRY;
+			Assert.AreEqual(Mood.Feeling.HAPPY, accum.getFeel());
+
+			accum = Mood.ANGRY;
+			accum += Mood.ANGRY;
+			accum += Mood.HAPPY;
+			Assert.AreEqual(Mood.Feeling.ANGRY, accum.getFeel());
+			
+			accum = Mood.SCARED;
+			accum += Mood.SCARED;
+			accum += Mood.ANGRY;
+			Assert.AreEqual(Mood.Feeling.SCARED, accum.getFeel());
+
+			//SAD + AnyMood = SAD
+			accum = Mood.HAPPY;
+			accum += Mood.SAD;
+			Assert.AreEqual(Mood.Feeling.SAD, accum.getFeel());
+			
+			accum = Mood.SAD;
+			accum += Mood.ANGRY;
+			Assert.AreEqual(Mood.Feeling.SAD, accum.getFeel());
+			
+			accum = Mood.SCARED;
+			accum += Mood.SAD;
+			Assert.AreEqual(Mood.Feeling.SAD, accum.getFeel());
+		}
 	}
 
 }

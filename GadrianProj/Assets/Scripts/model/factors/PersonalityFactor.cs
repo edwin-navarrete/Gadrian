@@ -6,14 +6,21 @@ using System.Collections;
  * e.g. Musical Taste
  *
  * */
-public interface IPersonalityFactor  {
+public abstract class PersonalityFactor  {
 
 	// Returns the mood resulting of putting together a character with a trait 'a' with another a trait 'b'
 	// The traits must be of the same factor
-	Mood confront(ITrait a, ITrait b);
+	public Mood confront(ITrait a, ITrait b){
+		if(a.Equals(b))
+			return Mood.HAPPY;
+		return face(a,b);
+	}
 
 	// Returns a ramdon value trait for the T factor, e.g. For EtniaFactor might return: YELLOW, LEMON, GOLD
-	ITrait GetRandomTrait ();
+	public abstract ITrait GetRandomTrait ();
+
+	// Returns a ramdon value trait for the T factor, e.g. For EtniaFactor might return: YELLOW, LEMON, GOLD
+	protected abstract Mood face(ITrait a, ITrait b);
 
 	// Use if Traits are going to be MonoBehaviours
 	//public void AddTraitComponent (GameObject character);
