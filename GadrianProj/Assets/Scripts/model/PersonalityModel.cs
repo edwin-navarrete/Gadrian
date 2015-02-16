@@ -5,11 +5,20 @@ using System.Collections.Generic;
  * Is a specific set of personality factors that will be used to represent
  * the personality of each character in the level
  * */
-public class PersonalityModel : MonoBehaviour {
+public class PersonalityModel  {
 
-	List<PersonalityFactor> factors;
+	HashSet<PersonalityFactor> factors;
+	int personalityCnt = 0;
 
-	public List<PersonalityFactor> Factors
+	public int PersonalityCnt
+	{
+		get
+		{
+			return personalityCnt;
+		}
+	}
+
+	public HashSet<PersonalityFactor> Factors
 	{
 		get
 		{
@@ -17,21 +26,33 @@ public class PersonalityModel : MonoBehaviour {
 		}
 	}
 
-	Personality personality;
-
-	// Load or calculates the list of factors to represent the personality of characters 
-	public void CalculateFactors () {
-		foreach ( var factor in factors )
+	public PersonalityModel(HashSet<PersonalityFactor> factors){
+		this.factors = factors;
+		this.personalityCnt = 0;
+		foreach ( PersonalityFactor factor in factors )
 		{
-			PersonalityFactor factorToTrait = factor as PersonalityFactor;
-			ITrait trait = factorToTrait.GetRandomTrait ();	// Fill Traits list of the personality of this caracter
-			trait.AffectCharacter ( gameObject );
-			personality += trait;
+			this.personalityCnt += factor.getTraits().Count;	
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	// return one of the personalities that can be represented with the set of factors it contains
+	// if the i is bigger than personalityCnt, returns the i%personalityCnt-th personality
+	public Personality getPersonality (int i) {
+
+		if( i > personalityCnt)
+			i = i % personalityCnt;
+
+		int prevMult = 1;
+		List<Trait> traitCombination = new List<Trait>();
+		foreach ( PersonalityFactor factor in factors )
+		{
+			List<Trait> curFactorTraits = factor.getTraits();
+			int curCnt = curFactorTraits.Count;
+			traitCombination.Add(curFactorTraits[(i/prevMult) % curCnt]);
+			prevMult *= curCnt;
+		}
+		//NOTE if this method is called many times with the same i, we should cache the personality
+		return new Personality( traitCombination );
 	}
+	
 }

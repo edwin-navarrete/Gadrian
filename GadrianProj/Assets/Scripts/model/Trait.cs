@@ -9,7 +9,7 @@ using System.Collections;
  * Automatically adds the needed components to the character to represent the characteristic 
  * in the character (e.g. the hans has a satanic symbol and shakes the body as if its listening rock)
  **/
-public interface ITrait {
+public interface Trait {
 
 
 	void AffectCharacter (GameObject character);

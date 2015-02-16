@@ -1,17 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\model\Mood.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\model\PersonalityModel.cs">
     <Files>
-      <File FileName="Assets\Editor\Tests\MoodTest.cs" Line="43" Column="1" />
-      <File FileName="Assets\Scripts\model\Mood.cs" Line="60" Column="1" />
+      <File FileName="Assets\Scripts\model\factors\PersonalityFactor.cs" Line="18" Column="46" />
+      <File FileName="Assets\Editor\Tests\MoodTest.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\model\Mood.cs" Line="62" Column="4" />
       <File FileName="Assets\UnityTestTools\Examples\UnitTestExamples\Editor\SampleTests.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\model\MoodHandler.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\model\Personality.cs" Line="32" Column="12" />
-      <File FileName="Assets\Scripts\model\PersonalityModel.cs" Line="16" Column="18" />
-      <File FileName="Assets\Scripts\model\Trait.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\model\factors\EtniaFactor.cs" Line="24" Column="18" />
-      <File FileName="Assets\Scripts\model\factors\PersonalityFactor.cs" Line="13" Column="22" />
-      <File FileName="Assets\Scripts\model\factors\EtniaTrait.cs" Line="21" Column="20" />
+      <File FileName="Assets\Scripts\model\Personality.cs" Line="34" Column="4" />
+      <File FileName="Assets\Scripts\model\PersonalityModel.cs" Line="63" Column="1" />
+      <File FileName="Assets\Scripts\model\Trait.cs" Line="11" Column="5" />
+      <File FileName="Assets\Scripts\model\factors\EtniaFactor.cs" Line="21" Column="30" />
+      <File FileName="Assets\Scripts\model\factors\EtniaTrait.cs" Line="14" Column="27" />
+      <File FileName="Assets\Editor\Tests\PersonalityModelTest.cs" Line="8" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

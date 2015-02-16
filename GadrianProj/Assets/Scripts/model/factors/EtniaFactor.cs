@@ -1,6 +1,6 @@
 using UnityEngine;
 using System;
-using Random = UnityEngine.Random;
+using System.Collections.Generic;
 
 /**
  * Represents the color of skin as a trait
@@ -10,49 +10,38 @@ public class EtniaFactor : PersonalityFactor
 	public readonly static EtniaTrait YELLOW = new EtniaTrait(Color.yellow);
 	public readonly static EtniaTrait LEMON = new EtniaTrait(new Color(0,0,0)); //FIXME YellowGreen
 	public readonly static EtniaTrait GOLD = new EtniaTrait(new Color(0,0,0)); //FIXME .Gold;
+	private readonly static List<Trait> etniaTraits = new List<Trait>();
 
-	private static EtniaTrait lastTrait;
+	static EtniaFactor(){
+		etniaTraits.Add(YELLOW);
+		etniaTraits.Add(LEMON);
+		etniaTraits.Add(GOLD);
+	}
 
-	protected override Mood face(ITrait a, ITrait b){
-		//FIXME
+	public override List<Trait> getTraits(){
+		return etniaTraits;
+	}
+
+	protected override Mood face(Trait a, Trait b){
 		var etnA = a as EtniaTrait;
 		var etnB = a as EtniaTrait;
-		return Mood.INDIFERENT;
-	}
-
-	// Allow to get a initialiced instances of Trait without repeating the last one
-	public override ITrait GetRandomTrait ()
-	{
-		int traitToReturn = Random.Range ( 0, 3 );
-		switch ( traitToReturn )
-		{
-			case 0:
-				lastTrait = CheckValid ( YELLOW );
-				break;
-
-			case 1:
-				lastTrait = CheckValid ( LEMON );
-				break;
-
-			case 2:
-				lastTrait = CheckValid ( GOLD );
-				break;
-
-			default:
-				lastTrait = CheckValid ( YELLOW );
-				Debug.Log ( "traitToReturn has taken a non-valid value" );
-				break;
+		if(etnA == null || etnB == null){
+			throw new UnityException("Facing Invalid Etnia Traits");
 		}
-		return lastTrait as ITrait;
+
+		// LEMON fears YELLOW
+		// GOLD fears LEMON
+		if(LEMON.Equals(etnA) && YELLOW.Equals(etnB)
+		   || GOLD.Equals(etnA) && LEMON.Equals(etnB)){
+			return Mood.SCARED;
+		}
+
+		// LEMON hates GOLD
+		// YELLOW hates LEMON
+		// YELLOW hates GOLD
+		// GOLD hates YELLOW
+		return Mood.ANGRY;
 	}
 
-	// Checks if the instance which is about to be return is the same as the last one
-	private EtniaTrait CheckValid (EtniaTrait trait)
-	{
-		if ( trait != lastTrait )
-			return new EtniaTrait ( trait );
-		else
-			return GetRandomTrait () as EtniaTrait;
-	}
 }
 

@@ -6,7 +6,7 @@ using System.Collections;
  * Represents a particular etnia by setting the skin color 
  **/
 // NOTE EtniaTrait shoudn't be a MonoBehabiour becuase EtniaFactor uses constructor of it 
-public class EtniaTrait : ITrait, IEquatable<EtniaTrait>
+public class EtniaTrait : Trait, IEquatable<EtniaTrait>
 {
 	Color skinColor;
 

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 /**
  * Represents one of the aspects that conforms the personality of each character.
@@ -10,17 +10,20 @@ public abstract class PersonalityFactor  {
 
 	// Returns the mood resulting of putting together a character with a trait 'a' with another a trait 'b'
 	// The traits must be of the same factor
-	public Mood confront(ITrait a, ITrait b){
+	public Mood confront(Trait a, Trait b){
 		if(a.Equals(b))
 			return Mood.HAPPY;
-		return face(a,b);
+		Mood ret = face(a,b);
+		if( Mood.SAD.Equals(ret) )
+			throw new UnityException("Factor should never return SAD or HAPPY");
+		return ret;
 	}
 
-	// Returns a ramdon value trait for the T factor, e.g. For EtniaFactor might return: YELLOW, LEMON, GOLD
-	public abstract ITrait GetRandomTrait ();
+	//Returns the list of traits that makes unique this personality
+	public abstract List<Trait> getTraits();
 
-	// Returns a ramdon value trait for the T factor, e.g. For EtniaFactor might return: YELLOW, LEMON, GOLD
-	protected abstract Mood face(ITrait a, ITrait b);
+	// Face returns the energetic mood (ANGRY, HAPPY, SCARED) resulting of facing trait a with b
+	protected abstract Mood face(Trait a, Trait b);
 
 	// Use if Traits are going to be MonoBehaviours
 	//public void AddTraitComponent (GameObject character);
