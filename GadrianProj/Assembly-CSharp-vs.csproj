@@ -84,6 +84,8 @@
      <Compile Include="Assets\Scripts\model\Personality.cs" />
      <Compile Include="Assets\Scripts\model\PersonalityModel.cs" />
      <Compile Include="Assets\Scripts\model\Trait.cs" />
+     <Compile Include="Assets\Scripts\model\factors\ComplexionFactor.cs" />
+     <Compile Include="Assets\Scripts\model\factors\ComplexionTrait.cs" />
      <Compile Include="Assets\Scripts\model\factors\EtniaFactor.cs" />
      <Compile Include="Assets\Scripts\model\factors\EtniaTrait.cs" />
      <Compile Include="Assets\Scripts\model\factors\PersonalityFactor.cs" />
@@ -164,7 +166,7 @@
      <None Include="Assets\Grid Framework\Examples\Vectrosity\READ ME FIRST.txt" />
      <None Include="Assets\Grid Framework\Examples\Level Design + Text Parsing\Level Design Files\Level 2.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/Edwin Navarrete/Documents/GitHub/Gadrian/GadrianProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>C:/Users/Jhon Robinson/Documents/GitHub/Gadrian/GadrianProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>

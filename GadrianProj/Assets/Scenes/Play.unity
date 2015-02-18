@@ -876,27 +876,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterPrefab: {fileID: 144246, guid: c87dd665b9a65894eab0b92e12afc778, type: 2}
   characterList:
-  - name: Larry
+  - name: Small
     icon: {fileID: 21300000, guid: 0c9251467e19fee4780b9ebbfd02f3b8, type: 3}
-    onClick:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Jhon
+  - name: Fat
     icon: {fileID: 21300000, guid: b497a9f4f985846f5922f529d3f94ffc, type: 3}
-    onClick:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - name: Edwin
+  - name: Tall
     icon: {fileID: 21300000, guid: 094a739ca153445a0ad99728f081040a, type: 3}
-    onClick:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+  - name: Average
+    icon: {fileID: 21300000, guid: 094a739ca153445a0ad99728f081040a, type: 3}
   contentPanel: {fileID: 1363465298}
 --- !u!114 &1976186212
 MonoBehaviour:

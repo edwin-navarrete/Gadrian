@@ -84,6 +84,8 @@
      <Compile Include="Assets\Scripts\model\Personality.cs" />
      <Compile Include="Assets\Scripts\model\PersonalityModel.cs" />
      <Compile Include="Assets\Scripts\model\Trait.cs" />
+     <Compile Include="Assets\Scripts\model\factors\ComplexionFactor.cs" />
+     <Compile Include="Assets\Scripts\model\factors\ComplexionTrait.cs" />
      <Compile Include="Assets\Scripts\model\factors\EtniaFactor.cs" />
      <Compile Include="Assets\Scripts\model\factors\EtniaTrait.cs" />
      <Compile Include="Assets\Scripts\model\factors\PersonalityFactor.cs" />

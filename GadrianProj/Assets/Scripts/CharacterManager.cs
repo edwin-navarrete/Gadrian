@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using System.Collections;
+using System.Collections.Generic;
 
 public class CharacterManager : MonoBehaviour
 {
@@ -15,6 +15,7 @@ public class CharacterManager : MonoBehaviour
 
 	public event UnityEngine.Events.UnityAction<Sprite> StartingDrag;
 	public event UnityEngine.Events.UnityAction FinishingDrag;
+	public event UnityEngine.Events.UnityAction<Personality, float> SenceAllCharacters;
 
 	private void OnStartingDrag (Sprite image)
 	{
@@ -32,10 +33,23 @@ public class CharacterManager : MonoBehaviour
 		}
 	}
 
+	private void OnSenceAllCharacters (Personality sender, float position)
+	{
+		if ( SenceAllCharacters != null )
+		{
+			SenceAllCharacters ( sender, position );
+
+		}
+	}
+
 	#endregion
 
-	private GameObject lastCharSelected;
-	private Transform CharacterPlaceholder;
+	private GameObject lastCharSelected;		// Object from the scroll list that was last selected
+	private Transform CharacterPlaceholder;		// Parent in hierarchy to make all characters children of
+
+	private List<Personality> characters;		// Reference to all characters placed in world
+
+	#region Singleton
 
 	private static CharacterManager instance;
 
@@ -60,6 +74,10 @@ public class CharacterManager : MonoBehaviour
 		}
 	}
 
+	#endregion
+
+	// This awake method could be remove if the character manager already have reference in Editor to canvasRectTransform,
+	// characterRectTransform and CharacterPlaceholder
 	public void Awake ()
 	{
 		if ( CharacterManager.Instance != this )
@@ -69,6 +87,8 @@ public class CharacterManager : MonoBehaviour
 		characterRectTransform = GameObject.FindObjectOfType<CharacterRepresentation> ().transform as RectTransform;
 		CharacterPlaceholder = GameObject.FindGameObjectWithTag ( "Placeholder" ).transform;
 	}
+
+	#region Character movement from scroll list to world
 
 	/// <summary>
 	/// When input from touch/mouse is down, this method will turn off the element of the scroll list 
@@ -139,4 +159,6 @@ public class CharacterManager : MonoBehaviour
 		Vector2 newPointerPosition = new Vector2 ( clampedX, clampedY );
 		return newPointerPosition;
 	}
+
+	#endregion
 }
