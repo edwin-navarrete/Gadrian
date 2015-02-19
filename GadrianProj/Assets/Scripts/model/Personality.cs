@@ -5,21 +5,38 @@ using System.Collections.Generic;
  * Set of traits that uniquely identifies a single character
  **/
 
-public class Personality {
-
+public class Personality : MonoBehaviour
+{
 	List<Trait> traits = new List<Trait>();
 	PersonalityModel model;
-
-	public Personality(List<Trait> traits)
-	{
-		this.traits = traits;
-	}
 
 	// Is it possible to add a trait to the personality
 	public static Personality operator +(Personality m1, Trait m2) 
 	{
 		m1.traits.Add(m2);
 		return m1;
+	}
+
+	private void SetTraitList (List<Trait> traits)
+	{
+		if ( traits.Count == 0 )
+			Debug.LogError ( "The list of traits is empty" );
+		else
+			this.traits = traits;
+	}
+
+	public void TraitsEffect ()
+	{
+		foreach ( Trait trait in traits )
+		{
+			trait.AffectCharacter ( gameObject );
+		}
+	}
+
+	public void SetupPersonality (PersonalityModel model)
+	{
+		this.model = model;
+		SetTraitList ( model.getPersonalityTraits (UnityEngine.Random.Range ( 0, model.PersonalityCnt ) ) );
 	}
 
 	// based on affinity with the other, calculates the corresponding emotional state based on distance 

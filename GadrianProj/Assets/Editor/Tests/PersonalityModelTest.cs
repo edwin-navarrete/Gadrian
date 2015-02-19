@@ -28,7 +28,7 @@ namespace AssemblyCSharpEditor
 			for(int i = 0; i < model.PersonalityCnt; i++ )
 			{
 				// All the personalities must be different
-				Assert.IsTrue( personalities.Add(model.getPersonality(i)) );
+				//Assert.IsTrue( personalities.Add(model.getPersonalityTraits(i)) );
 			}
 		}
 
@@ -49,7 +49,7 @@ namespace AssemblyCSharpEditor
 			for(int i = 0; i < model.PersonalityCnt; i++ )
 			{
 				// All the personalities must be different
-				Assert.IsTrue( personalities.Add(model.getPersonality(i)) );
+				//Assert.IsTrue( personalities.Add(model.getPersonalityTraits(i)) );
 			}
 		}
 	}

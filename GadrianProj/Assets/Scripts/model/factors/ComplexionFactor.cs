@@ -3,22 +3,36 @@ using System.Collections.Generic;
 
 public class ComplexionFactor : PersonalityFactor
 {
-	public readonly static ComplexionTrait SMALL;
-	public readonly static ComplexionTrait FAT;
-	public readonly static ComplexionTrait TALL;
-	public readonly static ComplexionTrait AVERAGE;
+	public static ComplexionTrait SMALL;
+	public static ComplexionTrait FAT;
+	public static ComplexionTrait TALL;
+	public static ComplexionTrait AVERAGE;
+	[SerializeField]
+	private Sprite smallSprite;
+	[SerializeField]
+	private Sprite fatSprite;
+	[SerializeField]
+	private Sprite tallSprite;
+	[SerializeField]
+	private Sprite averageSprite;
 
 	private readonly static List<Trait> etniaTraits = new List<Trait>();
 
-	static ComplexionFactor()
+	private void Awake ()
 	{
+		SMALL = new ComplexionTrait ( smallSprite );
+		FAT = new ComplexionTrait ( fatSprite );
+		TALL = new ComplexionTrait ( tallSprite );
+		AVERAGE = new ComplexionTrait ( averageSprite );
+
 		etniaTraits.Add(SMALL);
 		etniaTraits.Add(FAT);
 		etniaTraits.Add(TALL);
 		etniaTraits.Add(AVERAGE);
 	}
 
-	public override List<Trait> getTraits(){
+	public override List<Trait> getTraits()
+	{
 		return etniaTraits;
 	}
 

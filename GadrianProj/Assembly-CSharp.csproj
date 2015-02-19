@@ -77,6 +77,7 @@
      <Compile Include="Assets\Scripts\CharacterManager.cs" />
      <Compile Include="Assets\Scripts\CharacterRepresentation.cs" />
      <Compile Include="Assets\Scripts\DragPanel.cs" />
+     <Compile Include="Assets\Scripts\PersonalityManager.cs" />
      <Compile Include="Assets\Scripts\SnapCharacter.cs" />
      <Compile Include="Assets\Scripts\TestButton.cs" />
      <Compile Include="Assets\Scripts\model\Mood.cs" />

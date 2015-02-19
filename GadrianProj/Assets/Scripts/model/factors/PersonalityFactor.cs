@@ -6,8 +6,8 @@ using System.Collections.Generic;
  * e.g. Musical Taste
  *
  * */
-public abstract class PersonalityFactor  {
-
+public abstract class PersonalityFactor : MonoBehaviour
+{
 	// Returns the mood resulting of putting together a character with a trait 'a' with another a trait 'b'
 	// The traits must be of the same factor
 	public Mood confront(Trait a, Trait b){
