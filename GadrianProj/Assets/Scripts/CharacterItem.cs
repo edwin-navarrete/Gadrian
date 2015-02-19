@@ -38,12 +38,13 @@ public class CharacterItem : MonoBehaviour
 
 			CharacterButton charButton = newChar.GetComponent<CharacterButton> ();
 			charButton.name.text = character.name;
-			charButton.icon.sprite = character.icon;
+			// No need to set directly the sprite image, becuase the personality will override it
+			//charButton.icon.sprite = character.icon;
 
-			GameObject childImage = newChar.transform.FindChild ( "Image" ).gameObject;
-			Personality personality = childImage.AddComponent<Personality> ();
-			personality.SetupPersonality ( PersonalityManager.PersonalityModel );
-			personality.TraitsEffect ();
+			GameObject childImage = charButton.icon.gameObject;
+			charButton.personality = childImage.AddComponent<Personality> ();
+			charButton.personality.SetupPersonality ( PersonalityManager.PersonalityModel );
+			charButton.personality.TraitsEffect ();
 
 			newChar.transform.SetParent ( contentPanel );
 		}

@@ -10,12 +10,19 @@ public class CharacterManager : MonoBehaviour
 	private RectTransform canvasRectTransform;
 	[SerializeField]
 	private RectTransform characterRectTransform;
+	[SerializeField]
+	private GFGrid grid;
+
+	private GameObject lastCharSelected;		// Object from the scroll list that was last selected
+	private Transform CharacterPlaceholder;		// Parent in hierarchy to make all characters children of
+
+	private List<Personality> characters;		// Reference to all characters placed in world
 
 	#region Events
 
 	public event UnityEngine.Events.UnityAction<Sprite> StartingDrag;
 	public event UnityEngine.Events.UnityAction FinishingDrag;
-	public event UnityEngine.Events.UnityAction<Personality, float> SenceAllCharacters;
+	public event UnityEngine.Events.UnityAction<Personality, Vector3> SenseAllCharacters;
 
 	private void OnStartingDrag (Sprite image)
 	{
@@ -33,22 +40,16 @@ public class CharacterManager : MonoBehaviour
 		}
 	}
 
-	private void OnSenceAllCharacters (Personality sender, float position)
+	private void OnSenseAllCharacters (Personality sender, Vector3 position)
 	{
-		if ( SenceAllCharacters != null )
+		if ( SenseAllCharacters != null )
 		{
-			SenceAllCharacters ( sender, position );
-
+			SenseAllCharacters ( sender, position );
 		}
 	}
 
 	#endregion
-
-	private GameObject lastCharSelected;		// Object from the scroll list that was last selected
-	private Transform CharacterPlaceholder;		// Parent in hierarchy to make all characters children of
-
-	private List<Personality> characters;		// Reference to all characters placed in world
-
+	
 	#region Singleton
 
 	private static CharacterManager instance;
@@ -88,6 +89,17 @@ public class CharacterManager : MonoBehaviour
 		CharacterPlaceholder = GameObject.FindGameObjectWithTag ( "Placeholder" ).transform;
 	}
 
+	public void SenseOtherCharacters (Personality sender, Vector3 position)
+	{
+		Vector3 gridPosition = grid.WorldToGrid ( position );
+		OnSenseAllCharacters ( sender, position );
+	}
+
+	public Vector3 AskGridPosition (Vector3 position)
+	{
+		return grid.WorldToGrid ( position );
+	}
+
 	#region Character movement from scroll list to world
 
 	/// <summary>
@@ -118,7 +130,7 @@ public class CharacterManager : MonoBehaviour
 		}
 	}
 
-	public void PlaceCharacterImage (PointerEventData eventData, GameObject sender, Sprite charRep, string charName)
+	public void PlaceCharacterImage (PointerEventData eventData, GameObject sender, Personality personality, string charName)
 	{
 		OnFinishingDrag ();
 
@@ -137,8 +149,9 @@ public class CharacterManager : MonoBehaviour
 				circleCollider.isTrigger = true;
 
 				newCharacter.AddComponent<SnapCharacter> ();
-				SpriteRenderer spriteRenderer = newCharacter.GetComponent<SpriteRenderer> ();
-				spriteRenderer.sprite = charRep;
+				Personality newCharPersonality = newCharacter.AddComponent<Personality> ();
+				newCharPersonality.CopyPersonality ( personality );
+				newCharPersonality.TraitsEffect ();
 
 				newCharacter.transform.SetParent ( CharacterPlaceholder );
 				sender.SetActive ( false );

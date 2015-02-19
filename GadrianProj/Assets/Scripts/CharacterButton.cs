@@ -8,6 +8,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 	public new Text name;
 	public Image icon;
 	public Button button;
+	public Personality personality;
 
 	[SerializeField]
 	private CharacterManager manager;
@@ -40,7 +41,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
 	public void OnPointerUp (PointerEventData eventData)
 	{
-		manager.PlaceCharacterImage ( eventData, gameObject, icon.sprite, name.text );
+		manager.PlaceCharacterImage ( eventData, gameObject, personality, name.text );
 	}
 
 	#endregion

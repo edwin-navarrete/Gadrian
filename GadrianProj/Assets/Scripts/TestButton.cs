@@ -15,7 +15,7 @@ public class TestButton : MonoBehaviour, IPointerClickHandler
 	{
 		Vector2 point = new Vector2 ( float.Parse ( xInput.text, System.Globalization.NumberStyles.Float ),
 			float.Parse ( yInput.text, System.Globalization.NumberStyles.Float ) );
-		mHandler.SetMood ( new Mood ( point ) );
+		mHandler.SetNextMood ( new Mood ( point ) );
 	}
 
 	#endregion
