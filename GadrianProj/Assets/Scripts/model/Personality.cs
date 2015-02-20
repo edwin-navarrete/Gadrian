@@ -10,10 +10,14 @@ public class Personality : MonoBehaviour
 	private List<Trait> traits = new List<Trait>();
 	private PersonalityModel model;
 	private MoodHandler mooodHandler;
+	private SnapCharacter snapCharacter;
+	private NeighbourSensor sensor;
 
 	private void Awake ()
 	{
 		mooodHandler = GetComponent<MoodHandler> ();
+		snapCharacter = GetComponent<SnapCharacter> ();
+		sensor = GetComponentInChildren<NeighbourSensor> ();
 	}
 
 	// Is it possible to add a trait to the personality
@@ -51,20 +55,28 @@ public class Personality : MonoBehaviour
 		model = personalityToCopy.model;
 	}
 
-	public void SubscribeSense (CharacterManager manager)
+	public void RefreshMood ()
 	{
-		manager.SenseAllCharacters += sense;
+		Mood mood = new Mood ();
+		List<Personality> neighbours = sensor.Neighbours;
+		foreach ( Personality neighbour in neighbours )
+		{
+			mood = sense ( neighbour, CharacterManager.Instance.AskGridPosition ( neighbour.transform.position ) );
+		}
+
+		mooodHandler.SetNextMood ( mood );
 	}
 
 	// based on affinity with the other, calculates the corresponding emotional state based on distance 
 	//FIXME this method is not currently using the distance parameter, and requires to used only with 
 	// immediate neighbours
-	void sense(Personality other, Vector3 otherPosition)
+	private Mood sense(Personality other, Vector3 otherPosition)
 	{
 		Vector3 gridPosition = CharacterManager.Instance.AskGridPosition ( transform.position );
-		if ( Vector3.Distance ( otherPosition, gridPosition ) > 1.1f )
+		if ( Vector3.Distance ( otherPosition, gridPosition ) < 1.1f 
+			&& Vector3.Distance ( otherPosition, gridPosition ) > 0.1f )
 		{
-			return;
+			return Mood.INDIFERENT; //	It's being compared to non-neighbour or himself
 		}
 
 		Mood finalMood = Mood.INDIFERENT; 
@@ -81,6 +93,7 @@ public class Personality : MonoBehaviour
 			Trait his = loop2.Current;
 			finalMood += modelLoop.Current.confront(mine, his);
 		}
-		mooodHandler.SetNextMood ( finalMood );
+
+		return finalMood;
 	}
 }

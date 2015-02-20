@@ -96,7 +96,7 @@ public class SnapCharacter : MonoBehaviour
 		SetIntersecting ( false );
 	}
 
-	public void SetIntersecting (bool intersecting)
+	private void SetIntersecting (bool intersecting)
 	{
 		if ( !beingDragged ) // ignore sitting objects, only moving ones should respond
 			return;
@@ -106,7 +106,7 @@ public class SnapCharacter : MonoBehaviour
 		TintRed ( this.intersecting );
 	}
 
-	void TintRed (int intersections)
+	private void TintRed (int intersections)
 	{
 		if ( intersections > 0 )
 		{

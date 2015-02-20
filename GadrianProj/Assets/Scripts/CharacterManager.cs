@@ -22,7 +22,6 @@ public class CharacterManager : MonoBehaviour
 
 	public event UnityEngine.Events.UnityAction<Sprite> StartingDrag;
 	public event UnityEngine.Events.UnityAction FinishingDrag;
-	public event UnityEngine.Events.UnityAction<Personality, Vector3> SenseAllCharacters;
 
 	private void OnStartingDrag (Sprite image)
 	{
@@ -37,14 +36,6 @@ public class CharacterManager : MonoBehaviour
 		if ( FinishingDrag != null )
 		{
 			FinishingDrag ();
-		}
-	}
-
-	private void OnSenseAllCharacters (Personality sender, Vector3 position)
-	{
-		if ( SenseAllCharacters != null )
-		{
-			SenseAllCharacters ( sender, position );
 		}
 	}
 
@@ -87,12 +78,6 @@ public class CharacterManager : MonoBehaviour
 		canvasRectTransform = GameObject.FindObjectOfType<Canvas> ().transform as RectTransform;
 		characterRectTransform = GameObject.FindObjectOfType<CharacterRepresentation> ().transform as RectTransform;
 		CharacterPlaceholder = GameObject.FindGameObjectWithTag ( "Placeholder" ).transform;
-	}
-
-	public void SenseOtherCharacters (Personality sender, Vector3 position)
-	{
-		Vector3 gridPosition = grid.WorldToGrid ( position );
-		OnSenseAllCharacters ( sender, gridPosition );
 	}
 
 	public Vector3 AskGridPosition (Vector3 position)
@@ -153,6 +138,7 @@ public class CharacterManager : MonoBehaviour
 				Personality newCharPersonality = newCharacter.AddComponent<Personality> ();
 				newCharPersonality.CopyPersonality ( personality );
 				newCharPersonality.TraitsEffect ();
+				characters.Add ( newCharPersonality );
 
 				newCharacter.transform.SetParent ( CharacterPlaceholder );
 				sender.SetActive ( false );
