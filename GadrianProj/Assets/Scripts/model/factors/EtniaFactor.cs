@@ -7,12 +7,24 @@ using System.Collections.Generic;
  * */
 public class EtniaFactor : PersonalityFactor
 {
-	public readonly static EtniaTrait YELLOW = new EtniaTrait(Color.yellow);
-	public readonly static EtniaTrait LEMON = new EtniaTrait(new Color(0,0,0)); //FIXME YellowGreen
-	public readonly static EtniaTrait GOLD = new EtniaTrait(new Color(0,0,0)); //FIXME .Gold;
+	public static EtniaTrait YELLOW;
+	public static EtniaTrait LEMON;
+	public static EtniaTrait GOLD;
+	[SerializeField]
+	private Color yellow;
+	[SerializeField]
+	private Color lemon;
+	[SerializeField]
+	private Color gold;
+
 	private readonly static List<Trait> etniaTraits = new List<Trait>();
 
-	static EtniaFactor(){
+	private void Awake ()
+	{
+		YELLOW = new EtniaTrait ( yellow );
+		LEMON = new EtniaTrait ( lemon );
+		GOLD = new EtniaTrait ( gold );
+
 		etniaTraits.Add(YELLOW);
 		etniaTraits.Add(LEMON);
 		etniaTraits.Add(GOLD);

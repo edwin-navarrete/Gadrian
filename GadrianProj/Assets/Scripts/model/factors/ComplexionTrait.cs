@@ -4,7 +4,7 @@ using System.Collections;
 
 public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
 {
-	Sprite complexion;
+	private Sprite complexion;
 
 	///FIXME resolve how to represent complexion on characters, either sprite or scale
 

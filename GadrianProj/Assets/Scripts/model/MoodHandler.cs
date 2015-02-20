@@ -27,7 +27,7 @@ public class MoodHandler : MonoBehaviour {
 	}
 
 	// Set the new mood to start Lerping towards it
-	public void SetMood (Mood nextMood)
+	public void SetNextMood (Mood nextMood)
 	{
 		next = nextMood;
 	}

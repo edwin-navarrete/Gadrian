@@ -37,7 +37,7 @@ public class PersonalityModel  {
 
 	// return one of the personalities that can be represented with the set of factors it contains
 	// if the i is bigger than personalityCnt, returns the i%personalityCnt-th personality
-	public Personality getPersonality (int i) {
+	public List<Trait> getPersonalityTraits (int i) {
 
 		if( i > personalityCnt)
 			i = i % personalityCnt;
@@ -52,7 +52,7 @@ public class PersonalityModel  {
 			prevMult *= curCnt;
 		}
 		//NOTE if this method is called many times with the same i, we should cache the personality
-		return new Personality( traitCombination );
+		return traitCombination;
 	}
 	
 }

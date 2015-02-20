@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [System.Serializable]
-public class CharacterComplexion
+public class Character
 {
 	public string name;
 	public Sprite icon;
@@ -16,7 +16,7 @@ public class CharacterItem : MonoBehaviour
 	[SerializeField]
 	private GameObject characterPrefab;
 	[SerializeField]
-	private List<CharacterComplexion> characterList;
+	private List<Character> characterList;
 
 	[SerializeField]
 	private Transform contentPanel;
@@ -32,13 +32,19 @@ public class CharacterItem : MonoBehaviour
 	/// </summary>
 	private void PopulateScrollList ()
 	{
-		foreach ( CharacterComplexion character in characterList )
+		foreach ( Character character in characterList )
 		{
 			GameObject newChar = Instantiate ( characterPrefab ) as GameObject;
-			CharacterButton charButton = newChar.GetComponent<CharacterButton> ();
 
+			CharacterButton charButton = newChar.GetComponent<CharacterButton> ();
 			charButton.name.text = character.name;
-			charButton.icon.sprite = character.icon;
+			// No need to set directly the sprite image, becuase the personality will override it
+			//charButton.icon.sprite = character.icon;
+
+			GameObject childImage = charButton.icon.gameObject;
+			charButton.personality = childImage.AddComponent<Personality> ();
+			charButton.personality.SetupPersonality ( PersonalityManager.PersonalityModel );
+			charButton.personality.TraitsEffect ();
 
 			newChar.transform.SetParent ( contentPanel );
 		}
