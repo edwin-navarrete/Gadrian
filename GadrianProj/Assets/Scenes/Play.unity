@@ -460,10 +460,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b5f8f67874d08499a3c84c962149b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallSprite: {fileID: 21300000, guid: 0c9251467e19fee4780b9ebbfd02f3b8, type: 3}
-  fatSprite: {fileID: 21300000, guid: 0c9251467e19fee4780b9ebbfd02f3b8, type: 3}
+  smallSprite: {fileID: 21300000, guid: 0c69f91758eb7e24ca96fe2c2d13a834, type: 3}
+  fatSprite: {fileID: 21300000, guid: c2d28c07719179a4194fdbb85ccdf88f, type: 3}
   tallSprite: {fileID: 21300000, guid: 0c9251467e19fee4780b9ebbfd02f3b8, type: 3}
-  averageSprite: {fileID: 21300000, guid: 0c9251467e19fee4780b9ebbfd02f3b8, type: 3}
+  averageSprite: {fileID: 21300000, guid: 8e0c1611530eaf643bb2a7e7db1d0f54, type: 3}
 --- !u!1 &578826833
 GameObject:
   m_ObjectHideFlags: 0
