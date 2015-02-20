@@ -92,7 +92,7 @@ public class CharacterManager : MonoBehaviour
 	public void SenseOtherCharacters (Personality sender, Vector3 position)
 	{
 		Vector3 gridPosition = grid.WorldToGrid ( position );
-		OnSenseAllCharacters ( sender, position );
+		OnSenseAllCharacters ( sender, gridPosition );
 	}
 
 	public Vector3 AskGridPosition (Vector3 position)
@@ -149,6 +149,7 @@ public class CharacterManager : MonoBehaviour
 				circleCollider.isTrigger = true;
 
 				newCharacter.AddComponent<SnapCharacter> ();
+				newCharacter.AddComponent<MoodHandler> ();
 				Personality newCharPersonality = newCharacter.AddComponent<Personality> ();
 				newCharPersonality.CopyPersonality ( personality );
 				newCharPersonality.TraitsEffect ();

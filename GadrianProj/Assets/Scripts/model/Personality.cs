@@ -11,6 +11,11 @@ public class Personality : MonoBehaviour
 	private PersonalityModel model;
 	private MoodHandler mooodHandler;
 
+	private void Awake ()
+	{
+		mooodHandler = GetComponent<MoodHandler> ();
+	}
+
 	// Is it possible to add a trait to the personality
 	public static Personality operator +(Personality m1, Trait m2) 
 	{
