@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEngine.UI;
+using UnityEngine;
 using System;
 using System.Collections;
 
@@ -34,8 +35,8 @@ public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
 	public void AffectCharacter (GameObject character)
 	{
 		Transform complexionTrans = character.transform.FindChild ( "Complexion" );
-		SpriteRenderer spriteRenderer =	complexionTrans.GetComponent<SpriteRenderer> ();
-		spriteRenderer.sprite = complexion;
+		Image characterComplexion =	complexionTrans.GetComponent<Image> ();
+		characterComplexion.sprite = complexion;
 	}
 
 	#endregion

@@ -5,7 +5,9 @@ using System.Collections;
 
 public class CharacterRepresentation : MonoBehaviour
 {
+	[SerializeField]
 	private Image body;
+	[SerializeField]
 	private Image complexion;
 	private CharacterManager manager;
 
@@ -34,17 +36,17 @@ public class CharacterRepresentation : MonoBehaviour
 
 	private void TurnOn (Sprite body, Sprite complexion)
 	{
-		this.body.color = Color.white;
-		this.complexion.color = Color.white;
+		this.body.enabled = true;
+		this.complexion.enabled = true;
 		this.body.sprite = body;
 		this.complexion.sprite = complexion;
 	}
 
 	private void TurnOff ()
-	{
-		this.body.color = Color.clear;
-		this.complexion.color = Color.clear;
+	{		
 		this.body.sprite = null;
 		this.complexion.sprite = null;
+		this.body.enabled = false;
+		this.complexion.enabled = false;
 	}
 }

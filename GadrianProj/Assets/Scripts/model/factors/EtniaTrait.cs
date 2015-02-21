@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Collections;
 
@@ -26,8 +27,8 @@ public class EtniaTrait : Trait, IEquatable<EtniaTrait>
 	public void AffectCharacter (GameObject character)
 	{
 		Transform etniaTrans = character.transform.FindChild ( "Body" );
-		SpriteRenderer spriteRenderer = etniaTrans.GetComponent<SpriteRenderer> ();
-		spriteRenderer.material.color = skinColor;
+		Image characterBody = etniaTrans.GetComponent<Image> ();
+		characterBody.material.color = skinColor;
 	}
 }
 
