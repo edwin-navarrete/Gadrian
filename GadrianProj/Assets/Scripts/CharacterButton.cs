@@ -6,11 +6,12 @@ using UnityEngine.EventSystems;
 public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
 	public new Text name;
-	public Image icon;
+	public Image body;
+	public Image complexion;
 	public Button button;
+	public GameObject characterParent;
 	public Personality personality;
 
-	[SerializeField]
 	private CharacterManager manager;
 
 	private void Awake ()
@@ -23,7 +24,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
 	public void OnPointerDown (PointerEventData eventData)
 	{
-		manager.SetCharacterImage ( icon.sprite, eventData );
+		manager.SetCharacterImage ( body.sprite, complexion.sprite, eventData );
 	}
 
 	#endregion

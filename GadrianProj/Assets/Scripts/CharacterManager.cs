@@ -13,6 +13,9 @@ public class CharacterManager : MonoBehaviour
 	[SerializeField]
 	private GFGrid grid;
 
+	[SerializeField]
+	private GameObject characterPrefab;
+
 	private GameObject lastCharSelected;		// Object from the scroll list that was last selected
 	private Transform CharacterPlaceholder;		// Parent in hierarchy to make all characters children of
 
@@ -20,14 +23,14 @@ public class CharacterManager : MonoBehaviour
 
 	#region Events
 
-	public event UnityEngine.Events.UnityAction<Sprite> StartingDrag;
+	public event UnityEngine.Events.UnityAction<Sprite,Sprite> StartingDrag;
 	public event UnityEngine.Events.UnityAction FinishingDrag;
 
-	private void OnStartingDrag (Sprite image)
+	private void OnStartingDrag (Sprite body, Sprite complexion)
 	{
 		if ( StartingDrag != null )
 		{
-			StartingDrag (image);
+			StartingDrag (body, complexion);
 		}
 	}
 
@@ -91,12 +94,11 @@ public class CharacterManager : MonoBehaviour
 	/// When input from touch/mouse is down, this method will turn off the element of the scroll list 
 	/// and then create a object to drag around and finally place on the grid.
 	/// </summary>
-	/// <param name="characterImage"></param>
-	public void SetCharacterImage (Sprite characterImage, PointerEventData eventData)
+	/// <param name="characterBody"></param>
+	public void SetCharacterImage (Sprite characterBody, Sprite characterComplexion, PointerEventData eventData)
 	{
-		OnStartingDrag ( characterImage );
+		OnStartingDrag ( characterBody, characterComplexion );
 
-		characterRectTransform.GetComponent<Image> ().sprite = characterImage;
 		characterRectTransform.position = eventData.position;		
 	}
 

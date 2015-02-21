@@ -4,19 +4,16 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
-[System.Serializable]
-public class Character
-{
-	public string name;
-	public Sprite icon;
-}
-
 public class CharacterItem : MonoBehaviour
 {
+	[Range ( 1, 12)]
+	public int characterAmount = 4;
+
 	[SerializeField]
-	private GameObject characterPrefab;
+	private List<string> charactersName;
+
 	[SerializeField]
-	private List<Character> characterList;
+	private GameObject uiCharacterPrefab;
 
 	[SerializeField]
 	private Transform contentPanel;
@@ -32,17 +29,13 @@ public class CharacterItem : MonoBehaviour
 	/// </summary>
 	private void PopulateScrollList ()
 	{
-		foreach ( Character character in characterList )
+		for ( int i = 0; i < characterAmount; i++ )
 		{
-			GameObject newChar = Instantiate ( characterPrefab ) as GameObject;
+			GameObject newChar = Instantiate ( uiCharacterPrefab ) as GameObject;
 
 			CharacterButton charButton = newChar.GetComponent<CharacterButton> ();
-			charButton.name.text = character.name;
-			// No need to set directly the sprite image, becuase the personality will override it
-			//charButton.icon.sprite = character.icon;
+			charButton.name.text = charactersName[UnityEngine.Random.Range ( 0, charactersName.Count )];
 
-			GameObject childImage = charButton.icon.gameObject;
-			charButton.personality = childImage.AddComponent<Personality> ();
 			charButton.personality.SetupPersonality ( PersonalityManager.PersonalityModel );
 			charButton.personality.TraitsEffect ();
 

@@ -5,18 +5,13 @@ using System.Collections;
 
 public class CharacterRepresentation : MonoBehaviour
 {
-	private Image image;
-	[SerializeField]
+	private Image body;
+	private Image complexion;
 	private CharacterManager manager;
 
 	private void Awake ()
 	{
-		image = GetComponent<Image> ();
-
-		if ( image != null )
-		{
-			image.color = Color.clear;
-		}
+		TurnOff ();
 
 		manager = CharacterManager.Instance;
 	}
@@ -37,15 +32,19 @@ public class CharacterRepresentation : MonoBehaviour
 
 	#endregion
 
-	private void TurnOn (Sprite characterImage)
+	private void TurnOn (Sprite body, Sprite complexion)
 	{
-		image.color = Color.white;
-		image.sprite = characterImage;
+		this.body.color = Color.white;
+		this.complexion.color = Color.white;
+		this.body.sprite = body;
+		this.complexion.sprite = complexion;
 	}
 
 	private void TurnOff ()
 	{
-		image.color = Color.clear;
-		image.sprite = null;
+		this.body.color = Color.clear;
+		this.complexion.color = Color.clear;
+		this.body.sprite = null;
+		this.complexion.sprite = null;
 	}
 }

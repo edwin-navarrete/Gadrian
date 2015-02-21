@@ -6,7 +6,7 @@ public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
 {
 	private Sprite complexion;
 
-	///FIXME resolve how to represent complexion on characters, either sprite or scale
+	#region Constructors
 
 	public ComplexionTrait (Sprite complexion)
 	{
@@ -15,6 +15,8 @@ public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
 
 	public ComplexionTrait (ComplexionTrait traitToCopy)
 		: this ( traitToCopy.complexion ) { }
+
+	#endregion
 
 	#region Miembros de IEquatable<ContextTrait>
 
@@ -31,7 +33,8 @@ public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
 
 	public void AffectCharacter (GameObject character)
 	{
-		SpriteRenderer spriteRenderer = character.GetComponent<SpriteRenderer> ();
+		Transform complexionTrans = character.transform.FindChild ( "Complexion" );
+		SpriteRenderer spriteRenderer =	complexionTrans.GetComponent<SpriteRenderer> ();
 		spriteRenderer.sprite = complexion;
 	}
 

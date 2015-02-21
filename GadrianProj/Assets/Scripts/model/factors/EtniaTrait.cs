@@ -25,7 +25,8 @@ public class EtniaTrait : Trait, IEquatable<EtniaTrait>
 
 	public void AffectCharacter (GameObject character)
 	{
-		SpriteRenderer spriteRenderer = character.GetComponent<SpriteRenderer> ();
+		Transform etniaTrans = character.transform.FindChild ( "Body" );
+		SpriteRenderer spriteRenderer = etniaTrans.GetComponent<SpriteRenderer> ();
 		spriteRenderer.material.color = skinColor;
 	}
 }
