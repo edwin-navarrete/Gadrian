@@ -8,38 +8,46 @@ public class ComplexionFactor : PersonalityFactor
 	public static ComplexionTrait TALL;
 	public static ComplexionTrait AVERAGE;
 	[SerializeField]
-	private Sprite smallSprite;
+	private Sprite smallBody;
 	[SerializeField]
-	private Sprite fatSprite;
+	private Sprite smallComplexion;
 	[SerializeField]
-	private Sprite tallSprite;
+	private Sprite fatBody;
 	[SerializeField]
-	private Sprite averageSprite;
+	private Sprite fatComplexion;
+	[SerializeField]
+	private Sprite tallBody;
+	[SerializeField]
+	private Sprite tallComplexion;
+	[SerializeField]
+	private Sprite averageBody;
+	[SerializeField]
+	private Sprite averageComplexion;
 
-	private readonly static List<Trait> etniaTraits = new List<Trait>();
+	private readonly static List<Trait> complexionTraits = new List<Trait>();
 
 	private void Awake ()
 	{
-		SMALL = new ComplexionTrait ( smallSprite );
-		FAT = new ComplexionTrait ( fatSprite );
-		TALL = new ComplexionTrait ( tallSprite );
-		AVERAGE = new ComplexionTrait ( averageSprite );
+		SMALL = new ComplexionTrait ( smallBody, smallComplexion );
+		FAT = new ComplexionTrait ( fatBody, fatComplexion );
+		TALL = new ComplexionTrait ( tallBody, tallComplexion );
+		AVERAGE = new ComplexionTrait ( averageBody, averageComplexion );
 
-		etniaTraits.Add(SMALL);
-		etniaTraits.Add(FAT);
-		etniaTraits.Add(TALL);
-		etniaTraits.Add(AVERAGE);
+		complexionTraits.Add(SMALL);
+		complexionTraits.Add(FAT);
+		complexionTraits.Add(TALL);
+		complexionTraits.Add(AVERAGE);
 	}
 
 	public override List<Trait> getTraits()
 	{
-		return etniaTraits;
+		return complexionTraits;
 	}
 
 	protected override Mood face(Trait a, Trait b)
 	{
-		var etnA = a as EtniaTrait;
-		var etnB = a as EtniaTrait;
+		var etnA = a as ComplexionTrait;
+		var etnB = a as ComplexionTrait;
 		if(etnA == null || etnB == null){
 			throw new UnityException("Facing Invalid Etnia Traits");
 		}

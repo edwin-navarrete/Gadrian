@@ -9,27 +9,24 @@ public class CharacterRepresentation : MonoBehaviour
 	private Image body;
 	[SerializeField]
 	private Image complexion;
-	private CharacterManager manager;
 
 	private void Awake ()
 	{
 		TurnOff ();
-
-		manager = CharacterManager.Instance;
 	}
 
 	#region OnEnable/OnDisable
 
 	private void OnEnable ()
 	{
-		manager.StartingDrag += TurnOn;
-		manager.FinishingDrag += TurnOff;
+		CharacterManager.Instance.StartingDrag += TurnOn;
+		CharacterManager.Instance.FinishingDrag += TurnOff;
 	}
 
 	private void OnDisable ()
 	{
-		manager.StartingDrag -= TurnOn;
-		manager.FinishingDrag -= TurnOff;
+		CharacterManager.Instance.StartingDrag -= TurnOn;
+		CharacterManager.Instance.FinishingDrag -= TurnOff;
 	}
 
 	#endregion
@@ -43,7 +40,8 @@ public class CharacterRepresentation : MonoBehaviour
 	}
 
 	private void TurnOff ()
-	{		
+	{
+		this.transform.position = new Vector2 ( 0, Screen.height + 100 );
 		this.body.sprite = null;
 		this.complexion.sprite = null;
 		this.body.enabled = false;

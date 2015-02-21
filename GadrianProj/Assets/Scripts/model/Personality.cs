@@ -10,15 +10,25 @@ public class Personality : MonoBehaviour
 	private List<Trait> traits = new List<Trait>();
 	private PersonalityModel model;
 	private MoodHandler mooodHandler;
-	private SnapCharacter snapCharacter;
+	//private SnapCharacter snapCharacter;
 	private NeighbourSensor sensor;
 
 	private void Awake ()
 	{
 		mooodHandler = GetComponent<MoodHandler> ();
-		snapCharacter = GetComponent<SnapCharacter> ();
+		//snapCharacter = GetComponent<SnapCharacter> ();
 		sensor = GetComponentInChildren<NeighbourSensor> ();
 	}
+
+	// NOTE this method is used only for testin purposes
+	//private void Start ()
+	//{
+	//	if ( model == null )
+	//	{
+	//		model = PersonalityManager.PersonalityModel;
+	//		SetupPersonality ( model );
+	//	}
+	//}
 
 	// Is it possible to add a trait to the personality
 	public static Personality operator +(Personality m1, Trait m2) 
@@ -45,8 +55,12 @@ public class Personality : MonoBehaviour
 
 	public void SetupPersonality (PersonalityModel model)
 	{
+		if ( model == null )
+		{
+			Debug.Log ( "model is null" );
+		}
 		this.model = model;
-		SetTraitList ( model.getPersonalityTraits (UnityEngine.Random.Range ( 0, model.PersonalityCnt ) ) );
+		SetTraitList ( model.getPersonalityTraits ( UnityEngine.Random.Range ( 0, model.PersonalityCnt ) ) );
 	}
 
 	public void CopyPersonality (Personality personalityToCopy)

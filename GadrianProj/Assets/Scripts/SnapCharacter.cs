@@ -88,12 +88,18 @@ public class SnapCharacter : MonoBehaviour
 
 	private void OnTriggerEnter2D (Collider2D other)
 	{
-		SetIntersecting ( true );
+		if ( other.transform.tag == "Player" )
+		{
+			SetIntersecting ( true );
+		}
 	}
 
 	private void OnTriggerExit2D (Collider2D other)
 	{
-		SetIntersecting ( false );
+		if ( other.transform.tag == "Player" )
+		{
+			SetIntersecting ( false );
+		}
 	}
 
 	private void SetIntersecting (bool intersecting)

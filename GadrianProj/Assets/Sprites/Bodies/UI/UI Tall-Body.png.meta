@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: e8e9043b0abd6b54791d4bb1a280b007
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: UI Tall-Body
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -43,7 +44,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: 
+    - name: UI Tall-Body
       rect:
         serializedVersion: 2
         x: 0

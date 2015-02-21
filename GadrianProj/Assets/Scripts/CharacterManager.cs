@@ -83,6 +83,11 @@ public class CharacterManager : MonoBehaviour
 		CharacterPlaceholder = GameObject.FindGameObjectWithTag ( "Placeholder" ).transform;
 	}
 
+	public void Start ()
+	{
+		characters = new List<Personality> ();
+	}
+
 	public Vector3 AskGridPosition (Vector3 position)
 	{
 		return grid.WorldToGrid ( position );
@@ -127,17 +132,12 @@ public class CharacterManager : MonoBehaviour
 		{
 			if ( hit.transform.tag == "Grid" )
 			{
-				GameObject newCharacter = new GameObject ( charName, typeof ( SpriteRenderer ) );
+				GameObject newCharacter = Instantiate ( characterPrefab ) as GameObject;
+				newCharacter.name = charName;
 				newCharacter.transform.position = hit.point;
-				newCharacter.transform.localScale = new Vector3 ( 0.7773f, 0.7219f, 1f );
+				grid.AlignTransform ( newCharacter.transform );
 
-				CircleCollider2D circleCollider = newCharacter.AddComponent<CircleCollider2D> ();
-				circleCollider.radius = 1f;
-				circleCollider.isTrigger = true;
-
-				newCharacter.AddComponent<SnapCharacter> ();
-				newCharacter.AddComponent<MoodHandler> ();
-				Personality newCharPersonality = newCharacter.AddComponent<Personality> ();
+				Personality newCharPersonality = newCharacter.GetComponent<Personality> ();
 				newCharPersonality.CopyPersonality ( personality );
 				newCharPersonality.TraitsEffect ();
 				characters.Add ( newCharPersonality );

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 public class NeighbourSensor : MonoBehaviour
 {
-	private new Collider2D collider;
 	private List<Personality> neighbours;
 	public List<Personality> Neighbours
 	{
@@ -13,12 +12,7 @@ public class NeighbourSensor : MonoBehaviour
 		}
 	}
 
-	public event UnityEngine.Events.UnityAction SensorAlert;
-
-	public void Awake ()
-	{
-		collider = GetComponent<Collider2D> ();
-	}
+	//public event UnityEngine.Events.UnityAction SensorAlert;
 
 	public void Start ()
 	{
@@ -27,9 +21,9 @@ public class NeighbourSensor : MonoBehaviour
 
 	public void OnTriggerEnter2D (Collider2D other)
 	{
-		if ( other.transform.tag == "Player" )
+		if ( other.transform.tag == "Sensor" )
 		{
-			Personality personality = other.GetComponent<Personality> ();
+			Personality personality = other.GetComponentInParent<Personality> ();
 			neighbours.Add ( personality );
 			personality.RefreshMood ();
 		}
@@ -37,9 +31,9 @@ public class NeighbourSensor : MonoBehaviour
 
 	public void OnTriggerExit2D (Collider2D other)
 	{
-		if ( other.transform.tag == "Player" )
+		if ( other.transform.tag == "Sensor" )
 		{
-			Personality personality = other.GetComponent<Personality> ();
+			Personality personality = other.GetComponentInParent<Personality> ();
 			neighbours.Remove ( personality );
 			personality.RefreshMood ();
 		}

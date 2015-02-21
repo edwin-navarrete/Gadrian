@@ -2,7 +2,7 @@ fileFormatVersion: 2
 guid: 83bf9bacd34648346b5423c3fd2f9a50
 TextureImporter:
   fileIDToRecycleName:
-    21300000: UI Furry-Body_0
+    21300000: UI Fat-Body
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -44,7 +44,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: UI Furry-Body_0
+    - name: UI Fat-Body
       rect:
         serializedVersion: 2
         x: 0
@@ -52,7 +52,7 @@ TextureImporter:
         width: 4
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: 
       rect:

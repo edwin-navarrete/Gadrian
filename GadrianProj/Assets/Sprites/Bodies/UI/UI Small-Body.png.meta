@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 202f0f196f5103f45b7a5f8db0e55258
+guid: c5f5c5b3c0f4b2448b43e8e54234b25f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: UI Small-complexion_0
+    21300000: UI Small-Body
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -44,7 +44,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: 
+    - name: UI Small-Body
       rect:
         serializedVersion: 2
         x: 0

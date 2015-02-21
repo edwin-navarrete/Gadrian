@@ -2,7 +2,7 @@ fileFormatVersion: 2
 guid: f78b1c3b15b578d439c49d80dc40a110
 TextureImporter:
   fileIDToRecycleName:
-    21300000: UI Tall-Complexion_0
+    21300000: UI Tall-Complexion
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -44,7 +44,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: UI Tall-Complexion_0
+    - name: UI Tall-Complexion
       rect:
         serializedVersion: 2
         x: 0
