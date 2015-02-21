@@ -437,7 +437,7 @@ MonoBehaviour:
   canvasRectTransform: {fileID: 0}
   characterRectTransform: {fileID: 0}
   grid: {fileID: 0}
-  characterPrefab: {fileID: 139652, guid: 7448eee7f2df0a24a9f3b53f5b91221b, type: 2}
+  characterPrefab: {fileID: 107098, guid: dd59996e24dd98c41a23064e43f65b00, type: 2}
 --- !u!4 &951603783
 Transform:
   m_ObjectHideFlags: 0
@@ -967,6 +967,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11429044, guid: 416eec0380316f54e8e4e20560c9ee8e, type: 2}
+      propertyPath: characterPrefab
+      value: 
+      objectReference: {fileID: 107098, guid: dd59996e24dd98c41a23064e43f65b00, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 416eec0380316f54e8e4e20560c9ee8e, type: 2}
   m_RootGameObject: {fileID: 951603781}

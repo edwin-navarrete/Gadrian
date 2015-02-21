@@ -9,24 +9,26 @@ public class CharacterRepresentation : MonoBehaviour
 	private Image body;
 	[SerializeField]
 	private Image complexion;
+	private CharacterManager manager;
 
 	private void Awake ()
 	{
 		TurnOff ();
+		manager = CharacterManager.Instance;
 	}
 
 	#region OnEnable/OnDisable
 
 	private void OnEnable ()
 	{
-		CharacterManager.Instance.StartingDrag += TurnOn;
-		CharacterManager.Instance.FinishingDrag += TurnOff;
+		manager.StartingDrag += TurnOn;
+		manager.FinishingDrag += TurnOff;
 	}
 
 	private void OnDisable ()
 	{
-		CharacterManager.Instance.StartingDrag -= TurnOn;
-		CharacterManager.Instance.FinishingDrag -= TurnOff;
+		manager.StartingDrag -= TurnOn;
+		manager.FinishingDrag -= TurnOff;
 	}
 
 	#endregion

@@ -10,10 +10,21 @@ public class SnapCharacter : MonoBehaviour
 	private Collider gridCollider;
 
 	private bool beingDragged;
+	private Vector3 lastValidPosition;
 	private Vector3 oldPosition;
 	private int intersecting;
 
 	private new SpriteRenderer renderer;
+
+	public event UnityEngine.Events.UnityAction Movement;
+
+	private void OnMovement ()
+	{
+		if ( Movement.GetInvocationList ().Length != 0 )
+		{
+			Movement ();
+		}
+	}
 
 	private void Awake ()
 	{
@@ -26,6 +37,7 @@ public class SnapCharacter : MonoBehaviour
 
 		grid.AlignTransform ( this.transform );
 		renderer = GetComponent<SpriteRenderer> ();
+		lastValidPosition = this.transform.position;
 		oldPosition = this.transform.position;
 
 		SetupRigidbody ();
@@ -50,20 +62,32 @@ public class SnapCharacter : MonoBehaviour
 	private void OnMouseUp ()
 	{
 		beingDragged = false;
-		transform.position = oldPosition;
+		
+		if ( CheckIfMovement () )
+		{
+			transform.position = lastValidPosition;
+			oldPosition = transform.position;
+			OnMovement ();
+		}
 		renderer.sortingOrder = 0;
 		intersecting = 0;
 		grid.AlignTransform ( this.transform );
 		TintRed ( intersecting );
 	}
 
+	private bool CheckIfMovement ()
+	{
+		Vector3 newPosition = grid.WorldToGrid ( this.transform.position );
+		float distance = Vector3.Distance ( newPosition, grid.WorldToGrid ( oldPosition ) );
+		return distance > 0.5f;
+	}
 	private void FixedUpdate ()
 	{
 		if ( beingDragged )
 		{
 			if ( intersecting == 0 )
 			{
-				oldPosition = transform.position;
+				lastValidPosition = transform.position;
 			}
 			DragObject ();
 		}

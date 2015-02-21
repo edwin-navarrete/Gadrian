@@ -7,28 +7,48 @@ using System.Collections.Generic;
 
 public class Personality : MonoBehaviour
 {
-	private List<Trait> traits = new List<Trait>();
 	private PersonalityModel model;
 	private MoodHandler mooodHandler;
-	//private SnapCharacter snapCharacter;
-	private NeighbourSensor sensor;
+	private SnapCharacter snapCharacter;
 
-	private void Awake ()
+	private List<Trait> traits = new List<Trait> ();
+	private List<Personality> neighbours;
+
+	private UnityEngine.Events.UnityAction Refresh;
+	public UnityEngine.Events.UnityAction SetInitialMood;
+
+	public void Awake ()
 	{
 		mooodHandler = GetComponent<MoodHandler> ();
-		//snapCharacter = GetComponent<SnapCharacter> ();
-		sensor = GetComponentInChildren<NeighbourSensor> ();
+		snapCharacter = GetComponent<SnapCharacter> ();
+
+		SetInitialMood = () =>
+		{
+			RefreshNeighbourList ();
+			RefreshNeighbourMood ();
+			RefreshMood ();
+		};
+
+		Refresh = () =>
+		{
+			RefreshNeighbourMood ();
+			RefreshMood ();
+			RefreshNeighbourList ();
+			RefreshNeighbourMood ();
+		};
 	}
 
-	// NOTE this method is used only for testin purposes
-	//private void Start ()
-	//{
-	//	if ( model == null )
-	//	{
-	//		model = PersonalityManager.PersonalityModel;
-	//		SetupPersonality ( model );
-	//	}
-	//}
+	public void OnEnable ()
+	{
+		if (snapCharacter != null )
+			snapCharacter.Movement += Refresh;
+	}
+
+	public void OnDisable ()
+	{
+		if ( snapCharacter != null )
+			snapCharacter.Movement -= Refresh;
+	}
 
 	// Is it possible to add a trait to the personality
 	public static Personality operator +(Personality m1, Trait m2) 
@@ -69,16 +89,27 @@ public class Personality : MonoBehaviour
 		model = personalityToCopy.model;
 	}
 
-	public void RefreshMood ()
+	private void RefreshMood ()
 	{
 		Mood mood = new Mood ();
-		List<Personality> neighbours = sensor.Neighbours;
 		foreach ( Personality neighbour in neighbours )
 		{
-			mood = sense ( neighbour, CharacterManager.Instance.AskGridPosition ( neighbour.transform.position ) );
+			mood += sense ( neighbour, CharacterManager.Instance.AskGridPosition ( neighbour.transform.position ) );
 		}
-
 		mooodHandler.SetNextMood ( mood );
+	}
+
+	private void RefreshNeighbourList ()
+	{
+		neighbours = CharacterManager.Instance.GetNeighbourPersonalities ( transform.position );
+	}
+
+	private void RefreshNeighbourMood ()
+	{
+		foreach ( Personality neighbour in neighbours )
+		{
+			neighbour.RefreshMood ();
+		}
 	}
 
 	// based on affinity with the other, calculates the corresponding emotional state based on distance 

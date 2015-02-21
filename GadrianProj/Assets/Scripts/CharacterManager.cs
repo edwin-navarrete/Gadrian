@@ -75,9 +75,6 @@ public class CharacterManager : MonoBehaviour
 	// characterRectTransform and CharacterPlaceholder
 	public void Awake ()
 	{
-		if ( CharacterManager.Instance != this )
-			Destroy ( this.gameObject );
-
 		canvasRectTransform = GameObject.FindObjectOfType<Canvas> ().transform as RectTransform;
 		characterRectTransform = GameObject.FindObjectOfType<CharacterRepresentation> ().transform as RectTransform;
 		CharacterPlaceholder = GameObject.FindGameObjectWithTag ( "Placeholder" ).transform;
@@ -86,12 +83,28 @@ public class CharacterManager : MonoBehaviour
 
 	public void Start ()
 	{
+		if ( CharacterManager.Instance != this )
+			Destroy ( this.gameObject );
 		characters = new List<Personality> ();
 	}
 
 	public Vector3 AskGridPosition (Vector3 position)
 	{
 		return grid.WorldToGrid ( position );
+	}
+
+	public List<Personality> GetNeighbourPersonalities (Vector3 position)
+	{
+		List<Personality> neighbourPersonalities = new List<Personality> ();
+		foreach ( Personality personality in characters )
+		{
+			float distance = Vector3.Distance ( position, personality.transform.position );
+			if ( distance > 0.1f && distance < 1.1f )
+			{
+				neighbourPersonalities.Add ( personality );
+			}
+		}
+		return neighbourPersonalities;
 	}
 
 	#region Character movement from scroll list to world
@@ -141,6 +154,7 @@ public class CharacterManager : MonoBehaviour
 				Personality newCharPersonality = newCharacter.GetComponent<Personality> ();
 				newCharPersonality.CopyPersonality ( personality );
 				newCharPersonality.TraitsEffect ();
+				newCharPersonality.SetInitialMood ();
 				characters.Add ( newCharPersonality );
 
 				newCharacter.transform.SetParent ( CharacterPlaceholder );
