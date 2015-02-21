@@ -31,10 +31,10 @@ public class EtniaTrait : Trait, IEquatable<EtniaTrait>
 		if ( characterBody == null )
 		{
 			Image characterSpriteBody = etniaTrans.GetComponent<Image> ();
-			characterSpriteBody.material.color = skinColor;
+			characterSpriteBody.color = skinColor;
 		}
 		else
-			characterBody.material.color = skinColor;
+			characterBody.color = skinColor;
 	}
 }
 

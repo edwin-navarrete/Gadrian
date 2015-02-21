@@ -81,6 +81,7 @@ public class CharacterManager : MonoBehaviour
 		canvasRectTransform = GameObject.FindObjectOfType<Canvas> ().transform as RectTransform;
 		characterRectTransform = GameObject.FindObjectOfType<CharacterRepresentation> ().transform as RectTransform;
 		CharacterPlaceholder = GameObject.FindGameObjectWithTag ( "Placeholder" ).transform;
+		grid = GameObject.FindGameObjectWithTag ( "Grid" ).GetComponent<GFGrid> ();
 	}
 
 	public void Start ()
