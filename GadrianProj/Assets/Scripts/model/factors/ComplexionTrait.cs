@@ -50,7 +50,7 @@ public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
 		SpriteRenderer characterBody = bodyTrans.GetComponent<SpriteRenderer> ();
 		if ( characterBody == null )
 		{
-			Image characterSpriteBody = complexionTrans.GetComponent<Image> ();
+			Image characterSpriteBody = bodyTrans.GetComponent<Image> ();
 			characterSpriteBody.sprite = body;
 		}
 		else
