@@ -40,13 +40,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 407096}
+  - 212: {fileID: 21207098}
   - 58: {fileID: 5807094}
   - 50: {fileID: 5007094}
   - 114: {fileID: 11407098}
   - 114: {fileID: 11407100}
   - 114: {fileID: 11407096}
-  - 114: {fileID: 11407094}
-  - 212: {fileID: 21207098}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -163,19 +162,6 @@ Animator:
   m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11407094
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 107098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fbed868fedd7b34cb5be4b7c1d13e40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  neighbours: []
-  manager: {fileID: 0}
 --- !u!114 &11407096
 MonoBehaviour:
   m_ObjectHideFlags: 1

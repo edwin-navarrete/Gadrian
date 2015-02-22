@@ -10,6 +10,7 @@ public class Personality : MonoBehaviour
 	private PersonalityModel model;
 	private MoodHandler mooodHandler;
 	private SnapCharacter snapCharacter;
+	private Animator animator;
 
 	private List<Trait> traits = new List<Trait> ();
 	private List<Personality> neighbours;
@@ -21,6 +22,7 @@ public class Personality : MonoBehaviour
 	{
 		mooodHandler = GetComponent<MoodHandler> ();
 		snapCharacter = GetComponent<SnapCharacter> ();
+		animator = GetComponentInChildren<Animator> ();
 
 		SetInitialMood = () =>
 		{
@@ -57,6 +59,8 @@ public class Personality : MonoBehaviour
 		return m1;
 	}
 
+	#region Trait manipulation
+
 	private void SetTraitList (List<Trait> traits)
 	{
 		if ( traits.Count == 0 )
@@ -72,6 +76,10 @@ public class Personality : MonoBehaviour
 			trait.AffectCharacter ( gameObject );
 		}
 	}
+
+	#endregion
+
+	#region Personality initialization
 
 	public void SetupPersonality (PersonalityModel model)
 	{
@@ -89,6 +97,10 @@ public class Personality : MonoBehaviour
 		model = personalityToCopy.model;
 	}
 
+	#endregion
+
+	#region Mood refresh Personal/Neighbour
+
 	private void RefreshMood ()
 	{
 		Mood mood = new Mood ();
@@ -97,6 +109,7 @@ public class Personality : MonoBehaviour
 			mood += sense ( neighbour, CharacterManager.Instance.AskGridPosition ( neighbour.transform.position ) );
 		}
 		mooodHandler.SetNextMood ( mood );
+		UpdateMoodAnimation ( mood );
 	}
 
 	private void RefreshNeighbourList ()
@@ -109,6 +122,42 @@ public class Personality : MonoBehaviour
 		foreach ( Personality neighbour in neighbours )
 		{
 			neighbour.RefreshMood ();
+		}
+	}
+
+	#endregion
+
+	private void UpdateMoodAnimation (Mood mood)
+	{
+		switch ( mood.getFeel () )
+		{
+			default:
+				break;
+
+			case Mood.Feeling.ANGRY:
+				animator.SetTrigger ( "newMood" );
+				animator.SetInteger ( "mood", 2 );
+				break;
+
+			case Mood.Feeling.HAPPY:
+				animator.SetTrigger ( "newMood" );
+				animator.SetInteger ( "mood", 1 );
+				break;
+
+			case Mood.Feeling.INDIFERENT:
+				animator.SetTrigger ( "newMood" );
+				animator.SetInteger ( "mood", -1 );
+				break;
+
+			case Mood.Feeling.SAD:
+				animator.SetTrigger ( "newMood" );
+				animator.SetInteger ( "mood", 0 );
+				break;
+
+			case Mood.Feeling.SCARED:
+				animator.SetTrigger ( "newMood" );
+				animator.SetInteger ( "mood", 3 );
+				break;
 		}
 	}
 

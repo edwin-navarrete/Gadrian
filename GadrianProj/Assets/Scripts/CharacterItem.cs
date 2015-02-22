@@ -18,8 +18,11 @@ public class CharacterItem : MonoBehaviour
 	[SerializeField]
 	private Transform contentPanel;
 
+	private ShutDown shutDown;
+
 	private void Start ()
 	{
+		shutDown = GetComponent<ShutDown> ();
 		PopulateScrollList ();
 	}
 
@@ -41,5 +44,6 @@ public class CharacterItem : MonoBehaviour
 
 			newChar.transform.SetParent ( contentPanel );
 		}
+		shutDown.StartCheck ();
 	}
 }

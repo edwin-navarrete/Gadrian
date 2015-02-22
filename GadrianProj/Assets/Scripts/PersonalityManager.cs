@@ -4,14 +4,14 @@ using System.Collections.Generic;
 public class PersonalityManager : MonoBehaviour
 {
 	// NOTE these booleans could be used for stablish which factors are going to be on this level
-	public bool etnia = false;
-	public bool complexion = false;
+	public bool etnia = true;
+	public bool complexion = true;
 
 	// Use booleans to set enable = false on this components so they will be not take into account in personalityFactors
 	private EtniaFactor etniaFactor;
 	private ComplexionFactor complexionFactor;
 
-	private PersonalityFactor[] personalityFactors;
+	private List<PersonalityFactor> personalityFactors;
 
 	private static PersonalityModel personalityModel;
 	public static PersonalityModel PersonalityModel
@@ -26,23 +26,25 @@ public class PersonalityManager : MonoBehaviour
 	{
 		etniaFactor = GetComponent<EtniaFactor> ();
 		complexionFactor = GetComponent<ComplexionFactor> ();
-
-		DisableComponents ();
 	}
 
 	private void Start ()
 	{
-		personalityFactors = GetComponents<PersonalityFactor> ();
+		personalityFactors = new List<PersonalityFactor> ();
+		AddComponents ();
+
 		if ( personalityFactors == null )
-			Debug.LogError ( "There is no components" );
+			Debug.LogError ( "There is no components" );		
 
 		CreatePersonalityModel ();
 	}
 
-	private void DisableComponents ()
+	private void AddComponents ()
 	{
-		etniaFactor.enabled = etnia;
-		complexionFactor.enabled = complexion;
+		if ( etnia )
+			personalityFactors.Add ( etniaFactor );
+		if ( complexion )
+			personalityFactors.Add ( complexionFactor );
 	}
 
 	private void CreatePersonalityModel ()
