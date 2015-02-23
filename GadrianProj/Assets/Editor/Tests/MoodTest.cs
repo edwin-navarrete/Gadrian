@@ -22,7 +22,7 @@ namespace UnityTest
 			Assert.That ( Mood.SCARED.getIntensity (), Is.EqualTo(1f).Within(1e-6));
 
 			//requires more tolerance due to proximity to indiferent
-			Assert.That ( Mood.SAD.getIntensity (), Is.EqualTo(1f).Within(1e-5));
+			Assert.That ( Mood.SAD.getIntensity (), Is.EqualTo(1f).Within(1e-4));
 
 			// Feel is consistent?
 			Assert.AreEqual (Mood.Feeling.HAPPY, Mood.HAPPY.getFeel ());
@@ -30,6 +30,11 @@ namespace UnityTest
 			Assert.AreEqual (Mood.Feeling.SAD, Mood.SAD.getFeel ());
 			Assert.AreEqual (Mood.Feeling.INDIFERENT, Mood.INDIFERENT.getFeel ());
 			Assert.AreEqual (Mood.Feeling.SCARED, Mood.SCARED.getFeel ());
+
+			Assert.AreNotEqual (Mood.INDIFERENT, Mood.SAD);
+			Assert.AreNotEqual (Mood.INDIFERENT, Mood.HAPPY);
+			Assert.AreNotEqual (Mood.INDIFERENT, Mood.ANGRY);
+			Assert.AreNotEqual (Mood.INDIFERENT, Mood.SCARED);
 		}
 
 		[Test]
@@ -81,8 +86,10 @@ namespace UnityTest
 		public void MoodAccumulation ()
 		{
 			Mood accum;
+			accum = Mood.INDIFERENT;
+			accum += Mood.HAPPY;
+			Assert.AreEqual(Mood.Feeling.HAPPY, accum.getFeel());
 
-			Debug.Log("Case Happy + Happy");
 			accum = Mood.HAPPY;
 			accum += Mood.HAPPY;
 			Assert.AreEqual(Mood.Feeling.HAPPY, accum.getFeel());

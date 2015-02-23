@@ -15,6 +15,11 @@ public class EtniaTrait : Trait, IEquatable<EtniaTrait>
 		this.skinColor = skinColor;
 	}
 
+	public override string ToString() 
+	{
+		return "Etnia: " + skinColor;
+	}
+
 	public EtniaTrait (EtniaTrait traitToCopy)
 		: this ( traitToCopy.skinColor ) { }
 
