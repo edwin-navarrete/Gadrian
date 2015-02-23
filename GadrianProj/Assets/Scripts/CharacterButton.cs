@@ -10,6 +10,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
 	public Image body;
 	public Image complexion;
+	public Image face;
 	public GameObject characterParent;
 	public Personality personality;
 

@@ -20,13 +20,20 @@ public class ComplexionFactor : PersonalityFactor
 	[SerializeField]
 	private Sprite furryComplexion;
 
+	[SerializeField]
+	private RectTransform smallFacePosition;
+	[SerializeField]
+	private RectTransform fatFacePosition;
+	[SerializeField]
+	private RectTransform furryFacePosition;
+
 	private readonly static List<Trait> complexionTraits = new List<Trait>();
 
 	private void Awake ()
 	{
-		SMALL = new ComplexionTrait ( smallBody, smallComplexion );
-		FAT = new ComplexionTrait ( fatBody, fatComplexion );
-		FURRY = new ComplexionTrait ( furryBody, furryComplexion );
+		SMALL = new ComplexionTrait ( smallBody, smallComplexion, smallFacePosition );
+		FAT = new ComplexionTrait ( fatBody, fatComplexion, fatFacePosition );
+		FURRY = new ComplexionTrait ( furryBody, furryComplexion, furryFacePosition );
 
 		complexionTraits.Add(SMALL);
 		complexionTraits.Add(FAT);

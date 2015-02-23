@@ -45,10 +45,11 @@ MonoBehaviour:
   smallComplexion: {fileID: 21300000, guid: 0c69f91758eb7e24ca96fe2c2d13a834, type: 3}
   fatBody: {fileID: 21300000, guid: d73e55608a0d86d498c9532e38b8c608, type: 3}
   fatComplexion: {fileID: 21300000, guid: c2d28c07719179a4194fdbb85ccdf88f, type: 3}
-  tallBody: {fileID: 21300000, guid: 2a61189215f560f46bbdb0dd7683c099, type: 3}
-  tallComplexion: {fileID: 21300000, guid: 8e0c1611530eaf643bb2a7e7db1d0f54, type: 3}
-  averageBody: {fileID: 21300000, guid: 2a61189215f560f46bbdb0dd7683c099, type: 3}
-  averageComplexion: {fileID: 21300000, guid: 8e0c1611530eaf643bb2a7e7db1d0f54, type: 3}
+  furryBody: {fileID: 21300000, guid: 2a61189215f560f46bbdb0dd7683c099, type: 3}
+  furryComplexion: {fileID: 21300000, guid: 8e0c1611530eaf643bb2a7e7db1d0f54, type: 3}
+  smallFacePosition: {fileID: 22418144, guid: d800e4a3d005cc14ca3969e14675f665, type: 2}
+  fatFacePosition: {fileID: 22476540, guid: a7e530f07b731f549bc3dad5aa703fbe, type: 2}
+  furryFacePosition: {fileID: 22434998, guid: 8eca3dafda8207e43b730facd703b3c2, type: 2}
 --- !u!114 &11463928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74,8 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b44adb8d1f34946a86f427e2de8fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  etnia: 0
-  complexion: 0
+  etnia: 1
+  complexion: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
