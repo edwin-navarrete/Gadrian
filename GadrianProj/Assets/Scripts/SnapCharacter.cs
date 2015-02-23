@@ -67,12 +67,12 @@ public class SnapCharacter : MonoBehaviour
 		{
 			transform.position = lastValidPosition;
 			oldPosition = transform.position;
-			OnMovement ();
 		}
 		renderer.sortingOrder = 0;
 		intersecting = 0;
 		grid.AlignTransform ( this.transform );
 		TintRed ( intersecting );
+		OnMovement ();
 	}
 
 	private bool CheckIfMovement ()

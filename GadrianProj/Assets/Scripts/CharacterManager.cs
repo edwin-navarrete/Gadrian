@@ -93,17 +93,34 @@ public class CharacterManager : MonoBehaviour
 		return grid.WorldToGrid ( position );
 	}
 
-	public List<Personality> GetNeighbourPersonalities (Vector3 position)
+	public List<Personality> GetNeighbourPersonalities (Vector3 curPos)
 	{
 		List<Personality> neighbourPersonalities = new List<Personality> ();
+		Vector3 position = grid.WorldToGrid ( curPos );
 		foreach ( Personality personality in characters )
 		{
-			float distance = Vector3.Distance ( position, personality.transform.position );
-			if ( distance > 0.1f && distance < 1.1f )
-			{
-				neighbourPersonalities.Add ( personality );
+			Vector3 reference =  grid.WorldToGrid ( personality.transform.position ) ;
+			if(reference == position)
+				continue;
+
+			bool isNeighbour = false;
+			if(Mathf.Abs(reference.y - position.y) < 1.1f && Mathf.Abs(reference.x - position.x) < 0.1f){//straight above or below
+				isNeighbour = true;
+			} else{
+				if(Mathf.RoundToInt(reference.x) % 2 == 0){//two cases, depending on whether the x-coordinate is even or odd
+					//neighbours are either strictly left or right of the switch or right/left and one unit below
+					if(Mathf.Abs(reference.x - position.x) < 1.1f && position.y - reference.y < 0.1f && position.y - reference.y > -1.1f)
+						isNeighbour = true;
+				} else{//x-coordinate odd
+					//neighbours are either strictly left or right of the switch or right/left and one unit above
+					if(Mathf.Abs(reference.x - position.x) < 1.1f && reference.y - position.y < 0.1f && position.y - reference.y < 1.1f)
+						isNeighbour = true;
+				}
 			}
+			if ( isNeighbour )
+				neighbourPersonalities.Add ( personality );
 		}
+		Debug.LogWarning("Neigh for "+position+":"+neighbourPersonalities.Count);
 		return neighbourPersonalities;
 	}
 
@@ -152,10 +169,11 @@ public class CharacterManager : MonoBehaviour
 				grid.AlignTransform ( newCharacter.transform );
 
 				Personality newCharPersonality = newCharacter.GetComponent<Personality> ();
+				characters.Add ( newCharPersonality );
+
 				newCharPersonality.CopyPersonality ( personality );
 				newCharPersonality.TraitsEffect ();
 				newCharPersonality.SetInitialMood ();
-				characters.Add ( newCharPersonality );
 
 				newCharacter.transform.SetParent ( CharacterPlaceholder );
 				sender.SetActive ( false );

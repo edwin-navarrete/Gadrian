@@ -42,7 +42,8 @@ public class CharacterItem : MonoBehaviour
 
 			charButton.personality.SetupPersonality ( 
 			     PersonalityManager.PersonalityModel, 
-			     UnityEngine.Random.Range ( 0, PersonalityManager.PersonalityModel.PersonalityCnt  )  );
+			     0//UnityEngine.Random.Range ( 0, PersonalityManager.PersonalityModel.PersonalityCnt  )  
+			     );
 			charButton.personality.TraitsEffect ();
 
 			newChar.transform.SetParent ( contentPanel );

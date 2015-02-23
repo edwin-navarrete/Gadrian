@@ -103,10 +103,12 @@ public class Personality : MonoBehaviour
 
 	private void RefreshMood ()
 	{
+		Debug.Log("Started Sensing for:"+this.transform.position);
 		Mood mood = new Mood ();
 		foreach ( Personality neighbour in neighbours )
 		{
 			mood += sense ( neighbour, CharacterManager.Instance.AskGridPosition ( neighbour.transform.position ) );
+			Debug.Log("Sensing:"+neighbour.transform.position+">"+mood.getFeel());
 		}
 		mooodHandler.SetNextMood ( mood );
 		UpdateMoodAnimation ( mood );
@@ -115,6 +117,7 @@ public class Personality : MonoBehaviour
 	private void RefreshNeighbourList ()
 	{
 		neighbours = CharacterManager.Instance.GetNeighbourPersonalities ( transform.position );
+		Debug.Log("Refreshed N for:"+transform.position+":"+neighbours.Count);
 	}
 
 	private void RefreshNeighbourMood ()
