@@ -147,7 +147,7 @@ public class CharacterManager : MonoBehaviour
 			if ( hit.transform.tag == "Grid" )
 			{
 				GameObject newCharacter = Instantiate ( characterPrefab ) as GameObject;
-				newCharacter.name = charName;
+				// newCharacter.name = charName;
 				newCharacter.transform.position = hit.point;
 				grid.AlignTransform ( newCharacter.transform );
 

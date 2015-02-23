@@ -32,14 +32,17 @@ public class CharacterItem : MonoBehaviour
 	/// </summary>
 	private void PopulateScrollList ()
 	{
+		//UnityEngine.Random.Range ( 0, model.PersonalityCnt  ) 
 		for ( int i = 0; i < characterAmount; i++ )
 		{
 			GameObject newChar = Instantiate ( uiCharacterPrefab ) as GameObject;
 
 			CharacterButton charButton = newChar.GetComponent<CharacterButton> ();
-			charButton.name.text = charactersName[UnityEngine.Random.Range ( 0, charactersName.Count )];
+			// charButton.name.text = charactersName[UnityEngine.Random.Range ( 0, charactersName.Count )];
 
-			charButton.personality.SetupPersonality ( PersonalityManager.PersonalityModel );
+			charButton.personality.SetupPersonality ( 
+			     PersonalityManager.PersonalityModel, 
+			     UnityEngine.Random.Range ( 0, PersonalityManager.PersonalityModel.PersonalityCnt  )  );
 			charButton.personality.TraitsEffect ();
 
 			newChar.transform.SetParent ( contentPanel );

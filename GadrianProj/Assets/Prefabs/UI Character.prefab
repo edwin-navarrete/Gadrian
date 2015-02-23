@@ -29,7 +29,6 @@ GameObject:
   m_Component:
   - 224: {fileID: 22496076}
   - 222: {fileID: 22296078}
-  - 114: {fileID: 11496078}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -110,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .735077858, g: .970588207, b: .951097667, a: 1}
+  m_Color: {r: .60310334, g: .664978743, b: .845588207, a: .792156875}
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -172,10 +171,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
-  m_MinWidth: -1
-  m_MinHeight: 65
-  m_PreferredWidth: -1
-  m_PreferredHeight: 80
+  m_MinWidth: 160
+  m_MinHeight: 120
+  m_PreferredWidth: 60
+  m_PreferredHeight: 280
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
 --- !u!114 &11496076
@@ -189,38 +188,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee88b371aec1d946a017cdc7f278d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: {fileID: 11496078}
   body: {fileID: 11496080}
   complexion: {fileID: 11496082}
-  button: {fileID: 11496072}
   characterParent: {fileID: 196082}
   personality: {fileID: 11417712}
---- !u!114 &11496078
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Name
 --- !u!114 &11496080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -295,7 +266,7 @@ RectTransform:
   m_GameObject: {fileID: 196074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .5, y: 1, z: 1}
   m_Children:
   - {fileID: 22496076}
   - {fileID: 22496082}
@@ -373,9 +344,9 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: .5}
   m_AnchorMax: {x: 0, y: .5}
-  m_AnchoredPosition: {x: 0, y: -7.15255737e-07}
-  m_SizeDelta: {x: 81.8730011, y: 80}
-  m_Pivot: {x: 0, y: .5}
+  m_AnchoredPosition: {x: 75, y: 10}
+  m_SizeDelta: {x: 120, y: 120}
+  m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -5,10 +5,11 @@ using UnityEngine.EventSystems;
 
 public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
-	public new Text name;
+	// public new Text name;
+	// public Button button;
+
 	public Image body;
 	public Image complexion;
-	public Button button;
 	public GameObject characterParent;
 	public Personality personality;
 
@@ -47,7 +48,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
 	public void OnPointerUp (PointerEventData eventData)
 	{
-		manager.PlaceCharacterImage ( eventData, gameObject, personality, name.text );
+		manager.PlaceCharacterImage ( eventData, gameObject, personality, "" );
 	}
 
 	#endregion

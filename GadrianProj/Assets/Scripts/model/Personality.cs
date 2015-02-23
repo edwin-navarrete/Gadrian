@@ -81,14 +81,14 @@ public class Personality : MonoBehaviour
 
 	#region Personality initialization
 
-	public void SetupPersonality (PersonalityModel model)
+	public void SetupPersonality (PersonalityModel model, int personalityIdx)
 	{
 		if ( model == null )
 		{
 			Debug.Log ( "model is null" );
 		}
 		this.model = model;
-		SetTraitList ( model.getPersonalityTraits ( UnityEngine.Random.Range ( 0, model.PersonalityCnt ) ) );
+		SetTraitList ( model.getPersonalityTraits ( personalityIdx ) );
 	}
 
 	public void CopyPersonality (Personality personalityToCopy)

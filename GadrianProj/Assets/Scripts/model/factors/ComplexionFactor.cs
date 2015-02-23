@@ -5,8 +5,8 @@ public class ComplexionFactor : PersonalityFactor
 {
 	public static ComplexionTrait SMALL;
 	public static ComplexionTrait FAT;
-	public static ComplexionTrait TALL;
-	public static ComplexionTrait AVERAGE;
+	public static ComplexionTrait FURRY;
+
 	[SerializeField]
 	private Sprite smallBody;
 	[SerializeField]
@@ -16,13 +16,9 @@ public class ComplexionFactor : PersonalityFactor
 	[SerializeField]
 	private Sprite fatComplexion;
 	[SerializeField]
-	private Sprite tallBody;
+	private Sprite furryBody;
 	[SerializeField]
-	private Sprite tallComplexion;
-	[SerializeField]
-	private Sprite averageBody;
-	[SerializeField]
-	private Sprite averageComplexion;
+	private Sprite furryComplexion;
 
 	private readonly static List<Trait> complexionTraits = new List<Trait>();
 
@@ -30,13 +26,11 @@ public class ComplexionFactor : PersonalityFactor
 	{
 		SMALL = new ComplexionTrait ( smallBody, smallComplexion );
 		FAT = new ComplexionTrait ( fatBody, fatComplexion );
-		TALL = new ComplexionTrait ( tallBody, tallComplexion );
-		AVERAGE = new ComplexionTrait ( averageBody, averageComplexion );
+		FURRY = new ComplexionTrait ( furryBody, furryComplexion );
 
 		complexionTraits.Add(SMALL);
 		complexionTraits.Add(FAT);
-		complexionTraits.Add(TALL);
-		complexionTraits.Add(AVERAGE);
+		complexionTraits.Add(FURRY);
 	}
 
 	public override List<Trait> getTraits()
@@ -52,7 +46,12 @@ public class ComplexionFactor : PersonalityFactor
 			throw new UnityException("Facing Invalid Etnia Traits");
 		}
 
-		//TODO implement method to face complexion trait
+		if(a ==  ComplexionFactor.FAT && b == ComplexionFactor.SMALL) 	
+			return Mood.ANGRY;
+
+		if(a ==  ComplexionFactor.FURRY && b == ComplexionFactor.SMALL) 	
+			return Mood.INDIFERENT;
+
 		return Mood.SCARED;
 	}
 }
