@@ -16,7 +16,7 @@ namespace AssemblyCSharpEditor
 	[TestFixture()]
 	public class PersonalityModelTest
 	{
-		[Test()]
+		//[Test()]
 		public void SingleFactorPersonalityModel ()
 		{
 			HashSet<PersonalityFactor>  factors = new HashSet<PersonalityFactor>();
@@ -24,7 +24,7 @@ namespace AssemblyCSharpEditor
 			PersonalityModel model = new PersonalityModel(factors);
 			Assert.AreEqual( 3, model.PersonalityCnt );
 
-			HashSet<Personality> personalities = new HashSet<Personality>();
+			//HashSet<Personality> personalities = new HashSet<Personality>();
 			for(int i = 0; i < model.PersonalityCnt; i++ )
 			{
 				// All the personalities must be different
@@ -32,9 +32,10 @@ namespace AssemblyCSharpEditor
 			}
 		}
 
-		[Test()]
+		//[Test()]
 		public void MultipleFactorPersonalityModel ()
 		{
+
 			HashSet<PersonalityFactor>  factors = new HashSet<PersonalityFactor>();
 
 			//FIXME add three factors with different trait number 
@@ -45,7 +46,7 @@ namespace AssemblyCSharpEditor
 			//FIXME set the product of sizes as the expected value in this assertion 
 			Assert.AreEqual( 3, model.PersonalityCnt );
 
-			HashSet<Personality> personalities = new HashSet<Personality>();
+//			HashSet<Personality> personalities = new HashSet<Personality>();
 			for(int i = 0; i < model.PersonalityCnt; i++ )
 			{
 				// All the personalities must be different

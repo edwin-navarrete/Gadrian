@@ -93,7 +93,16 @@ public class CharacterManager : MonoBehaviour
 		return grid.WorldToGrid ( position );
 	}
 
-	public List<Personality> GetNeighbourPersonalities (Vector3 curPos)
+	public void RefreshMoods ()
+	{
+		foreach ( Personality personality in characters )
+		{
+			List<Personality> neighb  = GetNeighbourPersonalities ( personality.transform.position );
+			personality.RefreshMood(neighb);
+		}
+	}
+
+	private List<Personality> GetNeighbourPersonalities (Vector3 curPos)
 	{
 		List<Personality> neighbourPersonalities = new List<Personality> ();
 		Vector3 position = grid.WorldToGrid ( curPos );
@@ -120,7 +129,6 @@ public class CharacterManager : MonoBehaviour
 			if ( isNeighbour )
 				neighbourPersonalities.Add ( personality );
 		}
-		Debug.LogWarning("Neigh for "+position+":"+neighbourPersonalities.Count);
 		return neighbourPersonalities;
 	}
 
@@ -173,7 +181,8 @@ public class CharacterManager : MonoBehaviour
 
 				newCharPersonality.CopyPersonality ( personality );
 				newCharPersonality.TraitsEffect ();
-				newCharPersonality.SetInitialMood ();
+				//newCharPersonality.SetInitialMood ();
+				RefreshMoods();
 
 				newCharacter.transform.SetParent ( CharacterPlaceholder );
 				sender.SetActive ( false );

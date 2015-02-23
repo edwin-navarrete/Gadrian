@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class CharacterItem : MonoBehaviour
 {
 	[Range ( 1, 12)]
-	public int characterAmount = 4;
+	public int characterAmount = 5;
 
 	[SerializeField]
 	private List<string> charactersName;
@@ -32,6 +32,13 @@ public class CharacterItem : MonoBehaviour
 	/// </summary>
 	private void PopulateScrollList ()
 	{
+		List<int> selec = new List<int>();
+		selec.Add(1);
+		selec.Add(2);
+		selec.Add(5);
+		selec.Add(6);
+		selec.Add(8);
+		 
 		//UnityEngine.Random.Range ( 0, model.PersonalityCnt  ) 
 		for ( int i = 0; i < characterAmount; i++ )
 		{
@@ -39,10 +46,12 @@ public class CharacterItem : MonoBehaviour
 
 			CharacterButton charButton = newChar.GetComponent<CharacterButton> ();
 			// charButton.name.text = charactersName[UnityEngine.Random.Range ( 0, charactersName.Count )];
-
+			// int persIdx = UnityEngine.Random.Range ( 0, PersonalityManager.PersonalityModel.PersonalityCnt  );
+			int persIdx = selec[i];
+			Debug.LogWarning("Choosing "+persIdx);
 			charButton.personality.SetupPersonality ( 
 			     PersonalityManager.PersonalityModel, 
-			     0//UnityEngine.Random.Range ( 0, PersonalityManager.PersonalityModel.PersonalityCnt  )  
+			                                         persIdx
 			     );
 			charButton.personality.TraitsEffect ();
 

@@ -13,7 +13,6 @@ public class Personality : MonoBehaviour
 	private Animator animator;
 
 	private List<Trait> traits = new List<Trait> ();
-	private List<Personality> neighbours;
 
 	private UnityEngine.Events.UnityAction Refresh;
 	public UnityEngine.Events.UnityAction SetInitialMood;
@@ -26,17 +25,11 @@ public class Personality : MonoBehaviour
 
 		SetInitialMood = () =>
 		{
-			RefreshNeighbourList ();
-			RefreshNeighbourMood ();
-			RefreshMood ();
 		};
 
 		Refresh = () =>
 		{
-			RefreshNeighbourMood ();
-			RefreshMood ();
-			RefreshNeighbourList ();
-			RefreshNeighbourMood ();
+//			RefreshMood ();
 		};
 	}
 
@@ -67,6 +60,7 @@ public class Personality : MonoBehaviour
 			Debug.LogError ( "The list of traits is empty" );
 		else
 			this.traits = traits;
+		Debug.LogWarning ( "The list of traits=" + traits);
 	}
 
 	public void TraitsEffect ()
@@ -101,32 +95,27 @@ public class Personality : MonoBehaviour
 
 	#region Mood refresh Personal/Neighbour
 
-	private void RefreshMood ()
+	public void RefreshMood ( List<Personality> neighbours )
 	{
-		Debug.Log("Started Sensing for:"+this.transform.position);
+		Debug.LogWarning("Started Sensing for:"+CharacterManager.Instance.AskGridPosition ( this.transform.position ));
 		Mood mood = new Mood ();
 		foreach ( Personality neighbour in neighbours )
 		{
-			mood += sense ( neighbour, CharacterManager.Instance.AskGridPosition ( neighbour.transform.position ) );
-			Debug.Log("Sensing:"+neighbour.transform.position+">"+mood.getFeel());
+			Vector3 n = CharacterManager.Instance.AskGridPosition ( neighbour.transform.position );
+			Mood sensed = sense ( neighbour );
+			Debug.Log("Sensing:"+n+">"+sensed.getFeel());
+			mood += sensed;
 		}
+		if(mood.getFeel() == Mood.Feeling.PERPLEX)
+			mood = Mood.HAPPY;
+
+		if(neighbours.Count == 0)
+			mood = Mood.SAD;
+
 		mooodHandler.SetNextMood ( mood );
 		UpdateMoodAnimation ( mood );
 	}
 
-	private void RefreshNeighbourList ()
-	{
-		neighbours = CharacterManager.Instance.GetNeighbourPersonalities ( transform.position );
-		Debug.Log("Refreshed N for:"+transform.position+":"+neighbours.Count);
-	}
-
-	private void RefreshNeighbourMood ()
-	{
-		foreach ( Personality neighbour in neighbours )
-		{
-			neighbour.RefreshMood ();
-		}
-	}
 
 	#endregion
 
@@ -167,16 +156,9 @@ public class Personality : MonoBehaviour
 	// based on affinity with the other, calculates the corresponding emotional state based on distance 
 	//FIXME this method is not currently using the distance parameter, and requires to used only with 
 	// immediate neighbours
-	private Mood sense(Personality other, Vector3 otherPosition)
+	private Mood sense(Personality other)
 	{
-		Vector3 gridPosition = CharacterManager.Instance.AskGridPosition ( transform.position );
-		if ( Vector3.Distance ( otherPosition, gridPosition ) < 1.1f 
-			&& Vector3.Distance ( otherPosition, gridPosition ) > 0.1f )
-		{
-			return Mood.INDIFERENT; //	It's being compared to non-neighbour or himself
-		}
-
-		Mood finalMood = Mood.INDIFERENT; 
+		Mood finalMood = new Mood(); 
 		if(other.traits.Count != this.traits.Count){
 			Debug.LogError("Incompatible personalities!");
 			mooodHandler.SetNextMood ( finalMood );
@@ -188,6 +170,7 @@ public class Personality : MonoBehaviour
 		while(modelLoop.MoveNext() & loop1.MoveNext() && loop2.MoveNext()){
 			Trait mine = loop1.Current;
 			Trait his = loop2.Current;
+			Debug.Log("Trais:"+mine + ":"+his);
 			finalMood += modelLoop.Current.confront(mine, his);
 		}
 

@@ -28,10 +28,10 @@ public class PersonalityModel  {
 
 	public PersonalityModel(HashSet<PersonalityFactor> factors){
 		this.factors = factors;
-		this.personalityCnt = 0;
+		this.personalityCnt = 1;
 		foreach ( PersonalityFactor factor in factors )
 		{
-			this.personalityCnt += factor.getTraits().Count;	
+			this.personalityCnt *= factor.getTraits().Count;	
 		}
 	}
 
@@ -48,6 +48,7 @@ public class PersonalityModel  {
 		{
 			List<Trait> curFactorTraits = factor.getTraits();
 			int curCnt = curFactorTraits.Count;
+			Debug.Log(string.Format("i:{0} prevMult:{1} curCnt:{2} = {3}", i, prevMult, curCnt, curFactorTraits[((i/prevMult) % curCnt)]));
 			traitCombination.Add(curFactorTraits[(i/prevMult) % curCnt]);
 			prevMult *= curCnt;
 		}

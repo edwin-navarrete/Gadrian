@@ -48,6 +48,10 @@ public class EtniaFactor : PersonalityFactor
 			return Mood.SCARED;
 		}
 
+		if( GOLD.Equals(etnA) && YELLOW.Equals(etnB)){
+			return Mood.INDIFERENT;
+		}
+
 		// LEMON hates GOLD
 		// YELLOW hates LEMON
 		// YELLOW hates GOLD

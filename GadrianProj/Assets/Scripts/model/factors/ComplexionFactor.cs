@@ -31,6 +31,7 @@ public class ComplexionFactor : PersonalityFactor
 		complexionTraits.Add(SMALL);
 		complexionTraits.Add(FAT);
 		complexionTraits.Add(FURRY);
+
 	}
 
 	public override List<Trait> getTraits()

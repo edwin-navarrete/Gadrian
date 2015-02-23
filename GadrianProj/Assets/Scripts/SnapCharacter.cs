@@ -22,7 +22,8 @@ public class SnapCharacter : MonoBehaviour
 	{
 		if ( Movement.GetInvocationList ().Length != 0 )
 		{
-			Movement ();
+			CharacterManager.Instance.RefreshMoods();
+			// Movement ();
 		}
 	}
 

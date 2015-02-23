@@ -45,6 +45,8 @@ public class PersonalityManager : MonoBehaviour
 			personalityFactors.Add ( etniaFactor );
 		if ( complexion )
 			personalityFactors.Add ( complexionFactor );
+		if(personalityFactors.Count == 0)
+			Debug.LogError("At least a factor is required!");
 	}
 
 	private void CreatePersonalityModel ()
