@@ -62,7 +62,7 @@ public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
 		Image characterFace = faceTrans.GetComponent<Image> ();
 		if ( characterFace != null )
 		{
-			RectTransform uiFaceTrans = (RectTransform) faceTrans;
+			RectTransform uiFaceTrans = faceTrans as RectTransform;
 			uiFaceTrans.localPosition = facePosition.localPosition;
 		}
 	}

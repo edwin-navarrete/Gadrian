@@ -14,16 +14,21 @@ public class SnapCharacter : MonoBehaviour
 	private Vector3 oldPosition;
 	private int intersecting;
 
-	private new SpriteRenderer renderer;
+	public event UnityEngine.Events.UnityAction<bool> Intersecting;
 
-	public event UnityEngine.Events.UnityAction Movement;
+	private void OnIntersecting (bool intersecting)
+	{
+		if ( Intersecting != null )
+		{
+			Intersecting ( intersecting );
+		}
+	}
 
 	private void OnMovement ()
 	{
-		if ( Movement.GetInvocationList ().Length != 0 )
+		if ( Intersecting.GetInvocationList ().Length != 0 )
 		{
 			CharacterManager.Instance.RefreshMoods();
-			// Movement ();
 		}
 	}
 
@@ -37,7 +42,7 @@ public class SnapCharacter : MonoBehaviour
 		}
 
 		grid.AlignTransform ( this.transform );
-		renderer = GetComponent<SpriteRenderer> ();
+		//backgroundRenderer = GetComponentInChildren<SpriteRenderer> ();
 		lastValidPosition = this.transform.position;
 		oldPosition = this.transform.position;
 
@@ -57,7 +62,6 @@ public class SnapCharacter : MonoBehaviour
 	private void OnMouseDown ()
 	{
 		beingDragged = true;
-		renderer.sortingOrder = 1;
 	}
 
 	private void OnMouseUp ()
@@ -69,10 +73,9 @@ public class SnapCharacter : MonoBehaviour
 			transform.position = lastValidPosition;
 			oldPosition = transform.position;
 		}
-		renderer.sortingOrder = 0;
 		intersecting = 0;
 		grid.AlignTransform ( this.transform );
-		TintRed ( intersecting );
+		OnIntersecting ( false );
 		OnMovement ();
 	}
 
@@ -133,19 +136,14 @@ public class SnapCharacter : MonoBehaviour
 			return;
 		// if true we entered another object, increment the value; if false we exited another object, decrease the value
 		this.intersecting = intersecting ? this.intersecting + 1 : this.intersecting - 1;
-		//update the colour
-		TintRed ( this.intersecting );
-	}
 
-	private void TintRed (int intersections)
-	{
-		if ( intersections > 0 )
+		if ( this.intersecting > 0 )
 		{
-			renderer.material.color = Color.red;
+			OnIntersecting ( true );
 		}
 		else
 		{
-			renderer.material.color = Color.white;
+			OnIntersecting ( false );
 		}
 	}
 }

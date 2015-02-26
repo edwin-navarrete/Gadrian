@@ -7,6 +7,13 @@ using System.Collections.Generic;
 
 public class Personality : MonoBehaviour
 {
+	[SerializeField]
+	private GameObject body;
+	[SerializeField]
+	private GameObject complexion;
+	[SerializeField]
+	private GameObject face;
+
 	private PersonalityModel model;
 	private MoodHandler mooodHandler;
 	private SnapCharacter snapCharacter;
@@ -14,35 +21,103 @@ public class Personality : MonoBehaviour
 
 	private List<Trait> traits = new List<Trait> ();
 
-	private UnityEngine.Events.UnityAction Refresh;
-	public UnityEngine.Events.UnityAction SetInitialMood;
+	#region Events-Emotions
+
+	public UnityEngine.Events.UnityAction Happy;
+	public UnityEngine.Events.UnityAction Sad;
+	public UnityEngine.Events.UnityAction Scared;
+	public UnityEngine.Events.UnityAction Angry;
+	public UnityEngine.Events.UnityAction Indifferent;
+
+	private void OnHappy ()
+	{
+		if ( Happy != null )
+		{
+			Happy ();
+		}
+	}
+
+	private void OnSad ()
+	{
+		if ( Sad != null )
+		{
+			Sad ();
+		}
+	}
+
+	private void OnScared ()
+	{
+		if ( Scared != null )
+		{
+			Scared ();
+		}
+	}
+
+	private void OnAngry ()
+	{
+		if ( Angry != null )
+		{
+			Angry ();
+		}
+	}
+
+	private void OnIndifferent ()
+	{
+		if ( Indifferent != null )
+		{
+			Indifferent ();
+		}
+	}
+
+	#endregion
 
 	public void Awake ()
 	{
 		mooodHandler = GetComponent<MoodHandler> ();
 		snapCharacter = GetComponent<SnapCharacter> ();
-		animator = GetComponentInChildren<Animator> ();
-
-		SetInitialMood = () =>
-		{
-		};
-
-		Refresh = () =>
-		{
-//			RefreshMood ();
-		};
+		if ( face != null )
+			animator = face.GetComponent<Animator> ();
 	}
 
-	public void OnEnable ()
+	public void Start ()
 	{
-		if (snapCharacter != null )
-			snapCharacter.Movement += Refresh;
+		SubscribeEmotions ( face != null );
 	}
 
-	public void OnDisable ()
+	private void SubscribeEmotions (bool haveFace)
 	{
-		if ( snapCharacter != null )
-			snapCharacter.Movement -= Refresh;
+		if ( haveFace )
+		{
+			Happy += () =>
+			{
+				animator.SetTrigger ( "newMood" );
+				animator.SetInteger ( "mood", 1 );
+			};
+
+			Sad += () =>
+			{
+				animator.SetTrigger ( "newMood" );
+				animator.SetInteger ( "mood", 0 );
+			};
+
+			Angry += () =>
+			{
+				animator.SetTrigger ( "newMood" );
+				animator.SetInteger ( "mood", 2 );
+			};
+
+			Scared += () =>
+			{
+				animator.SetTrigger ( "newMood" );
+				animator.SetInteger ( "mood", 3 );
+			};
+
+			Indifferent += () =>
+			{
+				animator.SetTrigger ( "newMood" );
+				animator.SetInteger ( "mood", -1 );
+			}; 
+		}
 	}
 
 	// Is it possible to add a trait to the personality
@@ -127,28 +202,23 @@ public class Personality : MonoBehaviour
 				break;
 
 			case Mood.Feeling.ANGRY:
-				animator.SetTrigger ( "newMood" );
-				animator.SetInteger ( "mood", 2 );
+				OnAngry ();
 				break;
 
 			case Mood.Feeling.HAPPY:
-				animator.SetTrigger ( "newMood" );
-				animator.SetInteger ( "mood", 1 );
+				OnHappy ();
 				break;
 
 			case Mood.Feeling.INDIFERENT:
-				animator.SetTrigger ( "newMood" );
-				animator.SetInteger ( "mood", -1 );
+				OnIndifferent ();
 				break;
 
 			case Mood.Feeling.SAD:
-				animator.SetTrigger ( "newMood" );
-				animator.SetInteger ( "mood", 0 );
+				OnSad ();
 				break;
 
 			case Mood.Feeling.SCARED:
-				animator.SetTrigger ( "newMood" );
-				animator.SetInteger ( "mood", 3 );
+				OnScared ();
 				break;
 		}
 	}
