@@ -17,7 +17,7 @@ public class Personality : MonoBehaviour
 	private PersonalityModel model;
 	private MoodHandler mooodHandler;
 	private SnapCharacter snapCharacter;
-	private Animator animator;
+	private Animator animator;	
 
 	private List<Trait> traits = new List<Trait> ();
 

@@ -85,6 +85,7 @@ public class SnapCharacter : MonoBehaviour
 		float distance = Vector3.Distance ( newPosition, grid.WorldToGrid ( oldPosition ) );
 		return distance > 0.5f;
 	}
+
 	private void FixedUpdate ()
 	{
 		if ( beingDragged )
@@ -99,7 +100,7 @@ public class SnapCharacter : MonoBehaviour
 
 	private void DragObject ()
 	{
-		if ( !grid || !gridCollider )
+		if ( !grid )
 			return;
 
 		Vector3 cursorWorldPoint = ShootRay ();
@@ -109,9 +110,12 @@ public class SnapCharacter : MonoBehaviour
 
 	private Vector3 ShootRay ()
 	{
-		RaycastHit hit;
-		gridCollider.Raycast ( Camera.main.ScreenPointToRay ( Input.mousePosition ), out hit, Mathf.Infinity );
-		return hit.collider != null ? hit.point : transform.position;
+		LayerMask gridLayer = 1 << LayerMask.NameToLayer ( "Grid" );
+		Ray ray = Camera.main.ScreenPointToRay ( Input.mousePosition );
+		Vector2 orgin = new Vector2 ( ray.origin.x, ray.origin.y );
+
+		RaycastHit2D hit = Physics2D.Raycast ( orgin, Vector2.zero, float.PositiveInfinity, gridLayer );
+		return hit.collider != null ? (Vector3) hit.point : transform.position;
 	}
 
 	private void OnTriggerEnter2D (Collider2D other)

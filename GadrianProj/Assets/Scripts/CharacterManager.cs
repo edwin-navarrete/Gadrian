@@ -113,16 +113,16 @@ public class CharacterManager : MonoBehaviour
 				continue;
 
 			bool isNeighbour = false;
-			if(Mathf.Abs(reference.y - position.y) < 1.1f && Mathf.Abs(reference.x - position.x) < 0.1f){//straight above or below
+			if(Mathf.Abs(reference.x - position.x) < 1.1f && Mathf.Abs(reference.y - position.y) < 0.1f){//straight above or below
 				isNeighbour = true;
 			} else{
-				if(Mathf.RoundToInt(reference.x) % 2 == 0){//two cases, depending on whether the x-coordinate is even or odd
+				if(Mathf.RoundToInt(reference.y) % 2 == 0){//two cases, depending on whether the x-coordinate is even or odd
 					//neighbours are either strictly left or right of the switch or right/left and one unit below
-					if(Mathf.Abs(reference.x - position.x) < 1.1f && position.y - reference.y < 0.1f && position.y - reference.y > -1.1f)
+					if(Mathf.Abs(reference.y - position.y) < 1.1f && position.x - reference.x < 0.1f && position.x - reference.x > -1.1f)
 						isNeighbour = true;
 				} else{//x-coordinate odd
 					//neighbours are either strictly left or right of the switch or right/left and one unit above
-					if(Mathf.Abs(reference.x - position.x) < 1.1f && reference.y - position.y < 0.1f && position.y - reference.y < 1.1f)
+					if(Mathf.Abs(reference.y - position.y) < 1.1f && reference.x - position.x < 0.1f && position.x - reference.x < 1.1f)
 						isNeighbour = true;
 				}
 			}
@@ -165,14 +165,17 @@ public class CharacterManager : MonoBehaviour
 	{
 		OnFinishingDrag ();
 
-		RaycastHit hit;
+		LayerMask gridLayer = 1 << LayerMask.NameToLayer ( "Grid" );
+		Ray ray = Camera.main.ScreenPointToRay ( Input.mousePosition);
+		Vector2 orgin = new Vector2 ( ray.origin.x, ray.origin.y ); 
 
-		if ( Physics.Raycast ( Camera.main.ScreenPointToRay ( Input.mousePosition), out hit, Mathf.Infinity ) )
+		RaycastHit2D hit = Physics2D.Raycast ( orgin, Vector2.zero, float.PositiveInfinity, gridLayer ); 
+
+		if ( hit.collider != null )
 		{
-			if ( hit.transform.tag == "Grid" )
+			if ( hit.transform.tag == "Cell" )
 			{
 				GameObject newCharacter = Instantiate ( characterPrefab ) as GameObject;
-				// newCharacter.name = charName;
 				newCharacter.transform.position = hit.point;
 				grid.AlignTransform ( newCharacter.transform );
 
@@ -181,7 +184,6 @@ public class CharacterManager : MonoBehaviour
 
 				newCharPersonality.CopyPersonality ( personality );
 				newCharPersonality.TraitsEffect ();
-				//newCharPersonality.SetInitialMood ();
 				RefreshMoods();
 
 				newCharacter.transform.SetParent ( CharacterPlaceholder );
