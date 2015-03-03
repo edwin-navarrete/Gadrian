@@ -48,7 +48,7 @@ public class PersonalityModel  {
 		{
 			List<Trait> curFactorTraits = factor.getTraits();
 			int curCnt = curFactorTraits.Count;
-			Debug.Log(string.Format("i:{0} prevMult:{1} curCnt:{2} = {3}", i, prevMult, curCnt, curFactorTraits[((i/prevMult) % curCnt)]));
+			//Debug.Log(string.Format("i:{0} prevMult:{1} curCnt:{2} = {3}", i, prevMult, curCnt, curFactorTraits[((i/prevMult) % curCnt)]));
 			traitCombination.Add(curFactorTraits[(i/prevMult) % curCnt]);
 			prevMult *= curCnt;
 		}

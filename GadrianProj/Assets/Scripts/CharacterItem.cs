@@ -48,7 +48,7 @@ public class CharacterItem : MonoBehaviour
 			// charButton.name.text = charactersName[UnityEngine.Random.Range ( 0, charactersName.Count )];
 			// int persIdx = UnityEngine.Random.Range ( 0, PersonalityManager.PersonalityModel.PersonalityCnt  );
 			int persIdx = selec[i];
-			Debug.LogWarning("Choosing "+persIdx);
+			//Debug.LogWarning("Choosing "+persIdx);
 			charButton.personality.SetupPersonality ( 
 			     PersonalityManager.PersonalityModel, 
 			                                         persIdx

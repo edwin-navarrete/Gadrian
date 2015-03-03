@@ -26,10 +26,7 @@ public class SnapCharacter : MonoBehaviour
 
 	private void OnMovement ()
 	{
-		if ( Intersecting.GetInvocationList ().Length != 0 )
-		{
-			CharacterManager.Instance.RefreshMoods();
-		}
+		CharacterManager.Instance.RefreshMoods();		
 	}
 
 	private void Awake ()

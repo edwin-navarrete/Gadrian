@@ -135,7 +135,7 @@ public class Personality : MonoBehaviour
 			Debug.LogError ( "The list of traits is empty" );
 		else
 			this.traits = traits;
-		Debug.LogWarning ( "The list of traits=" + traits);
+		//Debug.LogWarning ( "The list of traits=" + traits);
 	}
 
 	public void TraitsEffect ()
@@ -183,7 +183,7 @@ public class Personality : MonoBehaviour
 		}
 		if(mood.getFeel() == Mood.Feeling.PERPLEX)
 			mood = Mood.HAPPY;
-
+		
 		if(neighbours.Count == 0)
 			mood = Mood.SAD;
 

@@ -119,8 +119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _relativeSize: 1
   _size: {x: 5, y: 5, z: 5}
-  _renderFrom: {x: -2, y: -1, z: 0}
-  _renderTo: {x: 2, y: 1, z: 0}
+  _renderFrom: {x: -3, y: -3, z: 0}
+  _renderTo: {x: 3, y: 3, z: 0}
   _originOffset: {x: 0, y: 0, z: 0}
   axisColors:
     values:
@@ -514,7 +514,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 578826833}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ea6c8ebb8b40407cb97bb1c50f99fda, type: 3}
   m_Name: 
