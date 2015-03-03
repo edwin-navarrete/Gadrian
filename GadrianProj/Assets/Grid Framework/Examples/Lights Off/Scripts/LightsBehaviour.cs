@@ -68,7 +68,7 @@ public class LightsBehaviour : MonoBehaviour {
 	
 	/// <summary>Toggles the material of the ligh.</summary>
 	public void SwitchLights(){
-		renderer.material = isOn ? onMaterial : offMaterial;
+		GetComponent<Renderer>().material = isOn ? onMaterial : offMaterial;
 	}
 	
 	void OnMouseUpAsButton(){

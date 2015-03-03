@@ -122,7 +122,7 @@ public class SnappingUnits : MonoBehaviour {
 	}
 
 	void TintRed(int intersections){
-		renderer.material = intersections > 0 ? _redMaterial : _defaultMaterial;
+		GetComponent<Renderer>().material = intersections > 0 ? _redMaterial : _defaultMaterial;
 	}
 
 	// set up the rigidbody component for intersection recognition

@@ -769,7 +769,7 @@ using GridFramework.Vectors;
 					// if the grid is not rectangular we need to change dir every time
 					if (GetType() != typeof(GFRectGrid)) {
 						dir = Vector3.Cross(line[0] - line[1], camTransform.forward).normalized;
-						if (cam.isOrthoGraphic) {
+						if (cam.orthographic) {
 							dir *= (cam.orthographicSize * 2) / cam.pixelHeight;
 						} else {// (the 50 below is just there to smooth things out)
 							dir *= (cam.ScreenToWorldPoint(new Vector3(0, 0, 50)) - cam.ScreenToWorldPoint(new Vector3(20, 0, 50))).magnitude / 20;
