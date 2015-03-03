@@ -16,11 +16,31 @@ public class SnapCharacter : MonoBehaviour
 
 	public event UnityEngine.Events.UnityAction<bool> Intersecting;
 
+	public static event UnityEngine.Events.UnityAction MovingCharacter;
+	public static event UnityEngine.Events.UnityAction MovedCharacter;
+
+
 	private void OnIntersecting (bool intersecting)
 	{
 		if ( Intersecting != null )
 		{
 			Intersecting ( intersecting );
+		}
+	}
+
+	private void OnMovingCharacter ()
+	{
+		if ( MovingCharacter != null )
+		{
+			MovingCharacter ();
+		}
+	}
+
+	private void OnMovedCharacter ()
+	{
+		if ( MovedCharacter != null )
+		{
+			MovedCharacter ();
 		}
 	}
 
@@ -58,11 +78,13 @@ public class SnapCharacter : MonoBehaviour
 
 	private void OnMouseDown ()
 	{
+		OnMovingCharacter ();
 		beingDragged = true;
 	}
 
 	private void OnMouseUp ()
 	{
+		OnMovedCharacter ();
 		beingDragged = false;
 		
 		if ( CheckIfMovement () )

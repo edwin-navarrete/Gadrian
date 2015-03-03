@@ -10,7 +10,9 @@ GameObject:
   - 4: {fileID: 495324}
   - 212: {fileID: 21295324}
   - 60: {fileID: 6095324}
-  m_Layer: 8
+  - 114: {fileID: 11445522}
+  - 114: {fileID: 11418388}
+  m_Layer: 2
   m_Name: Cell
   m_TagString: Cell
   m_Icon: {fileID: 0}
@@ -65,6 +67,34 @@ PolygonCollider2D:
       - {x: .557142854, y: -.778571427}
       - {x: .614285707, y: -.678571403}
       - {x: .664285719, y: -.592857122}
+--- !u!114 &11418388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be846f54d56d81f4eb5472b1cc9c743c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  ignoreRaycastLayer:
+    serializedVersion: 2
+    m_Bits: 4
+--- !u!114 &11445522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4842f77612d6ab5468ede262c64da4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21295324
 SpriteRenderer:
   m_ObjectHideFlags: 1
