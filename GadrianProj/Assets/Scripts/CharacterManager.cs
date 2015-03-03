@@ -25,6 +25,8 @@ public class CharacterManager : MonoBehaviour
 
 	public event UnityEngine.Events.UnityAction<Sprite,Sprite> StartingDrag;
 	public event UnityEngine.Events.UnityAction FinishingDrag;
+	public event UnityEngine.Events.UnityAction FinishedDrag;
+
 
 	private void OnStartingDrag (Sprite body, Sprite complexion)
 	{
@@ -39,6 +41,14 @@ public class CharacterManager : MonoBehaviour
 		if ( FinishingDrag != null )
 		{
 			FinishingDrag ();
+		}
+	}
+
+	private void OnFinishedDrag ()
+	{
+		if ( FinishedDrag != null )
+		{
+			FinishedDrag ();
 		}
 	}
 
@@ -190,6 +200,8 @@ public class CharacterManager : MonoBehaviour
 				sender.SetActive ( false );
 			}
 		}
+
+		OnFinishedDrag ();
 	}
 
 	private Vector2 ClampToWindow (Vector3 mousePoistion)
