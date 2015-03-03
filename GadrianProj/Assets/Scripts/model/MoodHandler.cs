@@ -12,7 +12,7 @@ public class MoodHandler : MonoBehaviour {
 	private float speed = 0.1f;
 
 	// Sets the first emotional state (indiferent by default)
-	void Start () {
+	void Awake () {
 		current = Mood.INDIFERENT;
 		next = Mood.INDIFERENT;
 	}

@@ -77,10 +77,7 @@ public class Personality : MonoBehaviour
 		snapCharacter = GetComponent<SnapCharacter> ();
 		if ( face != null )
 			animator = face.GetComponent<Animator> ();
-	}
 
-	public void Start ()
-	{
 		SubscribeEmotions ( face != null );
 	}
 

@@ -15,10 +15,11 @@ public class TintController : MonoBehaviour
 		backgroundRenderer = GetComponent<SpriteRenderer> ();
 		animator = GetComponent<Animator> ();
 
+		SubscribeEmotions ();
 		snapCharacter.Intersecting += snapCharacter_Intersecting;
 	}
 
-	public void Start ()
+	public void SubscribeEmotions ()
 	{
 		personality.Happy += () =>
 		{
