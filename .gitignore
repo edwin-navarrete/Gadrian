@@ -54,3 +54,10 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+GadrianProj/Assets/UnityVS/Editor.meta
+GadrianProj/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll
+GadrianProj/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll.meta
+GadrianProj/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll
+GadrianProj/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll.meta
+GadrianProj/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll
+GadrianProj/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll.meta
