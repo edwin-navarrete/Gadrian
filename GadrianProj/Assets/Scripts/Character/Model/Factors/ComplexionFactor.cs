@@ -51,7 +51,7 @@ public class ComplexionFactor : PersonalityFactor
 		var etnA = a as ComplexionTrait;
 		var etnB = a as ComplexionTrait;
 		if(etnA == null || etnB == null){
-			throw new UnityException("Facing Invalid Etnia Traits");
+			throw new UnityException("Facing Invalid Complexion Traits");
 		}
 
 		if(a ==  ComplexionFactor.FAT && b == ComplexionFactor.SMALL) 	

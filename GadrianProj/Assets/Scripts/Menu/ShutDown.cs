@@ -9,7 +9,7 @@ public class ShutDown : MonoBehaviour
 
 	public void Start ()
 	{
-		child = transform.GetChild ( 0 ).gameObject;
+		child = transform.GetChild( 0 ).gameObject;
 	}
 
 	public void StartCheck ()
@@ -36,8 +36,10 @@ public class ShutDown : MonoBehaviour
 			}
 			if ( activeChilds == 0 )
 			{
+				Debug.Log ( "Childs no more" );
 				isOver = true;
 				gameObject.SetActive ( false );
+				CharacterManager.Instance.FinishCharacterPlacement ();
 			}
 			activeChilds = 0;
 			yield return null;

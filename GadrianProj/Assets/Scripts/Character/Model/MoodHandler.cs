@@ -31,4 +31,12 @@ public class MoodHandler : MonoBehaviour {
 	{
 		next = nextMood;
 	}
+
+	public Mood CurrentMood
+	{
+		get
+		{
+			return current;
+		}
+	}
 }

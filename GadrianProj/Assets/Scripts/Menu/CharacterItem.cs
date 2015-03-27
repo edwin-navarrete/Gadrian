@@ -20,9 +20,13 @@ public class CharacterItem : MonoBehaviour
 
 	private ShutDown shutDown;
 
+    public void Awake ()
+    {
+        shutDown = GetComponent<ShutDown>();
+    }
+
 	private void Start ()
 	{
-		shutDown = GetComponent<ShutDown> ();
 		PopulateScrollList ();
 	}
 
@@ -53,10 +57,12 @@ public class CharacterItem : MonoBehaviour
 			     PersonalityManager.PersonalityModel, 
 			                                         persIdx
 			     );
+			// Modify UICharacter in itemList
 			charButton.personality.TraitsEffect ();
 
 			newChar.transform.SetParent ( contentPanel );
 		}
+		// Start checking if there is no more childs active to shut down gameObject
 		shutDown.StartCheck ();
 	}
 }
