@@ -21,11 +21,14 @@ public class CharacterManager : MonoBehaviour
 
 	private List<Personality> characters;		// Reference to all characters placed in world
 
+	private bool characterPlacementFinished = false;	// ShutDown script will modify this variable to start checking for win
+
 	#region Events
 
 	public event UnityEngine.Events.UnityAction<Sprite,Sprite> StartingDrag;
 	public event UnityEngine.Events.UnityAction FinishingDrag;
 	public event UnityEngine.Events.UnityAction FinishedDrag;
+	public event UnityEngine.Events.UnityAction Winning;
 
 
 	private void OnStartingDrag (Sprite body, Sprite complexion)
@@ -49,6 +52,15 @@ public class CharacterManager : MonoBehaviour
 		if ( FinishedDrag != null )
 		{
 			FinishedDrag ();
+		}
+	}
+
+	private void OnWinning ()
+	{
+		if ( Winning != null )
+		{
+            characterPlacementFinished = false;
+			Winning ();
 		}
 	}
 
@@ -83,7 +95,7 @@ public class CharacterManager : MonoBehaviour
 
 	// This awake method could be remove if the character manager already have reference in Editor to canvasRectTransform,
 	// characterRectTransform and CharacterPlaceholder
-	public void Awake ()
+	public void Awake()
 	{
 		canvasRectTransform = GameObject.FindObjectOfType<Canvas> ().transform as RectTransform;
 		characterRectTransform = GameObject.FindObjectOfType<CharacterRepresentation> ().transform as RectTransform;
@@ -91,12 +103,17 @@ public class CharacterManager : MonoBehaviour
 		grid = GameObject.FindGameObjectWithTag ( "Grid" ).GetComponent<GFGrid> ();
 	}
 
-	public void Start ()
+	public void Start()
 	{
 		if ( CharacterManager.Instance != this )
 			Destroy ( this.gameObject );
 		characters = new List<Personality> ();
 	}
+
+    public void Update()
+    {
+        //CheckForWin();
+    }    
 
 	public Vector3 AskGridPosition (Vector3 position)
 	{
@@ -110,6 +127,32 @@ public class CharacterManager : MonoBehaviour
 			List<Personality> neighb  = GetNeighbourPersonalities ( personality.transform.position );
 			personality.RefreshMood(neighb);
 		}
+		
+		CheckForWin ();
+	}
+
+	private void CheckForWin ()
+	{
+		Debug.Log( "Checking for win " + characterPlacementFinished );
+		if (characterPlacementFinished)
+		{
+			foreach( Personality personality in characters )
+			{
+                Debug.Log( string.Format( "{0} mood is: {1}", personality.gameObject, personality.CurrentMood ) );
+				if( personality.CurrentMood != Mood.HAPPY )
+				{
+					return;
+				}
+			}
+            Debug.Log( "OnWinning callback" );
+			OnWinning();
+		}
+	}
+
+	public void FinishCharacterPlacement ()
+	{
+		characterPlacementFinished = true;
+        CheckForWin();
 	}
 
 	private List<Personality> GetNeighbourPersonalities (Vector3 curPos)

@@ -66,6 +66,17 @@ public class SnapCharacter : MonoBehaviour
 		SetupRigidbody ();
 	}
 
+	public void Start ()
+	{
+		CharacterManager.Instance.Winning += MakeNonBlocking;
+	}
+
+	private void MakeNonBlocking ()
+	{
+		Debug.Log ( "Character non-blocking layer" );
+		gameObject.layer = 2;
+	}
+
 	private void SetupRigidbody ()
 	{
 		Rigidbody2D rb = GetComponent<Rigidbody2D> ();

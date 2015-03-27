@@ -15,11 +15,19 @@ public class Personality : MonoBehaviour
 	private GameObject face;
 
 	private PersonalityModel model;
-	private MoodHandler mooodHandler;
+	private MoodHandler moodHandler;
 	private SnapCharacter snapCharacter;
 	private Animator animator;	
 
 	private List<Trait> traits = new List<Trait> ();
+
+	public Mood CurrentMood
+	{
+		get
+		{
+			return moodHandler.CurrentMood;
+		}
+	}
 
 	#region Events-Emotions
 
@@ -73,7 +81,7 @@ public class Personality : MonoBehaviour
 
 	public void Awake ()
 	{
-		mooodHandler = GetComponent<MoodHandler> ();
+		moodHandler = GetComponent<MoodHandler> ();
 		snapCharacter = GetComponent<SnapCharacter> ();
 		if ( face != null )
 			animator = face.GetComponent<Animator> ();
@@ -169,13 +177,13 @@ public class Personality : MonoBehaviour
 
 	public void RefreshMood ( List<Personality> neighbours )
 	{
-		Debug.LogWarning("Started Sensing for:"+CharacterManager.Instance.AskGridPosition ( this.transform.position ));
+		//Debug.LogWarning("Started Sensing for:"+CharacterManager.Instance.AskGridPosition ( this.transform.position ));
 		Mood mood = new Mood ();
 		foreach ( Personality neighbour in neighbours )
 		{
 			Vector3 n = CharacterManager.Instance.AskGridPosition ( neighbour.transform.position );
 			Mood sensed = sense ( neighbour );
-			Debug.Log("Sensing:"+n+">"+sensed.getFeel());
+			//Debug.Log("Sensing:"+n+">"+sensed.getFeel());
 			mood += sensed;
 		}
 		if(mood.getFeel() == Mood.Feeling.PERPLEX)
@@ -184,7 +192,7 @@ public class Personality : MonoBehaviour
 		if(neighbours.Count == 0)
 			mood = Mood.SAD;
 
-		mooodHandler.SetNextMood ( mood );
+		moodHandler.SetNextMood ( mood );
 		UpdateMoodAnimation ( mood );
 	}
 
@@ -228,7 +236,7 @@ public class Personality : MonoBehaviour
 		Mood finalMood = new Mood(); 
 		if(other.traits.Count != this.traits.Count){
 			Debug.LogError("Incompatible personalities!");
-			mooodHandler.SetNextMood ( finalMood );
+			moodHandler.SetNextMood ( finalMood );
 		}
 		List<Trait>.Enumerator loop1 = traits.GetEnumerator();
 		List<Trait>.Enumerator loop2 = other.traits.GetEnumerator();
@@ -237,7 +245,7 @@ public class Personality : MonoBehaviour
 		while(modelLoop.MoveNext() & loop1.MoveNext() && loop2.MoveNext()){
 			Trait mine = loop1.Current;
 			Trait his = loop2.Current;
-			Debug.Log("Trais:"+mine + ":"+his);
+			//Debug.Log("Trais:"+mine + ":"+his);
 			finalMood += modelLoop.Current.confront(mine, his);
 		}
 

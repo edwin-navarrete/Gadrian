@@ -16,8 +16,8 @@ public class LayerController : MonoBehaviour
 		SnapCharacter.MovingCharacter += SetLayerToGrid;
 		SnapCharacter.MovedCharacter += SetLayerToIgnore;
 
-		Debug.Log ( "gridLayerValue:" + gridLayer.value );
-		Debug.Log ( "ignoreLayerValue:" + ignoreRaycastLayer.value );
+		//Debug.Log ( "gridLayerValue:" + gridLayer.value );
+		//Debug.Log ( "ignoreLayerValue:" + ignoreRaycastLayer.value );
 		//FIXME layers values are incorrect from editor, find a way to fix it
 	}
 

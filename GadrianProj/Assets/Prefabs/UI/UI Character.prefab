@@ -114,6 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f3224a26e2da504d849aad70f6627ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 196078}
+  complexion: {fileID: 196080}
+  face: {fileID: 191038}
 --- !u!114 &11491038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,7 +214,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: 160
   m_MinHeight: 120
-  m_PreferredWidth: 60
+  m_PreferredWidth: 220
   m_PreferredHeight: 280
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
@@ -223,13 +226,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 196074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee88b371aec1d946a017cdc7f278d3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bb4a788efaa65246b34fbc67fb501b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 11496080}
   complexion: {fileID: 11496082}
   face: {fileID: 11491038}
-  characterParent: {fileID: 196082}
   personality: {fileID: 11417712}
 --- !u!114 &11496080
 MonoBehaviour:
@@ -421,4 +423,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196074}
   m_IsPrefabParent: 1
-  m_IsExploded: 1

@@ -10,7 +10,8 @@ GameObject:
   - 4: {fileID: 463930}
   - 114: {fileID: 11463926}
   - 114: {fileID: 11463928}
-  - 114: {fileID: 11463930}
+  - 114: {fileID: 11461140}
+  - 114: {fileID: 11410702}
   m_Layer: 0
   m_Name: PersonalityFactor Factory
   m_TagString: Untagged
@@ -30,6 +31,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11410702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc19db2390975249999b823dd4504fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  etnia: 1
+  complexion: 1
+--- !u!114 &11461140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9aaf3c6a1564aa49aa699c54cb2b582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hornSprite: {fileID: 0}
+  hairSprite: {fileID: 0}
+  headAccessoryTransform: {fileID: 0}
 --- !u!114 &11463926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -61,22 +89,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2e4198b8d01a0408b7a066fcd4b129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yellow: {r: .944827557, g: 1, b: 0, a: 0}
-  lemon: {r: .717053473, g: .963235319, b: .32580021, a: 0}
-  gold: {r: .597015619, g: .639705896, b: .197556227, a: 0}
---- !u!114 &11463930
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 163930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b44adb8d1f34946a86f427e2de8fa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  etnia: 1
-  complexion: 1
+  yellow: {r: .945098042, g: 1, b: .0509803928, a: 1}
+  lemon: {r: .689097345, g: .933823526, b: 0, a: 1}
+  gold: {r: 1, g: .834482789, b: 0, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -88,4 +103,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163930}
   m_IsPrefabParent: 1
-  m_IsExploded: 1
