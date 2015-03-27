@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class LevelGenerator : MonoBehaviour
 {
 	[SerializeField]
-	private GameObject cellPrefab;
+	private List<GameObject> tilesPrefab;
 
 	[SerializeField]
 	private GFGrid grid;
@@ -33,11 +33,18 @@ public class LevelGenerator : MonoBehaviour
 
 	private void Generatelevel ()
 	{
+        int index = 0;
 		foreach ( Vector2 position in cellsPosition )
 		{
-			GameObject newCell = Instantiate ( cellPrefab ) as GameObject;
+			GameObject newCell = Instantiate ( tilesPrefab[index] ) as GameObject;
 			newCell.transform.position = grid.GridToWorld ( position );
 			newCell.transform.SetParent ( this.transform );
+            index++;
+
+            if ( index >= tilesPrefab.Count )
+            {
+                index = 0;
+            }
 		}
 	}
 }
