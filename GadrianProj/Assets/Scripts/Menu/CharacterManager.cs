@@ -20,9 +20,7 @@ public class CharacterManager : MonoBehaviour
 	private Transform CharacterPlaceholder;		// Parent in hierarchy to make all characters children of
 
 	private List<Personality> characters;		// Reference to all characters placed in world
-
-	private bool characterPlacementFinished = false;	// ShutDown script will modify this variable to start checking for win
-
+    
 	#region Events
 
 	public event UnityEngine.Events.UnityAction<Sprite,Sprite> StartingDrag;
@@ -59,7 +57,6 @@ public class CharacterManager : MonoBehaviour
 	{
 		if ( Winning != null )
 		{
-            characterPlacementFinished = false;
 			Winning ();
 		}
 	}
@@ -127,32 +124,41 @@ public class CharacterManager : MonoBehaviour
 			List<Personality> neighb  = GetNeighbourPersonalities ( personality.transform.position );
 			personality.RefreshMood(neighb);
 		}
-		
-		CheckForWin ();
 	}
 
-	private void CheckForWin ()
+	private System.Collections.IEnumerator CheckForWin ()
 	{
-		Debug.Log( "Checking for win " + characterPlacementFinished );
-		if (characterPlacementFinished)
-		{
-			foreach( Personality personality in characters )
-			{
-                Debug.Log( string.Format( "{0} mood is: {1}", personality.gameObject, personality.CurrentMood ) );
-				if( personality.CurrentMood != Mood.HAPPY )
-				{
-					return;
-				}
-			}
-            Debug.Log( "OnWinning callback" );
-			OnWinning();
-		}
+        bool characterPlacementFinished = true;
+        while ( characterPlacementFinished )
+        {
+            int happyAmount = 0;
+            Debug.Log( "Checking for win " + characterPlacementFinished );
+            if ( characterPlacementFinished )
+            {
+                foreach ( Personality personality in characters )
+                {
+                    Debug.Log( string.Format( "{0} mood is: {1}", personality.gameObject, personality.CurrentMood ) );
+                    if ( personality.CurrentMood.getFeel() == Mood.HAPPY.getFeel() )
+                    {
+                        happyAmount++;
+                    }
+                }
+                if ( happyAmount == characters.Count )
+                {
+                    Debug.Log( "OnWinning callback" );
+                    OnWinning();
+                    characterPlacementFinished = false;
+                    yield break;
+                }
+                happyAmount = 0;
+            }
+            yield return null; 
+        }
 	}
 
 	public void FinishCharacterPlacement ()
 	{
-		characterPlacementFinished = true;
-        CheckForWin();
+        StartCoroutine( CheckForWin() );
 	}
 
 	private List<Personality> GetNeighbourPersonalities (Vector3 curPos)
