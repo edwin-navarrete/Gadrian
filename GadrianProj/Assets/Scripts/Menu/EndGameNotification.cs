@@ -5,7 +5,7 @@ public class EndGameNotification : MonoBehaviour
 {
     public void Start()
     {
-        CharacterManager.Instance.Winning += PopUp;
+        CharacterManager.Instance.Won += PopUp;
         gameObject.SetActive( false );
     }
 

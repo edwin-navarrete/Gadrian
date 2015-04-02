@@ -7,19 +7,23 @@ public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
 {
 	private Sprite complexion;
 	private Sprite body;
+	private Sprite uiComplexion;
+	private Sprite uiBody;
 	private RectTransform facePosition;
 
 	#region Constructors
 
-	public ComplexionTrait (Sprite body, Sprite complexion, RectTransform facePosition)
+	public ComplexionTrait (Sprite body, Sprite complexion, Sprite uiBody, Sprite uiComplexion, RectTransform facePosition)
 	{
 		this.body = body;
 		this.complexion = complexion;
+		this.uiBody = uiBody;
+		this.uiComplexion = uiComplexion;
 		this.facePosition = facePosition;
 	}
 
 	public ComplexionTrait (ComplexionTrait traitToCopy)
-		: this ( traitToCopy.body, traitToCopy.complexion, traitToCopy.facePosition ) { }
+		: this ( traitToCopy.body, traitToCopy.complexion, traitToCopy.uiBody, traitToCopy.uiComplexion, traitToCopy.facePosition ) { }
 
 	#endregion
 
@@ -46,14 +50,14 @@ public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
 			characterSpriteComplexion.sprite = complexion;
 		}
 		else
-			characterComplexion.sprite = complexion;
+			characterComplexion.sprite = uiComplexion;
 
 		Transform bodyTrans = character.transform.FindChild ( "Body" );
 		SpriteRenderer characterBody = bodyTrans.GetComponent<SpriteRenderer> ();
 		if ( characterBody == null )
 		{
 			Image characterSpriteBody = bodyTrans.GetComponent<Image> ();
-			characterSpriteBody.sprite = body;
+			characterSpriteBody.sprite = uiBody;
 		}
 		else
 			characterBody.sprite = body;

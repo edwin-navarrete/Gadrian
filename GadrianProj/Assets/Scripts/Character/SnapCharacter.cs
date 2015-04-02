@@ -70,7 +70,7 @@ public class SnapCharacter : MonoBehaviour
 
 	public void Start ()
 	{
-		CharacterManager.Instance.Won += MakeNonBlocking;
+		CharacterManager.Instance.Winning += MakeNonBlocking;
 	}
 
 	public void InitializeCharacter (Vector3 firstPosition, PlayerOverTile firstTile)
@@ -84,7 +84,7 @@ public class SnapCharacter : MonoBehaviour
 
 	private void MakeNonBlocking ()
 	{
-		Debug.Log ( "Character non-blocking layer" );
+		//Debug.Log ( "Character non-blocking layer" );
 		gameObject.layer = 2;
 	}
 
@@ -109,16 +109,21 @@ public class SnapCharacter : MonoBehaviour
 	{
 		beingDragged = false;
 		
-		if ( CheckIfMovement () )
-		{
-			CheckTileToSolidify();
+		if (CheckIfMovement ()) {
+			CheckTileToSolidify ();
 			OnMovedCharacter ();
 
 			transform.position = lastValidPosition;
+			grid.AlignTransform (this.transform);
+			Movement movement = new Movement( gameObject, Action.Movement, oldPosition, transform.position );
+			CharacterManager.Instance.RegisterMovement( movement );
 			oldPosition = transform.position;
 		}
+		else
+		{
+			transform.position = oldPosition;
+		}
 		intersecting = 0;
-		grid.AlignTransform ( this.transform );
 		OnIntersecting ( false );
 		OnMovement ();
 	}

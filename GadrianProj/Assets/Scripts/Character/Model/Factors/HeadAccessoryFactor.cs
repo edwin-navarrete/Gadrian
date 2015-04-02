@@ -14,15 +14,20 @@ public class HeadAccessoryFactor : PersonalityFactor
 	private Sprite hairSprite;
 
 	[SerializeField]
+	private Sprite uiHornSprite;
+	[SerializeField]
+	private Sprite uiHairSprite;
+
+	[SerializeField]
 	private Transform headAccessoryTransform;
 
 	private readonly static List<Trait> headAccessoryTraits = new List<Trait> ();
 
 	public void Awake ()
 	{
-		HORN = new HeadAccessoryTrait ( hornSprite );
-		HAIR = new HeadAccessoryTrait ( hairSprite );
-		BALD = new HeadAccessoryTrait ( headAccessory: null );
+		HORN = new HeadAccessoryTrait ( hornSprite, uiHornSprite );
+		HAIR = new HeadAccessoryTrait ( hairSprite, uiHairSprite );
+		BALD = new HeadAccessoryTrait ();
 
 		headAccessoryTraits.Add ( HORN );
 		headAccessoryTraits.Add ( HAIR );

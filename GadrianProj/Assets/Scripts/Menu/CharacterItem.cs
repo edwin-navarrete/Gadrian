@@ -20,6 +20,9 @@ public class CharacterItem : MonoBehaviour
 
 	private ShutDown shutDown;
 
+	private List<int> selec;
+	private int index;
+
     public void Awake ()
     {
         shutDown = GetComponent<ShutDown>();
@@ -27,6 +30,13 @@ public class CharacterItem : MonoBehaviour
 
 	private void Start ()
 	{
+		selec = new List<int>();
+		selec.Add(1);
+		selec.Add(2);
+		selec.Add(5);
+		selec.Add(6);
+		selec.Add(8);
+
 		PopulateScrollList ();
 	}
 
@@ -35,34 +45,34 @@ public class CharacterItem : MonoBehaviour
 	/// Also connect references using the CharacterButton help to the Character class.
 	/// </summary>
 	private void PopulateScrollList ()
-	{
-		List<int> selec = new List<int>();
-		selec.Add(1);
-		selec.Add(2);
-		selec.Add(5);
-		selec.Add(6);
-		selec.Add(8);
-		 
-		//UnityEngine.Random.Range ( 0, model.PersonalityCnt  ) 
+	{		 
 		for ( int i = 0; i < characterAmount; i++ )
 		{
-			GameObject newChar = Instantiate ( uiCharacterPrefab ) as GameObject;
-
-			CharacterButton charButton = newChar.GetComponent<CharacterButton> ();
-			// charButton.name.text = charactersName[UnityEngine.Random.Range ( 0, charactersName.Count )];
-			// int persIdx = UnityEngine.Random.Range ( 0, PersonalityManager.PersonalityModel.PersonalityCnt  );
-			int persIdx = selec[i];
-			//Debug.LogWarning("Choosing "+persIdx);
-			charButton.personality.SetupPersonality ( 
-			     PersonalityManager.PersonalityModel, 
-			                                         persIdx
-			     );
-			// Modify UICharacter in itemList
-			charButton.personality.TraitsEffect ();
-
-			newChar.transform.SetParent ( contentPanel );
+			CreateCharacterItem( null );
+			index++;
 		}
 		// Start checking if there is no more childs active to shut down gameObject
 		shutDown.StartCheck ();
+	}
+
+	public void CreateCharacterItem (Personality personality)
+	{
+		GameObject newChar = Instantiate ( uiCharacterPrefab ) as GameObject;
+		
+		CharacterButton charButton = newChar.GetComponent<CharacterButton> ();
+		//Debug.LogWarning("Choosing "+persIdx);
+		if (personality == null)
+		{
+			charButton.personality.SetupPersonality ( PersonalityManager.PersonalityModel, selec[index] );
+		}
+		else
+		{
+			charButton.personality.CopyPersonality ( personality );
+		}
+
+		// Modify UICharacter in itemList
+		charButton.personality.TraitsEffect ();
+		
+		newChar.transform.SetParent ( contentPanel );
 	}
 }

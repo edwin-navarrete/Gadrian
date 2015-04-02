@@ -20,6 +20,7 @@ public class CharacterManager : MonoBehaviour
 	private Transform CharacterPlaceholder;		// Parent in hierarchy to make all characters children of
 
 	private List<Personality> characters;		// Reference to all characters placed in world
+	private List<Movement> movements;
     
 	#region Events
 
@@ -114,6 +115,7 @@ public class CharacterManager : MonoBehaviour
 		if ( CharacterManager.Instance != this )
 			Destroy ( this.gameObject );
 		characters = new List<Personality> ();
+		movements = new List<Movement> ();
 	}
 
     public void Update()
@@ -126,6 +128,8 @@ public class CharacterManager : MonoBehaviour
 		return grid.WorldToGrid ( position );
 	}
 
+	#region Mood refresh
+
 	public void RefreshMoods ()
 	{
 		foreach ( Personality personality in characters )
@@ -134,43 +138,7 @@ public class CharacterManager : MonoBehaviour
 			personality.RefreshMood(neighb);
 		}
 	}
-
-	private System.Collections.IEnumerator CheckForWin ()
-	{
-        bool characterPlacementFinished = true;
-        while ( characterPlacementFinished )
-        {
-            int happyAmount = 0;
-            Debug.Log( "Checking for win " + characterPlacementFinished );
-            if ( characterPlacementFinished )
-            {
-                foreach ( Personality personality in characters )
-                {
-                    Debug.Log( string.Format( "{0} mood is: {1}", personality.gameObject, personality.CurrentMood ) );
-                    if ( personality.CurrentMood.getFeel() == Mood.HAPPY.getFeel() )
-                    {
-                        happyAmount++;
-                    }
-                }
-                if ( happyAmount == characters.Count )
-                {
-                    Debug.Log( "OnWinning callback" );
-					OnWinning();
-					Invoke( "OnWon", 2.0f );
-                    characterPlacementFinished = false;
-                    yield break;
-                }
-                happyAmount = 0;
-            }
-            yield return null; 
-        }
-	}
-
-	public void FinishCharacterPlacement ()
-	{
-        StartCoroutine( CheckForWin() );
-	}
-
+	
 	private List<Personality> GetNeighbourPersonalities (Vector3 curPos)
 	{
 		List<Personality> neighbourPersonalities = new List<Personality> ();
@@ -180,7 +148,7 @@ public class CharacterManager : MonoBehaviour
 			Vector3 reference =  grid.WorldToGrid ( personality.transform.position ) ;
 			if(reference == position)
 				continue;
-
+			
 			bool isNeighbour = false;
 			if(Mathf.Abs(reference.x - position.x) < 1.1f && Mathf.Abs(reference.y - position.y) < 0.1f){//straight above or below
 				isNeighbour = true;
@@ -200,6 +168,67 @@ public class CharacterManager : MonoBehaviour
 		}
 		return neighbourPersonalities;
 	}
+
+	#endregion
+
+	#region Win and end-game notifications
+
+	private System.Collections.IEnumerator CheckForWin ()
+	{
+        bool isOver = false;
+		while ( !isOver )
+		{
+            int happyAmount = 0;
+
+            foreach ( Personality personality in characters )
+            {
+                //Debug.Log( string.Format( "{0} mood is: {1}", personality.gameObject, personality.CurrentMood ) );
+                if ( personality.CurrentMood.getFeel() == Mood.HAPPY.getFeel() )
+                {
+                    happyAmount++;
+                }
+            }
+            if ( happyAmount == characters.Count )
+            {
+				OnWinning();
+				Invoke( "OnWon", 2.0f );
+				isOver = true;
+				yield break;
+            }
+            happyAmount = 0;
+
+            yield return null; 
+        }
+	}
+
+	public void FinishCharacterPlacement ()
+	{
+        StartCoroutine( CheckForWin() );
+	}
+
+	#endregion
+
+	#region Movement registration	
+	
+	public void RegisterMovement (Movement newMovement)
+	{
+		movements.Add (newMovement);
+	}
+
+	public void UndoLastMomevent ()
+	{
+		Movement movement = movements [movements.Count - 1];
+		if (movement.ActionPerformed == Action.Movement)
+		{
+			movement.Sender.transform.position = movement.OldPosition;
+		}
+		else if (movement.ActionPerformed == Action.Placement)
+		{
+			Destroy( movement.Sender );
+		}
+	}
+
+	#endregion
 
 	#region Character movement from scroll list to world
 

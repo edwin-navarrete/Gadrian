@@ -6,19 +6,21 @@ using System.Collections;
 public class HeadAccessoryTrait : Trait, IEquatable<HeadAccessoryTrait>
 {
 	private Sprite headAccessory;
+	private Sprite uiHeadAccessory;
 
 	#region Constructors
 
-	public HeadAccessoryTrait (Sprite headAccessory)
+	public HeadAccessoryTrait (Sprite headAccessory, Sprite uiHeadAccessory)
 	{
 		this.headAccessory = headAccessory;
+		this.uiHeadAccessory = uiHeadAccessory;
 	}
 
 	//public HeadAccessoryTrait (HeadAccessoryTrait traitToCopy)
 	//	: this ( traitToCopy.headAccessory )	{ }
 
 	public HeadAccessoryTrait ()
-		: this ( null )	{ }
+		: this ( null, null )	{ }
 
 	#endregion
 
@@ -42,7 +44,7 @@ public class HeadAccessoryTrait : Trait, IEquatable<HeadAccessoryTrait>
 		if ( characterComplexion == null )
 		{
 			Image characterSpriteComplexion = complexionTrans.GetComponent<Image> ();
-			characterSpriteComplexion.sprite = headAccessory;
+			characterSpriteComplexion.sprite = uiHeadAccessory;
 		}
 		else
 			characterComplexion.sprite = headAccessory;

@@ -27,13 +27,27 @@ public class ComplexionFactor : PersonalityFactor
 	[SerializeField]
 	private RectTransform furryFacePosition;
 
+	[SerializeField]
+	private Sprite uiSmallBody;
+	[SerializeField]
+	private Sprite uiSmallComplexion;
+	[SerializeField]
+	private Sprite uiFatBody;
+	[SerializeField]
+	private Sprite uiFatComplexion;
+	[SerializeField]
+	private Sprite uiFurryBody;
+	[SerializeField]
+	private Sprite uiFurryComplexion;
+
+
 	private readonly static List<Trait> complexionTraits = new List<Trait>();
 
 	private void Awake ()
 	{
-		SMALL = new ComplexionTrait ( smallBody, smallComplexion, smallFacePosition );
-		FAT = new ComplexionTrait ( fatBody, fatComplexion, fatFacePosition );
-		FURRY = new ComplexionTrait ( furryBody, furryComplexion, furryFacePosition );
+		SMALL = new ComplexionTrait ( smallBody, smallComplexion, uiSmallBody, uiSmallComplexion, smallFacePosition );
+		FAT = new ComplexionTrait ( fatBody, fatComplexion, uiFatBody, uiFatComplexion, fatFacePosition );
+		FURRY = new ComplexionTrait ( furryBody, furryComplexion, uiFurryBody, uiFurryComplexion, furryFacePosition );
 
 		complexionTraits.Add(SMALL);
 		complexionTraits.Add(FAT);

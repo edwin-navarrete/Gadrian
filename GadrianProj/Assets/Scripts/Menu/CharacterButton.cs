@@ -5,13 +5,9 @@ using UnityEngine.EventSystems;
 
 public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
-	// public new Text name;
-	// public Button button;
-
 	public Image body;
 	public Image complexion;
 	public Image face;
-	//public GameObject characterParent;
 	public Personality personality;     //Personallity is in child object
 
 	private CharacterManager manager;
@@ -20,12 +16,6 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 	{
 		manager = CharacterManager.Instance;
 	}
-
-	private void Start ()
-	{
-
-	}
-
 
 	#region Miembros de IPointerDownHandler
 
