@@ -2,17 +2,19 @@
 using UnityEngine.UI;
 using System.Collections;
 
-[RequireComponent ( typeof ( Collider2D ) )]
+[RequireComponent( typeof( Collider2D ) )]
 public class SnapCharacter : MonoBehaviour
 {
 	[SerializeField]
 	private GFHexGrid grid;
 	private Collider gridCollider;
-
+	
+	private int intersecting;
 	private bool beingDragged;
+
 	private Vector3 lastValidPosition;
 	private Vector3 oldPosition;
-	private int intersecting;
+	private PlayerOverTile lastTile;
 
 	public event UnityEngine.Events.UnityAction<bool> Intersecting;
 
@@ -68,7 +70,16 @@ public class SnapCharacter : MonoBehaviour
 
 	public void Start ()
 	{
-		CharacterManager.Instance.Winning += MakeNonBlocking;
+		CharacterManager.Instance.Won += MakeNonBlocking;
+	}
+
+	public void InitializeCharacter (Vector3 firstPosition, PlayerOverTile firstTile)
+	{
+		transform.position = firstPosition;
+		grid.AlignTransform (transform);
+
+		lastTile = firstTile;
+		lastTile.SolidifyTile ();
 	}
 
 	private void MakeNonBlocking ()
@@ -90,16 +101,19 @@ public class SnapCharacter : MonoBehaviour
 	private void OnMouseDown ()
 	{
 		OnMovingCharacter ();
+		lastTile.UnsolidifyTile();
 		beingDragged = true;
 	}
 
 	private void OnMouseUp ()
 	{
-		OnMovedCharacter ();
 		beingDragged = false;
 		
 		if ( CheckIfMovement () )
 		{
+			CheckTileToSolidify();
+			OnMovedCharacter ();
+
 			transform.position = lastValidPosition;
 			oldPosition = transform.position;
 		}
@@ -107,6 +121,23 @@ public class SnapCharacter : MonoBehaviour
 		grid.AlignTransform ( this.transform );
 		OnIntersecting ( false );
 		OnMovement ();
+	}
+
+	private void CheckTileToSolidify ()
+	{
+		LayerMask gridLayer = 1 << LayerMask.NameToLayer ( "Grid" );
+		Ray ray = Camera.main.ScreenPointToRay ( Input.mousePosition );
+		Vector2 orgin = new Vector2 ( ray.origin.x, ray.origin.y );
+		
+		RaycastHit2D hit = Physics2D.Raycast ( orgin, Vector2.zero, float.PositiveInfinity, gridLayer );
+		if (hit.collider != null) 
+		{
+			if (hit.collider.tag == "Cell")
+			{
+				hit.transform.SendMessage("SolidifyTile");
+				lastTile = hit.transform.GetComponent<PlayerOverTile>();
+			}
+		}
 	}
 
 	private bool CheckIfMovement ()
@@ -145,7 +176,15 @@ public class SnapCharacter : MonoBehaviour
 		Vector2 orgin = new Vector2 ( ray.origin.x, ray.origin.y );
 
 		RaycastHit2D hit = Physics2D.Raycast ( orgin, Vector2.zero, float.PositiveInfinity, gridLayer );
-		return hit.collider != null ? (Vector3) hit.point : transform.position;
+		if (hit.collider != null) 
+		{
+			if (hit.collider.tag == "Cell")
+			{
+				return (Vector3) hit.point;
+			}
+		}
+		return transform.position;
+
 	}
 
 	private void OnTriggerEnter2D (Collider2D other)

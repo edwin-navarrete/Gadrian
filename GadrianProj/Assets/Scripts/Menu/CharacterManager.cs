@@ -27,6 +27,7 @@ public class CharacterManager : MonoBehaviour
 	public event UnityEngine.Events.UnityAction FinishingDrag;
 	public event UnityEngine.Events.UnityAction FinishedDrag;
 	public event UnityEngine.Events.UnityAction Winning;
+	public event UnityEngine.Events.UnityAction Won;
 
 
 	private void OnStartingDrag (Sprite body, Sprite complexion)
@@ -58,6 +59,14 @@ public class CharacterManager : MonoBehaviour
 		if ( Winning != null )
 		{
 			Winning ();
+		}
+	}
+
+	private void OnWon ()
+	{
+		if ( Won != null )
+		{
+			Won();
 		}
 	}
 
@@ -146,7 +155,8 @@ public class CharacterManager : MonoBehaviour
                 if ( happyAmount == characters.Count )
                 {
                     Debug.Log( "OnWinning callback" );
-                    OnWinning();
+					OnWinning();
+					Invoke( "OnWon", 2.0f );
                     characterPlacementFinished = false;
                     yield break;
                 }
@@ -235,8 +245,6 @@ public class CharacterManager : MonoBehaviour
 			if ( hit.transform.tag == "Cell" )
 			{
 				GameObject newCharacter = Instantiate ( characterPrefab ) as GameObject;
-				newCharacter.transform.position = hit.point;
-				grid.AlignTransform ( newCharacter.transform );
 
 				Personality newCharPersonality = newCharacter.GetComponent<Personality> ();
 				characters.Add ( newCharPersonality );
@@ -247,6 +255,9 @@ public class CharacterManager : MonoBehaviour
 
 				newCharacter.transform.SetParent ( CharacterPlaceholder );
 				sender.SetActive ( false );
+
+				SnapCharacter snapCharacter = newCharacter.GetComponent<SnapCharacter>();
+				snapCharacter.InitializeCharacter( (Vector3) hit.point, hit.transform.GetComponent<PlayerOverTile>() );
 			}
 		}
 

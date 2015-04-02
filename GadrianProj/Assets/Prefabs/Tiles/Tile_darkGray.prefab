@@ -12,6 +12,7 @@ GameObject:
   - 60: {fileID: 6078060}
   - 114: {fileID: 11454234}
   - 114: {fileID: 11479960}
+  - 114: {fileID: 11464776}
   m_Layer: 2
   m_Name: Tile_darkGray
   m_TagString: Cell
@@ -80,6 +81,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4842f77612d6ab5468ede262c64da4b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11464776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2797831f15177d49b33bf1c07f263ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonSolidTile: {fileID: 21300004, guid: 64db0f29bab5ed542a4b41950354a603, type: 3}
+  solidTile: {fileID: 21300000, guid: 03429761fb11af346861e93410ab58ad, type: 3}
 --- !u!114 &11479960
 MonoBehaviour:
   m_ObjectHideFlags: 1
