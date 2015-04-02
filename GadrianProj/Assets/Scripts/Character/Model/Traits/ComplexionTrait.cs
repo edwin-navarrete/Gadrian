@@ -47,10 +47,10 @@ public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
 		if ( characterComplexion == null )
 		{
 			Image characterSpriteComplexion = complexionTrans.GetComponent<Image> ();
-			characterSpriteComplexion.sprite = complexion;
+			characterSpriteComplexion.sprite = uiComplexion;
 		}
 		else
-			characterComplexion.sprite = uiComplexion;
+			characterComplexion.sprite = complexion;
 
 		Transform bodyTrans = character.transform.FindChild ( "Body" );
 		SpriteRenderer characterBody = bodyTrans.GetComponent<SpriteRenderer> ();

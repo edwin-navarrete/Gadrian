@@ -246,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 83bf9bacd34648346b5423c3fd2f9a50, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e8e9043b0abd6b54791d4bb1a280b007, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: be7aa8c53da0e5245b67c71ad2489d51, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f78b1c3b15b578d439c49d80dc40a110, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -319,8 +319,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 3.4000001, y: 18.2000008}
-  m_SizeDelta: {x: 50, y: 21.2999992}
+  m_AnchoredPosition: {x: 0, y: 5.9000001}
+  m_SizeDelta: {x: 75, y: 28.1000004}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22496074
 RectTransform:
@@ -372,8 +372,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 65, y: 70}
+  m_AnchoredPosition: {x: 0, y: -2.93752384}
+  m_SizeDelta: {x: 120, y: 96.8249969}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22496080
 RectTransform:
@@ -389,8 +389,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 65, y: 70}
+  m_AnchoredPosition: {x: 0, y: -2.93749857}
+  m_SizeDelta: {x: 120, y: 96.8249969}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22496082
 RectTransform:
