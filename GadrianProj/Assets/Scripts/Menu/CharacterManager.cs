@@ -29,6 +29,7 @@ public class CharacterManager : MonoBehaviour
 	public event UnityEngine.Events.UnityAction FinishedDrag;
 	public event UnityEngine.Events.UnityAction Winning;
 	public event UnityEngine.Events.UnityAction Won;
+	public event UnityEngine.Events.UnityAction FinishingCharacterPlacement;
 
 
 	private void OnStartingDrag (Sprite body, Sprite complexion)
@@ -68,6 +69,14 @@ public class CharacterManager : MonoBehaviour
 		if ( Won != null )
 		{
 			Won();
+		}
+	}
+
+	private void OnFinishingCharacterPlacement ()
+	{
+		if (FinishingCharacterPlacement != null)
+		{
+			FinishingCharacterPlacement();
 		}
 	}
 
@@ -203,6 +212,7 @@ public class CharacterManager : MonoBehaviour
 
 	public void FinishCharacterPlacement ()
 	{
+		OnFinishingCharacterPlacement ();
         StartCoroutine( CheckForWin() );
 	}
 
