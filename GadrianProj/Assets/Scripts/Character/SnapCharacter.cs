@@ -109,15 +109,9 @@ public class SnapCharacter : MonoBehaviour
 	{
 		beingDragged = false;
 		
-		if (CheckIfMovement ()) {
-			CheckTileToSolidify ();
-			OnMovedCharacter ();
-
-			transform.position = lastValidPosition;
-			grid.AlignTransform (this.transform);
-			Movement movement = new Movement( gameObject, Action.Movement, oldPosition, transform.position );
-			CharacterManager.Instance.RegisterMovement( movement );
-			oldPosition = transform.position;
+		if (CheckIfMovement ())
+		{
+			DoMovement( lastValidPosition, true );
 		}
 		else
 		{
@@ -128,10 +122,25 @@ public class SnapCharacter : MonoBehaviour
 		OnMovement ();
 	}
 
+	public void DoMovement (Vector3 newPosition, bool registerMovement)
+	{
+		OnMovedCharacter ();
+		
+		transform.position = newPosition;
+		grid.AlignTransform ( this.transform );		
+		CheckTileToSolidify ();
+		if (registerMovement)
+		{
+			Movement movement = new Movement (gameObject, Action.Movement, oldPosition, transform.position);
+			CharacterManager.Instance.RegisterMovement (movement);
+		}
+		oldPosition = transform.position;
+	}
+
 	private void CheckTileToSolidify ()
 	{
 		LayerMask gridLayer = 1 << LayerMask.NameToLayer ( "Grid" );
-		Ray ray = Camera.main.ScreenPointToRay ( Input.mousePosition );
+		Ray ray = Camera.main.ScreenPointToRay ( transform.position );
 		Vector2 orgin = new Vector2 ( ray.origin.x, ray.origin.y );
 		
 		RaycastHit2D hit = Physics2D.Raycast ( orgin, Vector2.zero, float.PositiveInfinity, gridLayer );

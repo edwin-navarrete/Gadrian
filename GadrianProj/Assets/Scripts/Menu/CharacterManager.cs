@@ -227,14 +227,23 @@ public class CharacterManager : MonoBehaviour
 
 	public void UndoLastMomevent ()
 	{
-		Movement movement = movements [movements.Count - 1];
-		if (movement.ActionPerformed == Action.Movement)
+		int index = movements.Count - 1;
+		if (index <= 0)
 		{
-			movement.Sender.transform.position = movement.OldPosition;
-		}
-		else if (movement.ActionPerformed == Action.Placement)
+			Movement movement = movements [index];
+			if (movement.ActionPerformed == Action.Movement)
+			{
+				SnapCharacter snapCharacter = movement.Sender.GetComponent<SnapCharacter> ();
+				snapCharacter.DoMovement (movement.OldPosition, false);
+			} 
+			else if (movement.ActionPerformed == Action.Placement)
+			{
+				Destroy (movement.Sender);
+			}
+			movements.Remove (movement);
+		} else 
 		{
-			Destroy( movement.Sender );
+			Debug.Log("There is no more moves");
 		}
 	}
 
