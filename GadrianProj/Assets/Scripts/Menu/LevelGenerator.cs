@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class LevelGenerator : MonoBehaviour
+public class LevelGenerator : Singleton<LevelGenerator>
 {
 	[SerializeField]
 	private List<GameObject> tilesPrefab;
@@ -27,12 +27,11 @@ public class LevelGenerator : MonoBehaviour
 			new Vector2 ( -1, 1 ),
 			new Vector2 ( 0, 1 )
 		};
-
-		Generatelevel ();
 	}
 
-	private void Generatelevel ()
+	public void Generatelevel ()
 	{
+        //FIXME Make level generation recieve a int as parameter to load a specific file containing the position of the tiles
         int index = 0;
 		foreach ( Vector2 position in cellsPosition )
 		{
