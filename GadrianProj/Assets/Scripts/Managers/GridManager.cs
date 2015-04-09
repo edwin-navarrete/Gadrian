@@ -16,7 +16,7 @@ public class GridManager : Singleton<GridManager>
                 if ( grid == null )
                 {
                     GameObject newGO = new GameObject( typeof( GFGrid ).ToString() );
-                    grid = newGO.AddComponent<GFGrid>();
+                    grid = newGO.AddComponent<GFHexGrid>();
                 }
 
                 DontDestroyOnLoad( grid );

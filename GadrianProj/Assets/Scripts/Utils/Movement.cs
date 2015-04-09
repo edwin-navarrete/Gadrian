@@ -4,7 +4,7 @@ using System;
 public class Movement
 {
 	private readonly GameObject sender;
-	private readonly Action action;
+	private readonly MovementAction action;
 	private readonly Vector3 oldPosition;
 	private readonly Vector3 newPosition;
 
@@ -16,7 +16,7 @@ public class Movement
 		}
 	}
 
-	public Action ActionPerformed
+	public MovementAction ActionPerformed
 	{
 		get
 		{
@@ -40,7 +40,7 @@ public class Movement
 		}
 	}
 
-	public Movement (GameObject sender, Action action, Vector3 oldPosition, Vector3 newPosition)
+	public Movement (GameObject sender, MovementAction action, Vector3 oldPosition, Vector3 newPosition)
 	{
 		this.sender = sender;
 		this.action = action;
@@ -49,7 +49,7 @@ public class Movement
 	}
 }
 
-public enum Action
+public enum MovementAction
 {
 	Placement,
 	Movement

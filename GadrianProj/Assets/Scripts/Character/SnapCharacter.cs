@@ -7,7 +7,6 @@ public class SnapCharacter : MonoBehaviour
 {
     [SerializeField]
     private GFHexGrid grid;
-    private Collider gridCollider;
 
     private int intersecting;
     private bool beingDragged;
@@ -46,22 +45,10 @@ public class SnapCharacter : MonoBehaviour
         }
     }
 
-    private void OnMovement ()
-    {
-        CharacterManager.Instance.RefreshMoods();
-    }
-
     private void Awake ()
     {
-        grid = GameObject.FindGameObjectWithTag( "Grid" ).GetComponent<GFHexGrid>();
-
-        if ( grid != null )
-        {
-            gridCollider = grid.GetComponent<Collider>();
-        }
-
+        grid = GridManager.Instance.Grid as GFHexGrid;
         grid.AlignTransform( this.transform );
-        //backgroundRenderer = GetComponentInChildren<SpriteRenderer> ();
         lastValidPosition = this.transform.position;
         oldPosition = this.transform.position;
 
@@ -73,7 +60,7 @@ public class SnapCharacter : MonoBehaviour
         CharacterManager.Instance.Winning += MakeNonBlocking;
     }
 
-    public void InitializeCharacter (Vector3 firstPosition, PlayerOverTile firstTile)
+    public void InitializeCharacterPosition (Vector3 firstPosition, PlayerOverTile firstTile)
     {
         transform.position = firstPosition;
         grid.AlignTransform( transform );
@@ -112,6 +99,7 @@ public class SnapCharacter : MonoBehaviour
         if ( CheckIfMovement() )
         {
             DoMovement( lastValidPosition, true );
+            OnMovedCharacter();
         }
         else
         {
@@ -119,19 +107,16 @@ public class SnapCharacter : MonoBehaviour
         }
         intersecting = 0;
         OnIntersecting( false );
-        OnMovement();
     }
 
     public void DoMovement (Vector3 newPosition, bool registerMovement)
     {
-        OnMovedCharacter();
-
         transform.position = newPosition;
         grid.AlignTransform( this.transform );
         CheckTileToSolidify();
         if ( registerMovement )
         {
-            Movement movement = new Movement( gameObject, Action.Movement, oldPosition, transform.position );
+            Movement movement = new Movement( gameObject, MovementAction.Movement, oldPosition, transform.position );
             CharacterManager.Instance.RegisterMovement( movement );
         }
         oldPosition = transform.position;
@@ -139,8 +124,7 @@ public class SnapCharacter : MonoBehaviour
 
     private void CheckTileToSolidify ()
     {
-        //LayerMask gridLayer = 1 << LayerMask.NameToLayer( "Grid" );
-        LayerMask gridLayer = 1 << 8;
+        LayerMask gridLayer = 1 << LayerMask.NameToLayer( "Grid" );
         Ray ray = Camera.main.ScreenPointToRay( transform.position );
         Vector2 orgin = new Vector2( ray.origin.x, ray.origin.y );
 

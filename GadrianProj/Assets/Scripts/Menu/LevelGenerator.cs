@@ -13,24 +13,12 @@ public class LevelGenerator : Singleton<LevelGenerator>
 
 	public void Awake ()
 	{
-		grid = GameObject.FindGameObjectWithTag ( "Grid" ).GetComponent<GFGrid> ();
-	}
-
-	public void Start ()
-	{
-		cellsPosition = new List<Vector2> () {
-			new Vector2 ( 0, 0 ),
-			new Vector2 ( 1, 0 ),
-			new Vector2 ( -1, 0 ),
-			new Vector2 ( 0, -1 ),
-			new Vector2 ( -1, -1 ),
-			new Vector2 ( -1, 1 ),
-			new Vector2 ( 0, 1 )
-		};
+		grid = GridManager.Instance.Grid;
 	}
 
 	public void Generatelevel ()
 	{
+        SetInitialPositions();
         //FIXME Make level generation recieve a int as parameter to load a specific file containing the position of the tiles
         int index = 0;
 		foreach ( Vector2 position in cellsPosition )
@@ -46,4 +34,16 @@ public class LevelGenerator : Singleton<LevelGenerator>
             }
 		}
 	}
+    private void SetInitialPositions ()
+    {
+        cellsPosition = new List<Vector2>() {
+			new Vector2 ( 0, 0 ),
+			new Vector2 ( 1, 0 ),
+			new Vector2 ( -1, 0 ),
+			new Vector2 ( 0, -1 ),
+			new Vector2 ( -1, -1 ),
+			new Vector2 ( -1, 1 ),
+			new Vector2 ( 0, 1 )
+		};
+    }
 }

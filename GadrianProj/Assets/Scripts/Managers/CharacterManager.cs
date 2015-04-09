@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
-public class CharacterManager : MonoBehaviour
+public class CharacterManager : Singleton<CharacterManager>
 {
     [SerializeField]
     private RectTransform canvasRectTransform;
@@ -82,33 +82,6 @@ public class CharacterManager : MonoBehaviour
 
     #endregion
 
-    #region Singleton
-
-    private static CharacterManager instance;
-
-    public static CharacterManager Instance
-    {
-        get
-        {
-            if ( instance == null )
-            {
-                instance = GameObject.FindObjectOfType<CharacterManager>();
-
-                if ( instance == null )
-                {
-                    GameObject newGO = new GameObject( "Character manager" );
-                    instance = newGO.AddComponent<CharacterManager>();
-                }
-
-                DontDestroyOnLoad( instance );
-            }
-
-            return instance;
-        }
-    }
-
-    #endregion
-
     // This awake method could be remove if the character manager already have reference in Editor to canvasRectTransform,
     // characterRectTransform and CharacterPlaceholder
     public void Awake ()
@@ -116,7 +89,7 @@ public class CharacterManager : MonoBehaviour
         canvasRectTransform = GameObject.FindObjectOfType<Canvas>().transform as RectTransform;
         characterRectTransform = GameObject.FindObjectOfType<CharacterRepresentation>().transform as RectTransform;
         CharacterPlaceholder = GameObject.FindGameObjectWithTag( "Placeholder" ).transform;
-        grid = GameObject.FindGameObjectWithTag( "Grid" ).GetComponent<GFGrid>();
+        grid = GridManager.Instance.Grid;
     }
 
     public void Start ()
@@ -125,11 +98,13 @@ public class CharacterManager : MonoBehaviour
             Destroy( this.gameObject );
         characters = new List<Personality>();
         movements = new List<Movement>();
+
+        SubscribeEvents();
     }
 
-    public Vector3 AskGridPosition (Vector3 position)
+    private void SubscribeEvents ()
     {
-        return grid.WorldToGrid( position );
+        SnapCharacter.MovedCharacter += RefreshMoods;
     }
 
     #region Mood refresh
@@ -143,7 +118,7 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    private List<Personality> GetNeighbourPersonalities (Vector3 curPos)
+    private List<Personality> GetNeighbourPersonalities( Vector3 curPos )
     {
         List<Personality> neighbourPersonalities = new List<Personality>();
         Vector3 position = grid.WorldToGrid( curPos );
@@ -232,12 +207,12 @@ public class CharacterManager : MonoBehaviour
         if ( index >= 0 )
         {
             Movement movement = movements[index];
-            if ( movement.ActionPerformed == Action.Movement )
+            if ( movement.ActionPerformed == MovementAction.Movement )
             {
                 SnapCharacter snapCharacter = movement.Sender.GetComponent<SnapCharacter>();
                 snapCharacter.DoMovement( movement.OldPosition, false );
             }
-            else if ( movement.ActionPerformed == Action.Placement )
+            else if ( movement.ActionPerformed == MovementAction.Placement )
             {
                 Destroy( movement.Sender );
             }
@@ -307,7 +282,7 @@ public class CharacterManager : MonoBehaviour
                 sender.SetActive( false );
 
                 SnapCharacter snapCharacter = newCharacter.GetComponent<SnapCharacter>();
-                snapCharacter.InitializeCharacter( (Vector3) hit.point, hit.transform.GetComponent<PlayerOverTile>() );
+                snapCharacter.InitializeCharacterPosition( (Vector3) hit.point, hit.transform.GetComponent<PlayerOverTile>() );
             }
         }
 
