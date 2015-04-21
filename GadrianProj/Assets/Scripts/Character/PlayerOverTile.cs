@@ -8,7 +8,7 @@ public class PlayerOverTile : MonoBehaviour
 	[SerializeField]
 	private Sprite solidTile;
 
-	private SpriteRenderer renderer;
+	private new SpriteRenderer renderer;
 
 	public void Awake()
 	{

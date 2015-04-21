@@ -1,18 +1,15 @@
 fileFormatVersion: 2
-guid: 4fa95e471f11b77418e01438b8a1cf73
-timeCreated: 1428951449
+guid: 053a8ea444580014bb50b89adc773904
+timeCreated: 1429632064
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: bodyColors_0
-    21300002: bodyColors_1
-    21300004: bodyColors_2
-    21300006: bodyColors_3
-    21300008: bodyColors_4
-    21300010: bodyColors_5
-    21300012: bodyColors_6
-    21300014: bodyColors_7
-    21300016: bodyColors_8
+    21300000: ears_0
+    21300002: ears_1
+    21300004: ears_2
+    21300006: ears_3
+    21300008: ears_4
+    21300010: ears_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -52,99 +49,69 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 450
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: bodyColors_0
+    - name: ears_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1308
-        width: 456
-        height: 653
+        x: 128
+        y: 700
+        width: 126
+        height: 191
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bodyColors_1
+    - name: ears_1
       rect:
         serializedVersion: 2
-        x: 457
-        y: 1308
-        width: 456
-        height: 653
+        x: 413
+        y: 700
+        width: 126
+        height: 191
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bodyColors_2
+    - name: ears_2
       rect:
         serializedVersion: 2
-        x: 914
-        y: 1308
-        width: 456
-        height: 653
+        x: 1
+        y: 308
+        width: 261
+        height: 182
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bodyColors_3
+    - name: ears_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 654
-        width: 456
-        height: 653
+        x: 405
+        y: 308
+        width: 261
+        height: 182
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bodyColors_4
+    - name: ears_4
       rect:
         serializedVersion: 2
-        x: 457
-        y: 654
-        width: 456
-        height: 653
+        x: 157
+        y: 23
+        width: 77
+        height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bodyColors_5
+    - name: ears_5
       rect:
         serializedVersion: 2
-        x: 914
-        y: 654
-        width: 456
-        height: 653
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bodyColors_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 456
-        height: 653
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bodyColors_7
-      rect:
-        serializedVersion: 2
-        x: 457
-        y: 0
-        width: 456
-        height: 653
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bodyColors_8
-      rect:
-        serializedVersion: 2
-        x: 914
-        y: 0
-        width: 456
-        height: 653
+        x: 433
+        y: 23
+        width: 77
+        height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

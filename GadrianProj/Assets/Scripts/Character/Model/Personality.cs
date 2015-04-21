@@ -16,7 +16,6 @@ public class Personality : MonoBehaviour
 
 	private PersonalityModel model;
 	private MoodHandler moodHandler;
-	private SnapCharacter snapCharacter;
 	private Animator animator;	
 
 	private List<Trait> traits = new List<Trait> ();
@@ -82,7 +81,6 @@ public class Personality : MonoBehaviour
 	public void Awake ()
 	{
 		moodHandler = GetComponent<MoodHandler> ();
-		snapCharacter = GetComponent<SnapCharacter> ();
 		if ( face != null )
 			animator = face.GetComponent<Animator> ();
 
@@ -181,7 +179,7 @@ public class Personality : MonoBehaviour
 		Mood mood = new Mood ();
 		foreach ( Personality neighbour in neighbours )
 		{
-			Vector3 n = CharacterManager.Instance.AskGridPosition ( neighbour.transform.position );
+			//Vector3 n = CharacterManager.Instance.AskGridPosition ( neighbour.transform.position );
 			Mood sensed = sense ( neighbour );
 			//Debug.Log("Sensing:"+n+">"+sensed.getFeel());
 			mood += sensed;

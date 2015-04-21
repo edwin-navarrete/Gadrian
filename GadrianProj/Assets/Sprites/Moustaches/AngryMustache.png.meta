@@ -1,0 +1,125 @@
+fileFormatVersion: 2
+guid: 19dfd86ab3845044b860a0716f167c0c
+timeCreated: 1429632984
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: AngryMustache_10
+    21300002: AngryMustache_11
+    21300004: AngryMustache_12
+    21300006: AngryMustache_13
+    21300008: AngryMustache_0
+    21300010: AngryMustache_1
+    21300012: AngryMustache_3
+    21300014: AngryMustache_4
+    21300016: AngryMustache_5
+    21300018: AngryMustache_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 450
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: AngryMustache_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 259
+        height: 189
+      alignment: 9
+      pivot: {x: .504736662, y: .785601556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AngryMustache_1
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 0
+        width: 258
+        height: 189
+      alignment: 9
+      pivot: {x: .519020021, y: .785601497}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AngryMustache_3
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 0
+        width: 264
+        height: 189
+      alignment: 9
+      pivot: {x: .527881503, y: .792092562}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AngryMustache_4
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 0
+        width: 265
+        height: 189
+      alignment: 9
+      pivot: {x: .509258687, y: .785601556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AngryMustache_5
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 0
+        width: 272
+        height: 189
+      alignment: 9
+      pivot: {x: .490979373, y: .792092562}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AngryMustache_6
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 0
+        width: 254
+        height: 189
+      alignment: 9
+      pivot: {x: .480680197, y: .792092562}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

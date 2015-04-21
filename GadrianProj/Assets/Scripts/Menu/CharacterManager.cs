@@ -6,187 +6,193 @@ using System.Collections.Generic;
 
 public class CharacterManager : MonoBehaviour
 {
-	[SerializeField]
-	private RectTransform canvasRectTransform;
-	[SerializeField]
-	private RectTransform characterRectTransform;
-	[SerializeField]
-	private GFGrid grid;
+    [SerializeField]
+    private RectTransform canvasRectTransform;
+    [SerializeField]
+    private RectTransform characterRectTransform;
+    [SerializeField]
+    private GFGrid grid;
 
-	[SerializeField]
-	private GameObject characterPrefab;
+    [SerializeField]
+    private GameObject characterPrefab;
 
-	private GameObject lastCharSelected;		// Object from the scroll list that was last selected
-	private Transform CharacterPlaceholder;		// Parent in hierarchy to make all characters children of
+    private GameObject lastCharSelected;		// Object from the scroll list that was last selected
+    private Transform CharacterPlaceholder;		// Parent in hierarchy to make all characters children of
 
-	private List<Personality> characters;		// Reference to all characters placed in world
-	private List<Movement> movements;
-    
-	#region Events
+    private List<Personality> characters;		// Reference to all characters placed in world
+    private List<Movement> movements;
 
-	public event UnityEngine.Events.UnityAction<Sprite,Sprite> StartingDrag;
-	public event UnityEngine.Events.UnityAction FinishingDrag;
-	public event UnityEngine.Events.UnityAction FinishedDrag;
-	public event UnityEngine.Events.UnityAction Winning;
-	public event UnityEngine.Events.UnityAction Won;
-	public event UnityEngine.Events.UnityAction FinishingCharacterPlacement;
+    #region Events
+
+    public event UnityEngine.Events.UnityAction<Sprite, Sprite> StartingDrag;
+    public event UnityEngine.Events.UnityAction FinishingDrag;
+    public event UnityEngine.Events.UnityAction FinishedDrag;
+    public event UnityEngine.Events.UnityAction Winning;
+    public event UnityEngine.Events.UnityAction Won;
+    public event UnityEngine.Events.UnityAction FinishingCharacterPlacement;
 
 
-	private void OnStartingDrag (Sprite body, Sprite complexion)
-	{
-		if ( StartingDrag != null )
-		{
-			StartingDrag (body, complexion);
-		}
-	}
+    private void OnStartingDrag (Sprite body, Sprite complexion)
+    {
+        if ( StartingDrag != null )
+        {
+            StartingDrag( body, complexion );
+        }
+    }
 
-	private void OnFinishingDrag ()
-	{
-		if ( FinishingDrag != null )
-		{
-			FinishingDrag ();
-		}
-	}
+    private void OnFinishingDrag ()
+    {
+        if ( FinishingDrag != null )
+        {
+            FinishingDrag();
+        }
+    }
 
-	private void OnFinishedDrag ()
-	{
-		if ( FinishedDrag != null )
-		{
-			FinishedDrag ();
-		}
-	}
+    private void OnFinishedDrag ()
+    {
+        if ( FinishedDrag != null )
+        {
+            FinishedDrag();
+        }
+    }
 
-	private void OnWinning ()
-	{
-		if ( Winning != null )
-		{
-			Winning ();
-		}
-	}
+    private void OnWinning ()
+    {
+        if ( Winning != null )
+        {
+            Winning();
+        }
+    }
 
-	private void OnWon ()
-	{
-		if ( Won != null )
-		{
-			Won();
-		}
-	}
+    private void OnWon ()
+    {
+        if ( Won != null )
+        {
+            Won();
+        }
+    }
 
-	private void OnFinishingCharacterPlacement ()
-	{
-		if (FinishingCharacterPlacement != null)
-		{
-			FinishingCharacterPlacement();
-		}
-	}
+    private void OnFinishingCharacterPlacement ()
+    {
+        if ( FinishingCharacterPlacement != null )
+        {
+            FinishingCharacterPlacement();
+        }
+    }
 
-	#endregion
-	
-	#region Singleton
+    #endregion
 
-	private static CharacterManager instance;
+    #region Singleton
 
-	public static CharacterManager Instance
-	{
-		get
-		{
-			if ( instance == null )
-			{
-				instance = GameObject.FindObjectOfType<CharacterManager> ();
+    private static CharacterManager instance;
 
-				if ( instance == null )
-				{
-					GameObject newGO = new GameObject ( "Character manager" );
-					instance = newGO.AddComponent<CharacterManager> ();
-				}
+    public static CharacterManager Instance
+    {
+        get
+        {
+            if ( instance == null )
+            {
+                instance = GameObject.FindObjectOfType<CharacterManager>();
 
-				DontDestroyOnLoad ( instance );
-			}
+                if ( instance == null )
+                {
+                    GameObject newGO = new GameObject( "Character manager" );
+                    instance = newGO.AddComponent<CharacterManager>();
+                }
 
-			return instance;
-		}
-	}
+                DontDestroyOnLoad( instance );
+            }
 
-	#endregion
+            return instance;
+        }
+    }
 
-	// This awake method could be remove if the character manager already have reference in Editor to canvasRectTransform,
-	// characterRectTransform and CharacterPlaceholder
-	public void Awake()
-	{
-		canvasRectTransform = GameObject.FindObjectOfType<Canvas> ().transform as RectTransform;
-		characterRectTransform = GameObject.FindObjectOfType<CharacterRepresentation> ().transform as RectTransform;
-		CharacterPlaceholder = GameObject.FindGameObjectWithTag ( "Placeholder" ).transform;
-		grid = GameObject.FindGameObjectWithTag ( "Grid" ).GetComponent<GFGrid> ();
-	}
+    #endregion
 
-	public void Start()
-	{
-		if ( CharacterManager.Instance != this )
-			Destroy ( this.gameObject );
-		characters = new List<Personality> ();
-		movements = new List<Movement> ();
-	}
+    // This awake method could be remove if the character manager already have reference in Editor to canvasRectTransform,
+    // characterRectTransform and CharacterPlaceholder
+    public void Awake ()
+    {
+        canvasRectTransform = GameObject.FindObjectOfType<Canvas>().transform as RectTransform;
+        characterRectTransform = GameObject.FindObjectOfType<CharacterRepresentation>().transform as RectTransform;
+        CharacterPlaceholder = GameObject.FindGameObjectWithTag( "Placeholder" ).transform;
+        grid = GameObject.FindGameObjectWithTag( "Grid" ).GetComponent<GFGrid>();
+    }
 
-    public void Update()
+    public void Start ()
+    {
+        if ( CharacterManager.Instance != this )
+            Destroy( this.gameObject );
+        characters = new List<Personality>();
+        movements = new List<Movement>();
+    }
+
+    public void Update ()
     {
         //CheckForWin();
-    }    
+    }
 
-	public Vector3 AskGridPosition (Vector3 position)
-	{
-		return grid.WorldToGrid ( position );
-	}
+    public Vector3 AskGridPosition (Vector3 position)
+    {
+        return grid.WorldToGrid( position );
+    }
 
-	#region Mood refresh
+    #region Mood refresh
 
-	public void RefreshMoods ()
-	{
-		foreach ( Personality personality in characters )
-		{
-			List<Personality> neighb  = GetNeighbourPersonalities ( personality.transform.position );
-			personality.RefreshMood(neighb);
-		}
-	}
-	
-	private List<Personality> GetNeighbourPersonalities (Vector3 curPos)
-	{
-		List<Personality> neighbourPersonalities = new List<Personality> ();
-		Vector3 position = grid.WorldToGrid ( curPos );
-		foreach ( Personality personality in characters )
-		{
-			Vector3 reference =  grid.WorldToGrid ( personality.transform.position ) ;
-			if(reference == position)
-				continue;
-			
-			bool isNeighbour = false;
-			if(Mathf.Abs(reference.x - position.x) < 1.1f && Mathf.Abs(reference.y - position.y) < 0.1f){//straight above or below
-				isNeighbour = true;
-			} else{
-				if(Mathf.RoundToInt(reference.y) % 2 == 0){//two cases, depending on whether the x-coordinate is even or odd
-					//neighbours are either strictly left or right of the switch or right/left and one unit below
-					if(Mathf.Abs(reference.y - position.y) < 1.1f && position.x - reference.x < 0.1f && position.x - reference.x > -1.1f)
-						isNeighbour = true;
-				} else{//x-coordinate odd
-					//neighbours are either strictly left or right of the switch or right/left and one unit above
-					if(Mathf.Abs(reference.y - position.y) < 1.1f && reference.x - position.x < 0.1f && position.x - reference.x < 1.1f)
-						isNeighbour = true;
-				}
-			}
-			if ( isNeighbour )
-				neighbourPersonalities.Add ( personality );
-		}
-		return neighbourPersonalities;
-	}
+    public void RefreshMoods ()
+    {
+        foreach ( Personality personality in characters )
+        {
+            List<Personality> neighb = GetNeighbourPersonalities( personality.transform.position );
+            personality.RefreshMood( neighb );
+        }
+    }
 
-	#endregion
+    private List<Personality> GetNeighbourPersonalities (Vector3 curPos)
+    {
+        List<Personality> neighbourPersonalities = new List<Personality>();
+        Vector3 position = grid.WorldToGrid( curPos );
+        foreach ( Personality personality in characters )
+        {
+            Vector3 reference = grid.WorldToGrid( personality.transform.position );
+            if ( reference == position )
+                continue;
 
-	#region Win and end-game notifications
+            bool isNeighbour = false;
+            if ( Mathf.Abs( reference.x - position.x ) < 1.1f && Mathf.Abs( reference.y - position.y ) < 0.1f )
+            {//straight above or below
+                isNeighbour = true;
+            }
+            else
+            {
+                if ( Mathf.RoundToInt( reference.y ) % 2 == 0 )
+                {//two cases, depending on whether the x-coordinate is even or odd
+                    //neighbours are either strictly left or right of the switch or right/left and one unit below
+                    if ( Mathf.Abs( reference.y - position.y ) < 1.1f && position.x - reference.x < 0.1f && position.x - reference.x > -1.1f )
+                        isNeighbour = true;
+                }
+                else
+                {//x-coordinate odd
+                    //neighbours are either strictly left or right of the switch or right/left and one unit above
+                    if ( Mathf.Abs( reference.y - position.y ) < 1.1f && reference.x - position.x < 0.1f && position.x - reference.x < 1.1f )
+                        isNeighbour = true;
+                }
+            }
+            if ( isNeighbour )
+                neighbourPersonalities.Add( personality );
+        }
+        return neighbourPersonalities;
+    }
 
-	private System.Collections.IEnumerator CheckForWin ()
-	{
+    #endregion
+
+    #region Win and end-game notifications
+
+    private System.Collections.IEnumerator CheckForWin ()
+    {
         bool isOver = false;
-		while ( !isOver )
-		{
+        while ( !isOver )
+        {
             int happyAmount = 0;
 
             foreach ( Personality personality in characters )
@@ -199,132 +205,135 @@ public class CharacterManager : MonoBehaviour
             }
             if ( happyAmount == characters.Count )
             {
-				OnWinning();
-				Invoke( "OnWon", 2.0f );
-				isOver = true;
-				yield break;
+                OnWinning();
+                Invoke( "OnWon", 2.0f );
+                isOver = true;
+                yield break;
             }
             happyAmount = 0;
 
-            yield return null; 
+            yield return null;
         }
-	}
+    }
 
-	public void FinishCharacterPlacement ()
-	{
-		OnFinishingCharacterPlacement ();
+    public void FinishCharacterPlacement ()
+    {
+        OnFinishingCharacterPlacement();
         StartCoroutine( CheckForWin() );
-	}
+    }
 
-	#endregion
+    #endregion
 
-	#region Movement registration	
-	
-	public void RegisterMovement (Movement newMovement)
-	{
-		movements.Add (newMovement);
-	}
+    #region Movement registration
 
-	public void UndoLastMomevent ()
-	{
-		int index = movements.Count - 1;
-		if (index <= 0)
-		{
-			Movement movement = movements [index];
-			if (movement.ActionPerformed == Action.Movement)
-			{
-				SnapCharacter snapCharacter = movement.Sender.GetComponent<SnapCharacter> ();
-				snapCharacter.DoMovement (movement.OldPosition, false);
-			} 
-			else if (movement.ActionPerformed == Action.Placement)
-			{
-				Destroy (movement.Sender);
-			}
-			movements.Remove (movement);
-		} else 
-		{
-			Debug.Log("There is no more moves");
-		}
-	}
+    public void RegisterMovement (Movement newMovement)
+    {
+        movements.Add( newMovement );
+    }
 
-	#endregion
+    public void UndoLastMomevent ()
+    {
+        int index = movements.Count - 1;
+        if ( index <= 0 )
+        {
+            Movement movement = movements[index];
+            if ( movement.ActionPerformed == Action.Movement )
+            {
+                SnapCharacter snapCharacter = movement.Sender.GetComponent<SnapCharacter>();
+                snapCharacter.DoMovement( movement.OldPosition, false );
+            }
+            else if ( movement.ActionPerformed == Action.Placement )
+            {
+                Destroy( movement.Sender );
+            }
+            movements.Remove( movement );
+        }
+        else
+        {
+            Debug.Log( "There is no more moves" );
+        }
+    }
 
-	#region Character movement from scroll list to world
+    #endregion
 
-	/// <summary>
-	/// When input from touch/mouse is down, this method will turn off the element of the scroll list 
-	/// and then create a object to drag around and finally place on the grid.
-	/// </summary>
-	/// <param name="characterBody"></param>
-	public void SetCharacterImage (Sprite characterBody, Sprite characterComplexion, PointerEventData eventData)
-	{
-		OnStartingDrag ( characterBody, characterComplexion );
+    #region Character movement from scroll list to world
 
-		characterRectTransform.position = eventData.position;		
-	}
+    /// <summary>
+    /// When input from touch/mouse is down, this method will turn off the element of the scroll list 
+    /// and then create a object to drag around and finally place on the grid.
+    /// </summary>
+    /// <param name="characterBody"></param>
+    public void SetCharacterImage (Sprite characterBody, Sprite characterComplexion, PointerEventData eventData)
+    {
+        OnStartingDrag( characterBody, characterComplexion );
 
-	public void MoveCharacterImage (PointerEventData eventData)
-	{
-		if ( characterRectTransform == null )
-			return;
+        characterRectTransform.position = eventData.position;
+    }
 
-		Vector2 pointerPosition = ClampToWindow ( Input.mousePosition );
+    public void MoveCharacterImage (PointerEventData eventData)
+    {
+        if ( characterRectTransform == null )
+            return;
 
-		Vector2 localPointerPosition;
-		if ( RectTransformUtility.ScreenPointToLocalPointInRectangle (
-			canvasRectTransform, pointerPosition, eventData.pressEventCamera, out localPointerPosition ) )
-		{
-			characterRectTransform.localPosition = localPointerPosition;
-		}
-	}
+        Vector2 pointerPosition = ClampToWindow( Input.mousePosition );
 
-	public void PlaceCharacterImage (PointerEventData eventData, GameObject sender, Personality personality, string charName)
-	{
-		OnFinishingDrag ();
+        Vector2 localPointerPosition;
+        if ( RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvasRectTransform, pointerPosition, eventData.pressEventCamera, out localPointerPosition ) )
+        {
+            characterRectTransform.localPosition = localPointerPosition;
+        }
+    }
 
-		LayerMask gridLayer = 1 << LayerMask.NameToLayer ( "Grid" );
-		Ray ray = Camera.main.ScreenPointToRay ( Input.mousePosition);
-		Vector2 orgin = new Vector2 ( ray.origin.x, ray.origin.y ); 
+    public void PlaceCharacterImage (PointerEventData eventData, GameObject sender, Personality personality, string charName)
+    {
+        OnFinishingDrag();
 
-		RaycastHit2D hit = Physics2D.Raycast ( orgin, Vector2.zero, float.PositiveInfinity, gridLayer ); 
+        LayerMask gridLayer = 1 << LayerMask.NameToLayer( "Grid" );
+        Debug.LogFormat( "GridLayer: {0}, Mouse positio: {1}", gridLayer.value, Input.mousePosition );
 
-		if ( hit.collider != null )
-		{
-			if ( hit.transform.tag == "Cell" )
-			{
-				GameObject newCharacter = Instantiate ( characterPrefab ) as GameObject;
+        Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
+        Vector2 origin = new Vector2( ray.origin.x, ray.origin.y );
+        RaycastHit2D hit = Physics2D.Raycast( origin, Vector2.zero, float.PositiveInfinity, gridLayer );
 
-				Personality newCharPersonality = newCharacter.GetComponent<Personality> ();
-				characters.Add ( newCharPersonality );
+        if ( hit.collider != null )
+        {
+            if ( hit.transform.tag == "Cell" )
+            {
+                Debug.Log( "Hit a tile" );
+                GameObject newCharacter = Instantiate( characterPrefab ) as GameObject;
 
-				newCharPersonality.CopyPersonality ( personality );
-				newCharPersonality.TraitsEffect ();
-				RefreshMoods();
+                Personality newCharPersonality = newCharacter.GetComponent<Personality>();
+                characters.Add( newCharPersonality );
 
-				newCharacter.transform.SetParent ( CharacterPlaceholder );
-				sender.SetActive ( false );
+                newCharPersonality.CopyPersonality( personality );
+                newCharPersonality.TraitsEffect();
+                RefreshMoods();
 
-				SnapCharacter snapCharacter = newCharacter.GetComponent<SnapCharacter>();
-				snapCharacter.InitializeCharacter( (Vector3) hit.point, hit.transform.GetComponent<PlayerOverTile>() );
-			}
-		}
+                newCharacter.transform.SetParent( CharacterPlaceholder );
+                sender.SetActive( false );
 
-		OnFinishedDrag ();
-	}
+                SnapCharacter snapCharacter = newCharacter.GetComponent<SnapCharacter>();
+                snapCharacter.InitializeCharacter( (Vector3) hit.point, hit.transform.GetComponent<PlayerOverTile>() );
+            }
+        }
 
-	private Vector2 ClampToWindow (Vector3 mousePoistion)
-	{
-		Vector2 rawPointerPosition = mousePoistion;
+        OnFinishedDrag();
+    }
 
-		Vector3[] canvasCorners = new Vector3[4];
-		canvasRectTransform.GetWorldCorners ( canvasCorners );
+    private Vector2 ClampToWindow (Vector3 mousePoistion)
+    {
+        Vector2 rawPointerPosition = mousePoistion;
 
-		float clampedX = Mathf.Clamp ( rawPointerPosition.x, canvasCorners[0].x, canvasCorners[2].x );
-		float clampedY = Mathf.Clamp ( rawPointerPosition.y, canvasCorners[0].y, canvasCorners[2].y );
+        Vector3[] canvasCorners = new Vector3[4];
+        canvasRectTransform.GetWorldCorners( canvasCorners );
 
-		Vector2 newPointerPosition = new Vector2 ( clampedX, clampedY );
-		return newPointerPosition;
-	}
+        float clampedX = Mathf.Clamp( rawPointerPosition.x, canvasCorners[0].x, canvasCorners[2].x );
+        float clampedY = Mathf.Clamp( rawPointerPosition.y, canvasCorners[0].y, canvasCorners[2].y );
 
-	#endregion
+        Vector2 newPointerPosition = new Vector2( clampedX, clampedY );
+        return newPointerPosition;
+    }
+
+    #endregion
 }

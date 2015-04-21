@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
+[AddComponentMenu("Scripts/Character/Character Item")]
 public class CharacterItem : MonoBehaviour
 {
 	[Range ( 1, 12)]
