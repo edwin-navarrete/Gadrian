@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.IO;
 using System.Collections.Generic;
 
 public class LevelGenerator : MonoBehaviour
@@ -14,19 +15,22 @@ public class LevelGenerator : MonoBehaviour
 	public void Awake ()
 	{
 		grid = GameObject.FindGameObjectWithTag ( "Grid" ).GetComponent<GFGrid> ();
+        cellsPosition = new List<Vector2>();
 	}
 
 	public void Start ()
 	{
-		cellsPosition = new List<Vector2> () {
-			new Vector2 ( 0, 0 ),
-			new Vector2 ( 1, 0 ),
-			new Vector2 ( -1, 0 ),
-			new Vector2 ( 0, -1 ),
-			new Vector2 ( -1, -1 ),
-			new Vector2 ( -1, 1 ),
-			new Vector2 ( 0, 1 )
-		};
+        //TODO Create a GameManager to hold on a level index variable
+        string fileName = string.Format( "level{0}.level", 0 );
+        StreamReader sr = new StreamReader( Application.dataPath + "/Levels/" + fileName );
+        string levelFile = sr.ReadToEnd();
+        string[] vectors = levelFile.Split( ',' );
+
+        foreach ( string vector in vectors )
+        {
+            string[] axis = vector.Split( ' ' );
+            cellsPosition.Add( new Vector2( int.Parse( axis[0] ), int.Parse( axis[1] ) ) );
+        }
 
 		Generatelevel ();
 	}
