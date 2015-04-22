@@ -20,7 +20,7 @@ public class LevelGenerator : MonoBehaviour
 
 	public void Start ()
 	{
-        //TODO Create a GameManager to hold on a level index variable
+        //TODO Create a GameManager to hold on a level index variable or create an object to make data persist through scenes
         string fileName = string.Format( "level{0}.level", 0 );
         StreamReader sr = new StreamReader( Application.dataPath + "/Levels/" + fileName );
         string levelFile = sr.ReadToEnd();
@@ -41,7 +41,9 @@ public class LevelGenerator : MonoBehaviour
 		foreach ( Vector2 position in cellsPosition )
 		{
 			GameObject newCell = Instantiate ( tilesPrefab[index] ) as GameObject;
-			newCell.transform.position = grid.GridToWorld ( position );
+            Vector3 newPosition = grid.GridToWorld ( position );
+            Vector3 modifiedPositon = new Vector3( newPosition.x * 0.75f, newPosition.y * 1.15f, newPosition.z );
+			newCell.transform.position = modifiedPositon;
 			newCell.transform.SetParent ( this.transform );
             index++;
 
