@@ -14,7 +14,7 @@ public class LevelGenerator : MonoBehaviour
 
 	public void Awake ()
 	{
-		grid = GameObject.FindGameObjectWithTag ( "Grid" ).GetComponent<GFGrid> ();
+        grid = GridManager.Instance.Grid;
         cellsPosition = new List<Vector2>();
 	}
 
@@ -41,9 +41,8 @@ public class LevelGenerator : MonoBehaviour
 		foreach ( Vector2 position in cellsPosition )
 		{
 			GameObject newCell = Instantiate ( tilesPrefab[index] ) as GameObject;
-            Vector3 newPosition = grid.GridToWorld ( position );
-            Vector3 modifiedPositon = new Vector3( newPosition.x * 0.75f, newPosition.y * 1.15f, newPosition.z );
-			newCell.transform.position = modifiedPositon;
+            Vector3 newPosition = grid.GridToWorldFixed ( position );
+			newCell.transform.position = newPosition;
 			newCell.transform.SetParent ( this.transform );
             index++;
 

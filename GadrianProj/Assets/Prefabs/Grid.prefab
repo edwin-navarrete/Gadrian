@@ -12,6 +12,7 @@ GameObject:
   - 64: {fileID: 6442352}
   - 23: {fileID: 2385090}
   - 114: {fileID: 11456600}
+  - 114: {fileID: 11406812}
   m_Layer: 8
   m_Name: Grid
   m_TagString: Grid
@@ -74,6 +75,17 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &11406812
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b0b75f8b9b2cc41abcc86f0f8fa8b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11456600
 MonoBehaviour:
   m_ObjectHideFlags: 1

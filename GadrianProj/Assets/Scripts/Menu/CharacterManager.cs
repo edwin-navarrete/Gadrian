@@ -116,7 +116,7 @@ public class CharacterManager : MonoBehaviour
         canvasRectTransform = GameObject.FindObjectOfType<Canvas>().transform as RectTransform;
         characterRectTransform = GameObject.FindObjectOfType<CharacterRepresentation>().transform as RectTransform;
         CharacterPlaceholder = GameObject.FindGameObjectWithTag( "Placeholder" ).transform;
-        grid = GameObject.FindGameObjectWithTag( "Grid" ).GetComponent<GFGrid>();
+        grid = GridManager.Instance.Grid;
     }
 
     public void Start ()
@@ -125,11 +125,6 @@ public class CharacterManager : MonoBehaviour
             Destroy( this.gameObject );
         characters = new List<Personality>();
         movements = new List<Movement>();
-    }
-
-    public void Update ()
-    {
-        //CheckForWin();
     }
 
     public Vector3 AskGridPosition (Vector3 position)
@@ -289,18 +284,22 @@ public class CharacterManager : MonoBehaviour
     {
         OnFinishingDrag();
 
-        LayerMask gridLayer = 1 << LayerMask.NameToLayer( "Grid" );
-        Debug.LogFormat( "GridLayer: {0}, Mouse positio: {1}", gridLayer.value, Input.mousePosition );
+        //LayerMask gridLayer = 1 << LayerMask.NameToLayer( "Grid" );
+        LayerMask gridLayer = LayerMask.GetMask( "Grid" );
+        Debug.LogFormat( "GridLayer: {0}, Mouse position: {1}", gridLayer.value, Input.mousePosition );
+        Debug.LogFormat( "GridLayer: {0}, Event data position: {1}", gridLayer.value, eventData.position );
 
         Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
-        Vector2 origin = new Vector2( ray.origin.x, ray.origin.y );
-        RaycastHit2D hit = Physics2D.Raycast( origin, Vector2.zero, float.PositiveInfinity, gridLayer );
+        //Vector2 origin = new Vector2( ray.origin.x, ray.origin.y );
+        //Ray2D ray = new Ray2D( eventData.position, Vector2.zero );
+        //Vector2 origin = new Vector2( ray.origin.x, ray.origin.y );
+        RaycastHit2D hit = Physics2D.Raycast( ray.origin, Vector2.zero, float.PositiveInfinity, gridLayer );
 
         if ( hit.collider != null )
         {
+            Debug.Log( "Hit a tile" );
             if ( hit.transform.tag == "Cell" )
             {
-                Debug.Log( "Hit a tile" );
                 GameObject newCharacter = Instantiate( characterPrefab ) as GameObject;
 
                 Personality newCharPersonality = newCharacter.GetComponent<Personality>();

@@ -6,7 +6,7 @@ using System.Collections;
 public class SnapCharacter : MonoBehaviour
 {
     [SerializeField]
-    private GFHexGrid grid;
+    private GFGrid grid;
 
     private int intersecting;
     private bool beingDragged;
@@ -52,7 +52,7 @@ public class SnapCharacter : MonoBehaviour
 
     private void Awake ()
     {
-        grid = GameObject.FindGameObjectWithTag( "Grid" ).GetComponent<GFHexGrid>();
+        grid = GridManager.Instance.Grid;
 
         grid.AlignTransform( this.transform );
         lastValidPosition = this.transform.position;
@@ -69,7 +69,7 @@ public class SnapCharacter : MonoBehaviour
     public void InitializeCharacter (Vector3 firstPosition, PlayerOverTile firstTile)
     {
         transform.position = firstPosition;
-        grid.AlignTransform( transform );
+        grid.AlignTransformFixed( transform );
 
         lastTile = firstTile;
         lastTile.SolidifyTile();
@@ -120,7 +120,7 @@ public class SnapCharacter : MonoBehaviour
         OnMovedCharacter();
 
         transform.position = newPosition;
-        grid.AlignTransform( this.transform );
+        grid.AlignTransformFixed( this.transform );
         CheckTileToSolidify();
         if ( registerMovement )
         {
@@ -134,7 +134,7 @@ public class SnapCharacter : MonoBehaviour
     {
         LayerMask gridLayer = 1 << LayerMask.NameToLayer( "Grid" );
         Debug.LogFormat( "GridLayer: {0}, Mouse positio: {1}", gridLayer.value, Input.mousePosition );
-        
+
         Ray2D ray = new Ray2D( new Vector2( transform.position.x, transform.position.y ), Vector2.zero );
         RaycastHit2D hit = Physics2D.Raycast( ray.origin, Vector2.zero, float.PositiveInfinity, gridLayer );
         if ( hit.collider != null )
@@ -151,8 +151,8 @@ public class SnapCharacter : MonoBehaviour
 
     private bool CheckIfMovement ()
     {
-        Vector3 newPosition = grid.WorldToGrid( this.transform.position );
-        float distance = Vector3.Distance( newPosition, grid.WorldToGrid( oldPosition ) );
+        Vector3 newPosition = grid.WorldToGridFixed( this.transform.position );
+        float distance = Vector3.Distance( newPosition, grid.WorldToGridFixed( oldPosition ) );
         return distance > 0.5f;
     }
 
