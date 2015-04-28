@@ -20,20 +20,31 @@ public class LevelGenerator : MonoBehaviour
 
 	public void Start ()
 	{
+        LoadLevel();
+
+        Generatelevel(); 
+    }
+
+    private void LoadLevel ()
+    {
         //TODO Create a GameManager to hold on a level index variable or create an object to make data persist through scenes
-        string fileName = string.Format( "level{0}.level", 0 );
-        StreamReader sr = new StreamReader( Application.dataPath + "/Levels/" + fileName );
-        string levelFile = sr.ReadToEnd();
-        string[] vectors = levelFile.Split( ',' );
+        string fileName = string.Format( "level{0}", 0 );
+        Level level = Resources.Load<Level>( "Levels/" + fileName );
 
-        foreach ( string vector in vectors )
+        if ( level != null )
         {
-            string[] axis = vector.Split( ' ' );
-            cellsPosition.Add( new Vector2( int.Parse( axis[0] ), int.Parse( axis[1] ) ) );
+            Debug.Log( "Loading level resourse complete" );
+            foreach ( Vector2 vector in level.tilesPosition )
+            {
+                Debug.LogFormat( "Adding tile position at:{0}", vector );
+                cellsPosition.Add( vector );
+            }
         }
-
-		Generatelevel ();
-	}
+        else
+        {
+            Debug.LogError( "The variable level could not load successfully the resource" );
+        }
+    }
 
 	private void Generatelevel ()
 	{
