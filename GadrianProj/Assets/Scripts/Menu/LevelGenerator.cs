@@ -10,12 +10,9 @@ public class LevelGenerator : MonoBehaviour
 	[SerializeField]
 	private GFGrid grid;
 
-	private List<Vector2> cellsPosition;
-
 	public void Awake ()
 	{
         grid = GridManager.Instance.Grid;
-        cellsPosition = new List<Vector2>();
 	}
 
 	public void Start ()
@@ -33,11 +30,10 @@ public class LevelGenerator : MonoBehaviour
 
         if ( level != null )
         {
-            Debug.Log( "Loading level resourse complete" );
-            foreach ( Vector2 vector in level.tilesPosition )
+            foreach ( Vector2 gridVector in level.tilesPosition )
             {
-                Debug.LogFormat( "Adding tile position at:{0}", vector );
-                cellsPosition.Add( vector );
+                Vector3 worldVector = grid.GridToWorldFixed( gridVector );
+                TileManager.Instance.TilesPosition.Add( worldVector, false );
             }
         }
         else
@@ -49,11 +45,10 @@ public class LevelGenerator : MonoBehaviour
 	private void Generatelevel ()
 	{
         int index = 0;
-		foreach ( Vector2 position in cellsPosition )
+        foreach ( KeyValuePair<Vector3, bool> position in TileManager.Instance.TilesPosition )
 		{
 			GameObject newCell = Instantiate ( tilesPrefab[index] ) as GameObject;
-            Vector3 newPosition = grid.GridToWorldFixed ( position );
-			newCell.transform.position = newPosition;
+            newCell.transform.position = position.Key;
 			newCell.transform.SetParent ( this.transform );
             index++;
 
@@ -62,5 +57,7 @@ public class LevelGenerator : MonoBehaviour
                 index = 0;
             }
 		}
+
+        EventManager.TriggerEvent( "LevelGenerated" );
 	}
 }

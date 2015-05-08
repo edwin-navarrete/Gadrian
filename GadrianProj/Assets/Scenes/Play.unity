@@ -658,6 +658,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 125224, guid: 3041aea11bcd11746855e59a7adbc787, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3041aea11bcd11746855e59a7adbc787, type: 2}
   m_IsPrefabParent: 0
@@ -861,7 +865,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 1.54972076e-06, y: 77}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -326}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1363465299
 MonoBehaviour:
@@ -1056,7 +1060,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1976186211
 MonoBehaviour:
   m_ObjectHideFlags: 0

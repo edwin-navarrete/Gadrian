@@ -21,6 +21,18 @@ public class LayerController : MonoBehaviour
 		//FIXME layers values are incorrect from editor, find a way to fix it
 	}
 
+    public void OnEnable ()
+    {
+        EventManager.StartListening( "StartingCharacterCreation", SetLayerToGrid );
+        EventManager.StartListening( "FinishedCharacterCreating", SetLayerToIgnore );
+    }
+
+    public void OnDisable ()
+    {
+        EventManager.StopListening( "StartingCharacterCreation", SetLayerToGrid );
+        EventManager.StopListening( "FinishedCharacterCreating", SetLayerToIgnore );
+    }
+
 	private void SetLayerToIgnore ()
 	{
 		gameObject.layer = 2;

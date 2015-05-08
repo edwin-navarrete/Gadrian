@@ -46,6 +46,7 @@ GameObject:
   - 114: {fileID: 11407100}
   - 114: {fileID: 11407096}
   - 114: {fileID: 11451692}
+  - 114: {fileID: 11461822}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -448,6 +449,21 @@ MonoBehaviour:
   - {fileID: 21300012, guid: 4fa95e471f11b77418e01438b8a1cf73, type: 3}
   - {fileID: 21300014, guid: 4fa95e471f11b77418e01438b8a1cf73, type: 3}
   - {fileID: 21300016, guid: 4fa95e471f11b77418e01438b8a1cf73, type: 3}
+--- !u!114 &11461822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643b066c6747b7241aeddb3e41c9a786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  personality: {fileID: 11407098}
+  snapCharacter: {fileID: 11407100}
+  moodHandler: {fileID: 11407096}
+  bodyMatch: {fileID: 11451692}
 --- !u!114 &11470128
 MonoBehaviour:
   m_ObjectHideFlags: 1

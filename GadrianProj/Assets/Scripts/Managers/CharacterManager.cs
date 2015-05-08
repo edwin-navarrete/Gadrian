@@ -6,6 +6,11 @@ using System.Collections.Generic;
 
 public class CharacterManager : MonoBehaviour
 {
+    [Range( 1, 12 )]
+    public int characterAmount = 5;
+    private List<int> selec;
+    private int index;
+
     [SerializeField]
     private RectTransform canvasRectTransform;
     [SerializeField]
@@ -17,7 +22,7 @@ public class CharacterManager : MonoBehaviour
     private GameObject characterPrefab;
 
     private GameObject lastCharSelected;		// Object from the scroll list that was last selected
-    private Transform CharacterPlaceholder;		// Parent in hierarchy to make all characters children of
+    private Transform characterPlaceholder;		// Parent in hierarchy to make all characters children of
 
     private List<Personality> characters;		// Reference to all characters placed in world
     private List<Movement> movements;
@@ -113,18 +118,28 @@ public class CharacterManager : MonoBehaviour
     // characterRectTransform and CharacterPlaceholder
     public void Awake ()
     {
-        canvasRectTransform = GameObject.FindObjectOfType<Canvas>().transform as RectTransform;
-        characterRectTransform = GameObject.FindObjectOfType<CharacterRepresentation>().transform as RectTransform;
-        CharacterPlaceholder = GameObject.FindGameObjectWithTag( "Placeholder" ).transform;
+        //canvasRectTransform = GameObject.FindObjectOfType<Canvas>().transform as RectTransform;
+        //characterRectTransform = GameObject.FindObjectOfType<CharacterRepresentation>().transform as RectTransform;
+        characterPlaceholder = GameObject.FindGameObjectWithTag( "Placeholder" ).transform;
         grid = GridManager.Instance.Grid;
+        characters = new List<Personality>();
+        movements = new List<Movement>();
+    }
+
+    public void OnEnable ()
+    {
+        EventManager.StartListening( "LevelGenerated", PopulateLevel );
+    }
+
+    public void OnDisable ()
+    {
+        EventManager.StopListening( "LevelGenerated", PopulateLevel );
     }
 
     public void Start ()
     {
         if ( CharacterManager.Instance != this )
             Destroy( this.gameObject );
-        characters = new List<Personality>();
-        movements = new List<Movement>();
     }
 
     public Vector3 AskGridPosition (Vector3 position)
@@ -251,6 +266,53 @@ public class CharacterManager : MonoBehaviour
 
     #endregion
 
+    #region Populate Level with Characters
+
+    private void PopulateLevel ()
+    {
+        selec = new List<int>();
+        selec.Add( 1 );
+        selec.Add( 2 );
+        selec.Add( 5 );
+        selec.Add( 6 );
+        selec.Add( 8 );
+
+        EventManager.TriggerEvent( "StartingCharacterCreation" );
+        for ( int i = 0; i < characterAmount; i++ )
+        {
+            CreateCharacterItem( null );
+            index++;
+        }
+        EventManager.TriggerEvent( "FinishedCharacterCreating" );
+        RefreshMoods();
+    }
+
+    public void CreateCharacterItem (Personality personality)
+    {
+        GameObject newChar = Instantiate( characterPrefab ) as GameObject;
+
+        Character character = newChar.GetComponent<Character>();
+        characters.Add( character.personality );
+
+        if ( personality == null )
+        {
+            character.personality.SetupPersonality( PersonalityManager.PersonalityModel, selec[index] );
+        }
+        else
+        {
+            character.personality.CopyPersonality( personality );
+        }
+
+        // Modify Character
+        character.personality.TraitsEffect();
+        // Do movement to the first location
+        character.snapCharacter.DoMovement( TileManager.Instance.GetFreeTilePosition(), false );
+        // Child to Character holder
+        newChar.transform.SetParent( characterPlaceholder );
+    }
+
+    #endregion
+
     #region Character movement from scroll list to world
 
     /// <summary>
@@ -309,7 +371,7 @@ public class CharacterManager : MonoBehaviour
                 newCharPersonality.TraitsEffect();
                 RefreshMoods();
 
-                newCharacter.transform.SetParent( CharacterPlaceholder );
+                newCharacter.transform.SetParent( characterPlaceholder );
                 sender.SetActive( false );
 
                 SnapCharacter snapCharacter = newCharacter.GetComponent<SnapCharacter>();

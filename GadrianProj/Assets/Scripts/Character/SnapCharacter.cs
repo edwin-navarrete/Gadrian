@@ -77,7 +77,6 @@ public class SnapCharacter : MonoBehaviour
 
     private void MakeNonBlocking ()
     {
-        //Debug.Log ( "Character non-blocking layer" );
         gameObject.layer = 2;
     }
 
@@ -105,6 +104,7 @@ public class SnapCharacter : MonoBehaviour
         if ( CheckIfMovement() )
         {
             DoMovement( lastValidPosition, true );
+            OnMovedCharacter();
         }
         else
         {
@@ -117,8 +117,6 @@ public class SnapCharacter : MonoBehaviour
 
     public void DoMovement (Vector3 newPosition, bool registerMovement)
     {
-        OnMovedCharacter();
-
         transform.position = newPosition;
         grid.AlignTransformFixed( this.transform );
         CheckTileToSolidify();
@@ -133,7 +131,7 @@ public class SnapCharacter : MonoBehaviour
     private void CheckTileToSolidify ()
     {
         LayerMask gridLayer = 1 << LayerMask.NameToLayer( "Grid" );
-        Debug.LogFormat( "GridLayer: {0}, Mouse positio: {1}", gridLayer.value, Input.mousePosition );
+        //Debug.LogFormat( "GridLayer: {0}, Mouse positio: {1}", gridLayer.value, Input.mousePosition );
 
         Ray2D ray = new Ray2D( new Vector2( transform.position.x, transform.position.y ), Vector2.zero );
         RaycastHit2D hit = Physics2D.Raycast( ray.origin, Vector2.zero, float.PositiveInfinity, gridLayer );
@@ -141,7 +139,7 @@ public class SnapCharacter : MonoBehaviour
         {
             if ( hit.collider.tag == "Cell" )
             {
-                Debug.Log( "Hit a tile" );
+                //Debug.Log( "Hit a tile" );
                 PlayerOverTile tile = hit.transform.GetComponent<PlayerOverTile>();
                 tile.SolidifyTile();
                 lastTile = tile;
