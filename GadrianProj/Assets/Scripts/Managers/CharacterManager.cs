@@ -13,11 +13,6 @@ public class CharacterManager : MonoBehaviour
     private List<int> selec;
     private int index;
 
-    [SerializeField]
-    private RectTransform canvasRectTransform;
-    [SerializeField]
-    private RectTransform characterRectTransform;
-    [SerializeField]
     private GFGrid grid;
 
     [SerializeField]
@@ -33,7 +28,7 @@ public class CharacterManager : MonoBehaviour
 
     #region Events
 
-    public event UnityEngine.Events.UnityAction<Sprite, Sprite> StartingDrag;
+    public event UnityEngine.Events.UnityAction StartingDrag;
     public event UnityEngine.Events.UnityAction FinishingDrag;
     public event UnityEngine.Events.UnityAction FinishedDrag;
     public event UnityEngine.Events.UnityAction Winning;
@@ -41,11 +36,11 @@ public class CharacterManager : MonoBehaviour
     public event UnityEngine.Events.UnityAction FinishingCharacterPlacement;
 
 
-    private void OnStartingDrag (Sprite body, Sprite complexion)
+    private void OnStartingDrag ()
     {
         if ( StartingDrag != null )
         {
-            StartingDrag( body, complexion );
+            StartingDrag();
         }
     }
 

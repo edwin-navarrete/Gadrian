@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 407094}
   - 212: {fileID: 21207094}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Complexion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 407098}
   - 212: {fileID: 21207096}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - 114: {fileID: 11407096}
   - 114: {fileID: 11451692}
   - 114: {fileID: 11461822}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   - 95: {fileID: 9570128}
   - 114: {fileID: 11470128}
   - 122: {fileID: 12270128}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 470990}
   - 212: {fileID: 21255108}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Moustache
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 410790}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head Accessory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 463060}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ears
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - 95: {fileID: 9569158}
   - 114: {fileID: 11499266}
   - 212: {fileID: 21247434}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453134}
   - 212: {fileID: 21225176}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left Ear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 441500}
   - 212: {fileID: 21260394}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 449640}
   - 212: {fileID: 21259208}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right Ear
   m_TagString: Untagged
   m_Icon: {fileID: 0}

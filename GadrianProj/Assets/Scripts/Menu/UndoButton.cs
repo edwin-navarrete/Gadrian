@@ -6,7 +6,6 @@ public class UndoButton : MonoBehaviour
 	void Start ()
 	{
 		CharacterManager.Instance.FinishingCharacterPlacement += TurnOn;
-		//gameObject.SetActive (false);
 	}
 
 	void TurnOn ()

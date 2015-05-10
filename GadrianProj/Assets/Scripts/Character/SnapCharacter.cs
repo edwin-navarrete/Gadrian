@@ -5,6 +5,8 @@ using System.Collections;
 [RequireComponent( typeof( Collider2D ) )]
 public class SnapCharacter : MonoBehaviour
 {
+    #region Fields
+
     [SerializeField]
     private GFGrid grid;
 
@@ -12,8 +14,10 @@ public class SnapCharacter : MonoBehaviour
     private Vector3 oldPosition;
     private PlayerOverTile lastTile;
 
+    #endregion
+
     #region Events
-    
+
     public static event UnityEngine.Events.UnityAction MovingCharacter;
     public static event UnityEngine.Events.UnityAction MovedCharacter;
     
@@ -34,6 +38,8 @@ public class SnapCharacter : MonoBehaviour
     }
 
     #endregion
+
+    #region Initialization
 
     private void Awake ()
     {
@@ -65,6 +71,10 @@ public class SnapCharacter : MonoBehaviour
         rb.isKinematic = false;
         rb.gravityScale = 0.0f;
     }
+
+    #endregion
+
+    #region Mouse Callbacks
 
     private void OnMouseDown ()
     {
@@ -99,6 +109,10 @@ public class SnapCharacter : MonoBehaviour
         DragObject();
     }
 
+    #endregion
+
+    #region Character Dragging
+
     private void DragObject ()
     {
         if ( !grid ) return;
@@ -125,6 +139,10 @@ public class SnapCharacter : MonoBehaviour
         return transform.position;
 
     }
+
+    #endregion
+
+    #region Movement handling
 
     public void DoMovement (Vector3 newPosition, bool registerMovement)
     {
@@ -165,4 +183,6 @@ public class SnapCharacter : MonoBehaviour
             }
         }
     }
+
+    #endregion
 }

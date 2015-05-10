@@ -21,7 +21,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
 	public void OnPointerDown (PointerEventData eventData)
 	{
-		manager.SetCharacterImage ( body.sprite, complexion.sprite, eventData );
+		//manager.SetCharacterImage ( body.sprite, complexion.sprite, eventData );
 	}
 
 	#endregion
@@ -30,7 +30,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
 	public void OnDrag (PointerEventData eventData)
 	{
-		manager.MoveCharacterImage ( eventData );
+		//manager.MoveCharacterImage ( eventData );
 	}
 
 	#endregion
@@ -39,7 +39,7 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
 	public void OnPointerUp (PointerEventData eventData)
 	{
-		manager.PlaceCharacterImage ( eventData, gameObject, personality, "" );
+		//manager.PlaceCharacterImage ( eventData, gameObject, personality, "" );
 	}
 
 	#endregion
