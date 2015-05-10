@@ -8,27 +8,15 @@ public class SnapCharacter : MonoBehaviour
     [SerializeField]
     private GFGrid grid;
 
-    private int intersecting;
-    private bool beingDragged;
-
     private Vector3 lastValidPosition;
     private Vector3 oldPosition;
     private PlayerOverTile lastTile;
 
-    public event UnityEngine.Events.UnityAction<bool> Intersecting;
-
+    #region Events
+    
     public static event UnityEngine.Events.UnityAction MovingCharacter;
     public static event UnityEngine.Events.UnityAction MovedCharacter;
-
-
-    private void OnIntersecting (bool intersecting)
-    {
-        if ( Intersecting != null )
-        {
-            Intersecting( intersecting );
-        }
-    }
-
+    
     private void OnMovingCharacter ()
     {
         if ( MovingCharacter != null )
@@ -45,18 +33,15 @@ public class SnapCharacter : MonoBehaviour
         }
     }
 
-    private void OnMovement ()
-    {
-        CharacterManager.Instance.RefreshMoods();
-    }
+    #endregion
 
     private void Awake ()
     {
         grid = GridManager.Instance.Grid;
 
-        grid.AlignTransform( this.transform );
-        lastValidPosition = this.transform.position;
-        oldPosition = this.transform.position;
+        grid.AlignTransform( transform );
+        lastValidPosition = transform.position;
+        oldPosition = transform.position;
 
         SetupRigidbody();
     }
@@ -64,15 +49,6 @@ public class SnapCharacter : MonoBehaviour
     public void Start ()
     {
         CharacterManager.Instance.Winning += MakeNonBlocking;
-    }
-
-    public void InitializeCharacter (Vector3 firstPosition, PlayerOverTile firstTile)
-    {
-        transform.position = firstPosition;
-        grid.AlignTransformFixed( transform );
-
-        lastTile = firstTile;
-        lastTile.SolidifyTile();
     }
 
     private void MakeNonBlocking ()
@@ -94,82 +70,38 @@ public class SnapCharacter : MonoBehaviour
     {
         OnMovingCharacter();
         lastTile.UnsolidifyTile();
-        beingDragged = true;
     }
 
     private void OnMouseUp ()
     {
-        beingDragged = false;
-
         if ( CheckIfMovement() )
         {
-            DoMovement( lastValidPosition, true );
+            grid.AlignTransformFixed( transform );
+            DoMovement( transform.position, true );
             OnMovedCharacter();
+            CharacterManager.Instance.RefreshMoods();
         }
         else
         {
             transform.position = oldPosition;
         }
-        intersecting = 0;
-        OnIntersecting( false );
-        OnMovement();
-    }
-
-    public void DoMovement (Vector3 newPosition, bool registerMovement)
-    {
-        transform.position = newPosition;
-        grid.AlignTransformFixed( this.transform );
-        CheckTileToSolidify();
-        if ( registerMovement )
-        {
-            Movement movement = new Movement( gameObject, Action.Movement, oldPosition, transform.position );
-            CharacterManager.Instance.RegisterMovement( movement );
-        }
-        oldPosition = transform.position;
-    }
-
-    private void CheckTileToSolidify ()
-    {
-        LayerMask gridLayer = 1 << LayerMask.NameToLayer( "Grid" );
-        //Debug.LogFormat( "GridLayer: {0}, Mouse positio: {1}", gridLayer.value, Input.mousePosition );
-
-        Ray2D ray = new Ray2D( new Vector2( transform.position.x, transform.position.y ), Vector2.zero );
-        RaycastHit2D hit = Physics2D.Raycast( ray.origin, Vector2.zero, float.PositiveInfinity, gridLayer );
-        if ( hit.collider != null )
-        {
-            if ( hit.collider.tag == "Cell" )
-            {
-                //Debug.Log( "Hit a tile" );
-                PlayerOverTile tile = hit.transform.GetComponent<PlayerOverTile>();
-                tile.SolidifyTile();
-                lastTile = tile;
-            }
-        }
     }
 
     private bool CheckIfMovement ()
     {
-        Vector3 newPosition = grid.WorldToGridFixed( this.transform.position );
+        Vector3 newPosition = grid.WorldToGridFixed( transform.position );
         float distance = Vector3.Distance( newPosition, grid.WorldToGridFixed( oldPosition ) );
         return distance > 0.5f;
     }
 
-    private void FixedUpdate ()
+    public void OnMouseDrag ()
     {
-        if ( beingDragged )
-        {
-            if ( intersecting == 0 )
-            {
-                lastValidPosition = transform.position;
-            }
-            DragObject();
-        }
+        DragObject();
     }
 
     private void DragObject ()
     {
-        if ( !grid )
-            return;
+        if ( !grid ) return;
 
         Vector3 cursorWorldPoint = ShootRay();
 
@@ -178,7 +110,7 @@ public class SnapCharacter : MonoBehaviour
 
     private Vector3 ShootRay ()
     {
-        LayerMask gridLayer = 1 << LayerMask.NameToLayer( "Grid" );
+        LayerMask gridLayer = LayerMask.GetMask( "Grid" );
         Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
         Vector2 orgin = new Vector2( ray.origin.x, ray.origin.y );
 
@@ -194,36 +126,43 @@ public class SnapCharacter : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D (Collider2D other)
+    public void DoMovement (Vector3 newPosition, bool registerMovement)
     {
-        if ( other.transform.tag == "Player" )
+        transform.position = newPosition;
+        UnsolidifyLastTile();
+        CheckTileToSolidify();
+        if ( registerMovement )
         {
-            SetIntersecting( true );
+            Movement movement = new Movement( gameObject, oldPosition, transform.position );
+            CharacterManager.Instance.RegisterMovement( movement );
         }
+        oldPosition = transform.position;
     }
 
-    private void OnTriggerExit2D (Collider2D other)
+    private void UnsolidifyLastTile ()
     {
-        if ( other.transform.tag == "Player" )
+        if ( lastTile == null ) return;
+
+        if ( lastTile.IsTileSolid() )
         {
-            SetIntersecting( false );
-        }
+            lastTile.UnsolidifyTile();
+        }        
     }
 
-    private void SetIntersecting (bool intersecting)
+    private void CheckTileToSolidify ()
     {
-        if ( !beingDragged ) // ignore sitting objects, only moving ones should respond
-            return;
-        // if true we entered another object, increment the value; if false we exited another object, decrease the value
-        this.intersecting = intersecting ? this.intersecting + 1 : this.intersecting - 1;
+        LayerMask gridLayer = 1 << LayerMask.NameToLayer( "Grid" );
 
-        if ( this.intersecting > 0 )
+        Ray2D ray = new Ray2D( new Vector2( transform.position.x, transform.position.y ), Vector2.zero );
+        RaycastHit2D hit = Physics2D.Raycast( ray.origin, Vector2.zero, float.PositiveInfinity, gridLayer );
+        if ( hit.collider != null )
         {
-            OnIntersecting( true );
-        }
-        else
-        {
-            OnIntersecting( false );
+            if ( hit.collider.tag == "Cell" )
+            {
+                PlayerOverTile tile = hit.transform.GetComponent<PlayerOverTile>();
+                tile.SolidifyTile();
+                lastTile = tile;
+            }
         }
     }
 }

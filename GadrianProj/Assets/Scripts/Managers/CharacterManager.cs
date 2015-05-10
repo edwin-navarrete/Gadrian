@@ -6,6 +6,8 @@ using System.Collections.Generic;
 
 public class CharacterManager : MonoBehaviour
 {
+    #region Fields
+
     [Range( 1, 12 )]
     public int characterAmount = 5;
     private List<int> selec;
@@ -26,6 +28,8 @@ public class CharacterManager : MonoBehaviour
 
     private List<Personality> characters;		// Reference to all characters placed in world
     private List<Movement> movements;
+
+    #endregion
 
     #region Events
 
@@ -114,6 +118,8 @@ public class CharacterManager : MonoBehaviour
 
     #endregion
 
+    #region Unity API
+
     // This awake method could be remove if the character manager already have reference in Editor to canvasRectTransform,
     // characterRectTransform and CharacterPlaceholder
     public void Awake ()
@@ -142,10 +148,7 @@ public class CharacterManager : MonoBehaviour
             Destroy( this.gameObject );
     }
 
-    public Vector3 AskGridPosition (Vector3 position)
-    {
-        return grid.WorldToGrid( position );
-    }
+    #endregion
 
     #region Mood refresh
 
@@ -244,18 +247,11 @@ public class CharacterManager : MonoBehaviour
     public void UndoLastMomevent ()
     {
         int index = movements.Count - 1;
-        if ( index <= 0 )
+        if ( index >= 0 )
         {
             Movement movement = movements[index];
-            if ( movement.ActionPerformed == Action.Movement )
-            {
-                SnapCharacter snapCharacter = movement.Sender.GetComponent<SnapCharacter>();
-                snapCharacter.DoMovement( movement.OldPosition, false );
-            }
-            else if ( movement.ActionPerformed == Action.Placement )
-            {
-                Destroy( movement.Sender );
-            }
+            SnapCharacter snapCharacter = movement.Sender.GetComponent<SnapCharacter>();
+            snapCharacter.DoMovement( movement.OldPosition, false );
             movements.Remove( movement );
         }
         else
@@ -309,91 +305,6 @@ public class CharacterManager : MonoBehaviour
         character.snapCharacter.DoMovement( TileManager.Instance.GetFreeTilePosition(), false );
         // Child to Character holder
         newChar.transform.SetParent( characterPlaceholder );
-    }
-
-    #endregion
-
-    #region Character movement from scroll list to world
-
-    /// <summary>
-    /// When input from touch/mouse is down, this method will turn off the element of the scroll list 
-    /// and then create a object to drag around and finally place on the grid.
-    /// </summary>
-    /// <param name="characterBody"></param>
-    public void SetCharacterImage (Sprite characterBody, Sprite characterComplexion, PointerEventData eventData)
-    {
-        OnStartingDrag( characterBody, characterComplexion );
-
-        characterRectTransform.position = eventData.position;
-    }
-
-    public void MoveCharacterImage (PointerEventData eventData)
-    {
-        if ( characterRectTransform == null )
-            return;
-
-        Vector2 pointerPosition = ClampToWindow( Input.mousePosition );
-
-        Vector2 localPointerPosition;
-        if ( RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvasRectTransform, pointerPosition, eventData.pressEventCamera, out localPointerPosition ) )
-        {
-            characterRectTransform.localPosition = localPointerPosition;
-        }
-    }
-
-    public void PlaceCharacterImage (PointerEventData eventData, GameObject sender, Personality personality, string charName)
-    {
-        OnFinishingDrag();
-
-        //LayerMask gridLayer = 1 << LayerMask.NameToLayer( "Grid" );
-        LayerMask gridLayer = LayerMask.GetMask( "Grid" );
-        Debug.LogFormat( "GridLayer: {0}, Mouse position: {1}", gridLayer.value, Input.mousePosition );
-        Debug.LogFormat( "GridLayer: {0}, Event data position: {1}", gridLayer.value, eventData.position );
-
-        Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
-        //Vector2 origin = new Vector2( ray.origin.x, ray.origin.y );
-        //Ray2D ray = new Ray2D( eventData.position, Vector2.zero );
-        //Vector2 origin = new Vector2( ray.origin.x, ray.origin.y );
-        RaycastHit2D hit = Physics2D.Raycast( ray.origin, Vector2.zero, float.PositiveInfinity, gridLayer );
-
-        if ( hit.collider != null )
-        {
-            Debug.Log( "Hit a tile" );
-            if ( hit.transform.tag == "Cell" )
-            {
-                GameObject newCharacter = Instantiate( characterPrefab ) as GameObject;
-
-                Personality newCharPersonality = newCharacter.GetComponent<Personality>();
-                characters.Add( newCharPersonality );
-
-                newCharPersonality.CopyPersonality( personality );
-                newCharPersonality.TraitsEffect();
-                RefreshMoods();
-
-                newCharacter.transform.SetParent( characterPlaceholder );
-                sender.SetActive( false );
-
-                SnapCharacter snapCharacter = newCharacter.GetComponent<SnapCharacter>();
-                snapCharacter.InitializeCharacter( (Vector3) hit.point, hit.transform.GetComponent<PlayerOverTile>() );
-            }
-        }
-
-        OnFinishedDrag();
-    }
-
-    private Vector2 ClampToWindow (Vector3 mousePoistion)
-    {
-        Vector2 rawPointerPosition = mousePoistion;
-
-        Vector3[] canvasCorners = new Vector3[4];
-        canvasRectTransform.GetWorldCorners( canvasCorners );
-
-        float clampedX = Mathf.Clamp( rawPointerPosition.x, canvasCorners[0].x, canvasCorners[2].x );
-        float clampedY = Mathf.Clamp( rawPointerPosition.y, canvasCorners[0].y, canvasCorners[2].y );
-
-        Vector2 newPointerPosition = new Vector2( clampedX, clampedY );
-        return newPointerPosition;
     }
 
     #endregion

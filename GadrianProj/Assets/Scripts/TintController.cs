@@ -16,7 +16,7 @@ public class TintController : MonoBehaviour
 		animator = GetComponent<Animator> ();
 
 		SubscribeEmotions ();
-		snapCharacter.Intersecting += snapCharacter_Intersecting;
+        //snapCharacter.Intersecting += snapCharacter_Intersecting;
 	}
 
 	public void SubscribeEmotions ()

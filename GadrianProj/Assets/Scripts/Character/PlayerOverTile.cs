@@ -3,26 +3,38 @@ using System.Collections.Generic;
 
 public class PlayerOverTile : MonoBehaviour
 {
-	[SerializeField]
-	private Sprite nonSolidTile;
-	[SerializeField]
-	private Sprite solidTile;
+    [SerializeField]
+    private Sprite nonSolidTile;
+    [SerializeField]
+    private Sprite solidTile;
 
-	private new SpriteRenderer renderer;
+    private new SpriteRenderer renderer;
 
-	public void Awake()
-	{
-		renderer = GetComponent<SpriteRenderer> ();
-	}
+    public void Awake ()
+    {
+        renderer = GetComponent<SpriteRenderer>();
+    }
 
-	public void SolidifyTile()
-	{
-		renderer.sprite = solidTile;
-	}
+    public void SolidifyTile ()
+    {
+        renderer.sprite = solidTile;
+    }
 
-	public void UnsolidifyTile()
-	{
-		renderer.sprite = nonSolidTile;
-	}
+    public void UnsolidifyTile ()
+    {
+        renderer.sprite = nonSolidTile;
+    }
+
+    public bool IsTileSolid ()
+    {
+        if ( renderer.sprite.Equals(solidTile) )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 }
