@@ -79,7 +79,7 @@ public class SnapCharacter : MonoBehaviour
         OnMovingCharacter();
         //UnsolidifyLastTile();
     }
-
+    
     private void OnMouseUp ()
     {
         if ( CheckIfMovement() )

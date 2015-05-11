@@ -157,7 +157,7 @@ public class Personality : MonoBehaviour
 	{
 		if ( model == null )
 		{
-			Debug.Log ( "model is null" );
+			Debug.LogError ( "model is null" );
 		}
 		this.model = model;
 		SetTraitList ( model.getPersonalityTraits ( personalityIdx ) );

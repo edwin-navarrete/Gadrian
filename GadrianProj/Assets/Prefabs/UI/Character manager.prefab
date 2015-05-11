@@ -39,9 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef3fc94ce31a7a4d9a88b1f43042d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasRectTransform: {fileID: 0}
-  characterRectTransform: {fileID: 0}
-  grid: {fileID: 0}
+  characterAmount: 5
   characterPrefab: {fileID: 107098, guid: dd59996e24dd98c41a23064e43f65b00, type: 2}
 --- !u!1001 &100100000
 Prefab:
