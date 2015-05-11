@@ -42,7 +42,8 @@ AudioSource:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e9c49907ada66bb48976b9f5b8080943, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -98,6 +99,16 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1002 &8200001
 EditorExtensionImpl:
   serializedVersion: 6
@@ -116,17 +127,21 @@ MonoBehaviour:
   - gameObject: {fileID: 100000, guid: 24b406bea89b34ec582aae7babb277ba, type: 2}
     delay: 0
     hqOnly: 0
+    yOffset: 0
   explosionEmitters:
   - gameObject: {fileID: 100000, guid: 97767d7c7ee0541cf8c1898412d39287, type: 2}
     delay: .200000003
     hqOnly: 0
+    yOffset: 0
   - gameObject: {fileID: 100000, guid: 97767d7c7ee0541cf8c1898412d39287, type: 2}
     delay: 0
     hqOnly: 0
+    yOffset: 0
   smokeEmitters:
   - gameObject: {fileID: 100000, guid: 1b6efec96f2de41a9b93752f8e4dfa6f, type: 2}
     delay: .449999988
     hqOnly: 0
+    yOffset: 0
   miscSpecialEffects: []
 --- !u!1002 &11400001
 EditorExtensionImpl:
@@ -142,7 +157,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
-  m_IsExploded: 1
 --- !u!1002 &100100001
 EditorExtensionImpl:
   serializedVersion: 6

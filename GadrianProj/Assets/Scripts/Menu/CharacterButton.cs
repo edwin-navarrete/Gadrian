@@ -10,13 +10,6 @@ public class CharacterButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 	public Image face;
 	public Personality personality;     //Personallity is in child object
 
-	private CharacterManager manager;
-
-	private void Awake ()
-	{
-		manager = CharacterManager.Instance;
-	}
-
 	#region Miembros de IPointerDownHandler
 
 	public void OnPointerDown (PointerEventData eventData)

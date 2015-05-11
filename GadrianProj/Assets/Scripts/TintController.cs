@@ -4,14 +4,12 @@ using System.Collections;
 public class TintController : MonoBehaviour
 {
 	private Personality personality;
-	private SnapCharacter snapCharacter;
 	private SpriteRenderer backgroundRenderer;
 	private Animator animator;
 
 	public void Awake ()
 	{
 		personality = GetComponentInParent<Personality> ();
-		snapCharacter = GetComponentInParent<SnapCharacter> ();
 		backgroundRenderer = GetComponent<SpriteRenderer> ();
 		animator = GetComponent<Animator> ();
 

@@ -2,13 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: minebot_diffuse
   m_Shader: {fileID: 4800000, guid: b6adcc18389e141f68abe08051c54567, type: 3}
-  m_ShaderKeywords: []
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   m_SavedProperties:
     serializedVersion: 2
@@ -62,12 +63,12 @@ Material:
         second: .078125
       data:
         first:
-          name: _EmissionLM
-        second: 0
-      data:
-        first:
           name: _SelfIllumStrength
         second: 1
+      data:
+        first:
+          name: _EmissionLM
+        second: 0
     m_Colors:
       data:
         first:

@@ -2,13 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: player-01 - default
   m_Shader: {fileID: 4800000, guid: 8de45c360a2d542f4be2d61da2beba10, type: 3}
-  m_ShaderKeywords: []
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   m_SavedProperties:
     serializedVersion: 2
@@ -69,20 +70,20 @@ Material:
         second: 47.8373146
       data:
         first:
-          name: _SelfIllumination
-        second: 1.71641791
-      data:
-        first:
-          name: _EmissionLM
-        second: 50
-      data:
-        first:
           name: _SelfIllumStrength
         second: 1.5
       data:
         first:
           name: _RoomReflectionAmount
         second: 2.92537308
+      data:
+        first:
+          name: _EmissionLM
+        second: 50
+      data:
+        first:
+          name: _SelfIllumination
+        second: 1.71641791
       data:
         first:
           name: _NonLightmapColorMod

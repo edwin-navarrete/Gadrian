@@ -6,12 +6,10 @@ using UnityEngine;
 
 namespace UnityTest
 {
-
     [TestFixture]
     [Category("Sample Tests")]
     internal class SampleTests
     {
-		/*
         [Test]
         [Category("Failing Tests")]
         public void ExceptionTest()
@@ -78,6 +76,7 @@ namespace UnityTest
         {
             throw new ArgumentException("expected message");
         }
+
         [Datapoint]
         public double zero = 0;
         [Datapoint]
@@ -99,6 +98,5 @@ namespace UnityTest
             Assert.That(sqrt >= 0.0);
             Assert.That(sqrt * sqrt, Is.EqualTo(num).Within(0.000001));
         }
-		*/
-	}
+    }
 }

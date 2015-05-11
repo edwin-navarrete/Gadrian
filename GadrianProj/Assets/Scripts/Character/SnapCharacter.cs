@@ -10,7 +10,6 @@ public class SnapCharacter : MonoBehaviour
     [SerializeField]
     private GFGrid grid;
 
-    private Vector3 lastValidPosition;
     private Vector3 oldPosition;
     private PlayerOverTile lastTile;
 
@@ -46,7 +45,6 @@ public class SnapCharacter : MonoBehaviour
         grid = GridManager.Instance.Grid;
 
         grid.AlignTransform( transform );
-        lastValidPosition = transform.position;
         oldPosition = transform.position;
 
         SetupRigidbody();

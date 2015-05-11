@@ -48,12 +48,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   touchPad: 0
   touchZone:
-    serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  deadZone: {x: 0, y: 0}
+  deadZone: 0
   normalize: 0
   position: {x: 0, y: 0}
   tapCount: 0
@@ -93,7 +92,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
-  m_IsExploded: 1
 --- !u!1002 &100100001
 EditorExtensionImpl:
   serializedVersion: 6

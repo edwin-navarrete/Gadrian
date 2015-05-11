@@ -2,13 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Reflection
   m_Shader: {fileID: 4800000, guid: 91083837e9bad4a5f8211c02db74526e, type: 3}
-  m_ShaderKeywords: []
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   m_SavedProperties:
     serializedVersion: 2
@@ -29,20 +30,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _2DReflect
-        second:
-          m_Texture: {fileID: 2800000, guid: f118120a67e7e4f588d865a4ec2ad6b4, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Normal
-        second:
-          m_Texture: {fileID: 2800000, guid: 7476f264231e84484941e13bfc3fd46d, type: 3}
-          m_Scale: {x: 2, y: 2.29999995}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _ReflectionTex
         second:
           m_Texture: {fileID: 2800000, guid: 462f7e12ea158430f9baf947904c4065, type: 3}
@@ -60,6 +47,20 @@ Material:
           name: _Normals
         second:
           m_Texture: {fileID: 2800000, guid: 8e4fad6d064a247728f7fa3f3fcf12ca, type: 3}
+          m_Scale: {x: 2, y: 2.29999995}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _2DReflect
+        second:
+          m_Texture: {fileID: 2800000, guid: f118120a67e7e4f588d865a4ec2ad6b4, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal
+        second:
+          m_Texture: {fileID: 2800000, guid: 7476f264231e84484941e13bfc3fd46d, type: 3}
           m_Scale: {x: 2, y: 2.29999995}
           m_Offset: {x: 0, y: 0}
       data:
