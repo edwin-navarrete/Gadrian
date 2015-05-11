@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class EndGameNotification : MonoBehaviour
 {
-    public void Start()
+    private Animator animator;
+
+    public void Awake()
     {
         CharacterManager.Instance.Won += PopUp;
-        gameObject.SetActive( false );
+        animator = GetComponent<Animator>();
     }
 
     public void PopUp()
     {
-        gameObject.SetActive( true );
+        animator.SetTrigger( "PopUp" );
     }
 }

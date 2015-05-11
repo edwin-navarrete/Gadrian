@@ -31,7 +31,7 @@ public class CharacterManager : MonoBehaviour
     public event UnityEngine.Events.UnityAction Winning;
     public event UnityEngine.Events.UnityAction Won;
     public event UnityEngine.Events.UnityAction FinishingCharacterPlacement;
-    
+
     private void OnWinning ()
     {
         if ( Winning != null )
@@ -91,8 +91,6 @@ public class CharacterManager : MonoBehaviour
     // characterRectTransform and CharacterPlaceholder
     public void Awake ()
     {
-        //canvasRectTransform = GameObject.FindObjectOfType<Canvas>().transform as RectTransform;
-        //characterRectTransform = GameObject.FindObjectOfType<CharacterRepresentation>().transform as RectTransform;
         characterPlaceholder = GameObject.FindGameObjectWithTag( "Placeholder" ).transform;
         grid = GridManager.Instance.Grid;
         characters = new List<Personality>();
@@ -131,10 +129,10 @@ public class CharacterManager : MonoBehaviour
     private List<Personality> GetNeighbourPersonalities (Vector3 curPos)
     {
         List<Personality> neighbourPersonalities = new List<Personality>();
-        Vector3 position = grid.WorldToGrid( curPos );
+        Vector3 position = grid.WorldToGridFixed( curPos );
         foreach ( Personality personality in characters )
         {
-            Vector3 reference = grid.WorldToGrid( personality.transform.position );
+            Vector3 reference = grid.WorldToGridFixed( personality.transform.position );
             if ( reference == position )
                 continue;
 
@@ -247,6 +245,7 @@ public class CharacterManager : MonoBehaviour
             index++;
         }
         EventManager.TriggerEvent( "FinishedCharacterCreating" );
+        FinishCharacterPlacement();
         RefreshMoods();
     }
 
