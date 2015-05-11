@@ -28,38 +28,10 @@ public class CharacterManager : MonoBehaviour
 
     #region Events
 
-    public event UnityEngine.Events.UnityAction StartingDrag;
-    public event UnityEngine.Events.UnityAction FinishingDrag;
-    public event UnityEngine.Events.UnityAction FinishedDrag;
     public event UnityEngine.Events.UnityAction Winning;
     public event UnityEngine.Events.UnityAction Won;
     public event UnityEngine.Events.UnityAction FinishingCharacterPlacement;
-
-
-    private void OnStartingDrag ()
-    {
-        if ( StartingDrag != null )
-        {
-            StartingDrag();
-        }
-    }
-
-    private void OnFinishingDrag ()
-    {
-        if ( FinishingDrag != null )
-        {
-            FinishingDrag();
-        }
-    }
-
-    private void OnFinishedDrag ()
-    {
-        if ( FinishedDrag != null )
-        {
-            FinishedDrag();
-        }
-    }
-
+    
     private void OnWinning ()
     {
         if ( Winning != null )
@@ -278,17 +250,24 @@ public class CharacterManager : MonoBehaviour
         RefreshMoods();
     }
 
+    /// <summary>
+    /// Create a personlaity based on a pesonality or if the personality is null pick a new personality
+    /// </summary>
+    /// <param name="personality"></param>
     public void CreateCharacterItem (Personality personality)
     {
+        // Instantiate a character prefab
         GameObject newChar = Instantiate( characterPrefab ) as GameObject;
-
+        // Get Character Component
         Character character = newChar.GetComponent<Character>();
+        // Add the Character component to the characters list
         characters.Add( character.personality );
-
+        // If the method was call with a null personality pick a new personality
         if ( personality == null )
         {
             character.personality.SetupPersonality( PersonalityManager.PersonalityModel, selec[index] );
         }
+        // If not, copy the argument personality
         else
         {
             character.personality.CopyPersonality( personality );
@@ -296,8 +275,9 @@ public class CharacterManager : MonoBehaviour
 
         // Modify Character
         character.personality.TraitsEffect();
-        // Do movement to the first location
-        character.snapCharacter.DoMovement( TileManager.Instance.GetFreeTilePosition(), false );
+        // Do movement the first movement to a free tile position
+        Vector3 firstPosition = TileManager.Instance.GetFreeTilePosition();
+        character.snapCharacter.DoMovement( firstPosition, false );
         // Child to Character holder
         newChar.transform.SetParent( characterPlaceholder );
     }

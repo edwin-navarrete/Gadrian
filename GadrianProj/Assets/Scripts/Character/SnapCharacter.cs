@@ -20,7 +20,7 @@ public class SnapCharacter : MonoBehaviour
 
     public static event UnityEngine.Events.UnityAction MovingCharacter;
     public static event UnityEngine.Events.UnityAction MovedCharacter;
-    
+
     private void OnMovingCharacter ()
     {
         if ( MovingCharacter != null )
@@ -79,7 +79,7 @@ public class SnapCharacter : MonoBehaviour
     private void OnMouseDown ()
     {
         OnMovingCharacter();
-        lastTile.UnsolidifyTile();
+        //UnsolidifyLastTile();
     }
 
     private void OnMouseUp ()
@@ -142,19 +142,57 @@ public class SnapCharacter : MonoBehaviour
 
     #endregion
 
-    #region Movement handling
+    #region Movement Handling
+
+    public void DoSwapMovement (Vector3 swapPosition)
+    {
+        transform.position = swapPosition;
+        UnsolidifyLastTile();
+        CheckTileToSolidify();
+        oldPosition = transform.position;
+    }
 
     public void DoMovement (Vector3 newPosition, bool registerMovement)
     {
         transform.position = newPosition;
-        UnsolidifyLastTile();
-        CheckTileToSolidify();
+        SnapCharacter swapCharacter = CheckCharacterToSwap();
+        if ( swapCharacter )
+        {
+            swapCharacter.DoSwapMovement( oldPosition );
+            CheckTileToSolidify();
+        }
+        else
+        {
+            UnsolidifyLastTile();
+            CheckTileToSolidify();
+        }
         if ( registerMovement )
         {
             Movement movement = new Movement( gameObject, oldPosition, transform.position );
             CharacterManager.Instance.RegisterMovement( movement );
         }
         oldPosition = transform.position;
+    }
+
+    private SnapCharacter CheckCharacterToSwap ()
+    {
+        // Make this gameObject ignore raycasting
+        gameObject.layer = LayerMask.NameToLayer( "Ignore Raycast" );
+        // Get the Characters layer
+        LayerMask gridLayer = 1 << LayerMask.NameToLayer( "Players" );
+
+        Ray2D ray = new Ray2D( new Vector2( transform.position.x, transform.position.y ), Vector2.zero );
+        RaycastHit2D hit = Physics2D.Raycast( ray.origin, Vector2.zero, float.PositiveInfinity, gridLayer );
+        if ( hit.collider != null )
+        {
+            if ( hit.collider.tag == "Player" )
+            {
+                gameObject.layer = LayerMask.NameToLayer( "Players" );
+                return hit.transform.GetComponent<SnapCharacter>();
+            }
+        }
+        gameObject.layer = LayerMask.NameToLayer( "Players" );
+        return null;
     }
 
     private void UnsolidifyLastTile ()
@@ -164,7 +202,7 @@ public class SnapCharacter : MonoBehaviour
         if ( lastTile.IsTileSolid() )
         {
             lastTile.UnsolidifyTile();
-        }        
+        }
     }
 
     private void CheckTileToSolidify ()
