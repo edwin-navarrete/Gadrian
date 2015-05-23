@@ -62,17 +62,17 @@ public class LevelGenerator : MonoBehaviour
 	 * el mismo color no está nunca en celdas contiguas.
 	 */
 	private int GetCellColor(Vector3 gridPos){
-		Debug.Log("TILE:"+gridPos);
+
 		float p = gridPos.x / 3f;
 		float q = gridPos.y / 2f;
 		float r = (gridPos.x - 1f) / 3f;
 		float s = (gridPos.y - 1f) / 2f;		
 		float t = (gridPos.x + 1f) / 3f;
 
-		if( (p + q) % 1 == 0 && (r + s) % 1 == 0 ){
+		if( (p + q) % 1 == 0 || (r + s) % 1 == 0 ){
 			return 0;
 		}
-		else if( (t + q) % 1 == 0 && (p + s) % 1 == 0 ){
+		else if( (t + q) % 1 == 0 || (p + s) % 1 == 0 ){
 			return 1;
 		}
 
