@@ -32,8 +32,7 @@ public class LevelGenerator : MonoBehaviour
         {
             foreach ( Vector3 gridVector in level.tilesPosition )
             {
-                Vector3 worldVector = grid.GridToWorldFixed( (Vector2) gridVector);
-                TileManager.Instance.TilesPosition.Add( worldVector, (int) gridVector.z );
+                TileManager.Instance.TilesPosition.Add( gridVector, (int) gridVector.z );
             }
         }
         else
@@ -45,10 +44,11 @@ public class LevelGenerator : MonoBehaviour
 	private void Generatelevel ()
 	{
         int index = 0;
-        foreach ( KeyValuePair<Vector3, bool> position in TileManager.Instance.TilesPosition )
+        foreach ( KeyValuePair<Vector3, int> position in TileManager.Instance.TilesPosition )
 		{
 			GameObject newCell = Instantiate ( tilesPrefab[index] ) as GameObject;
-            newCell.transform.position = position.Key;
+			Vector3 worldVector = grid.GridToWorldFixed( (Vector2) position.Key);
+			newCell.transform.position = worldVector;
 			newCell.transform.SetParent ( this.transform );
             index++;
 
