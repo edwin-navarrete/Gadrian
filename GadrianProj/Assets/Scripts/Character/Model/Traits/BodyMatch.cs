@@ -61,24 +61,24 @@ public class BodyMatch : MonoBehaviour
     private Sprite LookForBodySprite ()
     {
         if ( complexion == ComplexionFactor.SMALL )
-            ComplexionValue = 1;
+            ComplexionValue = 0;
 
         if ( complexion == ComplexionFactor.FAT )
-            ComplexionValue = 2;
+            ComplexionValue = 1;
 
         if ( complexion == ComplexionFactor.TALL )
-            ComplexionValue = 3;
+            ComplexionValue = 2;
 
         if ( etnia == EtniaFactor.GOLD )
-            EtniaValue = 1;
+            EtniaValue = 0;
 
         if ( etnia == EtniaFactor.RED )
-            EtniaValue = 2;
+            EtniaValue = 1;
 
         if ( etnia == EtniaFactor.BROWN )
-            EtniaValue = 3;
+            EtniaValue = 2;
 
-        int index = ComplexionValue * EtniaValue - 1;
+        int index = ComplexionValue + 3 * EtniaValue;
 
         try
         {
