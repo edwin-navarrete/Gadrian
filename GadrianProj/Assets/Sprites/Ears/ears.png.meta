@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 053a8ea444580014bb50b89adc773904
-timeCreated: 1429632064
+timeCreated: 1432394691
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -58,60 +58,30 @@ TextureImporter:
     - name: ears_0
       rect:
         serializedVersion: 2
-        x: 128
-        y: 700
-        width: 126
-        height: 191
+        x: 0
+        y: 607
+        width: 667
+        height: 303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: ears_1
       rect:
         serializedVersion: 2
-        x: 413
-        y: 700
-        width: 126
-        height: 191
+        x: 0
+        y: 304
+        width: 667
+        height: 303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: ears_2
       rect:
         serializedVersion: 2
-        x: 1
-        y: 308
-        width: 261
-        height: 182
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ears_3
-      rect:
-        serializedVersion: 2
-        x: 405
-        y: 308
-        width: 261
-        height: 182
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ears_4
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 23
-        width: 77
-        height: 143
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ears_5
-      rect:
-        serializedVersion: 2
-        x: 433
-        y: 23
-        width: 77
-        height: 143
+        x: 0
+        y: 1
+        width: 667
+        height: 303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

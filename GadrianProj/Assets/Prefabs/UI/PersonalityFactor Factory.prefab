@@ -44,6 +44,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   etnia: 1
   complexion: 1
+  ears: 1
 --- !u!114 &11461140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,14 +53,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 163930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9aaf3c6a1564aa49aa699c54cb2b582, type: 3}
+  m_Script: {fileID: 11500000, guid: 34af7b17c11205b4db4d62c14e7391e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hornSprite: {fileID: 0}
-  hairSprite: {fileID: 0}
-  uiHornSprite: {fileID: 0}
-  uiHairSprite: {fileID: 0}
-  headAccessoryTransform: {fileID: 0}
+  pointyEarSprite: {fileID: 21300000, guid: 053a8ea444580014bb50b89adc773904, type: 3}
+  furryEarSprite: {fileID: 21300002, guid: 053a8ea444580014bb50b89adc773904, type: 3}
+  normalEarSprite: {fileID: 21300004, guid: 053a8ea444580014bb50b89adc773904, type: 3}
 --- !u!114 &11463926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,21 +70,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b5f8f67874d08499a3c84c962149b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallBody: {fileID: 21300000, guid: a3bc25dc3d5508b4c894b989fdd9f05b, type: 3}
-  smallComplexion: {fileID: 21300000, guid: 0c69f91758eb7e24ca96fe2c2d13a834, type: 3}
-  fatBody: {fileID: 21300000, guid: d73e55608a0d86d498c9532e38b8c608, type: 3}
-  fatComplexion: {fileID: 21300000, guid: c2d28c07719179a4194fdbb85ccdf88f, type: 3}
-  furryBody: {fileID: 21300000, guid: 2a61189215f560f46bbdb0dd7683c099, type: 3}
-  furryComplexion: {fileID: 21300000, guid: 8e0c1611530eaf643bb2a7e7db1d0f54, type: 3}
-  smallFacePosition: {fileID: 22418144, guid: d800e4a3d005cc14ca3969e14675f665, type: 2}
-  fatFacePosition: {fileID: 22476540, guid: a7e530f07b731f549bc3dad5aa703fbe, type: 2}
-  furryFacePosition: {fileID: 22434998, guid: 8eca3dafda8207e43b730facd703b3c2, type: 2}
-  uiSmallBody: {fileID: 21300000, guid: c5f5c5b3c0f4b2448b43e8e54234b25f, type: 3}
-  uiSmallComplexion: {fileID: 21300000, guid: 88617cceeaeb04f44b2e3461131c534c, type: 3}
-  uiFatBody: {fileID: 21300000, guid: 83bf9bacd34648346b5423c3fd2f9a50, type: 3}
-  uiFatComplexion: {fileID: 21300000, guid: be7aa8c53da0e5245b67c71ad2489d51, type: 3}
-  uiFurryBody: {fileID: 21300000, guid: e8e9043b0abd6b54791d4bb1a280b007, type: 3}
-  uiFurryComplexion: {fileID: 21300000, guid: f78b1c3b15b578d439c49d80dc40a110, type: 3}
+  smallFacePosition: {fileID: 22421576, guid: eaf3c2f81b6b5e74f82b846ee58d2dd5, type: 2}
+  fatFacePosition: {fileID: 22478386, guid: 2add33a8f1b8eea4ba7f9bd134868604, type: 2}
+  furryFacePosition: {fileID: 22476552, guid: 7276ecbb81040244dba70baafdb1e075, type: 2}
 --- !u!114 &11463928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,8 +84,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2e4198b8d01a0408b7a066fcd4b129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yellow: {r: .945098042, g: 1, b: .0509803928, a: 1}
-  lemon: {r: .689097345, g: .933823526, b: 0, a: 1}
+  brown: {r: 0, g: 0, b: 0, a: 0}
+  red: {r: 0, g: 0, b: 0, a: 0}
   gold: {r: 1, g: .834482789, b: 0, a: 1}
 --- !u!1001 &100100000
 Prefab:

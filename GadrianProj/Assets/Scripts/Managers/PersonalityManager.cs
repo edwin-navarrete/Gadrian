@@ -6,10 +6,12 @@ public class PersonalityManager : MonoBehaviour
 	// NOTE these booleans could be used for stablish which factors are going to be on this level
 	public bool etnia = true;
 	public bool complexion = true;
+	public bool ears = true;
 
 	// Use booleans to set enable = false on this components so they will be not take into account in personalityFactors
 	private EtniaFactor etniaFactor;
 	private ComplexionFactor complexionFactor;
+	private EarAccessoryFactor earAccessoryFactor;
 
 	private List<PersonalityFactor> personalityFactors;
 
@@ -26,6 +28,7 @@ public class PersonalityManager : MonoBehaviour
 	{
 		etniaFactor = GetComponent<EtniaFactor> ();
 		complexionFactor = GetComponent<ComplexionFactor> ();
+		earAccessoryFactor = GetComponent<EarAccessoryFactor>();
 	}
 
 	private void Start ()
@@ -46,6 +49,9 @@ public class PersonalityManager : MonoBehaviour
 
 		if ( complexion )
 			personalityFactors.Add ( complexionFactor );
+
+		if ( ears )
+			personalityFactors.Add ( earAccessoryFactor );
 
 		if ( personalityFactors.Count == 0 )
 			Debug.LogError("At least a factor is required!");
