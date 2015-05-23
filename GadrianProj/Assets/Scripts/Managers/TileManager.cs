@@ -17,7 +17,7 @@ public class TileManager : Singleton<TileManager>
         }
     }
 
-    public TileConfiguration GetFreeTilePosition ()
+    public TileConfiguration GetNextCharacterTile ()
     {
         foreach ( KeyValuePair<Vector3, int> tile in TilesPosition )
         {

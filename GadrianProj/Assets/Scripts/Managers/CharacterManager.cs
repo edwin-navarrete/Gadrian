@@ -7,12 +7,7 @@ using System.Collections.Generic;
 public class CharacterManager : MonoBehaviour
 {
     #region Fields
-
-    [Range( 1, 12 )]
-    public int characterAmount = 5;
-    private List<int> selec;
-    private int index;
-
+    
     private GFGrid grid;
 
     [SerializeField]
@@ -231,19 +226,14 @@ public class CharacterManager : MonoBehaviour
 
     private void PopulateLevel ()
     {
-        selec = new List<int>();
-        selec.Add( 1 );
-        selec.Add( 2 );
-        selec.Add( 5 );
-        selec.Add( 6 );
-        selec.Add( 8 );
-
         EventManager.TriggerEvent( "StartingCharacterCreation" );
-        for ( int i = 0; i < characterAmount; i++ )
+
+        TileConfiguration tileConf;
+        while ( (tileConf = TileManager.Instance.GetNextCharacterTile()) != null  )
         {
-            CreateCharacterItem( null );
-            index++;
+            CreateCharacterItem( tileConf );
         }
+
         EventManager.TriggerEvent( "FinishedCharacterCreating" );
         FinishCharacterPlacement();
         RefreshMoods();
@@ -253,7 +243,7 @@ public class CharacterManager : MonoBehaviour
     /// Create a personlaity based on a pesonality or if the personality is null pick a new personality
     /// </summary>
     /// <param name="personality"></param>
-    public void CreateCharacterItem (Personality personality)
+    public void CreateCharacterItem (TileConfiguration tileConfiguration)
     {
         // Instantiate a character prefab
         GameObject newChar = Instantiate( characterPrefab ) as GameObject;
@@ -262,22 +252,13 @@ public class CharacterManager : MonoBehaviour
         // Add the Character component to the characters list
         characters.Add( character.personality );
 
-        TileConfiguration firstTilePosition = TileManager.Instance.GetFreeTilePosition();
         // If the method was call with a null personality pick a new personality
-        if ( personality == null )
-        {
-            character.personality.SetupPersonality( PersonalityManager.PersonalityModel, firstTilePosition.personalityIndex );
-        }
-        // If not, copy the argument personality
-        else
-        {
-            character.personality.CopyPersonality( personality );
-        }
+        character.personality.SetupPersonality( PersonalityManager.PersonalityModel, tileConfiguration.personalityIndex );
 
         // Modify Character
         character.personality.TraitsEffect();
         // Do the first movement to a free tile position
-        character.snapCharacter.DoMovement( GridManager.Instance.Grid.GridToWorldFixed( firstTilePosition.position ), false );
+        character.snapCharacter.DoMovement( GridManager.Instance.Grid.GridToWorldFixed( tileConfiguration.position ), false );
         // Child to Character holder
         newChar.transform.SetParent( characterPlaceholder );
     }
