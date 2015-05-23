@@ -30,10 +30,10 @@ public class LevelGenerator : MonoBehaviour
 
         if ( level != null )
         {
-            foreach ( Vector2 gridVector in level.tilesPosition )
+            foreach ( Vector3 gridVector in level.tilesPosition )
             {
-                Vector3 worldVector = grid.GridToWorldFixed( gridVector );
-                TileManager.Instance.TilesPosition.Add( worldVector, false );
+                Vector3 worldVector = grid.GridToWorldFixed( (Vector2) gridVector);
+                TileManager.Instance.TilesPosition.Add( worldVector, (int) gridVector.z );
             }
         }
         else

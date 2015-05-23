@@ -44,7 +44,8 @@ public class LevelCreator : EditorWindow
                 {
                     string[] axis = vector.Split( ' ' );
                     Vector2 position = new Vector2( int.Parse( axis[0] ), int.Parse( axis[1] ) );
-                    level.AddTilePosition( position );
+					int personalityIndex = int.Parse( axis[2] );
+                    level.AddTilePosition( position, personalityIndex );
                 }
 
                 // Save the new generated level

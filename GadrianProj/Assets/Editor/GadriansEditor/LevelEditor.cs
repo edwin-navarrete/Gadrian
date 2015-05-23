@@ -98,7 +98,15 @@ public class LevelEditor : Editor
 			}
             if ( showElementLabels )
             {
-                EditorGUILayout.PropertyField( list.GetArrayElementAtIndex( i ) );
+				SerializedProperty tileConfiguration = list.GetArrayElementAtIndex(i);
+                //SerializedObject tileConfigurationObj = new SerializedObject(tileConfiguration.objectReferenceValue);
+                ////Debug.LogFormat("tile congiguration is {0}", tileConfiguration);
+                //SerializedProperty m_Position = tileConfigurationObj.FindProperty("position");
+                //SerializedProperty m_PersonalityIndex = tileConfigurationObj.FindProperty("personalityIndex");
+                //EditorGUILayout.PropertyField( m_Position );
+                //EditorGUILayout.PropertyField( m_PersonalityIndex );
+                EditorGUILayout.PropertyField(tileConfiguration);
+				
             }
             else
             {
