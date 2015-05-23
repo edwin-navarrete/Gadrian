@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class TileManager : Singleton<TileManager>
 {
-    private Dictionary<Vector3, int> tilesPosition;
+    private Dictionary<Vector3, int> tilesPosition; // The vector3 key is on grid coordinates
 
     public Dictionary<Vector3, int> TilesPosition
     {
@@ -17,16 +17,17 @@ public class TileManager : Singleton<TileManager>
         }
     }
 
-    public Vector3 GetFreeTilePosition ()
+    public TileConfiguration GetFreeTilePosition ()
     {
         foreach ( KeyValuePair<Vector3, int> tile in TilesPosition )
         {
             if ( tile.Value != -1 )
             {
+                TileConfiguration tileConf = new TileConfiguration(tile.Key, tile.Value);
                 TilesPosition[tile.Key] = -1;
-                return tile.Key;
+                return tileConf;
             }
         }
-        return Vector3.zero;
+        return null;
     }
 }

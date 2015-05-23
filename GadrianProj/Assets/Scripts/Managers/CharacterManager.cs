@@ -261,10 +261,12 @@ public class CharacterManager : MonoBehaviour
         Character character = newChar.GetComponent<Character>();
         // Add the Character component to the characters list
         characters.Add( character.personality );
+
+        TileConfiguration firstTilePosition = TileManager.Instance.GetFreeTilePosition();
         // If the method was call with a null personality pick a new personality
         if ( personality == null )
         {
-            character.personality.SetupPersonality( PersonalityManager.PersonalityModel, selec[index] );
+            character.personality.SetupPersonality( PersonalityManager.PersonalityModel, firstTilePosition.personalityIndex );
         }
         // If not, copy the argument personality
         else
@@ -274,9 +276,8 @@ public class CharacterManager : MonoBehaviour
 
         // Modify Character
         character.personality.TraitsEffect();
-        // Do movement the first movement to a free tile position
-        Vector3 firstPosition = TileManager.Instance.GetFreeTilePosition();
-        character.snapCharacter.DoMovement( firstPosition, false );
+        // Do the first movement to a free tile position
+        character.snapCharacter.DoMovement( GridManager.Instance.Grid.GridToWorldFixed( firstTilePosition.position ), false );
         // Child to Character holder
         newChar.transform.SetParent( characterPlaceholder );
     }

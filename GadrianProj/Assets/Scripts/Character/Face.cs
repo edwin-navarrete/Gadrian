@@ -13,6 +13,8 @@ public class Face : MonoBehaviour
 
     public void LocateFace (ComplexionTrait complexion)
     {
+        Debug.LogFormat("The face to locate is {0}", complexion.ToString());
+
         if ( complexion == ComplexionFactor.SMALL )
         {
             this.transform.localPosition = faceSmallPosition.localPosition;
