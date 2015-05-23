@@ -5,18 +5,18 @@ using System.Collections;
 
 public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
 {
-    private RectTransform facePosition;
+    private Sprite bodyHair;
     private BodyMatch bodyMatch;
 
     #region Constructors
 
-    public ComplexionTrait (RectTransform facePosition)
+    public ComplexionTrait (Sprite bodyHair)
     {
-        this.facePosition = facePosition;
+        this.bodyHair = bodyHair;
     }
 
     public ComplexionTrait (ComplexionTrait traitToCopy)
-        : this( traitToCopy.facePosition ) { }
+        : this( traitToCopy.bodyHair ) { }
 
     #endregion
 
@@ -39,8 +39,13 @@ public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
         bodyMatch = character.GetComponent<BodyMatch>();
         bodyMatch.Complexion = this;
 
-        Transform faceTrans = character.transform.FindChild( "Face" );
-        Face characterFace = faceTrans.GetComponent<Face>();
+        //SpriteRenderer bodyHairRenderer = character.transform.FindChild("Body Hair").GetComponent<SpriteRenderer>();
+        //if (bodyHairRenderer != null)
+        //{
+        //    bodyHairRenderer.sprite = this.bodyHair;
+        //}
+
+        Face characterFace = character.transform.FindChild( "Face" ).GetComponent<Face>();
         if ( characterFace != null )
         {
             characterFace.LocateFace( this );

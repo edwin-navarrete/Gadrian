@@ -70,9 +70,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b5f8f67874d08499a3c84c962149b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallFacePosition: {fileID: 22421576, guid: eaf3c2f81b6b5e74f82b846ee58d2dd5, type: 2}
-  fatFacePosition: {fileID: 22478386, guid: 2add33a8f1b8eea4ba7f9bd134868604, type: 2}
-  furryFacePosition: {fileID: 22476552, guid: 7276ecbb81040244dba70baafdb1e075, type: 2}
+  smallBodyHair: {fileID: 21300000, guid: 9622c6e9810cde743b491efa53048c8d, type: 3}
+  fatBodyHair: {fileID: 21300002, guid: 9622c6e9810cde743b491efa53048c8d, type: 3}
+  tallBodyHair: {fileID: 21300004, guid: 9622c6e9810cde743b491efa53048c8d, type: 3}
 --- !u!114 &11463928
 MonoBehaviour:
   m_ObjectHideFlags: 1

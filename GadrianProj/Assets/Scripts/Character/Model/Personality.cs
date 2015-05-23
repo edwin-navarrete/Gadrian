@@ -95,30 +95,35 @@ public class Personality : MonoBehaviour
 			{
 				animator.SetTrigger ( "newMood" );
 				animator.SetInteger ( "mood", 1 );
+                animator.speed = Random.Range(0.8f, 1.2f);
 			};
 
 			Sad += () =>
 			{
 				animator.SetTrigger ( "newMood" );
 				animator.SetInteger ( "mood", 0 );
+                animator.speed = Random.Range(0.8f, 1.2f);
 			};
 
 			Angry += () =>
 			{
 				animator.SetTrigger ( "newMood" );
 				animator.SetInteger ( "mood", 2 );
+                animator.speed = Random.Range(0.8f, 1.2f);
 			};
 
 			Scared += () =>
 			{
 				animator.SetTrigger ( "newMood" );
 				animator.SetInteger ( "mood", 3 );
+                animator.speed = Random.Range(0.9f, 1.2f);
 			};
 
 			Indifferent += () =>
 			{
 				animator.SetTrigger ( "newMood" );
 				animator.SetInteger ( "mood", -1 );
+                animator.speed = Random.Range(0.95f, 1.05f);
 			}; 
 		}
 	}
