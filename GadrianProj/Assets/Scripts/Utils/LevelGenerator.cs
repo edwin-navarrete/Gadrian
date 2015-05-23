@@ -43,21 +43,39 @@ public class LevelGenerator : MonoBehaviour
 
 	private void Generatelevel ()
 	{
-        int index = 0;
+        
         foreach ( KeyValuePair<Vector3, int> position in TileManager.Instance.TilesPosition )
 		{
-			GameObject newCell = Instantiate ( tilesPrefab[index] ) as GameObject;
+			int cellColor = GetCellColor(position.Key);
+
+			GameObject newCell = Instantiate ( tilesPrefab[cellColor] ) as GameObject;
 			Vector3 worldVector = grid.GridToWorldFixed( (Vector2) position.Key);
 			newCell.transform.position = worldVector;
 			newCell.transform.SetParent ( this.transform );
-            index++;
-
-            if ( index >= tilesPrefab.Count )
-            {
-                index = 0;
-            }
 		}
 
         EventManager.TriggerEvent( "LevelGenerated" );
+	}
+
+	/**
+	 * Distribuir los tres colores en la grilla hexagonal de tal manera que 
+	 * el mismo color no está nunca en celdas contiguas.
+	 */
+	private int GetCellColor(Vector3 gridPos){
+		Debug.Log("TILE:"+gridPos);
+		float p = gridPos.x / 3f;
+		float q = gridPos.y / 2f;
+		float r = (gridPos.x - 1f) / 3f;
+		float s = (gridPos.y - 1f) / 2f;		
+		float t = (gridPos.x + 1f) / 3f;
+
+		if( (p + q) % 1 == 0 && (r + s) % 1 == 0 ){
+			return 0;
+		}
+		else if( (t + q) % 1 == 0 && (p + s) % 1 == 0 ){
+			return 1;
+		}
+
+		return 2;
 	}
 }
