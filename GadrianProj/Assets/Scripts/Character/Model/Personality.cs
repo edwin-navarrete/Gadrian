@@ -10,13 +10,14 @@ public class Personality : MonoBehaviour
 	[SerializeField]
 	private GameObject body;
 	[SerializeField]
-	private GameObject complexion;
+	private GameObject background;
 	[SerializeField]
 	private GameObject face;
 
 	private PersonalityModel model;
 	private MoodHandler moodHandler;
-	private Animator animator;	
+	private Animator faceAnimator;
+    private Animator backgroundAnimator;
 
 	private List<Trait> traits = new List<Trait> ();
 
@@ -81,52 +82,84 @@ public class Personality : MonoBehaviour
 	public void Awake ()
 	{
 		moodHandler = GetComponent<MoodHandler> ();
-		if ( face != null )
-			animator = face.GetComponent<Animator> ();
-
-		SubscribeEmotions ( face != null );
+        if (face != null)
+        {
+            faceAnimator = face.GetComponent<Animator>();
+            SubscribeFaceEmotions();
+        }
+        if (background != null)
+        {
+            backgroundAnimator = background.GetComponent<Animator>();
+            SubscribeBackgroundEmotions();
+        }
 	}
 
-	private void SubscribeEmotions (bool haveFace)
+	private void SubscribeFaceEmotions ()
 	{
-		if ( haveFace )
+		Happy += () =>
 		{
-			Happy += () =>
-			{
-				animator.SetTrigger ( "newMood" );
-				animator.SetInteger ( "mood", 1 );
-                animator.speed = Random.Range(0.8f, 1.2f);
-			};
+			faceAnimator.SetTrigger ( "newMood" );
+			faceAnimator.SetInteger ( "mood", 1 );
+            faceAnimator.speed = Random.Range(0.8f, 1.2f);
+		};
 
-			Sad += () =>
-			{
-				animator.SetTrigger ( "newMood" );
-				animator.SetInteger ( "mood", 0 );
-                animator.speed = Random.Range(0.8f, 1.2f);
-			};
+		Sad += () =>
+		{
+			faceAnimator.SetTrigger ( "newMood" );
+			faceAnimator.SetInteger ( "mood", 0 );
+            faceAnimator.speed = Random.Range(0.8f, 1.2f);
+		};
 
-			Angry += () =>
-			{
-				animator.SetTrigger ( "newMood" );
-				animator.SetInteger ( "mood", 2 );
-                animator.speed = Random.Range(0.8f, 1.2f);
-			};
+		Angry += () =>
+		{
+			faceAnimator.SetTrigger ( "newMood" );
+			faceAnimator.SetInteger ( "mood", 2 );
+            faceAnimator.speed = Random.Range(0.8f, 1.2f);
+		};
 
-			Scared += () =>
-			{
-				animator.SetTrigger ( "newMood" );
-				animator.SetInteger ( "mood", 3 );
-                animator.speed = Random.Range(0.9f, 1.2f);
-			};
+		Scared += () =>
+		{
+			faceAnimator.SetTrigger ( "newMood" );
+			faceAnimator.SetInteger ( "mood", 3 );
+            faceAnimator.speed = Random.Range(0.9f, 1.2f);
+		};
 
-			Indifferent += () =>
-			{
-				animator.SetTrigger ( "newMood" );
-				animator.SetInteger ( "mood", -1 );
-                animator.speed = Random.Range(0.95f, 1.05f);
-			}; 
-		}
+		Indifferent += () =>
+		{
+			faceAnimator.SetTrigger ( "newMood" );
+			faceAnimator.SetInteger ( "mood", -1 );
+            faceAnimator.speed = Random.Range(0.95f, 1.05f);
+		};
 	}
+
+    private void SubscribeBackgroundEmotions ()
+    {
+        Happy += () =>
+        {
+            backgroundAnimator.SetTrigger("happy");
+            backgroundAnimator.speed = Random.Range(0.8f, 1.2f);
+        };
+
+        Sad += () =>
+        {
+            backgroundAnimator.SetTrigger("indifferent");
+        };
+
+        Angry += () =>
+        {
+            backgroundAnimator.SetTrigger("indifferent");
+        };
+
+        Scared += () =>
+        {
+            backgroundAnimator.SetTrigger("indifferent");
+        };
+
+        Indifferent += () =>
+        {
+            backgroundAnimator.SetTrigger("indifferent");
+        };
+    }
 
 	// Is it possible to add a trait to the personality
 	public static Personality operator +(Personality m1, Trait m2) 
