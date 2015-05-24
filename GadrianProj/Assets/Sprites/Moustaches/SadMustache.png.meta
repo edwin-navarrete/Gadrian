@@ -1,11 +1,15 @@
 fileFormatVersion: 2
-guid: 6f876f993e95ec14e9a2a8f1d25befe5
-timeCreated: 1432423953
+guid: 0bb67d1272e274cdbb1699d89ff02d3b
+timeCreated: 1432423849
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ScaredMustache_0
-    21300002: ScaredMustache_1
+    21300000: SadMustache_0
+    21300002: SadMustache_1
+    21300004: SadMustache_2
+    21300006: SadMustache_3
+    21300008: SadMustache_4
+    21300010: SadMustache_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,23 +55,63 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: ScaredMustache_0
+    - name: SadMustache_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 73
-        width: 415
-        height: 72
+        y: 804
+        width: 300
+        height: 160
       alignment: 9
       pivot: {x: .5, y: .899999976}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ScaredMustache_1
+    - name: SadMustache_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 415
-        height: 72
+        y: 644
+        width: 300
+        height: 160
+      alignment: 9
+      pivot: {x: .5, y: .899999976}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SadMustache_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 484
+        width: 300
+        height: 160
+      alignment: 9
+      pivot: {x: .5, y: .899999976}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SadMustache_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 324
+        width: 300
+        height: 160
+      alignment: 9
+      pivot: {x: .5, y: .899999976}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SadMustache_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 164
+        width: 300
+        height: 160
+      alignment: 9
+      pivot: {x: .5, y: .899999976}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SadMustache_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 300
+        height: 160
       alignment: 9
       pivot: {x: .5, y: .899999976}
       border: {x: 0, y: 0, z: 0, w: 0}

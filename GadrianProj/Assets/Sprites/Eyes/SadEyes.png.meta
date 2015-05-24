@@ -1,12 +1,13 @@
 fileFormatVersion: 2
-guid: 1e7034741b1032b4fa5ce9e237044b5b
+guid: 7d7d898bb013f4500a1bda46427953bd
+timeCreated: 1432421620
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: FelicidadSorpresa_0
-    21300002: FelicidadSorpresa_1
-    21300004: FelicidadSorpresa_2
-    21300006: FelicidadSorpresa_3
-    21300008: FelicidadSorpresa_4
+    21300000: SadEyes_0
+    21300002: SadEyes_1
+    21300004: SadEyes_2
+    21300006: SadEyes_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -25,9 +26,12 @@ TextureImporter:
   isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 1024
+  maxTextureSize: 2048
   textureSettings:
     filterMode: -1
     aniso: 16
@@ -35,6 +39,7 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
+  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
@@ -42,61 +47,53 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 450
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: FelicidadSorpresa_0
+    - name: SadEyes_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 177
-        width: 217
-        height: 177
+        y: 415
+        width: 238
+        height: 138
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FelicidadSorpresa_1
-      rect:
-        serializedVersion: 2
-        x: 217
-        y: 177
-        width: 217
-        height: 177
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FelicidadSorpresa_2
-      rect:
-        serializedVersion: 2
-        x: 434
-        y: 177
-        width: 217
-        height: 177
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FelicidadSorpresa_3
+    - name: SadEyes_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 217
-        height: 177
+        y: 277
+        width: 238
+        height: 138
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FelicidadSorpresa_4
+    - name: SadEyes_2
       rect:
         serializedVersion: 2
-        x: 217
-        y: 0
-        width: 217
-        height: 177
+        x: 0
+        y: 139
+        width: 238
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SadEyes_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 238
+        height: 138
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
