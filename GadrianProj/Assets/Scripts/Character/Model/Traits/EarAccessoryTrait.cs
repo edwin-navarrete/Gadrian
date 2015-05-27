@@ -43,7 +43,6 @@ public class EarAccessoryTrait : Trait, IEquatable<EarAccessoryTrait>
 		{
 			SpriteRenderer earsRenderer = earsTranform.GetComponent<SpriteRenderer> ();
 			earsRenderer.sprite = earAccessory;
-			Debug.Log("sprite es " + earAccessory.ToString());
 		}
 		else
 		{

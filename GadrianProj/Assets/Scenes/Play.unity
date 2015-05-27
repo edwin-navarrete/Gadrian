@@ -187,21 +187,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4dad1b60c5e5fa4092369a3cd395d10, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &481073459 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 161100, guid: 283d21ffd8a6afb4ca41999ea634a036, type: 2}
-  m_PrefabInternal: {fileID: 887141076}
---- !u!225 &481073460
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 481073459}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &578826833
 GameObject:
   m_ObjectHideFlags: 0

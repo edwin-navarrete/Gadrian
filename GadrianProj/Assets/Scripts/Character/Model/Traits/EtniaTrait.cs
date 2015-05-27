@@ -9,24 +9,24 @@ using System.Collections;
 // NOTE EtniaTrait shoudn't be a MonoBehabiour becuase EtniaFactor uses constructor of it 
 public class EtniaTrait : Trait, IEquatable<EtniaTrait>
 {
-    Color skinColor;
+    int etniaValue;
     BodyMatch bodyMatch;
 
     #region Constructors
 
-    public EtniaTrait (Color skinColor)
+    public EtniaTrait (int etniaValue)
     {
-        this.skinColor = skinColor;
+        this.etniaValue = etniaValue;
     }
 
     public EtniaTrait (EtniaTrait traitToCopy)
-        : this( traitToCopy.skinColor ) { }
+        : this( traitToCopy.etniaValue ) { }
 
     #endregion
 
     public override string ToString ()
     {
-        return "Etnia: " + skinColor;
+        return "Etnia: " + etniaValue;
     }
 
     #region Miembros de IEquetable<EtniaTrait>
@@ -36,7 +36,7 @@ public class EtniaTrait : Trait, IEquatable<EtniaTrait>
         if ( other == null )
             return false;
 
-        return bodyMatch.EtniaValue.Equals( other.bodyMatch.EtniaValue );
+        return etniaValue.Equals( other.etniaValue );
     }
 
     #endregion
@@ -44,7 +44,7 @@ public class EtniaTrait : Trait, IEquatable<EtniaTrait>
     public void AffectCharacter (GameObject character)
     {
         bodyMatch = character.GetComponent<BodyMatch>();
-        bodyMatch.Etnia = this;
+        bodyMatch.Etnia = etniaValue;
     }
 }
 

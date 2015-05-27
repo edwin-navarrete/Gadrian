@@ -11,11 +11,11 @@ public class EtniaFactor : PersonalityFactor
     public static EtniaTrait RED;
     public static EtniaTrait GOLD;
     [SerializeField]
-    private Color brown;
+    private int brown;
     [SerializeField]
-    private Color red;
+    private int red;
     [SerializeField]
-    private Color gold;
+    private int gold;
 
     private readonly static List<Trait> etniaTraits = new List<Trait>();
 

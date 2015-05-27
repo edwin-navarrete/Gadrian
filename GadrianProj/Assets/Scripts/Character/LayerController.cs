@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This Script is used on Tiles, to make tiles switch between layers when the characters are drag
+/// </summary>
 public class LayerController : MonoBehaviour
 {
     public void Start ()

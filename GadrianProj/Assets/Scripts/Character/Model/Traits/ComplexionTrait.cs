@@ -5,18 +5,18 @@ using System.Collections;
 
 public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
 {
-    private Sprite bodyHair;
+    private int complexionValue;
     private BodyMatch bodyMatch;
 
     #region Constructors
 
-    public ComplexionTrait (Sprite bodyHair)
+    public ComplexionTrait (int complexionValue)
     {
-        this.bodyHair = bodyHair;
+        this.complexionValue = complexionValue;
     }
 
     public ComplexionTrait (ComplexionTrait traitToCopy)
-        : this( traitToCopy.bodyHair ) { }
+        : this( traitToCopy.complexionValue ) { }
 
     #endregion
 
@@ -27,7 +27,7 @@ public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
         if ( other == null )
             return false;
 
-        return bodyMatch.ComplexionValue.Equals( other.bodyMatch.ComplexionValue );
+        return complexionValue.Equals( other.complexionValue );
     }
 
     #endregion
@@ -37,18 +37,13 @@ public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
     public void AffectCharacter (GameObject character)
     {
         bodyMatch = character.GetComponent<BodyMatch>();
-        bodyMatch.Complexion = this;
-
-        //SpriteRenderer bodyHairRenderer = character.transform.FindChild("Body Hair").GetComponent<SpriteRenderer>();
-        //if (bodyHairRenderer != null)
-        //{
-        //    bodyHairRenderer.sprite = this.bodyHair;
-        //}
+        bodyMatch.Complexion = complexionValue;
 
         Face characterFace = character.transform.FindChild( "Face" ).GetComponent<Face>();
         if ( characterFace != null )
         {
-            characterFace.LocateFace( this );
+            // The Face know where to locate the transform depending on the complexionValue
+            characterFace.LocateFace( complexionValue );
         }
     }
 

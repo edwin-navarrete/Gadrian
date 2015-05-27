@@ -50,7 +50,7 @@ GameObject:
   - 114: {fileID: 11490886}
   - 114: {fileID: 11431936}
   - 95: {fileID: 9511826}
-  - 225: {fileID: 22523318}
+  - 225: {fileID: 22559386}
   m_Layer: 5
   m_Name: End Game Notification
   m_TagString: Untagged
@@ -182,7 +182,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11494090}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11459322}
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11437504
@@ -568,7 +580,7 @@ RectTransform:
   m_AnchoredPosition: {x: -130, y: -85}
   m_SizeDelta: {x: 90, y: 45}
   m_Pivot: {x: .5, y: .5}
---- !u!225 &22523318
+--- !u!225 &22559386
 CanvasGroup:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

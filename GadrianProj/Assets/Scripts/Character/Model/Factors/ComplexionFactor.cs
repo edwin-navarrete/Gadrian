@@ -8,19 +8,19 @@ public class ComplexionFactor : PersonalityFactor
     public static ComplexionTrait TALL;
 
     [SerializeField]
-    private Sprite smallBodyHair;
+    private int small;
     [SerializeField]
-    private Sprite fatBodyHair;
+    private int fat;
     [SerializeField]
-    private Sprite tallBodyHair;
+    private int tall;
     
     private readonly static List<Trait> complexionTraits = new List<Trait>();
 
     private void Awake ()
     {
-        SMALL = new ComplexionTrait( smallBodyHair );
-        FAT = new ComplexionTrait( fatBodyHair );
-        TALL = new ComplexionTrait( tallBodyHair );
+        SMALL = new ComplexionTrait( small );
+        FAT = new ComplexionTrait( fat );
+        TALL = new ComplexionTrait( tall );
 
         complexionTraits.Add( SMALL );
         complexionTraits.Add( FAT );

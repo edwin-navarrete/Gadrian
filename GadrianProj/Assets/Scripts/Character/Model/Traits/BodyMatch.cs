@@ -6,19 +6,13 @@ public class BodyMatch : MonoBehaviour
 {
     [SerializeField]
     private GameObject body;
-    [SerializeField]
-    private GameObject face;
 
     public Sprite[] bodySprites;
 
-    private ComplexionTrait complexion;
-    private EtniaTrait etnia;
+    private int? complexion;
+    private int? etnia;
 
-    public int ComplexionValue { get; private set; }
-
-    public int EtniaValue { get; private set; }
-
-    public ComplexionTrait Complexion
+    public int? Complexion
     {
         set
         {
@@ -28,9 +22,14 @@ public class BodyMatch : MonoBehaviour
                 SetBodyMatch();
             }
         }
+
+        private get
+        {
+            return complexion;
+        }
     }
 
-    public EtniaTrait Etnia
+    public int? Etnia
     {
         set
         {
@@ -40,6 +39,11 @@ public class BodyMatch : MonoBehaviour
                 SetBodyMatch();
             }
         }
+
+        private get
+        {
+            return etnia;
+        }
     }
 
     private void SetBodyMatch ()
@@ -47,12 +51,7 @@ public class BodyMatch : MonoBehaviour
         Sprite bodySprite = LookForBodySprite();
 
         SpriteRenderer characterBody = body.GetComponent<SpriteRenderer>();
-        if ( characterBody == null )
-        {
-            Image characterSpriteBody = body.GetComponent<Image>();
-            characterSpriteBody.sprite = bodySprite;
-        }
-        else
+        if ( characterBody != null )
         {
             characterBody.sprite = bodySprite;
         }
@@ -60,25 +59,7 @@ public class BodyMatch : MonoBehaviour
 
     private Sprite LookForBodySprite ()
     {
-        if ( complexion == ComplexionFactor.SMALL )
-            ComplexionValue = 0;
-
-        if ( complexion == ComplexionFactor.FAT )
-            ComplexionValue = 1;
-
-        if ( complexion == ComplexionFactor.TALL )
-            ComplexionValue = 2;
-
-        if ( etnia == EtniaFactor.GOLD )
-            EtniaValue = 0;
-
-        if ( etnia == EtniaFactor.RED )
-            EtniaValue = 1;
-
-        if ( etnia == EtniaFactor.BROWN )
-            EtniaValue = 2;
-
-        int index = ComplexionValue + 3 * EtniaValue;
+        int index = (int) ( Complexion + 3 * Etnia );
 
         try
         {

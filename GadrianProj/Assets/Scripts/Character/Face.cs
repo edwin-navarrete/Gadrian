@@ -11,21 +11,25 @@ public class Face : MonoBehaviour
     [SerializeField]
     private Transform faceTallPosition;
 
-    public void LocateFace (ComplexionTrait complexion)
+    public void LocateFace (int complexion)
     {
-        Debug.LogFormat("The face to locate is {0}", complexion.ToString());
+        switch ( complexion )
+        {
+            case 0:
+                this.transform.localPosition = faceSmallPosition.localPosition;
+                break;
 
-        if ( complexion == ComplexionFactor.SMALL )
-        {
-            this.transform.localPosition = faceSmallPosition.localPosition;
-        }
-        if ( complexion == ComplexionFactor.FAT )
-        {
-            this.transform.localPosition = faceFatPosition.localPosition;
-        }
-        if ( complexion == ComplexionFactor.TALL )
-        {
-            this.transform.localPosition = faceTallPosition.localPosition;
+            case 1:
+                this.transform.localPosition = faceFatPosition.localPosition;
+                break;
+
+            case 2:
+                this.transform.localPosition = faceTallPosition.localPosition;
+                break;
+
+            default:
+                Debug.LogError( "Recieved an invalid complexion value in Face script" );
+                break;
         }
     }
 }
