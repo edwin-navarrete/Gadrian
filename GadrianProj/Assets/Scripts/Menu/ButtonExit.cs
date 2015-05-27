@@ -5,10 +5,10 @@ public class ButtonExit : MonoBehaviour
 {
     public void ExitGame ()
     {
+        PlayerPrefs.DeleteAll();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPaused = true;
-#endif
-#if UNITY_ANDROID
+#else
         Application.Quit();
 #endif
     }

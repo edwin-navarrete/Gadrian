@@ -94,12 +94,12 @@ public class CharacterManager : MonoBehaviour
 
     public void OnEnable ()
     {
-        EventManager.StartListening( "LevelGenerated", PopulateLevel );
+        EventManager.StartListening( Events.LevelGenerated, PopulateLevel );
     }
 
     public void OnDisable ()
     {
-        EventManager.StopListening( "LevelGenerated", PopulateLevel );
+        EventManager.StopListening( Events.LevelGenerated, PopulateLevel );
     }
 
     public void Start ()
@@ -226,7 +226,7 @@ public class CharacterManager : MonoBehaviour
 
     private void PopulateLevel ()
     {
-        EventManager.TriggerEvent( "StartingCharacterCreation" );
+        EventManager.TriggerEvent( Events.StartingCharacterCreation );
 
         TileConfiguration tileConf;
         while ( (tileConf = TileManager.Instance.GetNextCharacterTile()) != null  )
@@ -234,7 +234,7 @@ public class CharacterManager : MonoBehaviour
             CreateCharacterItem( tileConf );
         }
 
-        EventManager.TriggerEvent( "FinishedCharacterCreating" );
+        EventManager.TriggerEvent( Events.FinishedCharacterCreating );
         FinishCharacterPlacement();
         RefreshMoods();
     }

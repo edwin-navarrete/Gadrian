@@ -11,14 +11,14 @@ public class LayerController : MonoBehaviour
 
     public void OnEnable ()
     {
-        EventManager.StartListening( "StartingCharacterCreation", SetLayerToGrid );
-        EventManager.StartListening( "FinishedCharacterCreating", SetLayerToIgnore );
+        EventManager.StartListening( Events.StartingCharacterCreation, SetLayerToGrid );
+        EventManager.StartListening( Events.FinishedCharacterCreating, SetLayerToIgnore );
     }
 
     public void OnDisable ()
     {
-        EventManager.StopListening( "StartingCharacterCreation", SetLayerToGrid );
-        EventManager.StopListening( "FinishedCharacterCreating", SetLayerToIgnore );
+        EventManager.StopListening( Events.StartingCharacterCreation, SetLayerToGrid );
+        EventManager.StopListening( Events.FinishedCharacterCreating, SetLayerToIgnore );
     }
 
     private void SetLayerToIgnore ()

@@ -24,9 +24,9 @@ public class LevelGenerator : MonoBehaviour
 
     private void LoadLevel ()
     {
-        //TODO Create a GameManager to hold on a level index variable or create an object to make data persist through scenes
-        string fileName = string.Format( "level{0}", 0 );
-        Level level = Resources.Load<Level>( "Levels/" + fileName );
+        int levelToLoad = PlayerPrefs.GetInt( Strings.LevelToLoad, 0 );
+        string fileName = string.Format( Strings.GenericLevelName, levelToLoad );
+        Level level = Resources.Load<Level>( Strings.LevelPath + fileName );
 
         if ( level != null )
         {
@@ -54,7 +54,7 @@ public class LevelGenerator : MonoBehaviour
 			newCell.transform.SetParent ( this.transform );
 		}
 
-        EventManager.TriggerEvent( "LevelGenerated" );
+        EventManager.TriggerEvent( Events.LevelGenerated );
 	}
 
 	/**

@@ -3,14 +3,10 @@ using System.Collections;
 
 public class ButtonNextLevel : MonoBehaviour
 {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public void LoadNextLevel ()
+    {
+        int levelToLoad = PlayerPrefs.GetInt( Strings.LevelToLoad );
+        PlayerPrefs.SetInt( Strings.LevelToLoad, levelToLoad );
+        Application.LoadLevel( Application.loadedLevel );
+    }
 }
