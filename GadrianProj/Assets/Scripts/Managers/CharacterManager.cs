@@ -247,6 +247,16 @@ public class CharacterManager : MonoBehaviour
     {
         // Instantiate a character prefab
         GameObject newChar = Instantiate( characterPrefab ) as GameObject;
+#if UNITY_EDITOR
+        int cloneNumber = 0;
+        string name = "Character";
+        
+        while ( GameObject.Find( name + cloneNumber.ToString() ) != null )
+        {
+            cloneNumber++;
+        }
+        newChar.name = name + cloneNumber.ToString();
+#endif
         // Get Character Component
         Character character = newChar.GetComponent<Character>();
         // Add the Character component to the characters list
