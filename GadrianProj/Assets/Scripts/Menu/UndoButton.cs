@@ -3,12 +3,17 @@ using System.Collections;
 
 public class UndoButton : MonoBehaviour 
 {
-	void Start ()
+	public void OnEnable ()
 	{
-		CharacterManager.Instance.FinishingCharacterPlacement += TurnOn;
+        EventManager.StartListening( Events.FinishingCharacterPlacement, TurnOn );
 	}
 
-	void TurnOn ()
+    public void OnDisable ()
+    {
+        EventManager.StopListening( Events.FinishingCharacterPlacement, TurnOn );
+    }
+
+	private void TurnOn ()
 	{
 		gameObject.SetActive (true);
 	}

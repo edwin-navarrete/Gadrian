@@ -6,20 +6,20 @@ using System.Collections;
 /// </summary>
 public class LayerController : MonoBehaviour
 {
-    public void Start ()
-    {
-        SnapCharacter.MovingCharacter += SetLayerToGrid;
-        SnapCharacter.MovedCharacter += SetLayerToIgnore;
-    }
-
     public void OnEnable ()
     {
+        EventManager.StartListening( Events.MovingCharacter, SetLayerToGrid );
+        EventManager.StartListening( Events.MovedCharacter, SetLayerToIgnore );
+
         EventManager.StartListening( Events.StartingCharacterCreation, SetLayerToGrid );
         EventManager.StartListening( Events.FinishedCharacterCreating, SetLayerToIgnore );
     }
 
     public void OnDisable ()
     {
+        EventManager.StopListening( Events.MovingCharacter, SetLayerToGrid );
+        EventManager.StopListening( Events.MovedCharacter, SetLayerToIgnore );
+
         EventManager.StopListening( Events.StartingCharacterCreation, SetLayerToGrid );
         EventManager.StopListening( Events.FinishedCharacterCreating, SetLayerToIgnore );
     }

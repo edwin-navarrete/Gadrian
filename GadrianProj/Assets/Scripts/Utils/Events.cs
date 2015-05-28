@@ -5,5 +5,10 @@ public enum Events
 {
     LevelGenerated,
     StartingCharacterCreation,
-    FinishedCharacterCreating
+    FinishedCharacterCreating,
+    MovingCharacter,
+    MovedCharacter,
+    Winning,
+    Won,
+    FinishingCharacterPlacement
 }

@@ -32,17 +32,16 @@ public class Personality : MonoBehaviour
 
     #region Events-Emotions
 
-    public UnityEvent Happy;
-    public UnityEvent Sad;
-    public UnityEvent Scared;
-    public UnityEvent Angry;
-    public UnityEvent Indifferent;
+    public event UnityAction Happy;
+    public event UnityAction Sad;
+    public event UnityAction Scared;
+    public event UnityAction Angry;
+    public event UnityAction Indifferent;
 
     private void OnHappy ()
     {
         if ( Happy != null )
         {
-            //Debug.LogFormat( "{0} is happy", gameObject.name );
             Happy.Invoke();
         }
     }
@@ -51,7 +50,6 @@ public class Personality : MonoBehaviour
     {
         if ( Sad != null )
         {
-           //Debug.LogFormat( "{0} is sad", gameObject.name );
             Sad.Invoke();
         }
     }
@@ -60,7 +58,6 @@ public class Personality : MonoBehaviour
     {
         if ( Scared != null )
         {
-            //Debug.LogFormat( "{0} is scared", gameObject.name );
             Scared.Invoke();
         }
     }
@@ -69,7 +66,6 @@ public class Personality : MonoBehaviour
     {
         if ( Angry != null )
         {
-            //Debug.LogFormat( "{0} is angry", gameObject.name );
             Angry.Invoke();
         }
     }
@@ -78,12 +74,13 @@ public class Personality : MonoBehaviour
     {
         if ( Indifferent != null )
         {
-            //Debug.LogFormat( "{0} is indifferent", gameObject.name );
             Indifferent.Invoke();
         }
     }
 
     #endregion
+
+    #region Initialization
 
     public void Awake ()
     {
@@ -102,47 +99,46 @@ public class Personality : MonoBehaviour
 
     private void SubscribeFaceEmotions ()
     {
-        Happy.AddListener( () =>
+        Happy += () =>
         {
             faceAnimator.SetTrigger( "newMood" );
             faceAnimator.SetInteger( "mood", 1 );
             faceAnimator.speed = Random.Range( 0.8f, 1.2f );
-        } );
+        };
 
-        Sad.AddListener( () =>
+        Sad += () =>
         {
             faceAnimator.SetTrigger( "newMood" );
             faceAnimator.SetInteger( "mood", 0 );
             faceAnimator.speed = Random.Range( 0.8f, 1.2f );
-        } );
+        };
 
-        Angry.AddListener( () =>
+        Angry += () =>
         {
             faceAnimator.SetTrigger( "newMood" );
             faceAnimator.SetInteger( "mood", 2 );
             faceAnimator.speed = Random.Range( 0.8f, 1.2f );
-        } );
+        };
 
-        Scared.AddListener( () =>
+        Scared += () =>
         {
             faceAnimator.SetTrigger( "newMood" );
             faceAnimator.SetInteger( "mood", 3 );
             faceAnimator.speed = Random.Range( 0.9f, 1.2f );
-        } );
+        };
 
-        Indifferent.AddListener( () =>
+        Indifferent += () =>
         {
             faceAnimator.SetTrigger( "newMood" );
             faceAnimator.SetInteger( "mood", -1 );
             faceAnimator.speed = Random.Range( 0.95f, 1.05f );
-        } );
+        };
     }
 
     private void SubscribeBackgroundEmotions ()
     {
-        Happy.AddListener( () =>
+        Happy += () =>
         {
-            Debug.LogFormat( "{0} background is happy", gameObject.name );
             if ( !backgroundAnimator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Happy" ) )
             {
                 backgroundAnimator.SetTrigger( "happy" );
@@ -152,44 +148,42 @@ public class Personality : MonoBehaviour
             {
                 backgroundAnimator.ResetTrigger( "happy" );
             }
-        } );
+        };
 
-        Sad.AddListener( () =>
+        Sad += () =>
         {
-            Debug.LogFormat( "{0} background is sad", gameObject.name );
             if ( !backgroundAnimator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Indifferent" ) )
                 backgroundAnimator.SetTrigger( "indifferent" );
             else
                 backgroundAnimator.ResetTrigger( "indifferent" );
-        } );
+        };
 
-        Angry.AddListener( () =>
+        Angry += () =>
         {
-            Debug.LogFormat( "{0} background is angry", gameObject.name );
             if ( !backgroundAnimator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Indifferent" ) )
                 backgroundAnimator.SetTrigger( "indifferent" );
             else
                 backgroundAnimator.ResetTrigger( "indifferent" );
-        } );
+        };
 
-        Scared.AddListener( () =>
+        Scared += () =>
         {
-            Debug.LogFormat( "{0} background is scared", gameObject.name );
             if ( !backgroundAnimator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Indifferent" ) )
                 backgroundAnimator.SetTrigger( "indifferent" );
             else
                 backgroundAnimator.ResetTrigger( "indifferent" );
-        } );
+        };
 
-        Indifferent.AddListener( () =>
+        Indifferent += () =>
         {
-            Debug.LogFormat( "{0} background is indifferent", gameObject.name );
             if ( !backgroundAnimator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Indifferent" ) )
                 backgroundAnimator.SetTrigger( "indifferent" );
             else
                 backgroundAnimator.ResetTrigger( "indifferent" );
-        } );
+        };
     }
+
+    #endregion
 
     // Is it possible to add a trait to the personality
     public static Personality operator + (Personality m1, Trait m2)
