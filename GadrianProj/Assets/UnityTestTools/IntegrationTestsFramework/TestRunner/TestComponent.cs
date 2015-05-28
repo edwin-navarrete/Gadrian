@@ -261,10 +261,14 @@ namespace UnityTest
 
         private static GameObject CreateTest(string name)
         {
+#if UNITY_EDITOR
             var go = new GameObject(name);
             go.AddComponent<TestComponent>();
-			Undo.RegisterCreatedObjectUndo(go, "Created test");
+            Undo.RegisterCreatedObjectUndo(go, "Created test");
             return go;
+#else
+                   return null;
+#endif
         }
 
         public static List<TestComponent> FindAllTestsOnScene()

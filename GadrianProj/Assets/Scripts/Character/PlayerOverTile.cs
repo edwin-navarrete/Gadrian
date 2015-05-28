@@ -8,26 +8,26 @@ public class PlayerOverTile : MonoBehaviour
     [SerializeField]
     private Sprite solidTile;
 
-    private new SpriteRenderer renderer;
+    private SpriteRenderer renderSprite;
 
     public void Awake ()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        renderSprite = GetComponent<SpriteRenderer>();
     }
 
     public void SolidifyTile ()
     {
-        renderer.sprite = solidTile;
+        renderSprite.sprite = solidTile;
     }
 
     public void UnsolidifyTile ()
     {
-        renderer.sprite = nonSolidTile;
+        renderSprite.sprite = nonSolidTile;
     }
 
     public bool IsTileSolid ()
     {
-        if ( renderer.sprite.Equals(solidTile) )
+        if ( renderSprite.sprite.Equals(solidTile) )
         {
             return true;
         }
