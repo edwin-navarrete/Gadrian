@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -15,29 +16,6 @@ public class SnapCharacter : MonoBehaviour
 
     #endregion
 
-    #region Events
-
-    public static event UnityEngine.Events.UnityAction MovingCharacter;
-    public static event UnityEngine.Events.UnityAction MovedCharacter;
-
-    private void OnMovingCharacter ()
-    {
-        if ( MovingCharacter != null )
-        {
-            MovingCharacter();
-        }
-    }
-
-    private void OnMovedCharacter ()
-    {
-        if ( MovedCharacter != null )
-        {
-            MovedCharacter();
-        }
-    }
-
-    #endregion
-
     #region Initialization
 
     private void Awake ()
@@ -50,9 +28,14 @@ public class SnapCharacter : MonoBehaviour
         SetupRigidbody();
     }
 
-    public void Start ()
+    public void OnEnable ()
     {
-        CharacterManager.Instance.Winning += MakeNonBlocking;
+        EventManager.StartListening( Events.Winning, MakeNonBlocking );
+    }
+
+    public void OnDisable ()
+    {
+        EventManager.StopListening( Events.Winning, MakeNonBlocking );
     }
 
     private void MakeNonBlocking ()
@@ -76,8 +59,7 @@ public class SnapCharacter : MonoBehaviour
 
     private void OnMouseDown ()
     {
-        OnMovingCharacter();
-        //UnsolidifyLastTile();
+        EventManager.TriggerEvent( Events.MovingCharacter );
     }
     
     private void OnMouseUp ()
@@ -86,7 +68,7 @@ public class SnapCharacter : MonoBehaviour
         {
             grid.AlignTransformFixed( transform );
             DoMovement( transform.position, true );
-            OnMovedCharacter();
+            EventManager.TriggerEvent( Events.MovedCharacter );
             CharacterManager.Instance.RefreshMoods();
         }
         else

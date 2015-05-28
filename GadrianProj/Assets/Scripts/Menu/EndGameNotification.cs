@@ -8,8 +8,17 @@ public class EndGameNotification : MonoBehaviour
 
     public void Awake()
     {
-        CharacterManager.Instance.Won += PopUp;
         animator = GetComponent<Animator>();
+    }
+
+    public void OnEnable ()
+    {
+        EventManager.StartListening( Events.Won, PopUp );
+    }
+
+    public void OnDisable ()
+    {
+        EventManager.StopListening( Events.Won, PopUp );
     }
 
     public void PopUp()

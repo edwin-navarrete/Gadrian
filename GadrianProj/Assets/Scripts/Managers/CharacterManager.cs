@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
 public class CharacterManager : MonoBehaviour
@@ -23,32 +22,9 @@ public class CharacterManager : MonoBehaviour
 
     #region Events
 
-    public event UnityEngine.Events.UnityAction Winning;
-    public event UnityEngine.Events.UnityAction Won;
-    public event UnityEngine.Events.UnityAction FinishingCharacterPlacement;
-
-    private void OnWinning ()
-    {
-        if ( Winning != null )
-        {
-            Winning();
-        }
-    }
-
     private void OnWon ()
     {
-        if ( Won != null )
-        {
-            Won();
-        }
-    }
-
-    private void OnFinishingCharacterPlacement ()
-    {
-        if ( FinishingCharacterPlacement != null )
-        {
-            FinishingCharacterPlacement();
-        }
+        EventManager.TriggerEvent( Events.Won );
     }
 
     #endregion
@@ -82,8 +58,6 @@ public class CharacterManager : MonoBehaviour
 
     #region Unity API
 
-    // This awake method could be remove if the character manager already have reference in Editor to canvasRectTransform,
-    // characterRectTransform and CharacterPlaceholder
     public void Awake ()
     {
         characterPlaceholder = GameObject.FindGameObjectWithTag( "Placeholder" ).transform;
@@ -170,7 +144,6 @@ public class CharacterManager : MonoBehaviour
 
             foreach ( Personality personality in characters )
             {
-                //Debug.Log( string.Format( "{0} mood is: {1}", personality.gameObject, personality.CurrentMood ) );
                 if ( personality.CurrentMood.getFeel() == Mood.HAPPY.getFeel() )
                 {
                     happyAmount++;
@@ -178,7 +151,7 @@ public class CharacterManager : MonoBehaviour
             }
             if ( happyAmount == characters.Count )
             {
-                OnWinning();
+                EventManager.TriggerEvent( Events.Winning );
                 Invoke( "OnWon", 2.0f );
                 isOver = true;
                 yield break;
@@ -191,7 +164,7 @@ public class CharacterManager : MonoBehaviour
 
     public void FinishCharacterPlacement ()
     {
-        OnFinishingCharacterPlacement();
+        EventManager.TriggerEvent( Events.FinishingCharacterPlacement );
         StartCoroutine( CheckForWin() );
     }
 
