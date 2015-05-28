@@ -14,6 +14,18 @@ public class EarAccessoryTrait : Trait, IEquatable<EarAccessoryTrait>
 		this.earAccessory = earAccessory;
 	}
 
+    public override string ToString()
+    {
+        if (this == EarAccessoryFactor.FURRY)
+            return "Furry";
+        if (this == EarAccessoryFactor.NORMAL)
+            return "Normal";
+        if (this == EarAccessoryFactor.POINTY)
+            return "Pointy";
+        return "UnkEars";
+    }
+
+
 //	public EarAccessoryTrait (EarAccessoryTrait traitToCopy)
 //		: this ( traitToCopy.earAccessory )	{ }
 

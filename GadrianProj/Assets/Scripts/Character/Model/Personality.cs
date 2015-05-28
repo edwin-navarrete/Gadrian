@@ -81,6 +81,17 @@ public class Personality : MonoBehaviour
     #endregion
 
     #region Initialization
+    public override string ToString()
+    {
+        string traitsStr = "";
+        foreach (Trait trait in traits)
+        {
+            if (!System.String.IsNullOrEmpty(traitsStr))
+                traitsStr += ",";
+            traitsStr += trait;
+        }
+        return traitsStr;
+    }
 
     public void Awake ()
     {

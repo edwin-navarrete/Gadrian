@@ -26,7 +26,13 @@ public class EtniaTrait : Trait, IEquatable<EtniaTrait>
 
     public override string ToString ()
     {
-        return "Etnia: " + etniaValue;
+        if (this == EtniaFactor.BROWN)
+            return "Brown";
+        if (this == EtniaFactor.GOLD)
+            return "Gold";
+        if (this == EtniaFactor.RED)
+            return "Red";
+        return "UnkEtnia";
     }
 
     #region Miembros de IEquetable<EtniaTrait>

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class PersonalityManager : MonoBehaviour
 {
@@ -61,5 +62,19 @@ public class PersonalityManager : MonoBehaviour
 	{
 		HashSet<PersonalityFactor> factors = new HashSet<PersonalityFactor> ( personalityFactors );
 		personalityModel = new PersonalityModel ( factors );
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        sb.AppendLine("== List of Personalities ==");
+        for (int i = 0; i < personalityModel.PersonalityCnt; i++)
+        {
+            string traitsStr = "";            
+            foreach (Trait trait in personalityModel.getPersonalityTraits(i))
+            {
+                if (!System.String.IsNullOrEmpty(traitsStr))
+                    traitsStr += ",";
+                traitsStr += trait;
+            }
+            sb.AppendLine("["+i+"]="+ traitsStr);
+        }
+        Debug.Log(sb);
 	}
 }

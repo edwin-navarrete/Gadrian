@@ -18,6 +18,17 @@ public class ComplexionTrait : Trait, IEquatable<ComplexionTrait>
     public ComplexionTrait (ComplexionTrait traitToCopy)
         : this( traitToCopy.complexionValue ) { }
 
+    public override string ToString()
+    {
+        if (this == ComplexionFactor.SMALL)
+            return "Small";
+        if (this == ComplexionFactor.FAT)
+            return "Fat";
+        if (this == ComplexionFactor.TALL)
+            return "Tall";
+        return "UnkComplexion";
+    }
+
     #endregion
 
     #region Miembros de IEquatable<ContextTrait>
