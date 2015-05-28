@@ -26,4 +26,9 @@ public abstract class Singleton<T> : MonoBehaviour where T : UnityEngine.Compone
             return instance;
         }
     }
+
+    public void OnDestroy ()
+    {
+        instance = null;
+    }
 }

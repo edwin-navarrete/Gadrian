@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections.Generic;
 
-public class CharacterManager : MonoBehaviour
+public class CharacterManager : Singleton<CharacterManager>
 {
     #region Fields
     
@@ -25,33 +25,6 @@ public class CharacterManager : MonoBehaviour
     private void OnWon ()
     {
         EventManager.TriggerEvent( Events.Won );
-    }
-
-    #endregion
-
-    #region Singleton
-
-    private static CharacterManager instance;
-
-    public static CharacterManager Instance
-    {
-        get
-        {
-            if ( instance == null )
-            {
-                instance = GameObject.FindObjectOfType<CharacterManager>();
-
-                if ( instance == null )
-                {
-                    GameObject newGO = new GameObject( "Character manager" );
-                    instance = newGO.AddComponent<CharacterManager>();
-                }
-
-                DontDestroyOnLoad( instance );
-            }
-
-            return instance;
-        }
     }
 
     #endregion
