@@ -142,7 +142,7 @@ public class Personality : MonoBehaviour
     {
         Happy.AddListener( () =>
         {
-            Debug.LogFormat( "{0} background is happy", gameObject.name );
+            //Debug.LogFormat( "{0} background is happy", gameObject.name );
             if ( !backgroundAnimator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Happy" ) )
             {
                 backgroundAnimator.SetTrigger( "happy" );
@@ -313,8 +313,12 @@ public class Personality : MonoBehaviour
         {
             Trait mine = loop1.Current;
             Trait his = loop2.Current;
-            //Debug.Log("Trais:"+mine + ":"+his);
             finalMood += modelLoop.Current.confront( mine, his );
+        }
+        if (finalMood.getFeel() == Mood.Feeling.SAD)
+        {
+            Debug.Log("Mood TieBreak!");
+            finalMood = Mood.HAPPY;
         }
 
         return finalMood;
