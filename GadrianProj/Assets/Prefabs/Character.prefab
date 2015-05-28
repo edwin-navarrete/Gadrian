@@ -435,7 +435,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 107096}
-  face: {fileID: 169158}
   bodySprites:
   - {fileID: 21300000, guid: 4fa95e471f11b77418e01438b8a1cf73, type: 3}
   - {fileID: 21300002, guid: 4fa95e471f11b77418e01438b8a1cf73, type: 3}

@@ -150,47 +150,33 @@ public class Personality : MonoBehaviour
     {
         Happy += () =>
         {
-            if ( !backgroundAnimator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Happy" ) )
-            {
-                backgroundAnimator.SetTrigger( "happy" );
-                backgroundAnimator.speed = Random.Range( 0.8f, 1.2f );
-            }
-            else
-            {
-                backgroundAnimator.ResetTrigger( "happy" );
-            }
+            backgroundAnimator.SetTrigger( "newMood" );
+            backgroundAnimator.SetTrigger( "happy" );
+            backgroundAnimator.speed = Random.Range( 0.8f, 1.2f );            
         };
 
         Sad += () =>
         {
-            if ( !backgroundAnimator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Indifferent" ) )
-                backgroundAnimator.SetTrigger( "indifferent" );
-            else
-                backgroundAnimator.ResetTrigger( "indifferent" );
+            backgroundAnimator.SetTrigger( "newMood" );
+            backgroundAnimator.SetTrigger( "indifferent" );
         };
 
         Angry += () =>
         {
-            if ( !backgroundAnimator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Indifferent" ) )
-                backgroundAnimator.SetTrigger( "indifferent" );
-            else
-                backgroundAnimator.ResetTrigger( "indifferent" );
+            backgroundAnimator.SetTrigger( "newMood" );
+            backgroundAnimator.SetTrigger( "indifferent" );
         };
 
         Scared += () =>
         {
-            if ( !backgroundAnimator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Indifferent" ) )
-                backgroundAnimator.SetTrigger( "indifferent" );
-            else
-                backgroundAnimator.ResetTrigger( "indifferent" );
+            backgroundAnimator.SetTrigger( "newMood" );
+            backgroundAnimator.SetTrigger( "indifferent" );
         };
 
         Indifferent += () =>
         {
-            if ( !backgroundAnimator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Indifferent" ) )
-                backgroundAnimator.SetTrigger( "indifferent" );
-            else
-                backgroundAnimator.ResetTrigger( "indifferent" );
+            backgroundAnimator.SetTrigger( "newMood" );
+            backgroundAnimator.SetTrigger( "indifferent" );
         };
     }
 
