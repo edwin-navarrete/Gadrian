@@ -25,6 +25,13 @@ public abstract class PersonalityFactor : MonoBehaviour
 	// Face returns the energetic mood (ANGRY, HAPPY, SCARED) resulting of facing trait a with b
 	protected abstract Mood face(Trait a, Trait b);
 
+
 	// Use if Traits are going to be MonoBehaviours
 	//public void AddTraitComponent (GameObject character);
+
+    public void OnDestory()
+    {
+        List<Trait> traits = getTraits();
+        traits.Clear();
+    }
 }

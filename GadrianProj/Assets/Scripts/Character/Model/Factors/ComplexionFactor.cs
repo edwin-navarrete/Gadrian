@@ -13,14 +13,17 @@ public class ComplexionFactor : PersonalityFactor
     private int fat;
     [SerializeField]
     private int tall;
-    
-    private readonly static List<Trait> complexionTraits = new List<Trait>();
+
+    private readonly List<Trait> complexionTraits = new List<Trait>();
 
     private void Awake ()
     {
-        SMALL = new ComplexionTrait( small );
-        FAT = new ComplexionTrait( fat );
-        TALL = new ComplexionTrait( tall );
+        if ( SMALL == null )
+            SMALL = new ComplexionTrait( small );
+        if ( FAT == null )
+            FAT = new ComplexionTrait( fat );
+        if ( TALL == null )
+            TALL = new ComplexionTrait( tall );
 
         complexionTraits.Add( SMALL );
         complexionTraits.Add( FAT );

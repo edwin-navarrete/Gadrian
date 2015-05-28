@@ -10,6 +10,7 @@ public class EtniaFactor : PersonalityFactor
     public static EtniaTrait BROWN;
     public static EtniaTrait RED;
     public static EtniaTrait GOLD;
+
     [SerializeField]
     private int brown;
     [SerializeField]
@@ -17,13 +18,16 @@ public class EtniaFactor : PersonalityFactor
     [SerializeField]
     private int gold;
 
-    private readonly static List<Trait> etniaTraits = new List<Trait>();
+    private readonly List<Trait> etniaTraits = new List<Trait>();
 
     private void Awake ()
     {
-        BROWN = new EtniaTrait( brown );
-        RED = new EtniaTrait( red );
-        GOLD = new EtniaTrait( gold );
+        if ( BROWN == null )
+            BROWN = new EtniaTrait( brown );
+        if ( RED == null )
+            RED = new EtniaTrait( red );
+        if ( GOLD == null )
+            GOLD = new EtniaTrait( gold );
 
         etniaTraits.Add( BROWN );
         etniaTraits.Add( RED );
