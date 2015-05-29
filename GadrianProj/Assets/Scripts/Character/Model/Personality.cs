@@ -22,6 +22,14 @@ public class Personality : MonoBehaviour
 
     private List<Trait> traits = new List<Trait>();
 
+	public Mood NextMood
+	{
+		get
+		{
+			return moodHandler.NextMood;
+		}
+	}
+
     public Mood CurrentMood
     {
         get
@@ -311,9 +319,9 @@ public class Personality : MonoBehaviour
             Trait his = loop2.Current;
             finalMood += modelLoop.Current.confront( mine, his );
         }
-        if (finalMood.getFeel() == Mood.Feeling.SAD)
+		if (finalMood.getFeel() == Mood.Feeling.SAD || finalMood.getFeel() == Mood.Feeling.PERPLEX)
         {
-            Debug.Log("Mood TieBreak!");
+            Debug.Log("Mood TieBreak for "+this);
             finalMood = Mood.HAPPY;
         }
 

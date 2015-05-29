@@ -115,13 +115,17 @@ public class CharacterManager : Singleton<CharacterManager>
         {
             int happyAmount = 0;
 
+			string noHappy = "";
             foreach ( Personality personality in characters )
             {
-                if ( personality.CurrentMood.getFeel() == Mood.HAPPY.getFeel() )
+                if ( personality.NextMood.getFeel() == Mood.HAPPY.getFeel() )
                 {
                     happyAmount++;
                 }
+				else
+					noHappy+=personality+" ";
             }
+
             if ( happyAmount == characters.Count )
             {
                 EventManager.TriggerEvent( Events.Winning );
