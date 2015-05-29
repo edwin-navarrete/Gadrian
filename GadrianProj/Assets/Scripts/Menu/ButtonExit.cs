@@ -7,7 +7,7 @@ public class ButtonExit : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPaused = true;
+        Application.LoadLevel( Application.loadedLevel );
 #else
         Application.Quit();
 #endif
