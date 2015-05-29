@@ -112,35 +112,40 @@ public class Personality : MonoBehaviour
     {
         Happy += () =>
         {
-            faceAnimator.SetTrigger( "newMood" );
+            if( !faceAnimator.GetCurrentAnimatorStateInfo(0).IsName("Indifferent") )
+                faceAnimator.SetTrigger( "newMood" );
             faceAnimator.SetInteger( "mood", 1 );
             faceAnimator.speed = Random.Range( 0.8f, 1.2f );
         };
 
         Sad += () =>
         {
-            faceAnimator.SetTrigger( "newMood" );
+            if ( !faceAnimator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Indifferent" ) )
+                faceAnimator.SetTrigger( "newMood" );
             faceAnimator.SetInteger( "mood", 0 );
             faceAnimator.speed = Random.Range( 0.8f, 1.2f );
         };
 
         Angry += () =>
         {
-            faceAnimator.SetTrigger( "newMood" );
+            if ( !faceAnimator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Indifferent" ) )
+                faceAnimator.SetTrigger( "newMood" );
             faceAnimator.SetInteger( "mood", 2 );
             faceAnimator.speed = Random.Range( 0.8f, 1.2f );
         };
 
         Scared += () =>
         {
-            faceAnimator.SetTrigger( "newMood" );
+            if ( !faceAnimator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Indifferent" ) )
+                faceAnimator.SetTrigger( "newMood" );
             faceAnimator.SetInteger( "mood", 3 );
             faceAnimator.speed = Random.Range( 0.9f, 1.2f );
         };
 
         Indifferent += () =>
         {
-            faceAnimator.SetTrigger( "newMood" );
+            if ( !faceAnimator.GetCurrentAnimatorStateInfo( 0 ).IsName( "Indifferent" ) )
+                faceAnimator.SetTrigger( "newMood" );
             faceAnimator.SetInteger( "mood", -1 );
             faceAnimator.speed = Random.Range( 0.95f, 1.05f );
         };
