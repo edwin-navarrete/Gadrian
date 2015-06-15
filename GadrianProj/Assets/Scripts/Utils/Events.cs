@@ -10,5 +10,7 @@ public enum Events
     MovedCharacter,
     Winning,
     Won,
-    FinishingCharacterPlacement
+    FinishingCharacterPlacement,
+    RefreshingPersonalities,
+    RefreshedPersonalities
 }

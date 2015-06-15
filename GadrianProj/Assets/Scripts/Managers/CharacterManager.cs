@@ -61,11 +61,13 @@ public class CharacterManager : Singleton<CharacterManager>
 
     public void RefreshMoods ()
     {
+        EventManager.TriggerEvent( Events.RefreshingPersonalities );
         foreach ( Personality personality in characters )
         {
             List<Personality> neighb = GetNeighbourPersonalities( personality.transform.position );
             personality.RefreshMood( neighb );
         }
+        EventManager.TriggerEvent( Events.RefreshedPersonalities );
     }
 
     private List<Personality> GetNeighbourPersonalities (Vector3 curPos)

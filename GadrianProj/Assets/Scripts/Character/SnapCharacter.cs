@@ -31,16 +31,26 @@ public class SnapCharacter : MonoBehaviour
     public void OnEnable ()
     {
         EventManager.StartListening( Events.Winning, MakeNonBlocking );
+        EventManager.StartListening( Events.RefreshingPersonalities, MakeNonBlocking );
+        EventManager.StartListening( Events.RefreshedPersonalities, MakeBlocking );
     }
 
     public void OnDisable ()
     {
         EventManager.StopListening( Events.Winning, MakeNonBlocking );
+        EventManager.StopListening( Events.RefreshingPersonalities, MakeNonBlocking );
+        EventManager.StopListening( Events.RefreshedPersonalities, MakeBlocking );
     }
 
     private void MakeNonBlocking ()
     {
-        gameObject.layer = 2;
+        gameObject.layer = LayerMask.NameToLayer( "Ignore Raycast" );
+        Debug.Break();
+    }
+
+    private void MakeBlocking ()
+    {
+        gameObject.layer = LayerMask.NameToLayer( "Players" );
     }
 
     private void SetupRigidbody ()
