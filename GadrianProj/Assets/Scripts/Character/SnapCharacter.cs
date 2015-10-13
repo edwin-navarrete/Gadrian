@@ -45,7 +45,6 @@ public class SnapCharacter : MonoBehaviour
     private void MakeNonBlocking ()
     {
         gameObject.layer = LayerMask.NameToLayer( "Ignore Raycast" );
-        Debug.Break();
     }
 
     private void MakeBlocking ()
