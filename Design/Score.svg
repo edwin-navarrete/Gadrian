@@ -1960,11 +1960,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.9541977"
-     inkscape:cx="504.1335"
-     inkscape:cy="516.98367"
+     inkscape:zoom="27.765034"
+     inkscape:cx="456.52501"
+     inkscape:cy="588.65891"
      inkscape:document-units="px"
-     inkscape:current-layer="layer12"
+     inkscape:current-layer="layer8"
      showgrid="false"
      showguides="true"
      inkscape:window-width="1366"
@@ -1972,7 +1972,33 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:snap-global="false" />
+     inkscape:snap-global="false"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="427.38425,548.3706"
+       orientation="0,1"
+       id="guide6753" />
+    <sodipodi:guide
+       position="440,613.14787"
+       orientation="1,0"
+       id="guide6856"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="456.97878,611.55149"
+       orientation="1,0"
+       id="guide6858"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="474.08632,591.59269"
+       orientation="1,0"
+       id="guide6860" />
+    <sodipodi:guide
+       position="478.63786,582.77859"
+       orientation="0,1"
+       id="guide6893" />
+  </sodipodi:namedview>
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -2292,7 +2318,7 @@
        transform="matrix(-0.80901699,0.58778526,-0.58778526,-0.80901699,1179.471,632.25444)"
        width="100%"
        height="100%"
-       style="opacity:0.634"
+       style="opacity:0.63399999"
        inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\ScoreSample.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
@@ -2319,57 +2345,53 @@
        inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\SuccessWindow.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
-    <g
-       id="g8705"
-       transform="translate(0.27290476,0)">
-      <path
-         inkscape:transform-center-y="-15.071362"
-         inkscape:transform-center-x="-1.907776"
-         inkscape:connector-curvature="0"
-         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#aeff00;fill-opacity:1;fill-rule:nonzero;stroke:#436200;stroke-width:1.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-         d="m 389.21232,453.69386 c 0.052,0.53893 0.0509,1.03181 0.0667,1.53969 -1.18127,-0.0807 -2.3053,-0.0994 -3.26865,0.036 -5.51566,0.77517 -9.35642,5.87809 -8.58128,11.39374 0.002,0.008 0.002,0.008 0.002,0.0164 -5.48253,-0.96977 -9.14074,-6.19906 -8.17383,-11.68272 0.96719,-5.48517 6.7298,-13.84515 13.57343,-18.56534 3.56166,5.11763 5.86134,11.88557 6.38151,17.26348 z"
-         id="path6366" />
-      <use
-         height="100%"
-         width="100%"
-         transform="matrix(0.30901699,-0.95105652,0.95105652,0.30901699,-183.09261,681.24869)"
-         id="use8492"
-         inkscape:transform-center-y="-5.4446656"
-         inkscape:transform-center-x="13.453634"
-         xlink:href="#path6366"
-         y="0"
-         x="0" />
-      <use
-         x="0"
-         y="0"
-         xlink:href="#path6366"
-         inkscape:transform-center-x="9.7497461"
-         inkscape:transform-center-y="10.523332"
-         id="use8494"
-         transform="matrix(-0.809017,-0.58778525,0.58778525,-0.809017,408.23467,1065.8975)"
-         width="100%"
-         height="100%" />
-      <use
-         height="100%"
-         width="100%"
-         transform="matrix(-0.80901699,0.58778526,-0.58778526,-0.80901699,956.7876,622.37488)"
-         id="use8496"
-         inkscape:transform-center-y="13.356797"
-         inkscape:transform-center-x="-6.1191432"
-         xlink:href="#path6366"
-         y="0"
-         x="0" />
-      <use
-         x="0"
-         y="0"
-         xlink:href="#path6366"
-         inkscape:transform-center-x="-15.164462"
-         inkscape:transform-center-y="-1.7314989"
-         id="use8514"
-         transform="matrix(0.309017,0.95105651,-0.95105651,0.309017,704.4847,-36.385981)"
-         width="100%"
-         height="100%" />
-    </g>
+    <path
+       id="path6366"
+       d="m 389.48522,453.69386 c 0.052,0.53893 0.0509,1.03181 0.0667,1.53969 -1.18127,-0.0807 -2.3053,-0.0994 -3.26865,0.036 -5.51566,0.77517 -9.35642,5.87809 -8.58128,11.39374 0.002,0.008 0.002,0.008 0.002,0.0164 -5.48253,-0.96977 -9.14074,-6.19906 -8.17383,-11.68272 0.96719,-5.48517 6.7298,-13.84515 13.57343,-18.56534 3.56166,5.11763 5.86134,11.88557 6.38151,17.26348 z"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#aeff00;fill-opacity:1;fill-rule:nonzero;stroke:#436200;stroke-width:1.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       inkscape:connector-curvature="0"
+       inkscape:transform-center-x="-1.907776"
+       inkscape:transform-center-y="-15.071362" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#path6366"
+       inkscape:transform-center-x="13.453634"
+       inkscape:transform-center-y="-5.4446656"
+       id="use8492"
+       transform="matrix(0.30901699,-0.95105652,0.95105652,0.30901699,-182.90404,681.50824)"
+       width="100%"
+       height="100%" />
+    <use
+       height="100%"
+       width="100%"
+       transform="matrix(-0.809017,-0.58778525,0.58778525,-0.809017,408.72836,1066.0579)"
+       id="use8494"
+       inkscape:transform-center-y="10.523332"
+       inkscape:transform-center-x="9.7497461"
+       xlink:href="#path6366"
+       y="0"
+       x="0" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#path6366"
+       inkscape:transform-center-x="-6.1191432"
+       inkscape:transform-center-y="13.356797"
+       id="use8496"
+       transform="matrix(-0.80901699,0.58778526,-0.58778526,-0.80901699,957.28129,622.21447)"
+       width="100%"
+       height="100%" />
+    <use
+       height="100%"
+       width="100%"
+       transform="matrix(0.309017,0.95105651,-0.95105651,0.309017,704.67327,-36.645529)"
+       id="use8514"
+       inkscape:transform-center-y="-1.7314989"
+       inkscape:transform-center-x="-15.164462"
+       xlink:href="#path6366"
+       y="0"
+       x="0" />
     <path
        inkscape:transform-center-y="-15.071362"
        inkscape:transform-center-x="-1.907776"
@@ -2724,7 +2746,7 @@
        id="rect4415"
        inkscape:connector-curvature="0" />
     <use
-       style="opacity:0.227"
+       style="opacity:0.22699998"
        height="100%"
        width="100%"
        transform="matrix(0.309017,0.95105651,-0.95105651,0.309017,927.1681,-26.506407)"
@@ -2739,7 +2761,7 @@
        inkscape:export-ydpi="300" />
     <g
        id="g5146"
-       transform="translate(-9.3693528,-262.26747)"
+       transform="translate(110.23177,-257.96183)"
        inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\SuccessWindowBtns.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300">
@@ -2784,7 +2806,7 @@
            style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Happy Sans';-inkscape-font-specification:'Happy Sans';clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#e9afaf;fill-opacity:1;fill-rule:nonzero;stroke:#2b1100;stroke-width:0.90451646;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate">»</tspan></text>
     </g>
     <g
-       transform="translate(50.833001,-290.71312)"
+       transform="translate(170.43413,-286.40748)"
        id="g5162"
        inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\SuccessWindowBtns.png"
        inkscape:export-xdpi="300"
@@ -2830,7 +2852,7 @@
     </g>
     <g
        id="g5178"
-       transform="translate(117.90409,-317.94663)"
+       transform="translate(237.50522,-313.64099)"
        inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\SuccessWindowBtns.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300">
@@ -2908,7 +2930,7 @@
     </g>
     <g
        id="g5254"
-       transform="translate(3.9644173,-15.701957)"
+       transform="translate(123.56554,-11.396316)"
        inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\SuccessWindowBtns.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300">
@@ -2967,7 +2989,8 @@
        style="stroke:none"
        inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\SuccessWindowBtns.png"
        inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
+       inkscape:export-ydpi="300"
+       transform="translate(119.60113,4.3056406)">
       <rect
          ry="0"
          y="306.28622"
@@ -3099,56 +3122,53 @@
      id="layer11"
      inkscape:label="Layer 10"
      style="display:inline">
-    <g
-       id="g8680">
-      <path
-         id="path6378"
-         d="m 383.48217,457.74516 c 0.0895,0.32243 0.14174,0.62254 0.20587,0.92997 -0.72763,0.0777 -1.41377,0.1869 -1.98559,0.37268 -3.27388,1.06376 -5.06391,4.58182 -4.00017,7.85571 0.002,0.005 0.002,0.005 0.003,0.01 -3.441,-0.002 -6.22877,-2.79206 -6.22877,-6.23343 0,-3.44232 2.61019,-9.14904 6.26899,-12.75642 2.71701,2.7326 4.84306,6.60506 5.73681,9.82248 z"
-         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffcc00;fill-opacity:1;fill-rule:nonzero;stroke:#6a5400;stroke-width:1.01800001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-         inkscape:connector-curvature="0"
-         inkscape:transform-center-x="-0.10579095"
-         inkscape:transform-center-y="-9.3738052" />
-      <use
-         height="100%"
-         width="100%"
-         transform="matrix(0.30901699,0.95105652,-0.95105652,0.30901699,704.77579,-36.455854)"
-         id="use8659"
-         inkscape:transform-center-y="-2.3378488"
-         inkscape:transform-center-x="-8.839133"
-         xlink:href="#path6378"
-         y="0"
-         x="0" />
-      <use
-         x="0"
-         y="0"
-         xlink:href="#path6378"
-         inkscape:transform-center-x="-5.4412989"
-         inkscape:transform-center-y="7.1355932"
-         id="use8661"
-         transform="matrix(-0.809017,0.58778525,-0.58778525,-0.809017,957.23507,622.56029)"
-         width="100%"
-         height="100%" />
-      <use
-         height="100%"
-         width="100%"
-         transform="matrix(-0.80901699,-0.58778526,0.58778526,-0.80901699,408.48768,1066.3106)"
-         id="use8663"
-         inkscape:transform-center-y="7.4372931"
-         inkscape:transform-center-x="4.547433"
-         xlink:href="#path6378"
-         y="0"
-         x="0" />
-      <use
-         x="0"
-         y="0"
-         xlink:href="#path6378"
-         inkscape:transform-center-x="8.83813"
-         inkscape:transform-center-y="-2.1995284"
-         id="use8665"
-         transform="matrix(0.309017,-0.95105651,0.95105651,0.309017,-183.11614,681.54709)"
-         width="100%"
-         height="100%" />
-    </g>
+    <path
+       inkscape:transform-center-y="-9.3738052"
+       inkscape:transform-center-x="-0.10579095"
+       inkscape:connector-curvature="0"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffcc00;fill-opacity:1;fill-rule:nonzero;stroke:#6a5400;stroke-width:1.01800001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 383.48217,457.74516 c 0.0895,0.32243 0.14174,0.62254 0.20587,0.92997 -0.72763,0.0777 -1.41377,0.1869 -1.98559,0.37268 -3.27388,1.06376 -5.06391,4.58182 -4.00017,7.85571 0.002,0.005 0.002,0.005 0.003,0.01 -3.441,-0.002 -6.22877,-2.79206 -6.22877,-6.23343 0,-3.44232 2.61019,-9.14904 6.26899,-12.75642 2.71701,2.7326 4.84306,6.60506 5.73681,9.82248 z"
+       id="path6378" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#path6378"
+       inkscape:transform-center-x="-8.839133"
+       inkscape:transform-center-y="-2.3378488"
+       id="use8659"
+       transform="matrix(0.30901699,0.95105652,-0.95105652,0.30901699,704.77579,-36.455854)"
+       width="100%"
+       height="100%" />
+    <use
+       height="100%"
+       width="100%"
+       transform="matrix(-0.809017,0.58778525,-0.58778525,-0.809017,957.23507,622.56029)"
+       id="use8661"
+       inkscape:transform-center-y="7.1355932"
+       inkscape:transform-center-x="-5.4412989"
+       xlink:href="#path6378"
+       y="0"
+       x="0" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#path6378"
+       inkscape:transform-center-x="4.547433"
+       inkscape:transform-center-y="7.4372931"
+       id="use8663"
+       transform="matrix(-0.80901699,-0.58778526,0.58778526,-0.80901699,408.48768,1066.3106)"
+       width="100%"
+       height="100%" />
+    <use
+       height="100%"
+       width="100%"
+       transform="matrix(0.309017,-0.95105651,0.95105651,0.309017,-183.11614,681.54709)"
+       id="use8665"
+       inkscape:transform-center-y="-2.1995284"
+       inkscape:transform-center-x="8.83813"
+       xlink:href="#path6378"
+       y="0"
+       x="0" />
     <g
        id="g8724"
        transform="translate(222.4105,9.8795646)"
@@ -3595,8 +3615,69 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer13"
+     inkscape:label="FrameCortes">
+    <path
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:0.37748347;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 470.88699,438.52222 c 6.91441,0 13.82882,0 20.74322,0 0,10.56688 0,21.13376 0,31.70064 -6.9144,0 -13.82881,0 -20.74322,0 0,-10.56688 0,-21.13376 0,-31.70064 z"
+       id="rect6881"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\scoreLeafs.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <rect
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:0.37748347;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       id="rect6883"
+       width="20.743219"
+       height="31.70064"
+       x="429.40054"
+       y="438.52222"
+       inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\scoreLeafs.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <rect
+       y="438.52222"
+       x="450.14377"
+       height="31.70064"
+       width="20.743219"
+       id="rect6885"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:0.37748347;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\scoreLeafs.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\scoreLeafs.png"
+       inkscape:connector-curvature="0"
+       id="path6933"
+       d="m 533.11665,438.52222 c 6.91441,0 13.82882,0 20.74322,0 0,10.56688 0,21.13376 0,31.70064 -6.9144,0 -13.82881,0 -20.74322,0 0,-10.56688 0,-21.13376 0,-31.70064 z"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:0.37748347;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+    <rect
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\scoreLeafs.png"
+       y="438.52225"
+       x="491.63022"
+       height="31.70064"
+       width="20.743219"
+       id="rect6935"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:0.37748347;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+    <rect
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\scoreLeafs.png"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:0.37748347;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       id="rect6937"
+       width="20.743219"
+       height="31.70064"
+       x="512.37341"
+       y="438.52225" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer8"
-     inkscape:label="Layer 7"
+     inkscape:label="Cortes"
      style="display:inline">
     <circle
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ff00ff;fill-opacity:1;fill-rule:nonzero;stroke:#6f3020;stroke-width:0.01091368;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
@@ -3611,6 +3692,64 @@
        id="circle8746"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ff00ff;fill-opacity:1;fill-rule:nonzero;stroke:#6f3020;stroke-width:0.01091368;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\ScoreSample.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ce5947;fill-opacity:1;fill-rule:nonzero;stroke:#6f3020;stroke-width:0.6107409;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 485.02403,465.78529 c 0,2.09967 -1.68584,3.80179 -3.76543,3.80179 -2.07959,0 -3.76543,-1.70213 -3.76543,-3.80179 0,-2.09966 1.57363,-5.65259 3.77258,-7.77735 2.51016,2.32854 3.75828,5.67769 3.75828,7.77735 z"
+       id="path6785"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ssscs"
+       inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\scoreLeafs.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       sodipodi:nodetypes="ssscs"
+       inkscape:connector-curvature="0"
+       id="path6818"
+       d="m 466.68208,463.3356 c 0,3.44983 -2.76093,6.24648 -6.1667,6.24648 -3.40577,0 -6.1667,-2.79666 -6.1667,-6.24648 0,-3.44981 2.57716,-9.28738 6.17841,-12.77843 4.11092,3.82586 6.15499,9.32862 6.15499,12.77843 z"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffcc00;fill-opacity:1;fill-rule:nonzero;stroke:#6a5400;stroke-width:0.90200001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\scoreLeafs.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#aeff00;fill-opacity:1;fill-rule:nonzero;stroke:#436200;stroke-width:1.19099998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 449.64131,459.64094 c 0,5.49116 -4.37692,9.94262 -9.77611,9.94262 -5.39919,0 -9.77611,-4.45149 -9.77611,-9.94262 0,-5.49113 4.08559,-14.78291 9.79467,-20.33967 6.51707,6.0897 9.75755,14.84854 9.75755,20.33967 z"
+       id="path6834"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ssscs"
+       inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\scoreLeafs.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       inkscape:transform-center-y="-15.337962"
+       inkscape:transform-center-x="0.1332986"
+       inkscape:connector-curvature="0"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#aeff00;fill-opacity:1;fill-rule:nonzero;stroke:#436200;stroke-width:1.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 511.46074,454.9097 c 0.14882,0.52055 0.23698,1.0055 0.34454,1.50213 -1.17634,0.13463 -2.28517,0.31987 -3.20804,0.62757 -5.28396,1.7616 -8.13667,7.4759 -6.3751,12.75986 0.003,0.007 0.003,0.007 0.005,0.0156 -5.56752,0.0395 -10.11258,-4.44048 -10.15513,-10.00856 -0.0425,-5.56964 4.11015,-14.83527 9.98537,-20.7172 4.42988,4.38768 7.91764,10.627 9.40351,15.82168 z"
+       id="path6906"
+       inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\scoreLeafs.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       id="path6908"
+       d="m 528.59288,460.41517 c 0.0895,0.32243 0.14174,0.62254 0.20587,0.92997 -0.72763,0.0777 -1.41377,0.1869 -1.98559,0.37268 -3.27388,1.06376 -5.06391,4.58182 -4.00017,7.85571 0.002,0.005 0.002,0.005 0.003,0.01 -3.441,-0.002 -6.22877,-2.79206 -6.22877,-6.23343 0,-3.44232 2.61019,-9.14904 6.26899,-12.75642 2.71701,2.7326 4.84306,6.60506 5.73681,9.82248 z"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffcc00;fill-opacity:1;fill-rule:nonzero;stroke:#6a5400;stroke-width:1.01800001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       inkscape:connector-curvature="0"
+       inkscape:transform-center-x="-0.10579095"
+       inkscape:transform-center-y="-9.3738052"
+       sodipodi:nodetypes="cccccsccc"
+       inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\scoreLeafs.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <path
+       inkscape:transform-center-y="-5.8054054"
+       inkscape:transform-center-x="0.028627181"
+       inkscape:connector-curvature="0"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#c84b37;fill-opacity:1;fill-rule:nonzero;stroke:#6f3020;stroke-width:0.69999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 547.08614,463.98055 c 0.0572,0.19875 0.0912,0.38392 0.1326,0.57354 -0.44923,0.0522 -0.87265,0.12367 -1.22496,0.24179 -2.01715,0.67632 -3.10308,2.86086 -2.42676,4.87801 0.001,0.003 4.9e-4,0.003 0.002,0.006 -2.12657,0.0189 -3.86556,-1.68954 -3.88544,-3.81634 -0.0199,-2.12738 1.56028,-5.66925 3.80061,-7.91978 1.69492,1.67307 3.0312,4.05401 3.60213,6.03724 z"
+       id="path6910"
+       inkscape:export-filename="C:\Users\Edwin Navarrete\Documents\GitHub\Gadrian\Design\Cortes\scoreLeafs.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
   </g>
