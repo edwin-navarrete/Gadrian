@@ -11,6 +11,18 @@ public class SnapCharacter : MonoBehaviour
     [SerializeField]
     private GFGrid grid;
 
+    [SerializeField]
+    private Sprite happyTile;
+
+    [SerializeField]
+    private Sprite sadTile;
+
+    [SerializeField]
+    private Sprite angryTile;
+
+    [SerializeField]
+    private Sprite scaredTile;
+
     private Vector3 oldPosition;
     private PlayerOverTile lastTile;
 
@@ -24,8 +36,41 @@ public class SnapCharacter : MonoBehaviour
 
         grid.AlignTransform( transform );
         oldPosition = transform.position;
-
+        Personality p = this.transform.GetComponent<Personality>();
+        if (p != null)
+        {
+            p.Happy += () => {
+                lastTile.MoodTile(happyTile);
+            };
+            p.Sad += () => {
+                lastTile.MoodTile(sadTile);
+            };
+            p.Scared += () => {
+                lastTile.MoodTile(scaredTile);
+            };
+            p.Angry += () => {
+                lastTile.MoodTile(angryTile);
+            };
+        }
         SetupRigidbody();
+    }
+    
+    private Transform tileAtPos()
+    {
+        LayerMask gridLayer = 1 << LayerMask.NameToLayer("Grid");
+        Debug.Log("gridLayer:" + transform.position);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, Mathf.Infinity);
+        Debug.Log("FOund hit?:" + hit.centroid);
+        if (hit.transform != null)
+        {
+            Debug.Log("FOund tag?:" + hit.collider.tag);
+        }
+
+        if (hit.collider != null && hit.transform.tag == "Cell")
+        {
+            return hit.transform;
+        }
+        return null;
     }
 
     public void OnEnable ()
@@ -110,6 +155,7 @@ public class SnapCharacter : MonoBehaviour
 
         this.transform.position = cursorWorldPoint;
     }
+
 
     private Vector3 ShootRay ()
     {

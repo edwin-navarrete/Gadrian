@@ -15,6 +15,16 @@ public class PlayerOverTile : MonoBehaviour
         renderSprite = GetComponent<SpriteRenderer>();
     }
 
+    public void MoodForTile(Sprite moodTile)
+    {
+        renderSprite.sprite = moodTile;
+    }
+
+    public void MoodTile(Sprite moodTile)
+    {
+        renderSprite.sprite = moodTile;
+    }
+
     public void SolidifyTile ()
     {
         renderSprite.sprite = solidTile;
@@ -27,14 +37,7 @@ public class PlayerOverTile : MonoBehaviour
 
     public bool IsTileSolid ()
     {
-        if ( renderSprite.sprite.Equals(solidTile) )
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return !(renderSprite.sprite.Equals(nonSolidTile));
     }
 
 }

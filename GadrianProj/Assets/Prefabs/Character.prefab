@@ -201,7 +201,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.71000004, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 407098}
@@ -326,6 +326,7 @@ Transform:
   m_RootOrder: 1
 --- !u!50 &5007094
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -334,11 +335,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
-  m_FixedAngle: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &5807094
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -423,6 +424,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 0}
+  happyTile: {fileID: 21300000, guid: f08813b88ad75404cb390c3b537be1d7, type: 3}
+  sadTile: {fileID: 21300002, guid: f08813b88ad75404cb390c3b537be1d7, type: 3}
+  angryTile: {fileID: 21300008, guid: f08813b88ad75404cb390c3b537be1d7, type: 3}
+  scaredTile: {fileID: 21300006, guid: f08813b88ad75404cb390c3b537be1d7, type: 3}
 --- !u!114 &11451692
 MonoBehaviour:
   m_ObjectHideFlags: 1
