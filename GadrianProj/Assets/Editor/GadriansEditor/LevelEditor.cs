@@ -24,6 +24,7 @@ public class LevelEditor : Editor
 
     private SerializedObject m_Level;
     private SerializedProperty m_TilesPosition;
+    private SerializedProperty m_Moves;
 
     // Content used to create buttons on list elements
     private static GUIContent moveButtonContent = new GUIContent( "\u21b4", "move down" );
@@ -36,18 +37,19 @@ public class LevelEditor : Editor
     {
         m_Level = new SerializedObject( target );
         m_TilesPosition = m_Level.FindProperty( "tilesPosition" );
+        m_Moves = m_Level.FindProperty( "availableMoves" );
     }
 
     public override void OnInspectorGUI ()
     {
         m_Level.Update();
 
-        LevelEditor.Show( m_TilesPosition, EditorListOption.ListLabel | EditorListOption.Buttons );
+        LevelEditor.Show( m_Moves, m_TilesPosition, EditorListOption.ListLabel | EditorListOption.Buttons );
 
         m_Level.ApplyModifiedProperties();
     }
 
-    public static void Show (SerializedProperty list, EditorListOption options = EditorListOption.Default)
+    public static void Show (SerializedProperty moves, SerializedProperty list, EditorListOption options = EditorListOption.Default)
     {
         if (!list.isArray)
         {
@@ -57,7 +59,7 @@ public class LevelEditor : Editor
 
         bool showListLabel = ( options & EditorListOption.ListLabel ) != 0;
         bool showListSize = ( options & EditorListOption.ListSize ) != 0;
-
+        
         if ( showListLabel )
         {
             EditorGUILayout.PropertyField( list );
@@ -76,7 +78,7 @@ public class LevelEditor : Editor
 			}
 			else
             {
-				ShowElements(list, options);
+				ShowElements(moves, list, options);
 			}
         }
         if ( showListLabel )
@@ -85,7 +87,7 @@ public class LevelEditor : Editor
         }
     }
 
-    private static void ShowElements (SerializedProperty list, EditorListOption options)
+    private static void ShowElements (SerializedProperty moves, SerializedProperty list, EditorListOption options)
     {
         bool showElementLabels = ( options & EditorListOption.ElementLabels ) != 0;
         bool showButtons = (options & EditorListOption.Buttons) != 0;
@@ -98,6 +100,7 @@ public class LevelEditor : Editor
 			}
             if ( showElementLabels )
             {
+                EditorGUILayout.PropertyField( moves );
 				SerializedProperty tileConfiguration = list.GetArrayElementAtIndex(i);
                 //SerializedObject tileConfigurationObj = new SerializedObject(tileConfiguration.objectReferenceValue);
                 ////Debug.LogFormat("tile congiguration is {0}", tileConfiguration);

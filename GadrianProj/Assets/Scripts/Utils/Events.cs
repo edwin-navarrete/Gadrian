@@ -9,6 +9,8 @@ public enum Events
     MovingCharacter,
     MovedCharacter,
     Winning,
+    Losing,
+    Loss,
     Won,
     FinishingCharacterPlacement,
     RefreshingPersonalities,

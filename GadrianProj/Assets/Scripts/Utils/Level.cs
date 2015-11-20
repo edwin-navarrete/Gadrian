@@ -4,6 +4,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class Level : ScriptableObject
 {
+    public int availableMoves;
     public List<Vector3> tilesPosition;
 
     public void AddTilePosition (Vector2 position, int personalityIndex)

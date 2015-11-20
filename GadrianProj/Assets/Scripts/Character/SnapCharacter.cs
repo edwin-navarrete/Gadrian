@@ -59,7 +59,7 @@ public class SnapCharacter : MonoBehaviour
     {
         LayerMask gridLayer = 1 << LayerMask.NameToLayer("Grid");
         Debug.Log("gridLayer:" + transform.position);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, Mathf.Infinity);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, Mathf.Infinity, gridLayer);
         Debug.Log("FOund hit?:" + hit.centroid);
         if (hit.transform != null)
         {
@@ -76,6 +76,7 @@ public class SnapCharacter : MonoBehaviour
     public void OnEnable ()
     {
         EventManager.StartListening( Events.Winning, MakeNonBlocking );
+        EventManager.StartListening( Events.Loss, MakeNonBlocking );
         EventManager.StartListening( Events.RefreshingPersonalities, MakeNonBlocking );
         EventManager.StartListening( Events.RefreshedPersonalities, MakeBlocking );
     }
@@ -83,6 +84,7 @@ public class SnapCharacter : MonoBehaviour
     public void OnDisable ()
     {
         EventManager.StopListening( Events.Winning, MakeNonBlocking );
+        EventManager.StopListening( Events.Loss, MakeNonBlocking );
         EventManager.StopListening( Events.RefreshingPersonalities, MakeNonBlocking );
         EventManager.StopListening( Events.RefreshedPersonalities, MakeBlocking );
     }
