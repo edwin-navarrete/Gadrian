@@ -16,7 +16,7 @@ public class ScoreManager : Singleton<ScoreManager>
             return availableMoves;
         }
     }
-
+    
     public int Score { get; private set; }
 
     [SerializeField]
@@ -59,7 +59,9 @@ public class ScoreManager : Singleton<ScoreManager>
             EventManager.TriggerEvent( Events.Loss );
         }
 
-        FadeNextPetal();
+        float fadeStep = 30f / startingMoves * availableMoves;
+        float fadePercent = (Mathf.Round(fadeStep) % 2) / 2;
+        FadeNextPetal( fadePercent );
     }
 
     private PetalGroup getNextAvailableLeavesGroup ()
@@ -74,15 +76,15 @@ public class ScoreManager : Singleton<ScoreManager>
         return null;
     }
 
-    private void FadeNextPetal ()
+    private void FadeNextPetal (float percent)
     {
         if ( currentGroup == null ) return;
 
-        foreach ( Petal leaf in currentGroup.Leaves )
+        foreach ( Petal petal in currentGroup.Leaves )
         {
-            if ( !leaf.State.Equals(LeafState.Closed) )
+            if ( !petal.State.Equals(LeafState.Closed) && petal.FadePercent != percent )
             {
-                leaf.FadePetal(1);
+                petal.FadePetal( percent );
                 return;
             }
         }

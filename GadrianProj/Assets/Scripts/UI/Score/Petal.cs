@@ -17,15 +17,31 @@ public class Petal : MonoBehaviour
         }
     }
 
+    public float FadePercent
+    {
+        get
+        {
+            float percent = petal.color.a;
+            return percent;
+        }
+    }
+
     private void Start()
     {
         petal = GetComponent<Image>();
         state = LeafState.Opened;
     }
 
-    public void FadePetal(int action)
+    public void FadePetal(float fadePercent)
     {
-        petal.CrossFadeAlpha( 0.0f, 1.0f, true );
-        state = LeafState.Closed;
+        petal.CrossFadeAlpha( fadePercent, 1.0f, true );
+        if ( fadePercent == 0.5f )
+        {
+            state = LeafState.Half;
+        }
+        else if ( fadePercent == 0.0f )
+        {
+            state = LeafState.Closed;
+        }
     }
 }
