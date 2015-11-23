@@ -9,10 +9,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1e92ef7114b9b479227c0f0536d7eb, type: 3}
-  m_Name: level0
+  m_Name: level
   m_EditorClassIdentifier: 
+  startingMoves: 0
   tilesPosition:
-  - {x: 0, y: 0, z: 12}
-  - {x: 1, y: 0, z: 12}
-  - {x: -1, y: 0, z: -1}
-  - {x: -2, y: 0, z: 12}
+  - position: {x: 0, y: 0}
+    personalityIndex: 1
+  - position: {x: 1, y: 0}
+    personalityIndex: 2
+  - position: {x: -1, y: 0}
+    personalityIndex: 5
+  - position: {x: 0, y: -1}
+    personalityIndex: 6
+  - position: {x: -1, y: -1}
+    personalityIndex: 8
+  - position: {x: -1, y: 1}
+    personalityIndex: -1
+  - position: {x: 0, y: 1}
+    personalityIndex: -1
