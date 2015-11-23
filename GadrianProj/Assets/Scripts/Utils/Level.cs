@@ -4,16 +4,16 @@ using System.Collections.Generic;
 [System.Serializable]
 public class Level : ScriptableObject
 {
-    public int availableMoves;
-    public List<Vector3> tilesPosition;
+    public int startingMoves;
+    public List<TileConfiguration> tilesPosition;
 
-    public void AddTilePosition (Vector2 position, int personalityIndex)
+    public void AddTilePosition(Vector2 position, int personalityIndex)
     {
         if ( tilesPosition == null )
         {
-            tilesPosition = new List<Vector3>();
+            tilesPosition = new List<TileConfiguration>();
         }
-		Vector3 newTileConfig = new Vector3(position.x, position.y, personalityIndex);
-        tilesPosition.Add( newTileConfig );
+        TileConfiguration tile = new TileConfiguration( position, personalityIndex );
+        tilesPosition.Add( tile );
     }
 }

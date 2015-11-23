@@ -37,14 +37,15 @@ public class LevelEditor : Editor
     {
         m_Level = new SerializedObject( target );
         m_TilesPosition = m_Level.FindProperty( "tilesPosition" );
-        m_Moves = m_Level.FindProperty( "availableMoves" );
+        m_Moves = m_Level.FindProperty( "startingMoves" );
     }
 
     public override void OnInspectorGUI ()
     {
         m_Level.Update();
-
-        LevelEditor.Show( m_Moves, m_TilesPosition, EditorListOption.ListLabel | EditorListOption.Buttons );
+        
+        EditorGUILayout.PropertyField( m_Moves );
+        LevelEditor.Show( m_Moves, m_TilesPosition, EditorListOption.ElementLabels | EditorListOption.Buttons );
 
         m_Level.ApplyModifiedProperties();
     }
@@ -100,16 +101,24 @@ public class LevelEditor : Editor
 			}
             if ( showElementLabels )
             {
-                EditorGUILayout.PropertyField( moves );
 				SerializedProperty tileConfiguration = list.GetArrayElementAtIndex(i);
-                //SerializedObject tileConfigurationObj = new SerializedObject(tileConfiguration.objectReferenceValue);
-                ////Debug.LogFormat("tile congiguration is {0}", tileConfiguration);
-                //SerializedProperty m_Position = tileConfigurationObj.FindProperty("position");
-                //SerializedProperty m_PersonalityIndex = tileConfigurationObj.FindProperty("personalityIndex");
-                //EditorGUILayout.PropertyField( m_Position );
-                //EditorGUILayout.PropertyField( m_PersonalityIndex );
-                EditorGUILayout.PropertyField(tileConfiguration);
-				
+                SerializedProperty position = tileConfiguration.FindPropertyRelative( "position" );
+                SerializedProperty xPosition = position.FindPropertyRelative( "x" );
+                SerializedProperty yPosition = position.FindPropertyRelative( "y" );
+                SerializedProperty personality = tileConfiguration.FindPropertyRelative( "personalityIndex" );
+
+                EditorGUILayout.BeginHorizontal();
+
+                EditorGUILayout.LabelField( "X", GUILayout.Width( 30.0f ) );
+                xPosition.floatValue = EditorGUILayout.FloatField( xPosition.floatValue );
+                EditorGUILayout.LabelField( "Y", GUILayout.Width( 30.0f ) );
+                yPosition.floatValue = EditorGUILayout.FloatField( yPosition.floatValue );
+
+                EditorGUILayout.LabelField( "Personality", GUILayout.Width( 100.0f ) );
+                personality.intValue = EditorGUILayout.IntField( personality.intValue );
+
+                EditorGUILayout.EndHorizontal();
+
             }
             else
             {
@@ -120,7 +129,7 @@ public class LevelEditor : Editor
 				ShowButtons( list, i );
                 EditorGUILayout.EndHorizontal();
 			}
-            if (showButtons && list.arraySize == 0 && GUILayout.Button(addButtonContent, EditorStyles.miniButton))
+            if (showButtons && list.arraySize == 0 && GUILayout.Button(addButtonContent, EditorStyles.miniButtonMid))
             {
 			    list.arraySize += 1;
 		    }

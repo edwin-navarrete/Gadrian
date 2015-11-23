@@ -733,7 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f254ef8c06d3464a8dd7eb555978842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingMoves: 20
+  startingMoves: 30
   greenLeafs: {fileID: 11472264}
   yellowLeafs: {fileID: 11444108}
   redLeafs: {fileID: 11419902}

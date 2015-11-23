@@ -30,9 +30,9 @@ public class LevelGenerator : MonoBehaviour
 
         if ( level != null )
         {
-            foreach ( Vector3 gridVector in level.tilesPosition )
+            foreach ( TileConfiguration tileConfiguration in level.tilesPosition )
             {
-                TileManager.Instance.TilesPosition.Add( gridVector, (int) gridVector.z );
+                TileManager.Instance.TilesPosition.Add( tileConfiguration.position, tileConfiguration.personalityIndex );
             }
         }
         else
