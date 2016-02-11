@@ -18,6 +18,6 @@ MonoBehaviour:
   - position: {x: -1, y: 0}
     personalityIndex: 4
   - position: {x: 1, y: 0}
-    personalityIndex: 20
+    personalityIndex: 12
   - position: {x: 2, y: 0}
-    personalityIndex: 16
+    personalityIndex: 7
