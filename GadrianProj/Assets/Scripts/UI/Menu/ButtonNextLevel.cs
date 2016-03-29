@@ -30,6 +30,7 @@ public class ButtonNextLevel : MonoBehaviour
         }
         else
         {
+            PlayerPrefs.SetInt(Strings.LevelToLoad, 0);
             return false;
         }
     }

@@ -37,7 +37,8 @@ public class LevelGenerator : MonoBehaviour
         }
         else
         {
-            Debug.LogError( "The variable level could not load successfully the resource" );
+            PlayerPrefs.SetInt(Strings.LevelToLoad, 0);
+            Debug.LogError( "The variable level could not load successfully the resource, reseted to zero" );
         }
     }
 
