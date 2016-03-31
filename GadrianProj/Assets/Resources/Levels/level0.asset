@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1e92ef7114b9b479227c0f0536d7eb, type: 3}
   m_Name: level0
   m_EditorClassIdentifier: 
-  startingMoves: 5
+  startingMoves: 4
   tilesPosition:
   - position: {x: 0, y: 0}
     personalityIndex: -1
