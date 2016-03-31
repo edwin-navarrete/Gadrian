@@ -17,12 +17,12 @@ public class LevelGenerator : MonoBehaviour
 
 	public void Start ()
 	{
-        LoadLevel();
-
-        Generatelevel(); 
+        int moves = LoadLevel();
+        Generatelevel();
+        EventManager.TriggerEvent(Events.LevelGenerated, moves);
     }
 
-    private void LoadLevel ()
+    private int LoadLevel ()
     {
         int levelToLoad = PlayerPrefs.GetInt( Strings.LevelToLoad, 0 );
         string fileName = string.Format( Strings.GenericLevelName, levelToLoad );
@@ -34,12 +34,14 @@ public class LevelGenerator : MonoBehaviour
             {
                 TileManager.Instance.TilesPosition.Add( tileConfiguration.position, tileConfiguration.personalityIndex );
             }
+            return level.startingMoves;
         }
         else
         {
             PlayerPrefs.SetInt(Strings.LevelToLoad, 0);
             Debug.LogError( "The variable level could not load successfully the resource, reseted to zero" );
         }
+        return 0;
     }
 
 	private void Generatelevel ()
@@ -54,8 +56,6 @@ public class LevelGenerator : MonoBehaviour
 			newCell.transform.position = worldVector;
 			newCell.transform.SetParent ( this.transform );
 		}
-
-        EventManager.TriggerEvent( Events.LevelGenerated );
 	}
 
 	/**

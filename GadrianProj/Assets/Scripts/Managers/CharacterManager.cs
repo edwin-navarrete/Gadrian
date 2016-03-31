@@ -176,7 +176,7 @@ public class CharacterManager : Singleton<CharacterManager>
 
     #region Populate Level with Characters
 
-    private void PopulateLevel ()
+    private void PopulateLevel (int moves)
     {
         EventManager.TriggerEvent( Events.StartingCharacterCreation );
 
