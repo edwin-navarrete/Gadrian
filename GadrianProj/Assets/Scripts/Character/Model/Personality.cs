@@ -321,7 +321,7 @@ public class Personality : MonoBehaviour
         }
 		if (finalMood.getFeel() == Mood.Feeling.SAD || finalMood.getFeel() == Mood.Feeling.PERPLEX)
         {
-            Debug.Log("Mood TieBreak for "+this);
+            // Debug.Log("Mood TieBreak for "+this);
             finalMood = Mood.HAPPY;
         }
 

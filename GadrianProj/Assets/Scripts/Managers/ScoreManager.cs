@@ -5,6 +5,8 @@ using Gadrians.Util;
 
 public class ScoreManager : Singleton<ScoreManager>
 {
+    private int configMoves = 15;
+    private int remainingLeaves = 14;
     [SerializeField]
     private int startingMoves;
     private int availableMoves;
@@ -34,8 +36,9 @@ public class ScoreManager : Singleton<ScoreManager>
 
     private void Awake ()
     {
-        EventManager.StartListening( Events.MovedCharacter, ReduceMoves );
-
+        EventManager.StartListening(Events.MovedCharacter, ReduceMoves);
+        EventManager.StartListening(Events.LevelGenerated, TruncateMoves);
+        
         allLeafGroups = new List<PetalGroup>();
         allLeafGroups.Add( greenLeafs );
         allLeafGroups.Add( yellowLeafs );
@@ -44,12 +47,28 @@ public class ScoreManager : Singleton<ScoreManager>
 
     private void Start ()
     {
+    }
+
+    private void TruncateMoves(int moves)
+    {
+        startingMoves = moves;
         availableMoves = startingMoves;
         scoreText.text = availableMoves.ToString();
+
+        int diff = configMoves - startingMoves;
+        while ( diff-- > 0)
+        {
+            currentGroup = getNextAvailableLeavesGroup();
+            FadeNextPetal(0f);
+            configMoves--;
+        }
+        remainingLeaves = configMoves - 1;
     }
 
     private void ReduceMoves ()
     {
+        if (availableMoves == 0)
+            return;
         scoreText.text = (--availableMoves).ToString();
         currentGroup = getNextAvailableLeavesGroup();
 
@@ -59,9 +78,15 @@ public class ScoreManager : Singleton<ScoreManager>
             EventManager.TriggerEvent( Events.Loss );
         }
 
-        float fadeStep = 30f / startingMoves * availableMoves;
-        float fadePercent = (Mathf.Round(fadeStep) % 2) / 2;
-        FadeNextPetal( fadePercent );
+        float leafStep = configMoves * availableMoves  / (float)startingMoves;
+        float fadePercent = leafStep - (int)leafStep;
+        if (remainingLeaves != (int)leafStep || fadePercent == 0) {
+            FadeNextPetal(0);
+        }
+        if(fadePercent != 0)
+        {
+            FadeNextPetal(fadePercent);
+        }
     }
 
     private PetalGroup getNextAvailableLeavesGroup ()
@@ -84,6 +109,8 @@ public class ScoreManager : Singleton<ScoreManager>
         {
             if ( !petal.State.Equals(LeafState.Closed) && petal.FadePercent != percent )
             {
+                if(percent == 0)
+                    remainingLeaves--;
                 petal.FadePetal( percent );
                 return;
             }

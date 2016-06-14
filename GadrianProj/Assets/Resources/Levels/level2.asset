@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1e92ef7114b9b479227c0f0536d7eb, type: 3}
-  m_Name: level1
+  m_Name: level2
   m_EditorClassIdentifier: 
-  startingMoves: 7
+  startingMoves: 15
   tilesPosition:
   - position: {x: 1, y: 0}
     personalityIndex: 0
